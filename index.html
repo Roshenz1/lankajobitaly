@@ -1,702 +1,1104 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Lanka Job Italy – රැකියා ද්වාරය</title>
+<meta name="description" content="Sri Lankan job portal in Italy. Find Elder Care, Cleaning, Babysitting and Factory jobs. Free Europass CV generator."/>
+<meta property="og:title" content="Lanka Job Italy – Jobs for Sri Lankans in Italy"/>
+<meta property="og:description" content="ඉතාලියේ ශ්‍රී ලාංකිකයන් සඳහා රැකියා | Lavori per Sri Lankesi in Italia"/>
+<meta property="og:url" content="https://lankajobitaly.com"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&family=Sora:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --R:#1a3c6e;--Rb:#2251a3;--Rh:#174496;
-  --A:#f5a623;--Ah:#e8950e;
-  --G:#00875a;--Gl:#e3f5ee;
-  --T:#2d9de5;--Tl:#e8f4fd;
-  --txt:#1a1a2e;--txt2:#4a5568;--txt3:#9aa5b4;
-  --bdr:#e2e8f0;--bg:#f4f6fa;--wh:#ffffff;
-  --r:10px;--r2:16px;--r3:24px;
+  --ink:#0a0f1e;
+  --ink2:#3d4461;
+  --ink3:#8892a4;
+  --line:#e8ecf4;
+  --bg:#f6f7fb;
+  --wh:#ffffff;
+  --R:#e8192c;
+  --Rd:#c0101f;
+  --Rl:#fff0f1;
+  --Rm:#ffc8cb;
+  --G:#00a86b;
+  --Gl:#e6f8f2;
+  --B:#1a56db;
+  --Bl:#eef3ff;
+  --Y:#f59f00;
+  --Yl:#fff8e6;
   --sin:'Noto Sans Sinhala',sans-serif;
-  --body:'Plus Jakarta Sans',sans-serif;
+  --body:'Sora',sans-serif;
+  --serif:'Instrument Serif',serif;
+  --r:12px;--r2:20px;--r3:32px;
 }
-body{font-family:var(--body);color:var(--txt);background:var(--bg);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--wh);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 button,input,select,textarea{font-family:var(--body)}
 a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
 
-/* ── NAV ── */
-.nav{display:flex;align-items:center;gap:12px;padding:0 20px;height:58px;background:var(--R);position:sticky;top:0;z-index:300}
-.logo-a{display:flex;align-items:center;gap:9px;margin-right:12px}
-.logo-mark{width:34px;height:34px;background:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center}
-.logo-mark svg{width:20px;height:20px}
-.logo-txt{color:#fff;font-size:16px;font-weight:800;letter-spacing:-.3px}
-.logo-sin{font-family:var(--sin);font-size:9px;color:rgba(255,255,255,.55);display:block;margin-top:-1px}
-.nav-search{flex:1;display:flex;background:#fff;border-radius:8px;overflow:hidden;max-width:560px}
-.nav-search input{flex:1;border:none;outline:none;padding:9px 14px;font-size:13px;color:var(--txt)}
-.nav-search select{border:none;outline:none;border-left:1px solid #e2e8f0;padding:0 10px;font-size:12px;color:var(--txt2);background:#fff;cursor:pointer}
-.nav-search button{padding:0 16px;background:var(--A);color:#fff;border:none;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap}
-.nav-links{display:flex;gap:4px;margin-left:auto}
-.nav-link{padding:7px 12px;color:rgba(255,255,255,.8);font-size:12px;font-weight:600;border-radius:6px;cursor:pointer;border:none;background:transparent;white-space:nowrap}
-.nav-link:hover,.nav-link.on{background:rgba(255,255,255,.15);color:#fff}
-.nav-link.cta{background:var(--A);color:#fff;border-radius:6px}
-.nav-link.cta:hover{background:var(--Ah)}
-.lang-wrap{display:flex;gap:3px;padding-left:8px;border-left:1px solid rgba(255,255,255,.2)}
-.lbtn{padding:5px 9px;border-radius:5px;border:1px solid rgba(255,255,255,.3);font-size:11px;font-weight:600;background:transparent;color:rgba(255,255,255,.75);cursor:pointer}
-.lbtn.on{background:#fff;color:var(--R)}
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+.fade-up{animation:fadeUp .6s ease both}
+.fade-up-2{animation:fadeUp .6s .15s ease both}
+.fade-up-3{animation:fadeUp .6s .3s ease both}
+.fade-up-4{animation:fadeUp .6s .45s ease both}
 
-/* ── TAB BAR ── */
-.tabbar{display:flex;background:#fff;border-bottom:2px solid var(--bdr);padding:0 20px;gap:0}
-.tab{padding:13px 20px;font-size:13px;font-weight:600;color:var(--txt3);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:.15s;white-space:nowrap}
-.tab.on{color:var(--R);border-bottom-color:var(--R)}
-.tab-sin{font-family:var(--sin);font-size:10px;display:block;font-weight:400;margin-top:1px}
+/* ══════════════════════════════
+   NAV
+══════════════════════════════ */
+.nav{
+  position:sticky;top:0;z-index:400;
+  display:flex;align-items:center;gap:12px;
+  padding:0 24px;height:62px;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+}
+.logo{display:flex;align-items:center;gap:10px;margin-right:auto}
+.logo-icon{
+  width:38px;height:38px;
+  background:var(--ink);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.logo-icon svg{width:22px;height:22px}
+.logo-name{font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.4px}
+.logo-sin{font-family:var(--sin);font-size:9px;color:var(--ink3);display:block;margin-top:-1px}
+.nav-tabs{display:flex;gap:2px}
+.ntab{
+  padding:7px 14px;border-radius:8px;font-size:13px;font-weight:600;
+  color:var(--ink2);cursor:pointer;border:none;background:transparent;
+  transition:.15s;white-space:nowrap;
+}
+.ntab:hover{background:var(--bg);color:var(--ink)}
+.ntab.on{background:var(--ink);color:#fff}
+.nav-lang{display:flex;gap:3px;padding-left:10px;border-left:1px solid var(--line)}
+.lb{padding:5px 10px;border-radius:7px;border:1.5px solid var(--line);font-size:11px;font-weight:700;background:var(--wh);color:var(--ink2);cursor:pointer;transition:.15s}
+.lb.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.nav-post{
+  padding:9px 18px;background:var(--R);color:#fff;
+  border:none;border-radius:10px;font-size:13px;font-weight:700;
+  cursor:pointer;transition:.15s;white-space:nowrap;margin-left:6px;
+}
+.nav-post:hover{background:var(--Rd);transform:translateY(-1px)}
 
-/* ── LAYOUT ── */
-.main{display:grid;grid-template-columns:260px 1fr 280px;gap:16px;padding:16px 20px;max-width:1200px;margin:0 auto;align-items:start}
-.sidebar-left,.sidebar-right{display:flex;flex-direction:column;gap:12px}
-.panel{background:var(--wh);border:1px solid var(--bdr);border-radius:var(--r2);overflow:hidden}
-.panel-hd{padding:14px 16px;border-bottom:1px solid var(--bdr);font-size:13px;font-weight:700;color:var(--txt);display:flex;align-items:center;justify-content:space-between}
-.panel-hd .sin{font-family:var(--sin);font-size:10px;color:var(--txt3);font-weight:400}
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.hero{
+  background:var(--ink);
+  padding:56px 24px 0;
+  overflow:hidden;
+  position:relative;
+}
+.hero-bg-circle{
+  position:absolute;width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,25,44,.18) 0%,transparent 70%);
+  top:-200px;right:-100px;pointer-events:none;
+}
+.hero-bg-circle2{
+  position:absolute;width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,168,107,.12) 0%,transparent 70%);
+  bottom:-100px;left:-100px;pointer-events:none;
+}
+.hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  color:rgba(255,255,255,.8);
+  font-size:12px;font-weight:600;
+  padding:6px 14px;border-radius:30px;
+  margin-bottom:24px;
+}
+.hero-flag{font-size:16px}
+.hero-h1{
+  font-size:clamp(36px,6vw,64px);
+  font-weight:800;
+  color:#fff;
+  line-height:1.08;
+  letter-spacing:-.5px;
+  margin-bottom:8px;
+}
+.hero-h1 em{
+  font-family:var(--serif);
+  font-style:italic;
+  color:var(--R);
+  font-weight:400;
+}
+.hero-sin-h{
+  font-family:var(--sin);
+  font-size:20px;font-weight:600;
+  color:rgba(255,255,255,.5);
+  margin-bottom:16px;
+}
+.hero-sub{
+  font-size:16px;color:rgba(255,255,255,.55);
+  margin-bottom:36px;max-width:480px;line-height:1.6;
+}
+/* BIG SEARCH */
+.hero-search{
+  display:flex;background:#fff;border-radius:16px;
+  overflow:hidden;margin-bottom:48px;max-width:620px;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+.hero-search input{
+  flex:1;border:none;outline:none;
+  padding:16px 20px;font-size:15px;color:var(--ink);
+  font-family:var(--body);background:transparent;
+}
+.hero-search input::placeholder{color:var(--ink3)}
+.hero-search select{
+  border:none;outline:none;
+  border-left:1px solid var(--line);
+  padding:0 14px;font-size:13px;color:var(--ink2);
+  background:#fff;cursor:pointer;font-family:var(--body);
+}
+.hero-search-btn{
+  padding:0 28px;background:var(--R);color:#fff;
+  border:none;font-size:14px;font-weight:700;
+  cursor:pointer;transition:.15s;white-space:nowrap;
+}
+.hero-search-btn:hover{background:var(--Rd)}
+
+/* CATEGORY TILES */
+.cat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.cat-tile{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;
+  padding:24px 16px 20px;
+  cursor:pointer;
+  transition:.2s;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.cat-tile::before{
+  content:'';position:absolute;inset:0;
+  opacity:0;transition:.2s;
+  border-radius:inherit;
+}
+.cat-tile:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.25)}
+.cat-tile:hover::before{opacity:1}
+.ct-elder::before{background:rgba(232,25,44,.15)}
+.ct-clean::before{background:rgba(26,86,219,.15)}
+.ct-baby::before{background:rgba(111,44,170,.15)}
+.ct-factory::before{background:rgba(0,168,107,.15)}
+.cat-tile-icon{
+  width:60px;height:60px;border-radius:18px;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 14px;font-size:28px;
+}
+.ct-elder .cat-tile-icon{background:rgba(232,25,44,.2)}
+.ct-clean .cat-tile-icon{background:rgba(26,86,219,.2)}
+.ct-baby .cat-tile-icon{background:rgba(111,44,170,.2)}
+.ct-factory .cat-tile-icon{background:rgba(0,168,107,.2)}
+.cat-tile-en{font-size:14px;font-weight:700;color:#fff;margin-bottom:4px}
+.cat-tile-sin{font-family:var(--sin);font-size:11px;color:rgba(255,255,255,.5);margin-bottom:2px}
+.cat-tile-it{font-size:10px;color:rgba(255,255,255,.3);font-style:italic}
+.cat-tile-count{
+  position:absolute;top:12px;right:12px;
+  font-size:10px;font-weight:700;
+  background:rgba(255,255,255,.15);
+  color:rgba(255,255,255,.7);
+  padding:2px 9px;border-radius:20px;
+}
+
+/* STATS BAR */
+.stats-bar{
+  background:var(--R);
+  padding:0 24px;
+  display:flex;justify-content:center;
+  flex-wrap:wrap;
+}
+.stat-pill{
+  display:flex;flex-direction:column;align-items:center;
+  padding:16px 32px;
+  border-right:1px solid rgba(255,255,255,.2);
+}
+.stat-pill:last-child{border:none}
+.stat-num{font-size:26px;font-weight:800;color:#fff;letter-spacing:-.5px;line-height:1}
+.stat-lbl{font-size:11px;color:rgba(255,255,255,.65);margin-top:2px;font-weight:500}
+.stat-sin{font-family:var(--sin);font-size:9px;color:rgba(255,255,255,.4);margin-top:1px}
+
+/* ══════════════════════════════
+   MAIN LAYOUT (3-col)
+══════════════════════════════ */
+.main-wrap{display:grid;grid-template-columns:240px 1fr 260px;gap:20px;padding:24px;max-width:1200px;margin:0 auto;align-items:start}
+
+/* ── LEFT SIDEBAR ── */
+.sidebar{display:flex;flex-direction:column;gap:14px}
+.panel{background:var(--wh);border:1px solid var(--line);border-radius:var(--r2);overflow:hidden}
+.panel-head{padding:14px 16px;font-size:13px;font-weight:700;color:var(--ink);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+.panel-head .sin{font-family:var(--sin);font-size:9px;color:var(--ink3);font-weight:400}
 .panel-body{padding:14px 16px}
+.filter-group{margin-bottom:14px}
+.filter-group:last-child{margin:0}
+.fg-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3);margin-bottom:8px}
+.fg-label .sin{font-family:var(--sin);font-size:9px;font-weight:400;text-transform:none;letter-spacing:0;margin-left:4px}
+.radio-opt{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:13px;color:var(--ink2);cursor:pointer}
+.radio-opt input{accent-color:var(--R);width:14px;height:14px;flex-shrink:0}
+.radio-opt-sin{font-family:var(--sin);font-size:9px;color:var(--ink3);display:block}
+.radio-count{margin-left:auto;font-size:11px;color:var(--ink3);font-weight:600;background:var(--bg);padding:1px 7px;border-radius:10px}
+.chip-wrap{display:flex;flex-wrap:wrap;gap:6px}
+.chip{padding:5px 12px;border-radius:30px;border:1.5px solid var(--line);font-size:11px;font-weight:600;color:var(--ink2);cursor:pointer;background:var(--wh);transition:.15s}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip:hover:not(.on){background:var(--bg);border-color:var(--ink2)}
 
-/* FILTER PANEL */
-.filter-section{margin-bottom:14px}
-.filter-label{font-size:11px;font-weight:700;color:var(--txt2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
-.filter-sin{font-family:var(--sin);font-size:9px;color:var(--txt3);font-weight:400;margin-left:4px;text-transform:none;letter-spacing:0}
-.filter-opts{display:flex;flex-direction:column;gap:5px}
-.fopt{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--txt2);cursor:pointer;padding:3px 0}
-.fopt input{accent-color:var(--R);width:14px;height:14px;flex-shrink:0}
-.fopt-sin{font-family:var(--sin);font-size:9px;color:var(--txt3);display:block}
-.fopt-count{margin-left:auto;font-size:11px;color:var(--txt3);font-weight:600}
-.filter-chip-row{display:flex;flex-wrap:wrap;gap:6px}
-.fchip{padding:5px 12px;border-radius:20px;border:1.5px solid var(--bdr);font-size:11px;font-weight:600;color:var(--txt2);cursor:pointer;background:#fff;transition:.15s}
-.fchip.on{background:var(--R);color:#fff;border-color:var(--R)}
+/* ── JOB CARDS ── */
+.centre-col{}
+.results-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.results-count{font-size:14px;font-weight:600;color:var(--ink)}
+.results-count span{color:var(--ink3);font-size:12px;font-weight:400}
+.results-sin{font-family:var(--sin);font-size:10px;color:var(--ink3);display:block}
+.sort-wrap{display:flex;align-items:center;gap:8px}
+.sort-lbl{font-size:12px;color:var(--ink3)}
+.sort-sel{border:1.5px solid var(--line);border-radius:8px;padding:5px 10px;font-size:12px;color:var(--ink2);background:var(--wh);cursor:pointer;outline:none;font-family:var(--body)}
+.jlist{display:flex;flex-direction:column;gap:10px}
 
-/* ── JOB CARDS (Indeed-style) ── */
-.results-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.results-count{font-size:13px;color:var(--txt2)}
-.results-count b{color:var(--txt);font-weight:700}
-.results-count .sin{font-family:var(--sin);font-size:10px;color:var(--txt3)}
-.sort-sel{border:1px solid var(--bdr);border-radius:6px;padding:5px 10px;font-size:12px;color:var(--txt2);background:#fff;cursor:pointer;outline:none}
-.job-cards{display:flex;flex-direction:column;gap:8px}
-.jcard{background:var(--wh);border:1px solid var(--bdr);border-radius:var(--r);padding:16px 18px;cursor:pointer;transition:.15s;position:relative}
-.jcard:hover{border-color:var(--Rb);box-shadow:0 2px 12px rgba(26,60,110,.1)}
-.jcard.featured{border-color:var(--A);border-width:1.5px}
-.featured-badge{position:absolute;top:12px;right:14px;font-size:10px;font-weight:700;background:var(--A);color:#fff;padding:3px 10px;border-radius:20px}
-.jcard-top{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px}
-.company-logo{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;border:1px solid var(--bdr)}
-.jcard-info{flex:1;min-width:0}
-.jcard-title{font-size:15px;font-weight:700;color:var(--Rb);margin-bottom:1px}
-.jcard-sin-title{font-family:var(--sin);font-size:10px;color:var(--txt3);margin-bottom:3px}
-.jcard-company{font-size:12px;color:var(--txt2);margin-bottom:2px}
-.jcard-meta{display:flex;gap:10px;flex-wrap:wrap;font-size:11px;color:var(--txt3);margin-bottom:8px}
-.jcard-meta span{display:flex;align-items:center;gap:3px}
-.jcard-desc{font-size:12px;color:var(--txt2);line-height:1.5;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.jcard-footer{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+/* JOB CARD */
+.jcard{
+  background:var(--wh);
+  border:1.5px solid var(--line);
+  border-radius:var(--r2);
+  padding:18px 20px;
+  cursor:pointer;
+  transition:all .2s;
+  position:relative;
+  overflow:hidden;
+}
+.jcard::after{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:4px;background:transparent;transition:.2s;border-radius:4px 0 0 4px;
+}
+.jcard:hover{border-color:var(--ink);box-shadow:0 8px 30px rgba(10,15,30,.1);transform:translateY(-2px)}
+.jcard.featured{border-color:var(--Y)}
+.jcard.featured::after{background:var(--Y)}
+.jcard:hover::after{background:var(--R)}
+.jcard-featured-badge{
+  position:absolute;top:14px;right:16px;
+  font-size:10px;font-weight:700;
+  background:var(--Y);color:var(--ink);
+  padding:3px 10px;border-radius:20px;
+}
+.jcard-top{display:flex;gap:14px;align-items:flex-start;margin-bottom:12px}
+.jcard-logo{
+  width:50px;height:50px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;flex-shrink:0;
+  border:1px solid var(--line);
+}
+.jcard-meta-block{flex:1;min-width:0}
+.jcard-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:2px;letter-spacing:-.2px}
+.jcard-sin{font-family:var(--sin);font-size:10px;color:var(--ink3);margin-bottom:4px}
+.jcard-company{font-size:12px;color:var(--ink3);margin-bottom:6px}
+.jcard-meta-row{display:flex;gap:12px;font-size:11px;color:var(--ink3);flex-wrap:wrap}
+.jcard-meta-row span{display:flex;align-items:center;gap:3px}
+.jcard-desc{font-size:13px;color:var(--ink2);line-height:1.55;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.jcard-footer{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .jtag{font-size:10px;padding:3px 10px;border-radius:20px;font-weight:600}
-.jtag.type-elder{background:#fff1f1;color:#9b1d22}
-.jtag.type-clean{background:#eef2ff;color:#3730a3}
-.jtag.type-baby{background:#fdf4ff;color:#7b1fa2}
-.jtag.type-factory{background:#f0fff8;color:#1a6e3c}
-.jtag.new{background:#fff8e6;color:#92600a}
-.jtag.perm{background:var(--Gl);color:#00875a}
-.jtag.urgent{background:#fff1f1;color:#9b1d22}
-.jcard-salary{margin-left:auto;font-size:13px;font-weight:700;color:var(--txt)}
-.apply-btn{padding:7px 18px;background:var(--Rb);color:#fff;border:none;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;transition:.15s}
-.apply-btn:hover{background:var(--Rh)}
-.save-btn{width:30px;height:30px;border:1.5px solid var(--bdr);border-radius:50%;background:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s;flex-shrink:0}
-.save-btn:hover{border-color:var(--A);background:var(--A);color:#fff}
-
-/* ── SEEKER PROFILES ── */
-.seeker-cards{display:flex;flex-direction:column;gap:8px}
-.scard{background:var(--wh);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:.15s}
-.scard:hover{border-color:var(--Rb);box-shadow:0 2px 12px rgba(26,60,110,.1)}
-/* Cover photo */
-.scard-cover{height:70px;position:relative;display:flex;align-items:flex-end;padding:10px 14px 0}
-.scard-cover.blue{background:linear-gradient(135deg,#1a3c6e 0%,#2d9de5 100%)}
-.scard-cover.green{background:linear-gradient(135deg,#00875a 0%,#00c48c 100%)}
-.scard-cover.purple{background:linear-gradient(135deg,#6b21a8 0%,#a855f7 100%)}
-.scard-cover.amber{background:linear-gradient(135deg,#92600a 0%,#f5a623 100%)}
-.scard-cover.teal{background:linear-gradient(135deg,#0f766e 0%,#14b8a6 100%)}
-/* Avatar on cover */
-.scard-avatar{width:52px;height:52px;border-radius:50%;border:3px solid #fff;font-size:18px;font-weight:800;display:flex;align-items:center;justify-content:center;position:absolute;bottom:-22px;left:14px;flex-shrink:0}
-.scard-body{padding:30px 14px 14px}
-.scard-name{font-size:14px;font-weight:800;color:var(--txt);margin-bottom:1px}
-.scard-sin-name{font-family:var(--sin);font-size:10px;color:var(--txt3);margin-bottom:4px}
-.scard-role{font-size:12px;color:var(--Rb);font-weight:600;margin-bottom:3px}
-.scard-meta{font-size:11px;color:var(--txt3);margin-bottom:8px;display:flex;gap:10px;flex-wrap:wrap}
-.scard-bio{font-size:12px;color:var(--txt2);line-height:1.5;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.scard-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
-.stag{font-size:10px;padding:3px 9px;border-radius:20px;background:var(--bg);color:var(--txt2);font-weight:600;border:1px solid var(--bdr)}
-.stag.sin{font-family:var(--sin);font-size:9px}
-.scard-footer{display:flex;gap:8px}
-.view-btn{flex:1;padding:8px;background:var(--Rb);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;text-align:center}
-.msg-btn{padding:8px 14px;background:#fff;color:var(--txt2);border:1.5px solid var(--bdr);border-radius:8px;font-size:12px;font-weight:600;cursor:pointer}
-.msg-btn:hover{border-color:var(--Rb);color:var(--Rb)}
-.avail-dot{width:10px;height:10px;border-radius:50%;background:#00875a;border:2px solid #fff;display:inline-block;margin-right:3px}
-
-/* ── POST YOUR PROFILE ── */
-.post-profile-cta{background:linear-gradient(135deg,var(--R) 0%,var(--Rb) 100%);border-radius:var(--r2);padding:20px;color:#fff;text-align:center}
-.post-profile-cta h3{font-size:16px;font-weight:800;margin-bottom:4px}
-.post-profile-cta .sin{font-family:var(--sin);font-size:12px;color:rgba(255,255,255,.7);margin-bottom:12px;display:block}
-.post-profile-cta p{font-size:12px;color:rgba(255,255,255,.65);margin-bottom:14px;line-height:1.5}
-.post-btn-w{width:100%;padding:10px;background:#fff;color:var(--R);border:none;border-radius:8px;font-size:13px;font-weight:800;cursor:pointer}
-.post-btn-w:hover{background:#f0f4ff}
-
-/* ── POST PROFILE FORM ── */
-.form-section{display:none}
-.form-section.show{display:block}
-.form-overlay{background:rgba(26,28,46,.55);padding:20px}
-.form-card{background:#fff;border-radius:var(--r2);max-width:600px;margin:0 auto;overflow:hidden}
-.form-card-hd{background:var(--R);color:#fff;padding:20px 22px}
-.form-card-hd h2{font-size:18px;font-weight:800;margin-bottom:3px}
-.form-card-hd .sin{font-family:var(--sin);font-size:12px;color:rgba(255,255,255,.7)}
-.form-card-body{padding:22px}
-/* Cover picker */
-.cover-picker{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
-.cover-opt{width:44px;height:28px;border-radius:6px;cursor:pointer;border:3px solid transparent;transition:.15s}
-.cover-opt.sel{border-color:var(--txt);transform:scale(1.1)}
-.cover-opt.blue{background:linear-gradient(135deg,#1a3c6e,#2d9de5)}
-.cover-opt.green{background:linear-gradient(135deg,#00875a,#00c48c)}
-.cover-opt.purple{background:linear-gradient(135deg,#6b21a8,#a855f7)}
-.cover-opt.amber{background:linear-gradient(135deg,#92600a,#f5a623)}
-.cover-opt.teal{background:linear-gradient(135deg,#0f766e,#14b8a6)}
-.fg{margin-bottom:12px}
-.fg label{display:block;font-size:11px;font-weight:700;color:var(--txt2);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em}
-.fg .sin-lbl{font-family:var(--sin);font-size:10px;color:var(--txt3);font-weight:400;text-transform:none;letter-spacing:0;margin-left:5px}
-.fg input,.fg select,.fg textarea{width:100%;padding:9px 12px;border:1.5px solid var(--bdr);border-radius:8px;font-size:13px;color:var(--txt);outline:none;transition:.15s;background:#fff}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--Rb)}
-.fg textarea{resize:vertical;min-height:90px}
-.skill-pick{display:flex;gap:7px;flex-wrap:wrap}
-.spick{padding:6px 13px;border-radius:20px;border:1.5px solid var(--bdr);font-size:11px;font-weight:600;cursor:pointer;background:#fff;color:var(--txt2);transition:.15s}
-.spick.on,.spick:hover{background:var(--R);color:#fff;border-color:var(--R)}
-.spick.sin{font-family:var(--sin);font-size:10px}
-.gdpr-row{display:flex;gap:10px;align-items:flex-start;background:var(--Gl);border:1.5px solid #b8e6d9;border-radius:8px;padding:12px;font-size:12px;color:#00502a;margin-top:12px}
-.gdpr-row input{accent-color:var(--G);flex-shrink:0;margin-top:2px;width:15px;height:15px}
-.gdpr-row .sin{font-family:var(--sin);font-size:10px;color:#00875a;display:block;margin-top:3px}
-.form-actions{display:flex;gap:10px;margin-top:18px}
-.btn-cancel{flex:0;padding:10px 18px;border:1.5px solid var(--bdr);border-radius:8px;font-size:13px;font-weight:600;color:var(--txt2);background:#fff;cursor:pointer}
-.btn-submit{flex:1;padding:10px;background:var(--R);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:800;cursor:pointer}
-.btn-submit:hover{background:var(--Rh)}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-
-/* ── AD ── */
-.ad-zone{background:var(--bg);border:1.5px dashed var(--bdr);border-radius:var(--r);text-align:center;font-size:10px;color:var(--txt3);font-weight:700;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;justify-content:center}
+.jt-elder{background:var(--Rl);color:#9b1922}
+.jt-clean{background:var(--Bl);color:#1a3c8a}
+.jt-baby{background:#f3e8ff;color:#6b21a8}
+.jt-factory{background:var(--Gl);color:#005c3b}
+.jt-new{background:var(--Yl);color:#845500}
+.jt-perm{background:var(--Gl);color:#005c3b}
+.jt-urgent{background:var(--Rl);color:#9b1922}
+.jcard-salary{font-size:14px;font-weight:800;color:var(--ink);margin-left:auto}
+.jcard-actions{display:flex;gap:8px;align-items:center}
+.save-btn{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--bg);border:1.5px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;cursor:pointer;transition:.15s;flex-shrink:0;
+}
+.save-btn:hover{background:var(--Yl);border-color:var(--Y)}
+.apply-btn{
+  padding:8px 20px;background:var(--ink);color:#fff;
+  border:none;border-radius:10px;font-size:12px;font-weight:700;
+  cursor:pointer;transition:.15s;white-space:nowrap;
+}
+.apply-btn:hover{background:var(--R)}
 
 /* ── RIGHT SIDEBAR ── */
-.cv-mini{background:linear-gradient(135deg,#1a3c6e,#2251a3);border-radius:var(--r2);padding:18px;color:#fff;text-align:center}
-.cv-mini h3{font-size:14px;font-weight:800;margin-bottom:3px}
-.cv-mini .sin{font-family:var(--sin);font-size:11px;color:rgba(255,255,255,.65);margin-bottom:10px;display:block}
-.cv-mini-btn{width:100%;padding:9px;background:var(--A);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:800;cursor:pointer;margin-bottom:6px}
-.cv-mini-btn:hover{background:var(--Ah)}
-.city-list{display:flex;flex-direction:column;gap:4px}
-.city-row{display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bdr);font-size:12px;color:var(--txt2);cursor:pointer}
-.city-row:last-child{border:none}
-.city-row:hover .city-name{color:var(--Rb)}
-.city-name{font-weight:600}
-.city-count{font-size:11px;color:var(--txt3);background:var(--bg);padding:2px 8px;border-radius:10px;font-weight:600}
-
-/* ── FOOTER ── */
-.footer{background:#0f1923;padding:36px 20px 20px;margin-top:24px}
-.footer-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:28px;margin-bottom:28px}
-.footer-brand-name{font-size:17px;font-weight:800;color:#fff;margin-bottom:4px}
-.footer-brand-sin{font-family:var(--sin);font-size:12px;color:rgba(255,255,255,.4);margin-bottom:8px}
-.footer-brand p{font-size:12px;color:rgba(255,255,255,.45);line-height:1.6}
-.footer-col h4{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:10px}
-.footer-col a{display:block;font-size:12px;color:rgba(255,255,255,.6);margin-bottom:7px}
-.footer-col a:hover{color:#fff}
-.footer-bot{border-top:1px solid rgba(255,255,255,.07);padding-top:18px;display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.25);flex-wrap:wrap;gap:8px;max-width:1000px;margin:0 auto}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .main{grid-template-columns:1fr;padding:12px}
-  .sidebar-left,.sidebar-right{display:none}
-  .footer-inner{grid-template-columns:1fr 1fr}
+.right-sb{display:flex;flex-direction:column;gap:14px}
+.cv-promo{
+  background:var(--ink);
+  border-radius:var(--r2);padding:20px;
+  text-align:center;
 }
-@media(max-width:580px){
-  .nav-search{display:none}
-  .tabbar{overflow-x:auto;gap:0}
-  .tab{padding:11px 14px;font-size:12px}
-  .footer-inner{grid-template-columns:1fr}
-  .two-col{grid-template-columns:1fr}
+.cv-promo-icon{
+  width:56px;height:56px;background:var(--R);border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;margin:0 auto 12px;
+}
+.cv-promo h3{font-size:15px;font-weight:800;color:#fff;margin-bottom:3px}
+.cv-promo .sin{font-family:var(--sin);font-size:11px;color:rgba(255,255,255,.5);display:block;margin-bottom:8px}
+.cv-promo p{font-size:12px;color:rgba(255,255,255,.5);line-height:1.5;margin-bottom:14px}
+.cv-promo-btn{
+  width:100%;padding:10px;background:var(--R);color:#fff;
+  border:none;border-radius:10px;font-size:13px;font-weight:700;
+  cursor:pointer;transition:.15s;
+}
+.cv-promo-btn:hover{background:var(--Rd)}
+.city-list{display:flex;flex-direction:column}
+.city-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:9px 0;border-bottom:1px solid var(--line);
+  font-size:13px;cursor:pointer;transition:.15s;
+}
+.city-row:last-child{border:none}
+.city-row:hover .city-name{color:var(--R)}
+.city-name{font-weight:600;color:var(--ink);transition:.15s}
+.city-n{font-size:11px;color:var(--ink3);background:var(--bg);padding:2px 9px;border-radius:10px;font-weight:600}
+.ad-box{background:var(--bg);border:1.5px dashed #d1d9e6;border-radius:var(--r2);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;font-size:10px;color:var(--ink3);font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.post-cta{
+  background:linear-gradient(135deg,var(--G) 0%,#00c48c 100%);
+  border-radius:var(--r2);padding:18px;text-align:center;
+}
+.post-cta h3{font-size:14px;font-weight:800;color:#fff;margin-bottom:3px}
+.post-cta .sin{font-family:var(--sin);font-size:11px;color:rgba(255,255,255,.65);display:block;margin-bottom:8px}
+.post-cta p{font-size:12px;color:rgba(255,255,255,.7);margin-bottom:12px;line-height:1.5}
+.post-cta-btn{
+  width:100%;padding:9px;background:#fff;color:var(--G);
+  border:none;border-radius:10px;font-size:12px;font-weight:800;
+  cursor:pointer;
+}
+
+/* ══════════════════════════════
+   SEEKERS TAB
+══════════════════════════════ */
+.seekers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.scard{
+  background:var(--wh);border:1.5px solid var(--line);
+  border-radius:var(--r2);overflow:hidden;cursor:pointer;transition:.2s;
+}
+.scard:hover{border-color:var(--ink);box-shadow:0 8px 28px rgba(10,15,30,.1);transform:translateY(-2px)}
+.scard-cover{height:80px;position:relative}
+.cov-blue{background:linear-gradient(135deg,#0a0f1e 0%,#1a56db 100%)}
+.cov-red{background:linear-gradient(135deg,#7f0000 0%,#e8192c 100%)}
+.cov-green{background:linear-gradient(135deg,#004d31 0%,#00a86b 100%)}
+.cov-purple{background:linear-gradient(135deg,#3b0764 0%,#9333ea 100%)}
+.cov-amber{background:linear-gradient(135deg,#451a03 0%,#f59f00 100%)}
+.cov-teal{background:linear-gradient(135deg,#042f2e 0%,#14b8a6 100%)}
+.scard-av{
+  width:56px;height:56px;border-radius:50%;
+  border:3px solid #fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:800;color:#fff;
+  position:absolute;bottom:-24px;left:16px;
+  flex-shrink:0;
+}
+.scard-avail{
+  position:absolute;top:10px;right:12px;
+  font-size:10px;font-weight:700;
+  background:rgba(0,168,107,.2);
+  border:1px solid rgba(0,168,107,.4);
+  color:#00d88a;
+  padding:3px 10px;border-radius:20px;
+  display:flex;align-items:center;gap:4px;
+}
+.avail-dot{width:6px;height:6px;border-radius:50%;background:#00d88a}
+.scard-body{padding:32px 16px 16px}
+.scard-name{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:1px;letter-spacing:-.2px}
+.scard-sin-name{font-family:var(--sin);font-size:10px;color:var(--ink3);margin-bottom:4px}
+.scard-role{font-size:12px;color:var(--R);font-weight:700;margin-bottom:6px}
+.scard-metas{display:flex;gap:10px;font-size:11px;color:var(--ink3);flex-wrap:wrap;margin-bottom:8px}
+.scard-bio{font-size:12px;color:var(--ink2);line-height:1.5;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.scard-skills{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
+.skill-tag{font-size:10px;padding:3px 9px;border-radius:20px;background:var(--bg);color:var(--ink2);font-weight:600;border:1px solid var(--line)}
+.skill-tag.sin{font-family:var(--sin);font-size:9px}
+.scard-btns{display:flex;gap:8px}
+.scard-view{flex:1;padding:8px;background:var(--ink);color:#fff;border:none;border-radius:10px;font-size:12px;font-weight:700;cursor:pointer;text-align:center;transition:.15s}
+.scard-view:hover{background:var(--R)}
+.scard-msg{padding:8px 14px;background:var(--bg);color:var(--ink2);border:1.5px solid var(--line);border-radius:10px;font-size:12px;font-weight:600;cursor:pointer;transition:.15s}
+.scard-msg:hover{border-color:var(--ink);color:var(--ink)}
+
+/* ══════════════════════════════
+   CV WIZARD
+══════════════════════════════ */
+.cv-section{background:var(--ink);padding:56px 24px}
+.cv-inner{max-width:680px;margin:0 auto}
+.cv-eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px}
+.cv-h2{font-size:32px;font-weight:800;color:#fff;margin-bottom:4px;letter-spacing:-.3px}
+.cv-sin{font-family:var(--sin);font-size:18px;color:rgba(255,255,255,.5);margin-bottom:8px}
+.cv-sub{font-size:14px;color:rgba(255,255,255,.4);margin-bottom:28px}
+.cv-card{background:#fff;border-radius:var(--r3);padding:32px;overflow:hidden}
+
+/* PROGRESS DOTS */
+.cv-prog{display:flex;align-items:center;margin-bottom:28px}
+.prog-item{display:flex;flex-direction:column;align-items:center;flex:1;position:relative;cursor:pointer}
+.prog-item::after{content:'';position:absolute;top:16px;left:50%;width:100%;height:2px;background:var(--line);z-index:0;transition:.3s}
+.prog-item:last-child::after{display:none}
+.prog-item.done::after{background:var(--G)}
+.prog-dot{width:32px;height:32px;border-radius:50%;border:2px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--ink3);z-index:1;transition:.3s;position:relative}
+.prog-item.active .prog-dot{background:var(--R);border-color:var(--R);color:#fff;box-shadow:0 0 0 4px rgba(232,25,44,.15)}
+.prog-item.done .prog-dot{background:var(--G);border-color:var(--G);color:#fff}
+.prog-lbl{font-size:10px;color:var(--ink3);margin-top:5px;font-weight:600;text-align:center}
+.prog-sin{font-family:var(--sin);font-size:8px;color:var(--ink3);display:block;margin-top:1px}
+.prog-item.active .prog-lbl{color:var(--R)}
+.prog-item.done .prog-lbl{color:var(--G)}
+
+/* STEP PANES */
+.step-pane{display:none}.step-pane.on{display:block}
+.step-q{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:3px;letter-spacing:-.3px}
+.step-sin-q{font-family:var(--sin);font-size:14px;color:var(--ink2);margin-bottom:4px}
+.step-it{font-size:12px;color:var(--ink3);font-style:italic;margin-bottom:18px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.fg-row.one{grid-template-columns:1fr}
+.fg-item{display:flex;flex-direction:column;gap:5px}
+.fg-item label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink2)}
+.fg-item .lsin{font-family:var(--sin);font-size:9px;color:var(--ink3);font-weight:400;text-transform:none;letter-spacing:0;margin-left:4px}
+.fg-item input,.fg-item select,.fg-item textarea{
+  padding:11px 14px;border:1.5px solid var(--line);border-radius:10px;
+  font-size:14px;color:var(--ink);outline:none;transition:.15s;
+  background:#fff;font-family:var(--body);
+}
+.fg-item input:focus,.fg-item select:focus,.fg-item textarea:focus{border-color:var(--ink);background:#fafbff}
+.fg-item textarea{resize:vertical;min-height:90px}
+.opt-tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.opt-tile{
+  padding:13px 14px;border:2px solid var(--line);border-radius:14px;
+  cursor:pointer;transition:.2s;background:#fff;
+}
+.opt-tile:hover{border-color:var(--ink2);background:var(--bg)}
+.opt-tile.sel{border-color:var(--R);background:var(--Rl)}
+.ot-en{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px}
+.ot-sin{font-family:var(--sin);font-size:10px;color:var(--ink3)}
+.ot-it{font-size:10px;color:var(--ink3);font-style:italic}
+.skill-picks{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}
+.spick{
+  padding:7px 14px;border-radius:30px;border:1.5px solid var(--line);
+  font-size:12px;font-weight:600;cursor:pointer;
+  background:#fff;color:var(--ink2);transition:.15s;
+}
+.spick.on,.spick:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.spick.sin{font-family:var(--sin);font-size:10px}
+.gdpr-box{
+  display:flex;gap:12px;align-items:flex-start;
+  background:var(--Gl);border:1.5px solid #a7f3d0;
+  border-radius:12px;padding:14px;
+  font-size:12px;color:#065f46;margin-top:12px;
+}
+.gdpr-box input{accent-color:var(--G);flex-shrink:0;margin-top:2px;width:16px;height:16px}
+.gdpr-sin{font-family:var(--sin);font-size:10px;color:var(--G);display:block;margin-top:4px}
+.cv-nav{display:flex;justify-content:space-between;align-items:center;margin-top:22px}
+.cv-back{padding:10px 20px;border:1.5px solid var(--line);border-radius:10px;background:#fff;font-size:13px;font-weight:600;color:var(--ink2);cursor:pointer;transition:.15s}
+.cv-back:hover{border-color:var(--ink);color:var(--ink)}
+.cv-next{padding:11px 28px;background:var(--R);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;transition:.15s;display:flex;align-items:center;gap:6px}
+.cv-next:hover{background:var(--Rd);transform:translateY(-1px)}
+.cv-next.green{background:var(--G)}
+.cv-next.green:hover{background:#008c5a}
+.step-ctr{font-size:12px;color:var(--ink3);font-weight:600}
+
+/* CV DONE */
+.cv-done{text-align:center;padding:16px 0}
+.cv-done-icon{width:80px;height:80px;background:var(--Gl);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:40px;margin:0 auto 16px}
+.cv-done h3{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:4px;letter-spacing:-.3px}
+.cv-done .sin{font-family:var(--sin);font-size:16px;color:var(--ink2);margin-bottom:16px;display:block}
+.cv-dl-btn{padding:14px 36px;background:var(--R);color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;margin-bottom:10px;display:inline-block}
+.cv-upsell{font-size:13px;color:var(--ink3)}
+.cv-upsell a{color:var(--R);font-weight:700}
+
+/* ══════════════════════════════
+   PRO SERVICES
+══════════════════════════════ */
+.svc-section{padding:56px 24px;background:var(--bg)}
+.svc-inner{max-width:960px;margin:0 auto}
+.sec-eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--R);margin-bottom:8px}
+.sec-h2{font-size:28px;font-weight:800;color:var(--ink);margin-bottom:4px;letter-spacing:-.3px}
+.sec-sin{font-family:var(--sin);font-size:16px;color:var(--ink3);margin-bottom:28px}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.svc-card{
+  background:var(--wh);border:1.5px solid var(--line);
+  border-radius:var(--r2);padding:26px;
+  transition:.2s;
+}
+.svc-card:hover{border-color:var(--ink);transform:translateY(-3px);box-shadow:0 12px 36px rgba(10,15,30,.1)}
+.svc-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:14px}
+.svc-name{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:3px;letter-spacing:-.2px}
+.svc-sin{font-family:var(--sin);font-size:11px;color:var(--ink3);margin-bottom:8px}
+.svc-desc{font-size:13px;color:var(--ink2);line-height:1.6;margin-bottom:16px}
+.svc-price{font-size:30px;font-weight:800;color:var(--ink);margin-bottom:14px;letter-spacing:-.5px}
+.svc-price sup{font-size:16px;vertical-align:super;font-weight:600}
+.svc-price .free{color:var(--G);font-size:22px}
+.svc-btn{
+  display:block;text-align:center;padding:11px;
+  border-radius:10px;font-size:13px;font-weight:700;
+  cursor:pointer;transition:.15s;
+  border:2px solid var(--ink);color:var(--ink);background:transparent;
+}
+.svc-btn:hover{background:var(--ink);color:#fff}
+.svc-btn.green{border-color:var(--G);color:var(--G)}
+.svc-btn.green:hover{background:var(--G);color:#fff}
+
+/* ══════════════════════════════
+   POST PROFILE FORM (overlay)
+══════════════════════════════ */
+.overlay{display:none;background:rgba(10,15,30,.7);padding:24px;position:relative;min-height:500px;align-items:center;justify-content:center}
+.overlay.show{display:flex}
+.form-card{background:#fff;border-radius:var(--r3);max-width:580px;width:100%;overflow:hidden}
+.form-hd{background:var(--ink);padding:22px 24px}
+.form-hd h2{font-size:20px;font-weight:800;color:#fff;margin-bottom:3px}
+.form-hd .sin{font-family:var(--sin);font-size:13px;color:rgba(255,255,255,.5)}
+.form-body{padding:24px;max-height:70vh;overflow-y:auto}
+.cover-row{display:flex;gap:8px;margin-bottom:16px}
+.cov-btn{width:40px;height:26px;border-radius:7px;cursor:pointer;border:3px solid transparent;transition:.15s}
+.cov-btn.sel{border-color:var(--ink);transform:scale(1.1)}
+.form-actions{display:flex;gap:10px;margin-top:18px}
+.form-cancel{padding:11px 20px;border:1.5px solid var(--line);border-radius:10px;background:#fff;font-size:13px;font-weight:600;color:var(--ink2);cursor:pointer}
+.form-submit{flex:1;padding:11px;background:var(--R);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;transition:.15s}
+.form-submit:hover{background:var(--Rd)}
+
+/* ══════════════════════════════
+   MODAL
+══════════════════════════════ */
+.modal-wrap{display:none;background:rgba(10,15,30,.7);padding:24px;min-height:200px;align-items:center;justify-content:center}
+.modal-wrap.show{display:flex}
+.modal-box{background:#fff;border-radius:var(--r2);max-width:500px;width:100%;padding:24px;position:relative}
+.modal-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:var(--bg);border:none;font-size:18px;color:var(--ink2);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.modal-ad{background:var(--bg);border:1.5px dashed var(--line);border-radius:10px;height:48px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--ink3);font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin:12px 0}
+.modal-apply-btn{width:100%;padding:13px;background:var(--R);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;margin-top:4px}
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+.footer{background:var(--ink);padding:48px 24px 24px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;max-width:960px;margin:0 auto 36px}
+.footer-brand-name{font-size:18px;font-weight:800;color:#fff;margin-bottom:4px;letter-spacing:-.3px}
+.footer-brand-sin{font-family:var(--sin);font-size:12px;color:rgba(255,255,255,.35);margin-bottom:10px}
+.footer-brand-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.6}
+.footer-col h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.3);margin-bottom:12px}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.55);margin-bottom:8px;transition:.15s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.25);flex-wrap:wrap;gap:8px;max-width:960px;margin:0 auto}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media(max-width:960px){
+  .main-wrap{grid-template-columns:1fr;padding:16px}
+  .sidebar,.right-sb{display:none}
+  .cat-row{grid-template-columns:1fr 1fr;gap:10px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .seekers-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .cat-row{grid-template-columns:1fr 1fr;gap:8px}
+  .cat-tile{padding:18px 12px 14px}
+  .hero-h1{font-size:32px}
+  .hero-search{flex-direction:column;border-radius:14px}
+  .hero-search select{border-left:none;border-top:1px solid var(--line);padding:10px 14px}
+  .hero-search-btn{padding:14px;border-radius:0 0 14px 14px}
+  .nav-tabs{display:none}
+  .footer-grid{grid-template-columns:1fr}
+  .fg-row{grid-template-columns:1fr}
+  .opt-tiles{grid-template-columns:1fr 1fr}
+  .seekers-grid{grid-template-columns:1fr}
+  .nav-post span{display:none}
 }
 </style>
+</head>
+<body>
 
-<h2 style="position:absolute;left:-9999px">Lanka Job Italy – Job Portal & Seeker Profiles for Sri Lankans in Italy</h2>
-
-<!-- ════════ NAV ════════ -->
+<!-- ════════════ NAV ════════════ -->
 <nav class="nav">
-  <div class="logo-a">
-    <div class="logo-mark">
+  <div class="logo">
+    <div class="logo-icon">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C7.6 2 4 5.6 4 10c0 6.5 8 12 8 12s8-5.5 8-12c0-4.4-3.6-8-8-8z" fill="#1a3c6e"/>
-        <circle cx="12" cy="10" r="3.2" fill="#f5a623"/>
+        <path d="M12 2C7.58 2 4 5.58 4 10c0 6.08 7.37 11.48 7.68 11.71a.5.5 0 00.64 0C12.63 21.48 20 16.08 20 10c0-4.42-3.58-8-8-8z" fill="white"/>
+        <circle cx="12" cy="10" r="3" fill="#e8192c"/>
       </svg>
     </div>
     <div>
-      <div class="logo-txt">Lanka Job Italy</div>
+      <div class="logo-name">Lanka Job Italy</div>
       <span class="logo-sin">ඉතාලියේ රැකියා ද්වාරය</span>
     </div>
   </div>
-  <div class="nav-search">
-    <input id="nav-kw" type="text" placeholder="Job title, skill... / රැකියා සොයන්න"/>
-    <select id="nav-city">
-      <option value="">All Cities / සියලු</option>
-      <option>Verona</option><option>Milan</option><option>Rome</option>
-      <option>Turin</option><option>Bologna</option><option>Florence</option>
-      <option>Naples</option><option>Genoa</option>
-    </select>
-    <button onclick="doNavSearch()">Search</button>
+  <div class="nav-tabs">
+    <button class="ntab on" onclick="showTab('jobs',this)">Jobs</button>
+    <button class="ntab" onclick="showTab('seekers',this)">Seekers</button>
+    <button class="ntab" onclick="showTab('cv',this)">Free CV</button>
+    <button class="ntab" onclick="showTab('services',this)">Pro Services</button>
   </div>
-  <div class="nav-links">
-    <button class="nav-link on" onclick="showTab('jobs',this)">Jobs</button>
-    <button class="nav-link" onclick="showTab('seekers',this)">Seekers</button>
-    <button class="nav-link cta" onclick="showForm()">+ Post Profile</button>
+  <div class="nav-lang">
+    <button class="lb on" onclick="setLang('en',this)">EN</button>
+    <button class="lb" onclick="setLang('sin',this)">සිං</button>
+    <button class="lb" onclick="setLang('it',this)">IT</button>
   </div>
-  <div class="lang-wrap">
-    <button class="lbtn on" onclick="setLang('en',this)">EN</button>
-    <button class="lbtn" onclick="setLang('sin',this)">සිං</button>
-    <button class="lbtn" onclick="setLang('it',this)">IT</button>
-  </div>
+  <button class="nav-post" onclick="showForm()">+ <span>Post Profile</span></button>
 </nav>
 
-<!-- ════════ TAB BAR ════════ -->
-<div class="tabbar" id="tabbar">
-  <div class="tab on" onclick="showTab('jobs',this)" data-tab="jobs">
-    Find Jobs <span class="tab-sin">රැකියා සොයන්න</span>
+<!-- ════════════ JOBS TAB ════════════ -->
+<div id="tab-jobs">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-circle"></div>
+  <div class="hero-bg-circle2"></div>
+  <div class="hero-inner">
+    <div class="hero-badge fade-up">
+      <span class="hero-flag">🇱🇰</span>
+      <span id="hero-badge-txt">Sri Lankan Jobs in Italy</span>
+    </div>
+    <h1 class="hero-h1 fade-up-2" id="hero-h1">Find your next<br/><em>job in Italy</em></h1>
+    <p class="hero-sin-h fade-up-3" id="hero-sin">ඉතාලියේ ඔබේ රැකියාව සොයා ගන්න</p>
+    <p class="hero-sub fade-up-3" id="hero-sub">Verified jobs across Verona, Milan, Rome and every major Italian city — built for the Sri Lankan community.</p>
+    <div class="hero-search fade-up-4">
+      <input id="nav-kw" type="text" placeholder="Job title or keyword... / රැකියා සොයන්න"/>
+      <select id="nav-city">
+        <option value="">All Cities</option>
+        <option>Verona</option><option>Milan</option><option>Rome</option>
+        <option>Turin</option><option>Bologna</option><option>Florence</option>
+        <option>Naples</option><option>Genoa</option>
+      </select>
+      <button class="hero-search-btn" onclick="doSearch()">🔍 Search</button>
+    </div>
+    <div class="cat-row fade-up-4">
+      <div class="cat-tile ct-elder" onclick="filterCat('Elder Care',null)">
+        <div class="cat-tile-count">24</div>
+        <div class="cat-tile-icon">🧓</div>
+        <div class="cat-tile-en">Elder Care</div>
+        <div class="cat-tile-sin">වැඩිහිටි රැකවරණය</div>
+        <div class="cat-tile-it">Assistenza anziani</div>
+      </div>
+      <div class="cat-tile ct-clean" onclick="filterCat('Cleaning',null)">
+        <div class="cat-tile-count">31</div>
+        <div class="cat-tile-icon">🧹</div>
+        <div class="cat-tile-en">Cleaning</div>
+        <div class="cat-tile-sin">පිරිසිදු කිරීම</div>
+        <div class="cat-tile-it">Pulizie</div>
+      </div>
+      <div class="cat-tile ct-baby" onclick="filterCat('Baby Sitting',null)">
+        <div class="cat-tile-count">18</div>
+        <div class="cat-tile-icon">👶</div>
+        <div class="cat-tile-en">Baby Sitting</div>
+        <div class="cat-tile-sin">ළමා රැකවරණය</div>
+        <div class="cat-tile-it">Babysitter</div>
+      </div>
+      <div class="cat-tile ct-factory" onclick="filterCat('Factory',null)">
+        <div class="cat-tile-count">14</div>
+        <div class="cat-tile-icon">🏭</div>
+        <div class="cat-tile-en">Factory / Logistics</div>
+        <div class="cat-tile-sin">කර්මාන්ත රැකියා</div>
+        <div class="cat-tile-it">Fabbrica / Logistica</div>
+      </div>
+    </div>
   </div>
-  <div class="tab" onclick="showTab('seekers',this)" data-tab="seekers">
-    Job Seekers <span class="tab-sin">රැකියා අපේකෂකයෝ</span>
-  </div>
-  <div class="tab" onclick="showTab('cv',this)" data-tab="cv">
-    Free CV / Europass <span class="tab-sin">නොමිලේ CV</span>
-  </div>
-  <div class="tab" onclick="showTab('services',this)" data-tab="services">
-    Pro Services <span class="tab-sin">ගෙවීම් සේවා</span>
-  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-pill"><span class="stat-num">87</span><span class="stat-lbl">Active Jobs</span><span class="stat-sin">රැකියා</span></div>
+  <div class="stat-pill"><span class="stat-num">12</span><span class="stat-lbl">Cities</span><span class="stat-sin">නගර</span></div>
+  <div class="stat-pill"><span class="stat-num">3,200+</span><span class="stat-lbl">Community Members</span><span class="stat-sin">ශ්‍රී ලාංකිකයෝ</span></div>
+  <div class="stat-pill"><span class="stat-num">Free</span><span class="stat-lbl">CV Generator</span><span class="stat-sin">නොමිලේ CV</span></div>
 </div>
 
 <!-- AD HEADER -->
-<div style="background:#fff;padding:6px 20px;border-bottom:1px solid #e2e8f0">
-  <div class="ad-zone" style="height:48px;border-radius:6px">Google AdSense — Leaderboard 728×90</div>
+<div style="background:#fff;padding:8px 24px;border-bottom:1px solid var(--line)">
+  <div style="background:var(--bg);border:1.5px dashed #d1d9e6;border-radius:10px;height:52px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--ink3);font-weight:700;letter-spacing:.06em;text-transform:uppercase">Google AdSense — Header 728×90</div>
 </div>
 
-<!-- ════════ JOBS TAB ════════ -->
-<div id="tab-jobs" class="tab-content" style="display:block">
-<div class="main">
+<!-- MAIN 3-COL -->
+<div class="main-wrap">
 
-  <!-- LEFT SIDEBAR -->
-  <div class="sidebar-left">
+  <!-- LEFT FILTER SIDEBAR -->
+  <div class="sidebar">
     <div class="panel">
-      <div class="panel-hd">Filter Jobs <span class="sin">රැකියා පෙරන්න</span></div>
+      <div class="panel-head">Filter <span class="sin">පෙරන්න</span></div>
       <div class="panel-body">
-        <div class="filter-section">
-          <div class="filter-label">Category <span class="filter-sin">කාණ්ඩය</span></div>
-          <div class="filter-opts">
-            <label class="fopt"><input type="radio" name="cat" value="" checked onchange="applyFilters()"/> All Jobs <span class="fopt-count">87</span></label>
-            <label class="fopt"><input type="radio" name="cat" value="Elder Care" onchange="applyFilters()"/> 🧓 Elder Care <span class="fopt-sin">වැඩිහිටි</span><span class="fopt-count">24</span></label>
-            <label class="fopt"><input type="radio" name="cat" value="Cleaning" onchange="applyFilters()"/> 🧹 Cleaning <span class="fopt-sin">පිරිසිදු</span><span class="fopt-count">31</span></label>
-            <label class="fopt"><input type="radio" name="cat" value="Baby Sitting" onchange="applyFilters()"/> 👶 Baby Sitting <span class="fopt-sin">ළමා රැකවරණය</span><span class="fopt-count">18</span></label>
-            <label class="fopt"><input type="radio" name="cat" value="Factory" onchange="applyFilters()"/> 🏭 Factory <span class="fopt-sin">කර්මාන්ත</span><span class="fopt-count">14</span></label>
+        <div class="filter-group">
+          <div class="fg-label">Category <span class="sin">කාණ්ඩය</span></div>
+          <div class="filter-opts-list">
+            <label class="radio-opt"><input type="radio" name="cat" value="" checked onchange="applyFilters()"/> All Jobs <span class="radio-count">87</span></label>
+            <label class="radio-opt"><input type="radio" name="cat" value="Elder Care" onchange="applyFilters()"/> 🧓 Elder Care<span class="radio-opt-sin">වැඩිහිටි</span><span class="radio-count">24</span></label>
+            <label class="radio-opt"><input type="radio" name="cat" value="Cleaning" onchange="applyFilters()"/> 🧹 Cleaning<span class="radio-opt-sin">පිරිසිදු</span><span class="radio-count">31</span></label>
+            <label class="radio-opt"><input type="radio" name="cat" value="Baby Sitting" onchange="applyFilters()"/> 👶 Baby Sitting<span class="radio-opt-sin">ළමා රැකවරණය</span><span class="radio-count">18</span></label>
+            <label class="radio-opt"><input type="radio" name="cat" value="Factory" onchange="applyFilters()"/> 🏭 Factory<span class="radio-opt-sin">කර්මාන්ත</span><span class="radio-count">14</span></label>
           </div>
         </div>
-        <div class="filter-section">
-          <div class="filter-label">Permit Required? <span class="filter-sin">Permesso</span></div>
-          <div class="filter-opts">
-            <label class="fopt"><input type="radio" name="perm" value="" checked onchange="applyFilters()"/> Any</label>
-            <label class="fopt"><input type="radio" name="perm" value="yes" onchange="applyFilters()"/> Required ✓</label>
-            <label class="fopt"><input type="radio" name="perm" value="no" onchange="applyFilters()"/> Not Required</label>
+        <div class="filter-group">
+          <div class="fg-label">Permit <span class="sin">Permesso</span></div>
+          <div>
+            <label class="radio-opt"><input type="radio" name="perm" value="" checked onchange="applyFilters()"/> Any</label>
+            <label class="radio-opt"><input type="radio" name="perm" value="yes" onchange="applyFilters()"/> Required ✓</label>
+            <label class="radio-opt"><input type="radio" name="perm" value="no" onchange="applyFilters()"/> Not Required</label>
           </div>
         </div>
-        <div class="filter-section">
-          <div class="filter-label">Job Type <span class="filter-sin">රැකියා වර්ගය</span></div>
-          <div class="filter-chip-row">
-            <div class="fchip on" onclick="toggleChip(this)">Full-time</div>
-            <div class="fchip" onclick="toggleChip(this)">Part-time</div>
-            <div class="fchip" onclick="toggleChip(this)">Live-in</div>
-            <div class="fchip" onclick="toggleChip(this)">Weekends</div>
+        <div class="filter-group">
+          <div class="fg-label">City <span class="sin">නගරය</span></div>
+          <div class="chip-wrap">
+            <div class="chip on" onclick="filterCity('',this)">All</div>
+            <div class="chip" onclick="filterCity('Verona',this)">Verona</div>
+            <div class="chip" onclick="filterCity('Milan',this)">Milan</div>
+            <div class="chip" onclick="filterCity('Rome',this)">Rome</div>
+            <div class="chip" onclick="filterCity('Turin',this)">Turin</div>
+            <div class="chip" onclick="filterCity('Bologna',this)">Bologna</div>
           </div>
         </div>
-        <div class="filter-section">
-          <div class="filter-label">City <span class="filter-sin">නගරය</span></div>
-          <div class="filter-chip-row">
-            <div class="fchip on" onclick="toggleChip(this)">All</div>
-            <div class="fchip" onclick="toggleChip(this)">Verona</div>
-            <div class="fchip" onclick="toggleChip(this)">Milan</div>
-            <div class="fchip" onclick="toggleChip(this)">Rome</div>
-            <div class="fchip" onclick="toggleChip(this)">Turin</div>
-            <div class="fchip" onclick="toggleChip(this)">Bologna</div>
+        <div class="filter-group">
+          <div class="fg-label">Type <span class="sin">වර්ගය</span></div>
+          <div class="chip-wrap">
+            <div class="chip on" onclick="toggleChip(this)">Full-time</div>
+            <div class="chip" onclick="toggleChip(this)">Part-time</div>
+            <div class="chip" onclick="toggleChip(this)">Live-in</div>
+            <div class="chip" onclick="toggleChip(this)">Weekends</div>
           </div>
         </div>
       </div>
     </div>
     <div class="panel">
-      <div class="panel-hd">Quick Stats</div>
-      <div class="panel-body" style="display:flex;flex-direction:column;gap:10px">
-        <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
-          <span style="color:var(--txt2)">Jobs posted today</span><b>12</b>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
-          <span style="color:var(--txt2)">Seekers online</span><b style="color:var(--G)">● 38</b>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
-          <span style="color:var(--txt2)">Verona jobs</span><b>19</b>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
-          <span style="color:var(--txt2)">CVs generated</span><b>1,240</b>
-        </div>
+      <div class="panel-head">Today's Stats</div>
+      <div class="panel-body" style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:var(--ink2)">New jobs today</span><b>12</b></div>
+        <div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:var(--ink2)">Online seekers</span><b style="color:var(--G)">● 38</b></div>
+        <div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:var(--ink2)">Verona jobs</span><b>19</b></div>
+        <div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:var(--ink2)">CVs created</span><b>1,240</b></div>
       </div>
     </div>
   </div>
 
-  <!-- CENTRE: JOB LISTINGS -->
-  <div>
-    <div class="results-bar">
-      <div class="results-count">
-        <b id="rcount">6</b> jobs found
-        <span class="sin" id="rcount-sin">රැකියා හමු විය</span>
+  <!-- CENTRE: JOBS -->
+  <div class="centre-col">
+    <div class="results-hd">
+      <div>
+        <div class="results-count" id="res-count"><b>6</b> jobs found <span>• sorted by newest</span></div>
+        <div class="results-sin" id="res-sin">රැකියා හමු විය</div>
       </div>
-      <select class="sort-sel">
-        <option>Most Recent</option>
-        <option>Highest Salary</option>
-        <option>Nearest City</option>
-      </select>
+      <div class="sort-wrap">
+        <span class="sort-lbl">Sort:</span>
+        <select class="sort-sel"><option>Most Recent</option><option>Highest Pay</option><option>Nearest City</option></select>
+      </div>
     </div>
-    <div class="job-cards" id="job-cards"></div>
+    <div class="jlist" id="job-list"></div>
   </div>
 
   <!-- RIGHT SIDEBAR -->
-  <div class="sidebar-right">
-    <div class="cv-mini">
+  <div class="right-sb">
+    <div class="cv-promo">
+      <div class="cv-promo-icon">📄</div>
       <h3>Free Europass CV</h3>
       <span class="sin">නොමිලේ CV හදා ගන්න</span>
-      <p style="font-size:11px;color:rgba(255,255,255,.6);margin-bottom:12px;line-height:1.5">Create a professional Italian CV in minutes — in Sinhala or English.</p>
-      <button class="cv-mini-btn" onclick="showTab('cv',null)">Generate My CV →</button>
+      <p>Build your Italian CV in minutes — answer simple questions in any language.</p>
+      <button class="cv-promo-btn" onclick="showTab('cv',null)">Create My CV →</button>
     </div>
     <div class="panel">
-      <div class="panel-hd">Jobs by City <span class="sin">නගර අනුව</span></div>
+      <div class="panel-head">Jobs by City <span class="sin">නගර</span></div>
       <div class="panel-body">
         <div class="city-list">
-          <div class="city-row" onclick="filterCity('Verona')"><span class="city-name">📍 Verona</span><span class="city-count">19</span></div>
-          <div class="city-row" onclick="filterCity('Milan')"><span class="city-name">📍 Milan</span><span class="city-count">22</span></div>
-          <div class="city-row" onclick="filterCity('Rome')"><span class="city-name">📍 Rome</span><span class="city-count">16</span></div>
-          <div class="city-row" onclick="filterCity('Turin')"><span class="city-name">📍 Turin</span><span class="city-count">14</span></div>
-          <div class="city-row" onclick="filterCity('Bologna')"><span class="city-name">📍 Bologna</span><span class="city-count">9</span></div>
-          <div class="city-row" onclick="filterCity('Florence')"><span class="city-name">📍 Florence</span><span class="city-count">7</span></div>
+          <div class="city-row" onclick="filterCity('Verona',null)"><span class="city-name">📍 Verona</span><span class="city-n">19</span></div>
+          <div class="city-row" onclick="filterCity('Milan',null)"><span class="city-name">📍 Milan</span><span class="city-n">22</span></div>
+          <div class="city-row" onclick="filterCity('Rome',null)"><span class="city-name">📍 Rome</span><span class="city-n">16</span></div>
+          <div class="city-row" onclick="filterCity('Turin',null)"><span class="city-name">📍 Turin</span><span class="city-n">14</span></div>
+          <div class="city-row" onclick="filterCity('Bologna',null)"><span class="city-name">📍 Bologna</span><span class="city-n">9</span></div>
+          <div class="city-row" onclick="filterCity('Florence',null)"><span class="city-name">📍 Florence</span><span class="city-n">7</span></div>
         </div>
       </div>
     </div>
-    <div class="ad-zone" style="height:250px;border-radius:var(--r2);flex-direction:column;gap:4px">
+    <div class="ad-box" style="height:260px;border-radius:var(--r2)">
       <span>Google AdSense</span><span>Sidebar 300×250</span>
     </div>
-    <div class="post-profile-cta">
-      <h3>Are You Looking for Work?</h3>
+    <div class="post-cta">
+      <h3>Looking for Work?</h3>
       <span class="sin">රැකියාවක් සොයනවාද?</span>
-      <p>Post your profile so employers can find YOU directly.</p>
-      <button class="post-btn-w" onclick="showForm()">Post My Profile →</button>
+      <p>Post your profile so employers find YOU.</p>
+      <button class="post-cta-btn" onclick="showForm()">Post My Profile →</button>
     </div>
   </div>
 </div>
 </div>
 
-<!-- ════════ SEEKERS TAB ════════ -->
-<div id="tab-seekers" class="tab-content" style="display:none">
-<div style="background:#fff;border-bottom:1px solid var(--bdr);padding:12px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-  <div style="font-size:14px;font-weight:700;color:var(--txt)">Job Seekers <span style="font-family:var(--sin);font-size:11px;color:var(--txt3);font-weight:400">රැකියා අපේකෂකයෝ</span></div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;flex:1">
-    <div class="fchip on" onclick="toggleChip(this)">All / සියල්ල</div>
-    <div class="fchip" onclick="toggleChip(this)">🧓 Elder Care</div>
-    <div class="fchip" onclick="toggleChip(this)">🧹 Cleaning</div>
-    <div class="fchip" onclick="toggleChip(this)">👶 Baby Sitting</div>
-    <div class="fchip" onclick="toggleChip(this)">🏭 Factory</div>
-    <div class="fchip" onclick="toggleChip(this)">Available Now</div>
-  </div>
-  <button style="padding:8px 18px;background:var(--R);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer" onclick="showForm()">+ Post Your Profile</button>
-</div>
-<div class="main" style="grid-template-columns:220px 1fr">
-  <div class="sidebar-left">
-    <div class="panel">
-      <div class="panel-hd">Filter Seekers <span class="sin">පෙරන්න</span></div>
-      <div class="panel-body">
-        <div class="filter-section">
-          <div class="filter-label">Availability <span class="filter-sin">ලබාගත හැකිය</span></div>
-          <div class="filter-opts">
-            <label class="fopt"><input type="checkbox" checked/> Available Now <span class="fopt-count">23</span></label>
-            <label class="fopt"><input type="checkbox"/> Available Soon <span class="fopt-count">11</span></label>
-            <label class="fopt"><input type="checkbox"/> Weekends Only <span class="fopt-count">8</span></label>
-          </div>
-        </div>
-        <div class="filter-section">
-          <div class="filter-label">Permit Status <span class="filter-sin">Permesso</span></div>
-          <div class="filter-opts">
-            <label class="fopt"><input type="checkbox" checked/> Has Permit ✓</label>
-            <label class="fopt"><input type="checkbox"/> Long Stay CE</label>
-            <label class="fopt"><input type="checkbox"/> In Process</label>
-          </div>
-        </div>
-        <div class="filter-section">
-          <div class="filter-label">Experience <span class="filter-sin">අත්දැකීම</span></div>
-          <div class="filter-opts">
-            <label class="fopt"><input type="checkbox" checked/> 5+ years</label>
-            <label class="fopt"><input type="checkbox" checked/> 2-5 years</label>
-            <label class="fopt"><input type="checkbox"/> 0-2 years</label>
-          </div>
-        </div>
-        <div class="filter-section">
-          <div class="filter-label">City <span class="filter-sin">නගරය</span></div>
-          <div class="filter-chip-row">
-            <div class="fchip on" onclick="toggleChip(this)">All</div>
-            <div class="fchip" onclick="toggleChip(this)">Verona</div>
-            <div class="fchip" onclick="toggleChip(this)">Milan</div>
-            <div class="fchip" onclick="toggleChip(this)">Rome</div>
-          </div>
-        </div>
-      </div>
+<!-- ════════════ SEEKERS TAB ════════════ -->
+<div id="tab-seekers" style="display:none">
+  <div style="background:#fff;border-bottom:1px solid var(--line);padding:16px 24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+    <div style="font-size:16px;font-weight:800;color:var(--ink)">Job Seekers <span style="font-family:var(--sin);font-size:12px;color:var(--ink3);font-weight:400">රැකියා අපේකෂකයෝ</span></div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;flex:1">
+      <div class="chip on" onclick="toggleChip(this)">All / සියල්ල</div>
+      <div class="chip" onclick="toggleChip(this)">🧓 Elder Care</div>
+      <div class="chip" onclick="toggleChip(this)">🧹 Cleaning</div>
+      <div class="chip" onclick="toggleChip(this)">👶 Baby Sitting</div>
+      <div class="chip" onclick="toggleChip(this)">🏭 Factory</div>
+      <div class="chip" onclick="toggleChip(this)">● Available Now</div>
     </div>
+    <button class="nav-post" onclick="showForm()">+ Post Profile</button>
   </div>
-  <div>
-    <div class="results-bar">
-      <div class="results-count"><b>8</b> seekers found <span class="sin">රැකියා අපේකෂකයෝ</span></div>
-    </div>
-    <div class="seeker-cards" id="seeker-cards"></div>
+  <div style="padding:20px 24px;max-width:1100px;margin:0 auto">
+    <div class="seekers-grid" id="seekers-grid"></div>
   </div>
-</div>
 </div>
 
-<!-- ════════ CV TAB ════════ -->
-<div id="tab-cv" class="tab-content" style="display:none">
-<div style="background:linear-gradient(135deg,#1a3c6e,#2251a3);padding:40px 20px">
-  <div style="max-width:640px;margin:0 auto">
-    <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px">Free Tool · නොමිලේ</div>
-    <div style="font-size:28px;font-weight:800;color:#fff;margin-bottom:4px;letter-spacing:-.3px">Europass CV Generator</div>
-    <div style="font-family:var(--sin);font-size:16px;color:rgba(255,255,255,.65);margin-bottom:6px">ඔබේ CV නොමිලේ හදා ගන්න</div>
-    <div style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:24px">Answer easy questions below in any language. We build your Italian CV.</div>
-    <div style="background:#fff;border-radius:var(--r2);padding:28px">
-      <!-- Progress -->
-      <div style="display:flex;align-items:center;margin-bottom:24px" id="cv-prog"></div>
-      <!-- Steps -->
-      <div id="cv-s1">
-        <div style="font-size:17px;font-weight:800;color:var(--txt);margin-bottom:3px">What is your name? / ඔබේ නම කුමක්ද?</div>
-        <div style="font-size:12px;color:var(--txt3);margin-bottom:16px;font-style:italic">Come ti chiami?</div>
-        <div class="two-col">
-          <div class="fg"><label>First Name <span class="sin-lbl">මුල් නම</span></label><input type="text" placeholder="Kasun"/></div>
-          <div class="fg"><label>Last Name <span class="sin-lbl">අවසාන නම</span></label><input type="text" placeholder="Perera"/></div>
+<!-- ════════════ CV TAB ════════════ -->
+<div id="tab-cv" style="display:none">
+<div class="cv-section">
+  <div class="cv-inner">
+    <div class="cv-eyebrow">Free · නොමිලේ</div>
+    <div class="cv-h2">Europass CV Generator</div>
+    <div class="cv-sin">ඔබේ CV නොමිලේ හදා ගන්න</div>
+    <div class="cv-sub">Answer 4 easy steps in any language. We build your professional Italian CV.</div>
+    <div class="cv-card">
+      <!-- PROGRESS -->
+      <div class="cv-prog" id="cv-prog"></div>
+      <!-- STEP 1 -->
+      <div class="step-pane on" id="cvs1">
+        <div class="step-q">What is your name?</div>
+        <div class="step-sin-q">ඔබේ නම කුමක්ද?</div>
+        <div class="step-it">Come ti chiami?</div>
+        <div class="fg-row">
+          <div class="fg-item"><label>First Name <span class="lsin">මුල් නම</span></label><input type="text" placeholder="Kasun"/></div>
+          <div class="fg-item"><label>Last Name <span class="lsin">අවසාන නම</span></label><input type="text" placeholder="Perera"/></div>
         </div>
-        <div class="two-col">
-          <div class="fg"><label>Phone Italy <span class="sin-lbl">දුරකථනය</span></label><input type="tel" placeholder="+39 333 000 0000"/></div>
-          <div class="fg"><label>Email <span class="sin-lbl">ඊමේල්</span></label><input type="email" placeholder="kasun@email.com"/></div>
+        <div class="fg-row">
+          <div class="fg-item"><label>Phone Italy <span class="lsin">දුරකථනය</span></label><input type="tel" placeholder="+39 333 000 0000"/></div>
+          <div class="fg-item"><label>Email <span class="lsin">ඊමේල්</span></label><input type="email" placeholder="kasun@email.com"/></div>
         </div>
-        <div class="fg"><label>City / Province <span class="sin-lbl">නගරය</span></label><input placeholder="Verona, VR"/></div>
-        <div style="display:flex;justify-content:flex-end;margin-top:8px">
-          <button onclick="cvStep(2)" style="padding:10px 24px;background:var(--R);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer">Next — Permit →</button>
-        </div>
-      </div>
-      <div id="cv-s2" style="display:none">
-        <div style="font-size:17px;font-weight:800;color:var(--txt);margin-bottom:3px">Do you have a Permesso? / Permesso තිබේද?</div>
-        <div style="font-size:12px;color:var(--txt3);margin-bottom:14px;font-style:italic">Hai un Permesso di Soggiorno?</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
-          <div class="stile sel" onclick="selTile(this,'ptiles')" style="padding:12px;border:2px solid var(--R);border-radius:10px;cursor:pointer;background:#f0f4ff">
-            <div style="font-size:13px;font-weight:700;color:var(--txt)">Work Permit</div>
-            <div style="font-family:var(--sin);font-size:10px;color:var(--txt3)">රැකියා අවසරය</div>
-            <div style="font-size:10px;color:var(--txt3);font-style:italic">Lavoro Subordinato</div>
-          </div>
-          <div class="stile" onclick="selTile(this,'ptiles')" style="padding:12px;border:2px solid var(--bdr);border-radius:10px;cursor:pointer;background:#fff">
-            <div style="font-size:13px;font-weight:700;color:var(--txt)">Long Stay CE</div>
-            <div style="font-family:var(--sin);font-size:10px;color:var(--txt3)">දිගු කාලීන</div>
-            <div style="font-size:10px;color:var(--txt3);font-style:italic">Lunga Permanenza</div>
-          </div>
-          <div class="stile" onclick="selTile(this,'ptiles')" style="padding:12px;border:2px solid var(--bdr);border-radius:10px;cursor:pointer;background:#fff">
-            <div style="font-size:13px;font-weight:700;color:var(--txt)">Family Permit</div>
-            <div style="font-family:var(--sin);font-size:10px;color:var(--txt3)">පවුල් ආශ්‍රිත</div>
-            <div style="font-size:10px;color:var(--txt3);font-style:italic">Per motivi familiari</div>
-          </div>
-          <div class="stile" onclick="selTile(this,'ptiles')" style="padding:12px;border:2px solid var(--bdr);border-radius:10px;cursor:pointer;background:#fff">
-            <div style="font-size:13px;font-weight:700;color:var(--txt)">Renewal Pending</div>
-            <div style="font-family:var(--sin);font-size:10px;color:var(--txt3)">අළුත් කිරීමේ</div>
-            <div style="font-size:10px;color:var(--txt3);font-style:italic">Attesa rinnovo</div>
-          </div>
-        </div>
-        <div class="two-col">
-          <div class="fg"><label>Expiry Date <span class="sin-lbl">කල් ඉකුත්වීම</span></label><input type="date"/></div>
-          <div class="fg"><label>Codice Fiscale</label><input placeholder="PRRKSN80A01Z114X"/></div>
-        </div>
-        <div style="display:flex;justify-content:space-between;margin-top:8px">
-          <button onclick="cvStep(1)" style="padding:9px 18px;border:1.5px solid var(--bdr);border-radius:8px;background:#fff;font-size:13px;font-weight:600;color:var(--txt2);cursor:pointer">← Back</button>
-          <button onclick="cvStep(3)" style="padding:10px 24px;background:var(--R);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer">Next — Work history →</button>
+        <div class="fg-row one"><div class="fg-item"><label>City / Province <span class="lsin">නගරය</span></label><input placeholder="Verona, VR"/></div></div>
+        <div class="cv-nav">
+          <span class="step-ctr">Step 1 of 4</span>
+          <button class="cv-next" onclick="cvGo(2)">Next →</button>
         </div>
       </div>
-      <div id="cv-s3" style="display:none">
-        <div style="font-size:17px;font-weight:800;color:var(--txt);margin-bottom:3px">What work have you done? / කළ රැකියාව?</div>
-        <div style="font-size:12px;color:var(--txt3);margin-bottom:14px;font-style:italic">Che tipo di lavoro hai fatto?</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
-          <div class="stile sel" onclick="selTile(this,'wtiles')" style="padding:12px;border:2px solid var(--R);border-radius:10px;cursor:pointer;background:#f0f4ff"><div style="font-size:13px;font-weight:700">🧓 Elder Care</div><div style="font-family:var(--sin);font-size:10px;color:var(--txt3)">වැඩිහිටි රැකවරණය</div></div>
-          <div class="stile" onclick="selTile(this,'wtiles')" style="padding:12px;border:2px solid var(--bdr);border-radius:10px;cursor:pointer;background:#fff"><div style="font-size:13px;font-weight:700">🧹 Cleaning</div><div style="font-family:var(--sin);font-size:10px;color:var(--txt3)">පිරිසිදු කිරීම</div></div>
-          <div class="stile" onclick="selTile(this,'wtiles')" style="padding:12px;border:2px solid var(--bdr);border-radius:10px;cursor:pointer;background:#fff"><div style="font-size:13px;font-weight:700">👶 Baby Sitting</div><div style="font-family:var(--sin);font-size:10px;color:var(--txt3)">ළමා රැකවරණය</div></div>
-          <div class="stile" onclick="selTile(this,'wtiles')" style="padding:12px;border:2px solid var(--bdr);border-radius:10px;cursor:pointer;background:#fff"><div style="font-size:13px;font-weight:700">🏭 Factory</div><div style="font-family:var(--sin);font-size:10px;color:var(--txt3)">කර්මාන්ත</div></div>
+      <!-- STEP 2 -->
+      <div class="step-pane" id="cvs2">
+        <div class="step-q">Do you have a Permesso?</div>
+        <div class="step-sin-q">ඔබට Permesso di Soggiorno තිබේද?</div>
+        <div class="step-it">Hai un Permesso di Soggiorno?</div>
+        <div class="opt-tiles" id="perm-tiles">
+          <div class="opt-tile sel" onclick="selTile(this,'perm-tiles')"><div class="ot-en">Work Permit</div><div class="ot-sin">රැකියා අවසරය</div><div class="ot-it">Lavoro Subordinato</div></div>
+          <div class="opt-tile" onclick="selTile(this,'perm-tiles')"><div class="ot-en">Long Stay CE</div><div class="ot-sin">දිගු කාලීන</div><div class="ot-it">Lunga Permanenza</div></div>
+          <div class="opt-tile" onclick="selTile(this,'perm-tiles')"><div class="ot-en">Family Permit</div><div class="ot-sin">පවුල් ආශ්‍රිත</div><div class="ot-it">Motivi familiari</div></div>
+          <div class="opt-tile" onclick="selTile(this,'perm-tiles')"><div class="ot-en">Renewal Pending</div><div class="ot-sin">අළුත් කිරීමේ</div><div class="ot-it">Attesa rinnovo</div></div>
         </div>
-        <div class="two-col">
-          <div class="fg"><label>Employer <span class="sin-lbl">සේවා යෝජකයා</span></label><input placeholder="Cooperativa XYZ or Family"/></div>
-          <div class="fg"><label>Years <span class="sin-lbl">වසර</span></label><input placeholder="2021 – 2024"/></div>
+        <div class="fg-row">
+          <div class="fg-item"><label>Expiry Date <span class="lsin">කල් ඉකුත්වීම</span></label><input type="date"/></div>
+          <div class="fg-item"><label>Codice Fiscale</label><input placeholder="PRRKSN80A01Z114X"/></div>
         </div>
-        <div class="fg"><label>Describe duties <span class="sin-lbl">ඕනෑම භාෂාවකින්</span></label><textarea placeholder="Write in Sinhala, English, or Italian. E.g.: I cared for an elderly lady daily, cooked, cleaned and accompanied her to appointments..."></textarea></div>
-        <div style="display:flex;justify-content:space-between;margin-top:8px">
-          <button onclick="cvStep(2)" style="padding:9px 18px;border:1.5px solid var(--bdr);border-radius:8px;background:#fff;font-size:13px;font-weight:600;color:var(--txt2);cursor:pointer">← Back</button>
-          <button onclick="cvStep(4)" style="padding:10px 24px;background:var(--R);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer">Next — Skills →</button>
+        <div class="step-q" style="font-size:16px;margin-top:8px">How is your Italian?</div>
+        <div class="step-sin-q">ඔබේ ඉතාලි භාෂා මට්ටම?</div>
+        <div class="opt-tiles" id="lang-tiles" style="grid-template-columns:1fr 1fr 1fr;margin-top:10px">
+          <div class="opt-tile" onclick="selTile(this,'lang-tiles')"><div class="ot-en">A1 — Beginner</div><div class="ot-sin">ආරම්භකයා</div></div>
+          <div class="opt-tile sel" onclick="selTile(this,'lang-tiles')"><div class="ot-en">B1 — OK</div><div class="ot-sin">යම් තරමක්</div></div>
+          <div class="opt-tile" onclick="selTile(this,'lang-tiles')"><div class="ot-en">C1 — Fluent</div><div class="ot-sin">දක්ෂ</div></div>
+        </div>
+        <div class="cv-nav">
+          <button class="cv-back" onclick="cvGo(1)">← Back</button>
+          <span class="step-ctr">Step 2 of 4</span>
+          <button class="cv-next" onclick="cvGo(3)">Next →</button>
         </div>
       </div>
-      <div id="cv-s4" style="display:none">
-        <div style="font-size:17px;font-weight:800;color:var(--txt);margin-bottom:3px">Your skills / ඔබේ දක්ෂතා?</div>
-        <div style="font-size:12px;color:var(--txt3);margin-bottom:14px;font-style:italic">Le tue competenze — tap all that apply</div>
-        <div class="skill-pick" style="margin-bottom:16px">
+      <!-- STEP 3 -->
+      <div class="step-pane" id="cvs3">
+        <div class="step-q">What work have you done?</div>
+        <div class="step-sin-q">ඔබ කලින් කළ රැකියාව කුමක්ද?</div>
+        <div class="step-it">Che tipo di lavoro hai fatto?</div>
+        <div class="opt-tiles" id="work-tiles">
+          <div class="opt-tile sel" onclick="selTile(this,'work-tiles')"><div class="ot-en">🧓 Elder Care</div><div class="ot-sin">වැඩිහිටි රැකවරණය</div></div>
+          <div class="opt-tile" onclick="selTile(this,'work-tiles')"><div class="ot-en">🧹 Cleaning</div><div class="ot-sin">පිරිසිදු කිරීම</div></div>
+          <div class="opt-tile" onclick="selTile(this,'work-tiles')"><div class="ot-en">👶 Baby Sitting</div><div class="ot-sin">ළමා රැකවරණය</div></div>
+          <div class="opt-tile" onclick="selTile(this,'work-tiles')"><div class="ot-en">🏭 Factory</div><div class="ot-sin">කර්මාන්ත</div></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg-item"><label>Employer <span class="lsin">සේවා යෝජකයා</span></label><input placeholder="Cooperativa XYZ or Family name"/></div>
+          <div class="fg-item"><label>Years <span class="lsin">වසර ගණන</span></label><input placeholder="2021 – 2024"/></div>
+        </div>
+        <div class="fg-row one">
+          <div class="fg-item">
+            <label>Describe your duties <span class="lsin">ඕනෑම භාෂාවකින් ලියන්න</span></label>
+            <textarea placeholder="Write in Sinhala, English or Italian. / සිංහලෙන් හෝ ඉංග්‍රීසියෙන් ලියන්න. E.g.: I cared for an elderly lady, helped with meals, hygiene and appointments..."></textarea>
+          </div>
+        </div>
+        <div class="cv-nav">
+          <button class="cv-back" onclick="cvGo(2)">← Back</button>
+          <span class="step-ctr">Step 3 of 4</span>
+          <button class="cv-next" onclick="cvGo(4)">Next →</button>
+        </div>
+      </div>
+      <!-- STEP 4 -->
+      <div class="step-pane" id="cvs4">
+        <div class="step-q">Your strengths & skills</div>
+        <div class="step-sin-q">ඔබේ දක්ෂතා මොනවාද?</div>
+        <div class="step-it">Le tue competenze</div>
+        <div class="skill-picks">
           <div class="spick on" onclick="this.classList.toggle('on')">Driving Licence B</div>
           <div class="spick" onclick="this.classList.toggle('on')">Own Car</div>
           <div class="spick" onclick="this.classList.toggle('on')">First Aid</div>
           <div class="spick" onclick="this.classList.toggle('on')">Live-in OK</div>
           <div class="spick" onclick="this.classList.toggle('on')">Cooking</div>
           <div class="spick" onclick="this.classList.toggle('on')">Weekends OK</div>
-          <div class="spick sin" onclick="this.classList.toggle('on')">ළමා රැකවරණය</div>
+          <div class="spick sin" onclick="this.classList.toggle('on')">රාත්‍රී සේවය</div>
+          <div class="spick sin" onclick="this.classList.toggle('on')">සති අන්ත</div>
+        </div>
+        <div class="fg-row one">
+          <div class="fg-item">
+            <label>Italian Level <span class="lsin">ඉතාලි දැනුම</span></label>
+            <select><option>A1 — Beginner / ආරම්භකයා</option><option selected>B1 — Intermediate / යම් තරමක්</option><option>C1 — Fluent / දක්ෂ</option></select>
+          </div>
+        </div>
+        <div class="gdpr-box">
+          <input type="checkbox" id="gdpr-chk"/>
+          <div>
+            <b>Data Consent — Required / අවශ්‍ය</b><br/>
+            I agree my data is used only to generate my Europass CV. GDPR & Italian Garante compliant.
+            <span class="gdpr-sin">මගේ දත්ත Europass CV හදා ගැනීමට පමණක් GDPR යටතේ භාවිතා කෙරේ.</span>
+          </div>
+        </div>
+        <div class="cv-nav">
+          <button class="cv-back" onclick="cvGo(3)">← Back</button>
+          <span class="step-ctr">Step 4 of 4</span>
+          <button class="cv-next green" onclick="cvDone()">📄 Download My CV</button>
+        </div>
+      </div>
+      <!-- DONE -->
+      <div class="step-pane cv-done" id="cvs5">
+        <div class="cv-done-icon">✅</div>
+        <h3>Your CV is ready!</h3>
+        <span class="sin">ඔබේ CV ලෑස්ති!</span>
+        <button class="cv-dl-btn">📥 Download Europass PDF</button>
+        <p class="cv-upsell">Want a professional Italian rewrite? <a href="#">€8 Pro Service →</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════ SERVICES TAB ════════════ -->
+<div id="tab-services" style="display:none">
+<section class="svc-section">
+  <div class="svc-inner">
+    <div class="sec-eyebrow">Premium</div>
+    <div class="sec-h2">Pro Services</div>
+    <div class="sec-sin">ගෙවීම් සේවා — Professional support for your journey</div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--Rl)">✍️</div>
+        <div class="svc-name">CV Rewrite to Italian</div>
+        <div class="svc-sin">ඉතාලි CV නිවැරදිව ලිවීම</div>
+        <div class="svc-desc">We professionally translate your Sinhala or English CV into perfect Italian Europass format. Ready in 24 hours.</div>
+        <div class="svc-price"><sup>€</sup>8</div>
+        <a class="svc-btn" href="#">Order Now →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--Bl)">📨</div>
+        <div class="svc-name">"Apply For Me" Service</div>
+        <div class="svc-sin">මා වෙනුවෙන් ඉල්ලුම් කිරීම</div>
+        <div class="svc-desc">Our team applies to 5 employers on your behalf. You just wait for the phone call. No Italian needed.</div>
+        <div class="svc-price"><sup>€</sup>10</div>
+        <a class="svc-btn" href="#">Order Now →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--Gl)">📋</div>
+        <div class="svc-name">Permesso Guide in Sinhala</div>
+        <div class="svc-sin">සිංහලෙන් Permesso මාර්ගෝපදේශය</div>
+        <div class="svc-desc">Step-by-step Sinhala guide for renewing or changing your Italian stay permit. Free download.</div>
+        <div class="svc-price"><span class="free">Free</span></div>
+        <a class="svc-btn green" href="#">Download →</a>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ════════════ POST PROFILE FORM ════════════ -->
+<div class="overlay" id="post-form">
+  <div class="form-card">
+    <div class="form-hd">
+      <h2>Post Your Profile</h2>
+      <div class="sin">ඔබේ Profile දමන්න — Employers will find you directly</div>
+    </div>
+    <div class="form-body">
+      <div class="fg-item" style="margin-bottom:12px">
+        <label>Choose Cover Colour <span class="lsin">ඔබේ Cover වර්ණය</span></label>
+        <div class="cover-row">
+          <div class="cov-btn cov-blue sel" onclick="selCover(this)" style="background:linear-gradient(135deg,#0a0f1e,#1a56db)"></div>
+          <div class="cov-btn cov-red" onclick="selCover(this)" style="background:linear-gradient(135deg,#7f0000,#e8192c)"></div>
+          <div class="cov-btn cov-green" onclick="selCover(this)" style="background:linear-gradient(135deg,#004d31,#00a86b)"></div>
+          <div class="cov-btn cov-purple" onclick="selCover(this)" style="background:linear-gradient(135deg,#3b0764,#9333ea)"></div>
+          <div class="cov-btn cov-amber" onclick="selCover(this)" style="background:linear-gradient(135deg,#451a03,#f59f00)"></div>
+          <div class="cov-btn cov-teal" onclick="selCover(this)" style="background:linear-gradient(135deg,#042f2e,#14b8a6)"></div>
+        </div>
+      </div>
+      <div class="fg-row">
+        <div class="fg-item"><label>Full Name <span class="lsin">නම</span></label><input type="text" placeholder="Kasun Perera" id="pf-name"/></div>
+        <div class="fg-item"><label>Initials <span class="lsin">අකුරු 2</span></label><input type="text" placeholder="KP" maxlength="2" id="pf-init"/></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg-item"><label>Job Role <span class="lsin">රැකියා ආකාරය</span></label>
+          <select id="pf-role"><option>Elder Care Worker</option><option>Cleaner</option><option>Babysitter</option><option>Factory Worker</option><option>Driver / Logistics</option></select>
+        </div>
+        <div class="fg-item"><label>City <span class="lsin">නගරය</span></label><input placeholder="Verona, VR" id="pf-city"/></div>
+      </div>
+      <div class="fg-row one">
+        <div class="fg-item"><label>Bio <span class="lsin">ඔබ ගැන කෙටි විස්තරයක් — ඕනෑම භාෂාවකින්</span></label>
+          <textarea placeholder="e.g. I have 6 years experience in elder care in Verona. I have a valid Permesso and my own car. / මම Verona හි වසර 6ක් වැඩිහිටි රැකවරණ සේවයේ..."></textarea>
+        </div>
+      </div>
+      <div class="fg-row">
+        <div class="fg-item"><label>Experience <span class="lsin">අත්දැකීම</span></label>
+          <select><option>0-1 years</option><option>1-3 years</option><option selected>3-6 years</option><option>6+ years</option></select>
+        </div>
+        <div class="fg-item"><label>Permesso Status</label>
+          <select><option>Lavoro Subordinato</option><option>Lunga Permanenza CE</option><option>Motivi familiari</option><option>Attesa rinnovo</option></select>
+        </div>
+      </div>
+      <div class="fg-row one">
+        <div class="fg-item"><label>Phone / WhatsApp <span class="lsin">දුරකථනය</span></label><input type="tel" placeholder="+39 333 000 0000"/></div>
+      </div>
+      <div class="fg-item" style="margin-bottom:0">
+        <label>Skills <span class="lsin">දක්ෂතා</span></label>
+        <div class="skill-picks" style="margin-top:6px">
+          <div class="spick on" onclick="this.classList.toggle('on')">Driving B</div>
+          <div class="spick" onclick="this.classList.toggle('on')">Own Car</div>
+          <div class="spick" onclick="this.classList.toggle('on')">Live-in</div>
+          <div class="spick" onclick="this.classList.toggle('on')">First Aid</div>
+          <div class="spick" onclick="this.classList.toggle('on')">Cooking</div>
           <div class="spick sin" onclick="this.classList.toggle('on')">රාත්‍රී සේවය</div>
         </div>
-        <div class="fg"><label>Italian Level <span class="sin-lbl">ඉතාලි දැනුම</span></label>
-          <select><option>A1 — Beginner / ආරම්භකයා</option><option selected>B1 — OK / යම් තරමක්</option><option>C1 — Fluent / දක්ෂ</option></select>
-        </div>
-        <div class="gdpr-row">
-          <input type="checkbox" id="cv-gdpr"/>
-          <div>I consent to processing my data to generate my Europass CV per GDPR (EU 2016/679) and Italian Garante. Data is not shared.
-            <span class="sin">මගේ දත්ත Europass CV හැදීමට පමණක් GDPR හා ඉතාලි නීතිවලට අනුව භාවිතා කෙරේ.</span>
-          </div>
-        </div>
-        <div style="display:flex;justify-content:space-between;margin-top:14px">
-          <button onclick="cvStep(3)" style="padding:9px 18px;border:1.5px solid var(--bdr);border-radius:8px;background:#fff;font-size:13px;font-weight:600;color:var(--txt2);cursor:pointer">← Back</button>
-          <button onclick="cvDone()" style="padding:10px 28px;background:#00875a;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:800;cursor:pointer">📄 Download My CV</button>
+      </div>
+      <div class="gdpr-box" style="margin-top:14px">
+        <input type="checkbox" id="pf-gdpr"/>
+        <div>I consent to my profile being visible to employers on lankajobitaly.com per GDPR. I can delete it anytime.
+          <span class="gdpr-sin">මගේ Profile Employer ලාට GDPR යටතේ පෙනෙන ආකාරයට සම්මත කරමි.</span>
         </div>
       </div>
-      <div id="cv-s5" style="display:none;text-align:center;padding:20px 0">
-        <div style="font-size:48px;margin-bottom:12px">✅</div>
-        <div style="font-size:20px;font-weight:800;color:var(--txt);margin-bottom:4px">Your CV is ready!</div>
-        <div style="font-family:var(--sin);font-size:16px;color:var(--txt2);margin-bottom:16px">ඔබේ CV ලෑස්ති!</div>
-        <button style="padding:12px 32px;background:var(--R);color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:800;cursor:pointer;margin-bottom:10px">📥 Download Europass PDF</button>
-        <div style="font-size:12px;color:var(--txt3)">Want a professional Italian rewrite? <a href="#" style="color:var(--R);font-weight:700">€8 Pro Service</a></div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- ════════ SERVICES TAB ════════ -->
-<div id="tab-services" class="tab-content" style="display:none">
-<div style="max-width:860px;margin:0 auto;padding:32px 20px">
-  <div style="font-size:22px;font-weight:800;color:var(--txt);margin-bottom:4px">Pro Services</div>
-  <div style="font-family:var(--sin);font-size:14px;color:var(--txt3);margin-bottom:24px">ගෙවීම් සේවා</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
-    <div style="background:#fff;border:1px solid var(--bdr);border-radius:var(--r2);padding:24px">
-      <div style="font-size:36px;margin-bottom:12px">✍️</div>
-      <div style="font-size:16px;font-weight:800;color:var(--txt);margin-bottom:3px">CV Rewrite to Italian</div>
-      <div style="font-family:var(--sin);font-size:11px;color:var(--txt3);margin-bottom:10px">ඉතාලි CV නිවැරදිව ලිවීම</div>
-      <div style="font-size:13px;color:var(--txt2);line-height:1.5;margin-bottom:16px">We professionally translate your CV into perfect Italian Europass format.</div>
-      <div style="font-size:28px;font-weight:800;color:var(--R);margin-bottom:14px">€8</div>
-      <a href="#" style="display:block;text-align:center;padding:10px;border-radius:8px;border:2px solid var(--R);color:var(--R);font-size:13px;font-weight:700">Order Now →</a>
-    </div>
-    <div style="background:#fff;border:1px solid var(--bdr);border-radius:var(--r2);padding:24px">
-      <div style="font-size:36px;margin-bottom:12px">📨</div>
-      <div style="font-size:16px;font-weight:800;color:var(--txt);margin-bottom:3px">"Apply For Me" Service</div>
-      <div style="font-family:var(--sin);font-size:11px;color:var(--txt3);margin-bottom:10px">මා වෙනුවෙන් ඉල්ලුම් කිරීම</div>
-      <div style="font-size:13px;color:var(--txt2);line-height:1.5;margin-bottom:16px">We apply to 5 employers on your behalf. Just wait for the phone call.</div>
-      <div style="font-size:28px;font-weight:800;color:var(--R);margin-bottom:14px">€10</div>
-      <a href="#" style="display:block;text-align:center;padding:10px;border-radius:8px;border:2px solid var(--R);color:var(--R);font-size:13px;font-weight:700">Order Now →</a>
-    </div>
-    <div style="background:#fff;border:1px solid var(--bdr);border-radius:var(--r2);padding:24px">
-      <div style="font-size:36px;margin-bottom:12px">📋</div>
-      <div style="font-size:16px;font-weight:800;color:var(--txt);margin-bottom:3px">Permesso Guide (Sinhala)</div>
-      <div style="font-family:var(--sin);font-size:11px;color:var(--txt3);margin-bottom:10px">සිංහලෙන් Permesso මාර්ගෝපදේශය</div>
-      <div style="font-size:13px;color:var(--txt2);line-height:1.5;margin-bottom:16px">Step-by-step Sinhala guide for renewing or changing your Italian permit.</div>
-      <div style="font-size:28px;font-weight:800;color:var(--G);margin-bottom:14px">Free</div>
-      <a href="#" style="display:block;text-align:center;padding:10px;border-radius:8px;border:2px solid var(--G);color:var(--G);font-size:13px;font-weight:700">Download PDF →</a>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- ════════ POST PROFILE FORM ════════ -->
-<div id="post-form" class="form-section">
-  <div class="form-overlay">
-    <div class="form-card">
-      <div class="form-card-hd">
-        <h2>Post Your Profile / ඔබේ Profile දමන්න</h2>
-        <div class="sin">Employers will find you directly — Employer ඔබව සොයා ගනී</div>
-      </div>
-      <div class="form-card-body">
-        <div class="fg"><label>Choose Your Cover Colour <span class="sin-lbl">ඔබේ Cover වර්ණය</span></label>
-          <div class="cover-picker">
-            <div class="cover-opt blue sel" onclick="selectCover(this)"></div>
-            <div class="cover-opt green" onclick="selectCover(this)"></div>
-            <div class="cover-opt purple" onclick="selectCover(this)"></div>
-            <div class="cover-opt amber" onclick="selectCover(this)"></div>
-            <div class="cover-opt teal" onclick="selectCover(this)"></div>
-          </div>
-        </div>
-        <div class="two-col">
-          <div class="fg"><label>Full Name <span class="sin-lbl">නම</span></label><input type="text" placeholder="Kasun Perera" id="pf-name"/></div>
-          <div class="fg"><label>Your Initials <span class="sin-lbl">අකුරු 2</span></label><input type="text" placeholder="KP" maxlength="2" id="pf-init"/></div>
-        </div>
-        <div class="two-col">
-          <div class="fg"><label>Job Role Seeking <span class="sin-lbl">රැකියා ආකාරය</span></label>
-            <select id="pf-role"><option>Elder Care Worker</option><option>Cleaner</option><option>Babysitter</option><option>Factory Worker</option><option>Driver / Logistics</option></select>
-          </div>
-          <div class="fg"><label>City / Province <span class="sin-lbl">නගරය</span></label><input placeholder="Verona, VR" id="pf-city"/></div>
-        </div>
-        <div class="fg"><label>Short Bio <span class="sin-lbl">ඔබ ගැන කෙටි විස්තරයක් (ඕනෑම භාෂාවකින්)</span></label>
-          <textarea placeholder="e.g. I am an experienced elder care worker from Sri Lanka with 6 years in Verona. I have a valid Permesso and my own car. / මම Verona හි වසර 6ක් වැඩිහිටි රැකවරණ සේවයේ නිරත විය..." id="pf-bio"></textarea>
-        </div>
-        <div class="fg"><label>Experience <span class="sin-lbl">අත්දැකීම</span></label>
-          <select id="pf-exp"><option>0-1 years / වසරකට අඩු</option><option>1-3 years</option><option selected>3-6 years</option><option>6+ years</option></select>
-        </div>
-        <div class="fg"><label>Skills <span class="sin-lbl">දක්ෂතා — ටික් කරන්න</span></label>
-          <div class="skill-pick">
-            <div class="spick on" onclick="this.classList.toggle('on')">Driving Licence B</div>
-            <div class="spick" onclick="this.classList.toggle('on')">Own Car</div>
-            <div class="spick" onclick="this.classList.toggle('on')">Live-in OK</div>
-            <div class="spick" onclick="this.classList.toggle('on')">First Aid</div>
-            <div class="spick" onclick="this.classList.toggle('on')">Cooking</div>
-            <div class="spick sin" onclick="this.classList.toggle('on')">රාත්‍රී සේවය</div>
-            <div class="spick sin" onclick="this.classList.toggle('on')">සති අන්ත</div>
-          </div>
-        </div>
-        <div class="fg"><label>Permesso Status <span class="sin-lbl">Permesso</span></label>
-          <select><option>Lavoro Subordinato</option><option>Lunga Permanenza CE</option><option>Per motivi familiari</option><option>Attesa rinnovo</option></select>
-        </div>
-        <div class="fg"><label>Phone / WhatsApp <span class="sin-lbl">දුරකථනය</span></label>
-          <input type="tel" placeholder="+39 333 000 0000"/>
-        </div>
-        <div class="gdpr-row">
-          <input type="checkbox" id="pf-gdpr"/>
-          <div>I consent to my profile being visible to employers on lankajobitaly.com. GDPR compliant. I can delete my profile at any time.
-            <span class="sin">මගේ Profile lankajobitaly.com හි Employer ලාට පෙනෙන ආකාරයට GDPR යටතේ සම්මත කරමි. ඕනෑ විටෙක ඉවත් කළ හැක.</span>
-          </div>
-        </div>
-        <div class="form-actions">
-          <button class="btn-cancel" onclick="hideForm()">Cancel</button>
-          <button class="btn-submit" onclick="submitProfile()">🚀 Post My Profile / Profile දමන්න</button>
-        </div>
+      <div class="form-actions">
+        <button class="form-cancel" onclick="hideForm()">Cancel</button>
+        <button class="form-submit" onclick="submitProfile()">🚀 Post My Profile</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ════════ FOOTER ════════ -->
+<!-- JOB MODAL -->
+<div class="modal-wrap" id="modal-wrap"></div>
+
+<!-- ════════════ FOOTER ════════════ -->
 <footer class="footer">
-  <div class="footer-inner">
+  <div class="footer-grid">
     <div>
       <div class="footer-brand-name">Lanka Job Italy</div>
       <div class="footer-brand-sin">ඉතාලියේ ශ්‍රී ලාංකික රැකියා ද්වාරය</div>
-      <p>The trusted job portal for the Sri Lankan community in Italy. Verona-based · Italy-hosted · Community-first.</p>
+      <p class="footer-brand-desc">The trusted job portal for the Sri Lankan community in Italy. Verona-based · Italy-hosted · Community-first.</p>
     </div>
-    <div class="footer-col">
-      <h4>Jobs</h4>
+    <div class="footer-col"><h4>Categories</h4>
       <a href="#">🧓 Elder Care</a><a href="#">🧹 Cleaning</a><a href="#">👶 Baby Sitting</a><a href="#">🏭 Factory</a>
     </div>
-    <div class="footer-col">
-      <h4>Tools</h4>
-      <a href="#">Free CV Generator</a><a href="#">Post Your Profile</a><a href="#">Pro CV Rewrite</a><a href="#">Apply For Me</a>
+    <div class="footer-col"><h4>Tools</h4>
+      <a href="#">Free CV Generator</a><a href="#">Post Your Profile</a><a href="#">CV Rewrite (€8)</a><a href="#">Apply For Me (€10)</a>
     </div>
-    <div class="footer-col">
-      <h4>Legal</h4>
+    <div class="footer-col"><h4>Legal</h4>
       <a href="#">Privacy (Iubenda)</a><a href="#">Cookie Policy</a><a href="#">GDPR / Garante</a><a href="#">Contact / WhatsApp</a>
     </div>
   </div>
-  <div class="footer-bot">
+  <div class="footer-bottom">
     <span>© 2025 LankaJobItaly.com · lankajobitaly.com</span>
     <span>WordPress · Astra · WP Job Manager · Iubenda GDPR</span>
   </div>
@@ -704,83 +1106,109 @@ a{color:inherit;text-decoration:none}
 
 <script>
 const JOBS=[
-  {id:1,title:"Live-in Carer for Elderly Lady",sin:"වැඩිහිටි කාන්තාවකට රැකවරණය",company:"Private Family – Verona",city:"Verona",type:"Elder Care",typeKey:"elder",salary:"€1,100/mo",perm:true,isNew:true,urgent:false,featured:true,ico:"🧓",bg:"#fff8f8",desc:"Kind 83-year-old lady needs a live-in carer in Verona Ovest. Meals, hygiene, companionship. Accommodation included. Immediate start. No Italian required initially."},
-  {id:2,title:"Office & Apartment Cleaning",sin:"කාර්යාල හා නිවාස පිරිසිදු කිරීම",company:"CleanPro Cooperativa – Milan",city:"Milan",type:"Cleaning",typeKey:"clean",salary:"€11/hr",perm:false,isNew:true,urgent:false,featured:false,ico:"🧹",bg:"#f5f7ff",desc:"Experienced cleaner needed for offices and private apartments in Milan zona 9. 25–30 hrs/week. Flexible schedule."},
-  {id:3,title:"Babysitter – 2 Children",sin:"ළමයින් 2 දෙනෙකු රැකවරණය",company:"Rossi Family – Verona",city:"Verona",type:"Baby Sitting",typeKey:"baby",salary:"€10/hr",perm:false,isNew:false,urgent:false,featured:false,ico:"👶",bg:"#fdf4ff",desc:"Mon/Wed/Fri afternoons 15:00–19:00. Pickup from school, snack, homework. Warm family. Basic Italian helpful."},
-  {id:4,title:"Warehouse Operator – Amazon DSP",sin:"Amazon ගබඩා ශ්‍රමිකයා",company:"Amazon DSP – Bologna",city:"Bologna",type:"Factory",typeKey:"factory",salary:"€1,400/mo",perm:true,isNew:true,urgent:true,featured:true,ico:"🏭",bg:"#f0fff8",desc:"Package sorting, scanning, loading. Full-time shifts available. Permesso required. Bus from city centre."},
-  {id:5,title:"Night Carer – RSA Nursing Home",sin:"රාත්‍රී රැකවරණ සේවය",company:"RSA Villa Serena – Turin",city:"Turin",type:"Elder Care",typeKey:"elder",salary:"€1,250/mo",perm:true,isNew:false,urgent:false,featured:false,ico:"🧓",bg:"#fff8f8",desc:"Night shift (22:00–07:00). Assist residents with mobility and hygiene. Experience preferred. Formal Italian contract offered."},
-  {id:6,title:"Hotel Housekeeper – 4 Star",sin:"හෝටල් කාමර පිරිසිදු කිරීම",company:"Hotel Arena Palace – Verona",city:"Verona",type:"Cleaning",typeKey:"clean",salary:"€1,000/mo",perm:false,isNew:false,urgent:false,featured:false,ico:"🧹",bg:"#f5f7ff",desc:"Mon–Sat 09:00–15:00. Near Verona Arena. 2 positions available. Experience helpful but not required."},
-];
-const SEEKERS=[
-  {name:"Kasun Perera",sinName:"කසුන් පෙරේරා",initials:"KP",cover:"blue",role:"Elder Care Worker",city:"Verona",exp:"6 years",perm:true,avail:true,bio:"Experienced elder carer with 6 years in Verona. Own car, driving licence, live-in available. Caring and reliable.",tags:["Driving B","Live-in OK","First Aid","Sinhala","Italian B1"],sinTags:["රාත්‍රී OK"]},
-  {name:"Nirmala Silva",sinName:"නිර්මලා සිල්වා",initials:"NS",cover:"green",role:"Cleaner & Housekeeper",city:"Milan",exp:"4 years",perm:true,avail:true,bio:"Professional cleaner with experience in offices and private homes in Milan. Very reliable and detail-oriented.",tags:["Own Car","Weekends OK","Cooking"],sinTags:["සුපිරි ශ්‍රේණිය"]},
-  {name:"Chamari Fernando",sinName:"චාමරී ප්‍රනාන්දු",initials:"CF",cover:"purple",role:"Babysitter & Child Carer",city:"Verona",exp:"3 years",perm:false,avail:true,bio:"Loving babysitter with 3 years experience with children aged 2–10. Patient, fun and responsible. Italian A2.",tags:["Part-time","Afternoons","English"],sinTags:["ළමා රැකවරණය"]},
-  {name:"Pradeep Jayawardena",sinName:"ප්‍රදීප් ජයවර්ධන",initials:"PJ",cover:"amber",role:"Factory & Logistics Worker",city:"Bologna",exp:"2 years",perm:true,avail:false,bio:"Warehouse and logistics worker with forklift experience. Available from next month. Reliable and hardworking.",tags:["Forklift","Full-time","Driving B"],sinTags:["කර්මාන්ත"]},
-  {name:"Dilrukshi Bandara",sinName:"දිල්රුක්ෂි බංඩාර",initials:"DB",cover:"teal",role:"Live-in Elder Carer",city:"Rome",exp:"5 years",perm:true,avail:true,bio:"Dedicated live-in carer with 5 years in Rome. Cooking, hygiene, medical appointments. Italian B1 speaker.",tags:["Live-in OK","Cooking","Driving B","Italian B1"],sinTags:["රාත්‍රී සේවය"]},
-  {name:"Asanka Wickramasinghe",sinName:"අසංක වික්‍රමසිංහ",initials:"AW",cover:"blue",role:"Cleaning & Maintenance",city:"Turin",exp:"3 years",perm:true,avail:true,bio:"Experienced in office cleaning, building maintenance and window cleaning. Available immediately in Turin.",tags:["Driving B","Own Car","Full-time"],sinTags:["නිවාස"]},
+  {id:1,title:"Live-in Carer for Elderly Lady",sin:"වැඩිහිටි කාන්තාවකට රැකවරණය",company:"Private Family – Verona",city:"Verona",type:"Elder Care",typeKey:"elder",salary:"€1,100/mo",perm:true,isNew:true,urgent:false,featured:true,ico:"🧓",bg:"#fff0f1",desc:"Kind 83-year-old lady in Verona Ovest needs a live-in carer. Meals, hygiene, companionship. Accommodation and meals included. No Italian required initially. Immediate start."},
+  {id:2,title:"Office & Apartment Cleaning",sin:"කාර්යාල හා නිවාස පිරිසිදු කිරීම",company:"CleanPro Cooperativa – Milan",city:"Milan",type:"Cleaning",typeKey:"clean",salary:"€11/hr",perm:false,isNew:true,urgent:false,featured:false,ico:"🧹",bg:"#eef3ff",desc:"Experienced cleaner needed for offices and apartments in Milan zona 9. 25–30 hrs/week. Flexible hours. Reliable team environment."},
+  {id:3,title:"Babysitter – 2 Children (Age 3 & 5)",sin:"ළමයින් 2 දෙනෙකු රැකවරණය",company:"Rossi Family – Verona",city:"Verona",type:"Baby Sitting",typeKey:"baby",salary:"€10/hr",perm:false,isNew:false,urgent:false,featured:false,ico:"👶",bg:"#f3e8ff",desc:"Mon/Wed/Fri afternoons 15:00–19:00. School pickup, snack, homework help. Warm welcoming family. Basic Italian helpful."},
+  {id:4,title:"Warehouse Operator – Amazon DSP",sin:"Amazon ගබඩා ශ්‍රමිකයා",company:"Amazon DSP – Bologna",city:"Bologna",type:"Factory",typeKey:"factory",salary:"€1,400/mo",perm:true,isNew:true,urgent:true,featured:true,ico:"🏭",bg:"#e6f8f2",desc:"Package sorting, scanning, loading. Full-time shifts. Permesso required. Bus from city centre provided. Great team environment."},
+  {id:5,title:"Night Carer – RSA Nursing Home",sin:"රාත්‍රී රැකවරණ සේවය",company:"RSA Villa Serena – Turin",city:"Turin",type:"Elder Care",typeKey:"elder",salary:"€1,250/mo",perm:true,isNew:false,urgent:false,featured:false,ico:"🧓",bg:"#fff0f1",desc:"Night shift 22:00–07:00. Assist residents with mobility and hygiene. Prior experience preferred. Formal Italian contract offered."},
+  {id:6,title:"Hotel Housekeeper – 4 Star Hotel",sin:"හෝටල් කාමර පිරිසිදු කිරීම",company:"Hotel Arena Palace – Verona",city:"Verona",type:"Cleaning",typeKey:"clean",salary:"€1,000/mo",perm:false,isNew:false,urgent:false,featured:false,ico:"🧹",bg:"#eef3ff",desc:"Mon–Sat 09:00–15:00. Near Verona Arena. 2 positions available. Experience helpful but not essential. Immediate start."},
 ];
 
+const SEEKERS=[
+  {name:"Kasun Perera",sinName:"කසුන් පෙරේරා",init:"KP",cover:"blue",role:"Elder Care Worker",city:"Verona",exp:"6 years",perm:true,avail:true,bio:"Experienced elder carer in Verona 6 years. Own car, driving licence, live-in available. Caring and very reliable.",skills:["Driving B","Live-in","First Aid","Italian B1"],sinSkills:["රාත්‍රී OK"]},
+  {name:"Nirmala Silva",sinName:"නිර්මලා සිල්වා",init:"NS",cover:"green",role:"Cleaner & Housekeeper",city:"Milan",exp:"4 years",perm:true,avail:true,bio:"Professional cleaner for offices and private homes in Milan. Very reliable, detail-oriented and punctual.",skills:["Own Car","Weekends","Cooking"],sinSkills:["සුපිරි"]},
+  {name:"Chamari Fernando",sinName:"චාමරී ප්‍රනාන්දු",init:"CF",cover:"purple",role:"Babysitter & Child Carer",city:"Verona",exp:"3 years",perm:false,avail:true,bio:"Loving babysitter with 3 years with children aged 2–10. Patient, fun and responsible. Italian A2.",skills:["Part-time","Afternoons","English"],sinSkills:["ළමා රැකවරණය"]},
+  {name:"Pradeep Jayawardena",sinName:"ප්‍රදීප් ජයවර්ධන",init:"PJ",cover:"amber",role:"Factory & Warehouse Worker",city:"Bologna",exp:"2 years",perm:true,avail:false,bio:"Warehouse and logistics worker with forklift experience. Available from next month. Hardworking and reliable.",skills:["Forklift","Full-time","Driving B"],sinSkills:["කර්මාන්ත"]},
+  {name:"Dilrukshi Bandara",sinName:"දිල්රුක්ෂි බංඩාර",init:"DB",cover:"teal",role:"Live-in Elder Carer",city:"Rome",exp:"5 years",perm:true,avail:true,bio:"Dedicated live-in carer in Rome 5 years. Cooking, hygiene, medical appointments. Italian B1.",skills:["Live-in","Cooking","Driving B","Italian B1"],sinSkills:["රාත්‍රී සේවය"]},
+  {name:"Asanka Wickramasinghe",sinName:"අසංක වික්‍රමසිංහ",init:"AW",cover:"red",role:"Cleaning & Maintenance",city:"Turin",exp:"3 years",perm:true,avail:true,bio:"Office cleaning and building maintenance in Turin. Own car, available immediately. Very dependable.",skills:["Driving B","Own Car","Full-time"],sinSkills:["නිවාස"]},
+];
+
+const COVMAP={blue:"cov-blue",red:"cov-red",green:"cov-green",purple:"cov-purple",amber:"cov-amber",teal:"cov-teal"};
+const TMAP={elder:"jt-elder",clean:"jt-clean",baby:"jt-baby",factory:"jt-factory"};
+
 function renderJobs(list){
-  const tc={elder:'type-elder',clean:'type-clean',baby:'type-baby',factory:'type-factory'};
-  document.getElementById('job-cards').innerHTML=list.map(j=>`
-    <div class="jcard${j.featured?' featured':''}">
-      ${j.featured?'<div class="featured-badge">⭐ Featured</div>':''}
+  document.getElementById('job-list').innerHTML=list.length?list.map(j=>`
+    <div class="jcard${j.featured?' featured':''}" onclick="openModal(${j.id})">
+      ${j.featured?'<div class="jcard-featured-badge">⭐ Featured</div>':''}
       <div class="jcard-top">
-        <div class="company-logo" style="background:${j.bg};font-size:24px">${j.ico}</div>
-        <div class="jcard-info">
+        <div class="jcard-logo" style="background:${j.bg}">${j.ico}</div>
+        <div class="jcard-meta-block">
           <div class="jcard-title">${j.title}</div>
-          <div class="jcard-sin-title">${j.sin}</div>
+          <div class="jcard-sin">${j.sin}</div>
           <div class="jcard-company">${j.company}</div>
+          <div class="jcard-meta-row">
+            <span>📍 ${j.city}</span>
+            <span>🕐 Full-time</span>
+            <span>📅 Posted today</span>
+          </div>
         </div>
-      </div>
-      <div class="jcard-meta">
-        <span>📍 ${j.city}</span>
-        <span>🕐 Full-time</span>
-        <span>📅 Posted today</span>
       </div>
       <div class="jcard-desc">${j.desc}</div>
       <div class="jcard-footer">
-        <span class="jtag ${tc[j.typeKey]}">${j.ico} ${j.type}</span>
-        ${j.perm?'<span class="jtag perm">Permesso ✓</span>':''}
-        ${j.isNew?'<span class="jtag new">New</span>':''}
-        ${j.urgent?'<span class="jtag urgent">Urgent!</span>':''}
+        <span class="jtag ${TMAP[j.typeKey]}">${j.ico} ${j.type}</span>
+        ${j.perm?'<span class="jtag jt-perm">Permesso ✓</span>':''}
+        ${j.isNew?'<span class="jtag jt-new">New</span>':''}
+        ${j.urgent?'<span class="jtag jt-urgent">Urgent!</span>':''}
         <span class="jcard-salary">${j.salary}</span>
-        <button class="save-btn" title="Save job">♡</button>
-        <button class="apply-btn" onclick="event.stopPropagation();alert('Apply via email or WhatsApp — shown on live site!')">Apply Now</button>
+        <div class="jcard-actions">
+          <button class="save-btn" onclick="event.stopPropagation()" title="Save">♡</button>
+          <button class="apply-btn" onclick="event.stopPropagation();openModal(${j.id})">Apply Now</button>
+        </div>
       </div>
-    </div>
-  `).join('');
-  document.getElementById('rcount').textContent=list.length;
+    </div>`).join('')
+  :'<div style="text-align:center;padding:40px;color:var(--ink3);font-size:14px">No jobs found. Try a different filter.</div>';
+  document.getElementById('res-count').innerHTML='<b>'+list.length+'</b> jobs found <span>• sorted by newest</span>';
 }
 
 function renderSeekers(){
-  document.getElementById('seeker-cards').innerHTML=SEEKERS.map(s=>`
+  document.getElementById('seekers-grid').innerHTML=SEEKERS.map(s=>`
     <div class="scard">
-      <div class="scard-cover ${s.cover}">
-        <div class="scard-avatar" style="background:${s.cover==='blue'?'#1a3c6e':s.cover==='green'?'#00875a':s.cover==='purple'?'#6b21a8':s.cover==='amber'?'#92600a':'#0f766e'};color:#fff">${s.initials}</div>
+      <div class="scard-cover ${COVMAP[s.cover]}">
+        ${s.avail?'<div class="scard-avail"><span class="avail-dot"></span>Available</div>':''}
+        <div class="scard-av" style="background:${s.cover==='blue'?'#1a56db':s.cover==='red'?'#e8192c':s.cover==='green'?'#00a86b':s.cover==='purple'?'#9333ea':s.cover==='amber'?'#f59f00':'#14b8a6'}">${s.init}</div>
       </div>
       <div class="scard-body">
         <div class="scard-name">${s.name}</div>
         <div class="scard-sin-name">${s.sinName}</div>
         <div class="scard-role">${s.role}</div>
-        <div class="scard-meta">
+        <div class="scard-metas">
           <span>📍 ${s.city}</span>
           <span>⏱ ${s.exp}</span>
-          <span>${s.perm?'<span style="color:#00875a;font-weight:600">Permesso ✓</span>':'No permit yet'}</span>
-          <span>${s.avail?'<span class="avail-dot"></span>Available now':'Available soon'}</span>
+          <span>${s.perm?'<span style="color:var(--G);font-weight:600">Permesso ✓</span>':'No permit'}</span>
         </div>
         <div class="scard-bio">${s.bio}</div>
-        <div class="scard-tags">
-          ${s.tags.map(t=>`<span class="stag">${t}</span>`).join('')}
-          ${s.sinTags.map(t=>`<span class="stag sin">${t}</span>`).join('')}
+        <div class="scard-skills">
+          ${s.skills.map(t=>'<span class="skill-tag">'+t+'</span>').join('')}
+          ${s.sinSkills.map(t=>'<span class="skill-tag sin">'+t+'</span>').join('')}
         </div>
-        <div class="scard-footer">
-          <button class="view-btn" onclick="alert('Full profile page shown on live site — contact via WhatsApp or email.')">View Profile</button>
-          <button class="msg-btn">Contact →</button>
+        <div class="scard-btns">
+          <button class="scard-view" onclick="alert('Full profile & contact shown on live site.')">View Profile</button>
+          <button class="scard-msg">Contact →</button>
         </div>
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
+}
+
+function openModal(id){
+  const j=JOBS.find(x=>x.id===id);
+  const CTMAP={elder:'jt-elder',clean:'jt-clean',baby:'jt-baby',factory:'jt-factory'};
+  document.getElementById('modal-wrap').className='modal-wrap show';
+  document.getElementById('modal-wrap').innerHTML=`
+    <div class="modal-box">
+      <button class="modal-close" onclick="document.getElementById('modal-wrap').className='modal-wrap'">×</button>
+      <span class="jtag ${CTMAP[j.typeKey]}" style="margin-bottom:10px;display:inline-block">${j.ico} ${j.type}</span>
+      <div style="font-size:20px;font-weight:800;color:var(--ink);margin-bottom:2px;letter-spacing:-.2px">${j.title}</div>
+      <div style="font-family:var(--sin);font-size:11px;color:var(--ink3);margin-bottom:8px">${j.sin}</div>
+      <div style="font-size:12px;color:var(--ink3);margin-bottom:10px">${j.company}</div>
+      <div style="display:flex;gap:12px;font-size:12px;color:var(--ink2);flex-wrap:wrap;margin-bottom:10px">
+        <span>📍 ${j.city}</span><span>💶 ${j.salary}</span>
+        ${j.perm?'<span style="color:var(--G);font-weight:600">Permesso ✓</span>':''}
+        ${j.urgent?'<span class="jtag jt-urgent">Urgent!</span>':''}
+      </div>
+      <div class="modal-ad">AdSense — In-Content Ad</div>
+      <div style="font-size:14px;color:var(--ink);line-height:1.7;margin-bottom:14px">${j.desc}</div>
+      <button class="modal-apply-btn" onclick="alert('Apply via WhatsApp or email — shown on live site.')">Apply Now / අයදුම් කරන්න</button>
+    </div>`;
 }
 
 function applyFilters(){
@@ -790,98 +1218,90 @@ function applyFilters(){
   renderJobs(list);
 }
 
-function filterCity(c){
-  const list=JOBS.filter(j=>j.city===c);
-  renderJobs(list);
-  document.getElementById('rcount').textContent=list.length;
+function filterCat(cat,el){
+  if(el){document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));el.classList.add('on')}
+  const radios=document.querySelectorAll('input[name="cat"]');
+  radios.forEach(r=>{if(r.value===cat)r.checked=true});
+  renderJobs(cat?JOBS.filter(j=>j.type===cat):JOBS);
 }
 
-function doNavSearch(){
+function filterCity(city,el){
+  if(el){document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));el.classList.add('on')}
+  renderJobs(city?JOBS.filter(j=>j.city===city):JOBS);
+}
+
+function doSearch(){
   const kw=document.getElementById('nav-kw').value.toLowerCase();
   const city=document.getElementById('nav-city').value;
   const list=JOBS.filter(j=>(!kw||(j.title.toLowerCase().includes(kw)||j.type.toLowerCase().includes(kw)))&&(!city||j.city===city));
   showTab('jobs',null);
-  renderJobs(list);
+  setTimeout(()=>renderJobs(list),50);
+}
+
+function showTab(name,el){
+  ['jobs','seekers','cv','services'].forEach(t=>document.getElementById('tab-'+t).style.display='none');
+  document.getElementById('tab-'+name).style.display='block';
+  document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('on'));
+  if(el)el.classList.add('on');
+  else document.querySelectorAll('.ntab').forEach(t=>{if(t.textContent.toLowerCase().includes(name.substring(0,3)))t.classList.add('on')});
+  if(name==='seekers')renderSeekers();
 }
 
 function toggleChip(el){el.classList.toggle('on')}
 
-let activeTab='jobs';
-function showTab(name,el){
-  document.querySelectorAll('.tab-content').forEach(t=>t.style.display='none');
-  document.getElementById('tab-'+name).style.display='block';
-  document.querySelectorAll('.tab,.nav-link').forEach(t=>t.classList.remove('on'));
-  document.querySelectorAll('[data-tab="'+name+'"]').forEach(t=>t.classList.add('on'));
-  if(el)el.classList.add('on');
-  activeTab=name;
-  if(name==='seekers')renderSeekers();
-}
-
-function showForm(){
-  document.getElementById('post-form').classList.add('show');
-}
-function hideForm(){
-  document.getElementById('post-form').classList.remove('show');
-}
+function showForm(){document.getElementById('post-form').classList.add('show')}
+function hideForm(){document.getElementById('post-form').classList.remove('show')}
 function submitProfile(){
-  if(!document.getElementById('pf-gdpr').checked){
-    alert('Please accept the data consent. / කරුණාකර GDPR සම්මතය ටික් කරන්න.');
-    return;
-  }
-  const name=document.getElementById('pf-name').value||'Your Name';
-  hideForm();
-  showTab('seekers',null);
-  alert('✅ Profile posted! / Profile ලෑස්ති!\n\n"'+name+'" is now visible to employers.\nEmployers can now contact you directly.');
+  if(!document.getElementById('pf-gdpr').checked){alert('Please accept the data consent / GDPR සම්මතය ටික් කරන්න.');return;}
+  const n=document.getElementById('pf-name').value||'Your Name';
+  hideForm();showTab('seekers',null);
+  alert('✅ Profile posted!\n\n"'+n+'" is now visible to employers on lankajobitaly.com');
 }
-
-function selectCover(el){
-  document.querySelectorAll('.cover-opt').forEach(c=>c.classList.remove('sel'));
-  el.classList.add('sel');
-}
+function selCover(el){document.querySelectorAll('.cov-btn').forEach(c=>c.classList.remove('sel'));el.classList.add('sel')}
 
 let cvCur=1;
-function cvStep(n){
-  for(let i=1;i<=5;i++)document.getElementById('cv-s'+i).style.display=i===n?'block':'none';
-  cvCur=n;
-  buildCvProg(n);
+function cvGo(n){
+  for(let i=1;i<=5;i++){const p=document.getElementById('cvs'+i);if(p)p.className='step-pane'+(i===n?' on':'')}
+  cvCur=n;buildProg(n);
 }
-function buildCvProg(cur){
-  const steps=['Info','Permit','Work','Skills','Done'];
+function buildProg(cur){
+  const steps=[['Info','ඔබේ'],['Permit','Permesso'],['Work','රැකියා'],['Skills','දක්ෂතා'],['Done','ලෑස්ති']];
   const p=document.getElementById('cv-prog');
   if(!p)return;
-  p.innerHTML=steps.map((s,i)=>{
-    const n=i+1;
-    const done=n<cur,active=n===cur;
-    return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;position:relative">
-      ${n<steps.length?`<div style="position:absolute;top:14px;left:50%;width:100%;height:2px;background:${done?'#00875a':'#e2e8f0'};z-index:0"></div>`:''}
-      <div style="width:28px;height:28px;border-radius:50%;background:${done?'#00875a':active?'#1a3c6e':'#f4f6fa'};border:2px solid ${done?'#00875a':active?'#1a3c6e':'#e2e8f0'};color:${done||active?'#fff':'#9aa5b4'};display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;z-index:1">${done?'✓':n}</div>
-      <div style="font-size:10px;color:${active?'#1a3c6e':done?'#00875a':'#9aa5b4'};margin-top:4px;font-weight:600;text-align:center">${s}</div>
+  p.innerHTML=steps.map(([l,s],i)=>{
+    const n=i+1,done=n<cur,active=n===cur;
+    return`<div class="prog-item${done?' done':active?' active':''}" onclick="cvGo(${n})">
+      ${n<steps.length?`<div style="position:absolute;top:16px;left:50%;width:100%;height:2px;background:${done?'var(--G)':'var(--line)'};z-index:0;transition:.3s"></div>`:''}
+      <div class="prog-dot" style="position:relative;z-index:1">${done?'✓':n}</div>
+      <div class="prog-lbl">${l}<span class="prog-sin">${s}</span></div>
     </div>`;
   }).join('');
 }
 function cvDone(){
-  if(!document.getElementById('cv-gdpr').checked){alert('Please accept the data consent. / GDPR සම්මතය ටික් කරන්න.');return;}
-  cvStep(5);
+  if(!document.getElementById('gdpr-chk').checked){alert('Please accept the data consent. / GDPR සම්මතය ටික් කරන්න.');return;}
+  cvGo(5);
 }
-
 function selTile(el,grp){
-  document.querySelectorAll('#'+grp+',#cv-s2 .stile,#cv-s3 .stile').forEach(()=>{});
-  el.closest('div').querySelectorAll('.stile').forEach(t=>{
-    t.style.borderColor='var(--bdr)';t.style.background='#fff';
-  });
-  el.style.borderColor='var(--R)';el.style.background='#f0f4ff';
+  document.querySelectorAll('#'+grp+' .opt-tile').forEach(t=>t.classList.remove('sel'));
+  el.classList.add('sel');
 }
 
 const LANGS={
-  en:{flag:'🇱🇰 Sri Lankans in Italy'},
-  sin:{flag:'🇱🇰 ඉතාලියේ ශ්‍රී ලාංකිකයෝ'},
-  it:{flag:'🇱🇰 Sri Lankesi in Italia'}
+  en:{badge:'🇱🇰 Sri Lankan Jobs in Italy',h1:'Find your next<br/><em>job in Italy</em>',sin:'ඉතාලියේ ඔබේ රැකියාව සොයා ගන්න',sub:'Verified jobs across Verona, Milan, Rome and every major Italian city — built for the Sri Lankan community.'},
+  sin:{badge:'🇱🇰 ඉතාලියේ ශ්‍රී ලාංකිකයෝ',h1:'ඔබේ රැකියාව<br/><em>ඉතාලියෙන් සොයන්න</em>',sin:'Find your perfect job in Italy — නොමිලේ CV එකක් ද ලබා ගන්න',sub:'Verona, Milan, Rome සහ ඉතාලියේ ප්‍රධාන නගරවල සහතික රැකියා.'},
+  it:{badge:'🇱🇰 Sri Lankesi in Italia',h1:'Trova il tuo prossimo<br/><em>lavoro in Italia</em>',sin:'ඉතාලියේ රැකියා ශ්‍රී ලාංකිකයන් සඳහා',sub:'Offerte verificate per la comunità Sri Lankese a Verona, Milano, Roma e oltre.'}
 };
 function setLang(l,el){
-  document.querySelectorAll('.lbtn').forEach(b=>b.classList.remove('on'));
-  el.classList.add('on');
+  document.querySelectorAll('.lb').forEach(b=>b.classList.remove('on'));el.classList.add('on');
+  const t=LANGS[l];
+  document.getElementById('hero-badge-txt').textContent=t.badge.replace('🇱🇰 ','');
+  document.getElementById('hero-h1').innerHTML=t.h1;
+  document.getElementById('hero-sin').textContent=t.sin;
+  document.getElementById('hero-sub').textContent=t.sub;
 }
 
 renderJobs(JOBS);
-buildCvProg(1);
+buildProg(1);
 </script>
+</body>
+</html>
