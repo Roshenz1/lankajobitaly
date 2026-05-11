@@ -1804,113 +1804,187 @@ function cvDone(){
 }
 
 function downloadCV(){
-  // Collect all CV data from the form
+  // Collect all CV data
   const fname=document.getElementById('cv-fname')?.value||'';
   const lname=document.getElementById('cv-lname')?.value||'';
-  const name=`${fname} ${lname}`.trim()||'Your Name';
+  const name=`${fname} ${lname}`.trim()||'Nome Cognome';
   const email=document.getElementById('cv-email')?.value||'';
   const phone=document.getElementById('cv-phone')?.value||'';
   const city=document.getElementById('cv-city')?.value||'';
   const fiscal=document.getElementById('cv-fiscal')?.value||'';
   const permitExp=document.getElementById('cv-permit-exp')?.value||'';
   
-  // Permesso status - get selected tile
-  const permesso=document.querySelector('#perm-tiles .opt-tile.sel')?.querySelector('.ot-en')?.textContent||'Not specified';
+  const permesso=document.querySelector('#perm-tiles .opt-tile.sel')?.querySelector('.ot-en')?.textContent||'Non specificato';
   const permessoIt=document.querySelector('#perm-tiles .opt-tile.sel')?.querySelector('.ot-it')?.textContent||'';
+  const italianLevel=document.querySelector('#lang-tiles .opt-tile.sel')?.querySelector('.ot-en')?.textContent||'A1';
+  const workType=document.querySelector('#work-tiles .opt-tile.sel')?.querySelector('.ot-en')?.textContent||'';
   
-  // Italian language level
-  const italianLevel=document.querySelector('#lang-tiles .opt-tile.sel')?.querySelector('.ot-en')?.textContent||'Not specified';
-  
-  // Work type preference
-  const workType=document.querySelector('#work-tiles .opt-tile.sel')?.querySelector('.ot-en')?.textContent||'Not specified';
-  
-  // Experience
   const employer=document.getElementById('cv-employer')?.value||'';
   const years=document.getElementById('cv-years')?.value||'';
   const duties=document.getElementById('cv-duties')?.value||'';
+  const skills=Array.from(document.querySelectorAll('.spick.on')).map(el=>el.textContent.trim()).join(', ')||'';
   
-  // Skills - get all selected
-  const skills=Array.from(document.querySelectorAll('.spick.on')).map(el=>el.textContent.trim()).join(', ')||'Not specified';
-  
-  // Build CV content in Europass-style format
-  const cvContent=`
-═══════════════════════════════════════════════════════
-                    CURRICULUM VITAE
-                     EUROPASS FORMAT
-═══════════════════════════════════════════════════════
-
-INFORMAZIONI PERSONALI / PERSONAL INFORMATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Nome e Cognome:      ${name}
-Email:               ${email}
-Telefono:            ${phone}
-Città:               ${city}
-Codice Fiscale:      ${fiscal}
-
-PERMESSO DI SOGGIORNO / RESIDENCE PERMIT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Tipo:                ${permesso} ${permessoIt?'('+permessoIt+')':''}
-Scadenza:            ${permitExp||'Da specificare'}
-
-COMPETENZE LINGUISTICHE / LANGUAGE SKILLS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Italiano:            ${italianLevel}
-Inglese:             Base
-Sinhala:             Madrelingua / Native
-
-ESPERIENZA PROFESSIONALE / WORK EXPERIENCE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Settore preferito:   ${workType}
-${employer?`Datore di lavoro:   ${employer}`:''}
-${years?`Periodo:             ${years}`:''}
-
-Mansioni svolte:
-${duties||'Da completare'}
-
-COMPETENZE E CAPACITÀ / SKILLS & COMPETENCIES
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-${skills}
-
-═══════════════════════════════════════════════════════
-CV generato tramite Lanka Job Italy
-www.lankajobitaly.com
-Data: ${new Date().toLocaleDateString('it-IT')}
-═══════════════════════════════════════════════════════
-
-Autorizzo il trattamento dei miei dati personali ai sensi del
-D.Lgs. 196/2003 e del Regolamento UE 2016/679 (GDPR).
-
-I authorize the processing of my personal data in accordance with
-Italian Legislative Decree 196/2003 and EU Regulation 2016/679 (GDPR).
-
-Firma / Signature: ${name}
-`;
-
-  // Create download
-  const blob=new Blob([cvContent],{type:'text/plain;charset=utf-8'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;
-  a.download=`CV_${fname||'LankaJobItaly'}_${lname||new Date().getTime()}.txt`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-  
-  // Show success feedback
-  const btn=event.target;
-  const origText=btn.textContent;
-  btn.textContent='✅ Downloaded!';
-  btn.style.background='var(--G)';
-  setTimeout(()=>{
-    btn.textContent=origText;
-    btn.style.background='';
-  },2500);
+  // Load jsPDF library
+  const script=document.createElement('script');
+  script.src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+  script.onload=function(){
+    const {jsPDF}=window.jspdf;
+    const doc=new jsPDF();
+    
+    let y=20;
+    
+    // HEADER - Europass logo text
+    doc.setFontSize(10);
+    doc.setTextColor(41,128,185);
+    doc.text('Curriculum Vitae Europass', 105, y, {align:'center'});
+    y+=15;
+    
+    // PERSONAL INFO BOX
+    doc.setFillColor(41,128,185);
+    doc.rect(15, y, 180, 8, 'F');
+    doc.setFontSize(11);
+    doc.setTextColor(255,255,255);
+    doc.setFont(undefined,'bold');
+    doc.text('INFORMAZIONI PERSONALI', 17, y+5.5);
+    y+=12;
+    
+    doc.setTextColor(0,0,0);
+    doc.setFontSize(10);
+    doc.setFont(undefined,'normal');
+    
+    // Name - larger
+    doc.setFontSize(14);
+    doc.setFont(undefined,'bold');
+    doc.text(name.toUpperCase(), 17, y);
+    y+=8;
+    doc.setFontSize(10);
+    doc.setFont(undefined,'normal');
+    
+    // Contact details
+    if(phone){doc.text(`Telefono: ${phone}`, 17, y); y+=6;}
+    if(email){doc.text(`Email: ${email}`, 17, y); y+=6;}
+    if(city){doc.text(`Residenza: ${city}`, 17, y); y+=6;}
+    if(fiscal){doc.text(`Codice Fiscale: ${fiscal}`, 17, y); y+=6;}
+    y+=5;
+    
+    // PERMESSO
+    doc.setFillColor(41,128,185);
+    doc.rect(15, y, 180, 8, 'F');
+    doc.setTextColor(255,255,255);
+    doc.setFont(undefined,'bold');
+    doc.text('PERMESSO DI SOGGIORNO', 17, y+5.5);
+    y+=12;
+    
+    doc.setTextColor(0,0,0);
+    doc.setFont(undefined,'normal');
+    doc.text(`Tipo: ${permessoIt || permesso}`, 17, y); y+=6;
+    if(permitExp){
+      const expDate=new Date(permitExp).toLocaleDateString('it-IT');
+      doc.text(`Scadenza: ${expDate}`, 17, y); y+=6;
+    }
+    y+=5;
+    
+    // LANGUAGES
+    doc.setFillColor(41,128,185);
+    doc.rect(15, y, 180, 8, 'F');
+    doc.setTextColor(255,255,255);
+    doc.setFont(undefined,'bold');
+    doc.text('COMPETENZE LINGUISTICHE', 17, y+5.5);
+    y+=12;
+    
+    doc.setTextColor(0,0,0);
+    doc.setFont(undefined,'normal');
+    
+    // Language table
+    const levelMap={'A1 — Beginner':'A1','B1 — OK':'B1','C1 — Fluent':'C1'};
+    const itLevel=levelMap[italianLevel]||italianLevel.split(' ')[0]||'A1';
+    
+    doc.setFont(undefined,'bold');
+    doc.text('Lingua', 20, y);
+    doc.text('Livello', 80, y);
+    y+=6;
+    doc.setFont(undefined,'normal');
+    
+    doc.text('Italiano', 20, y);
+    doc.text(itLevel+' (Quadro Europeo)', 80, y);
+    y+=5;
+    doc.text('Inglese', 20, y);
+    doc.text('A2 - B1', 80, y);
+    y+=5;
+    doc.text('Sinhala', 20, y);
+    doc.text('Madrelingua', 80, y);
+    y+=8;
+    
+    // WORK EXPERIENCE
+    doc.setFillColor(41,128,185);
+    doc.rect(15, y, 180, 8, 'F');
+    doc.setTextColor(255,255,255);
+    doc.setFont(undefined,'bold');
+    doc.text('ESPERIENZA PROFESSIONALE', 17, y+5.5);
+    y+=12;
+    
+    doc.setTextColor(0,0,0);
+    doc.setFont(undefined,'normal');
+    
+    if(years){doc.text(`Periodo: ${years}`, 17, y); y+=6;}
+    if(employer){doc.text(`Datore di lavoro: ${employer}`, 17, y); y+=6;}
+    if(workType){doc.text(`Settore: ${workType.replace(/[🧓🧹👶🏭]/g,'').trim()}`, 17, y); y+=6;}
+    
+    if(duties){
+      doc.text('Mansioni e responsabilità:', 17, y); y+=6;
+      const lines=doc.splitTextToSize(duties, 175);
+      lines.forEach(line=>{
+        if(y>270){doc.addPage();y=20;}
+        doc.text(line, 20, y);
+        y+=5;
+      });
+      y+=3;
+    }
+    y+=5;
+    
+    // SKILLS
+    if(skills){
+      doc.setFillColor(41,128,185);
+      doc.rect(15, y, 180, 8, 'F');
+      doc.setTextColor(255,255,255);
+      doc.setFont(undefined,'bold');
+      doc.text('COMPETENZE PROFESSIONALI', 17, y+5.5);
+      y+=12;
+      
+      doc.setTextColor(0,0,0);
+      doc.setFont(undefined,'normal');
+      const skillLines=doc.splitTextToSize(skills, 175);
+      skillLines.forEach(line=>{
+        if(y>270){doc.addPage();y=20;}
+        doc.text(line, 17, y);
+        y+=5;
+      });
+      y+=5;
+    }
+    
+    // GDPR at bottom
+    if(y>250){doc.addPage();y=20;}
+    y=Math.max(y,260);
+    doc.setFontSize(8);
+    doc.setTextColor(100,100,100);
+    const gdprText='Autorizzo il trattamento dei miei dati personali ai sensi del D.Lgs. 196/2003 e del Regolamento UE 2016/679 (GDPR).';
+    const gdprLines=doc.splitTextToSize(gdprText, 175);
+    gdprLines.forEach(line=>{doc.text(line, 17, y);y+=4;});
+    
+    doc.setFontSize(7);
+    doc.text(`CV generato tramite www.lankajobitaly.com - ${new Date().toLocaleDateString('it-IT')}`, 105, 290, {align:'center'});
+    
+    // Download
+    doc.save(`CV_Europass_${fname||'Lanka'}_${lname||'Job'}.pdf`);
+    
+    // Success feedback
+    const btn=event.target;
+    const origText=btn.textContent;
+    btn.textContent='✅ Downloaded!';
+    btn.style.background='var(--G)';
+    setTimeout(()=>{btn.textContent=origText;btn.style.background='';},2500);
+  };
+  document.head.appendChild(script);
 }
 function selTile(el,grp){
   document.querySelectorAll('#'+grp+' .opt-tile').forEach(t=>t.classList.remove('sel'));
