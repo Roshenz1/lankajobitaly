@@ -899,6 +899,8 @@ img{max-width:100%;display:block}
     <button class="ntab" onclick="showTab('seekers',this)">Seekers</button>
     <button class="ntab" onclick="showTab('cv',this)">Free CV</button>
     <button class="ntab" onclick="showTab('services',this)">Pro Services</button>
+    <button class="ntab" onclick="showTab('radio',this)">📻 Radio</button>
+    <button class="ntab" onclick="showTab('tv',this)">📺 TV</button>
   </div>
   <div class="nav-lang">
     <button class="lb on" onclick="setLang('en',this)">EN</button>
@@ -1463,6 +1465,185 @@ img{max-width:100%;display:block}
   </div>
 </div>
 
+<!-- ════════════ RADIO TAB ════════════ -->
+<div id="tab-radio" style="display:none">
+<style>
+.media-hero{background:var(--ink);padding:40px var(--s3) 36px;text-align:center;position:relative;overflow:hidden}
+.media-hero::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(232,25,44,.15) 0%,transparent 70%);top:-100px;right:50px;pointer-events:none}
+.media-hero-title{font-size:clamp(28px,4vw,42px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:8px}
+.media-hero-sin{font-family:var(--sin);font-size:16px;color:rgba(255,255,255,.5);margin-bottom:10px}
+.media-hero-sub{font-size:14px;color:rgba(255,255,255,.4);max-width:460px;margin:0 auto}
+.media-section{max-width:1100px;margin:0 auto;padding:var(--s4) var(--s3)}
+.media-section-title{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.media-notice{text-align:center;padding:14px 16px;background:var(--Yl);border:1.5px solid var(--Y);border-radius:var(--ra);margin-bottom:24px;font-size:12px;color:var(--ink2);line-height:1.6}
+/* radio cards */
+.radio-card{background:var(--wh);border:1.5px solid var(--line);border-radius:var(--rb);padding:20px;transition:var(--ease);position:relative;overflow:hidden}
+.radio-card:hover{border-color:var(--R);box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.radio-card.playing{border-color:var(--R);background:var(--Rl)}
+.rc-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.rc-icon{width:48px;height:48px;border-radius:var(--ra);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.rc-info{flex:1;min-width:0}
+.rc-name{font-size:15px;font-weight:700;color:var(--ink)}
+.rc-sin{font-family:var(--sin);font-size:11px;color:var(--ink3)}
+.rc-freq{font-size:11px;font-weight:600;color:var(--ink3);margin-top:2px}
+.rc-wave{display:flex;align-items:center;gap:3px;height:22px;margin-bottom:12px}
+.rc-wave span{display:inline-block;width:3px;background:var(--R);border-radius:2px;opacity:.2;animation:wavebar 1.2s ease-in-out infinite}
+.rc-wave span:nth-child(1){height:8px;animation-delay:0s}
+.rc-wave span:nth-child(2){height:14px;animation-delay:.1s}
+.rc-wave span:nth-child(3){height:20px;animation-delay:.2s}
+.rc-wave span:nth-child(4){height:14px;animation-delay:.3s}
+.rc-wave span:nth-child(5){height:8px;animation-delay:.4s}
+.rc-wave span:nth-child(6){height:12px;animation-delay:.15s}
+.rc-wave span:nth-child(7){height:18px;animation-delay:.25s}
+.radio-card.playing .rc-wave span{opacity:1}
+@keyframes wavebar{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.35)}}
+.rc-btns{display:flex;gap:8px;align-items:center}
+.rc-play{flex:1;padding:9px;background:var(--ink);color:#fff;border:none;border-radius:var(--ra);font-size:12px;font-weight:700;cursor:pointer;transition:var(--ease)}
+.rc-play:hover{background:var(--R)}
+.radio-card.playing .rc-play{background:var(--R)}
+.rc-web{width:36px;height:36px;border:1.5px solid var(--line);border-radius:var(--ra);display:flex;align-items:center;justify-content:center;font-size:14px;text-decoration:none;transition:var(--ease);flex-shrink:0}
+.rc-web:hover{background:var(--bg);border-color:var(--ink3)}
+/* tv cards */
+.tv-card{background:var(--wh);border:1.5px solid var(--line);border-radius:var(--rb);overflow:hidden;transition:var(--ease)}
+.tv-card:hover{border-color:rgba(26,86,219,.4);box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.tv-thumb{height:90px;display:flex;align-items:center;justify-content:center;font-size:44px;position:relative}
+.tv-thumb::after{content:'LIVE';position:absolute;top:8px;right:8px;background:var(--R);color:#fff;font-size:9px;font-weight:800;letter-spacing:.06em;padding:2px 7px;border-radius:4px}
+.tv-body{padding:14px}
+.tv-name{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:2px}
+.tv-sin{font-family:var(--sin);font-size:11px;color:var(--ink3)}
+.tv-desc{font-size:12px;color:var(--ink3);margin:6px 0 12px}
+.tv-btn{width:100%;padding:9px;background:var(--ink);color:#fff;border:none;border-radius:var(--ra);font-size:12px;font-weight:700;cursor:pointer;transition:var(--ease)}
+.tv-btn:hover{background:var(--B)}
+</style>
+
+<section class="media-hero">
+  <div class="media-hero-title">📻 Sinhala Radio</div>
+  <p class="media-hero-sin">ශ්‍රී ලාංකික රේඩියෝ නාලිකා — ඉතාලියෙන් සජීවීව</p>
+  <p class="media-hero-sub">Listen to your favourite Sri Lankan radio stations live from Italy</p>
+</section>
+
+<div class="media-section">
+  <div class="media-notice">
+    📡 Click ▶ Play Live to stream directly in your browser. If a stream fails, click 🌐 to open the station website.<br/>
+    <span style="font-family:'Noto Sans Sinhala',sans-serif;font-size:11px">ධාරාවක් ක්‍රියා නොකළ හොත් 🌐 ක්ලික් කර වෙබ් අඩවිය විවෘත කරන්න.</span>
+  </div>
+  <div class="media-section-title">🇱🇰 Popular Sinhala &amp; Tamil Stations · ජනප්‍රිය රේඩියෝ නාලිකා</div>
+  <div class="media-grid" id="radio-grid"></div>
+</div>
+
+<script>
+const RADIO_STATIONS=[
+  {id:'sirasa',name:'Sirasa FM',sin:'සිරස FM',freq:'107.4 MHz',emoji:'📻',bg:'#fff0f1',stream:'https://stream.sirasa.lk:8443/sirasafm',web:'https://www.sirasa.lk/live-radio/'},
+  {id:'hiru',name:'Hiru FM',sin:'හිරු FM',freq:'106.0 MHz',emoji:'🎵',bg:'#fff8e6',stream:'https://stream.hiru.lk/hirufm',web:'https://www.hiruuniverse.com/live'},
+  {id:'shakthi',name:'Shakthi FM',sin:'ශක්ති FM',freq:'97.0 MHz',emoji:'⚡',bg:'#eef3ff',stream:'https://stream.shakthi.lk/shakthi',web:'https://www.shakthi.fm/'},
+  {id:'yes',name:'Yes FM',sin:'Yes FM',freq:'89.5 MHz',emoji:'✅',bg:'#e6f8f2',stream:'https://stream.yesfm.lk/live',web:'https://www.yesfm.lk/'},
+  {id:'neth',name:'Neth FM',sin:'නෙත් FM',freq:'97.4 MHz',emoji:'🌿',bg:'#f3e8ff',stream:'https://server.slbc.lk:8443/nethfm',web:'https://www.slbc.lk/'},
+  {id:'tnl',name:'TNL Radio',sin:'TNL රේඩියෝ',freq:'101.5 MHz',emoji:'🎙️',bg:'#fff4e6',stream:'https://stream.tnlradio.lk/live',web:'https://www.tnlradio.lk/'},
+  {id:'sooriyan',name:'Sooriyan FM',sin:'සූරියන් FM',freq:'93.0 MHz',emoji:'☀️',bg:'#fffbeb',stream:'https://stream.sooriyanfm.lk/live',web:'https://sooriyanfm.lk/'},
+  {id:'swarna',name:'Swarna FM',sin:'ස්වර්ණ FM',freq:'90.0 MHz',emoji:'⭐',bg:'#fefce8',stream:'https://stream.swarna.lk/fm',web:'https://www.swarna.lk/'},
+];
+
+let curAudio=null,curCardId=null;
+
+function buildRadioGrid(){
+  const g=document.getElementById('radio-grid');
+  if(!g)return;
+  g.innerHTML=RADIO_STATIONS.map(s=>`
+    <div class="radio-card" id="rc-${s.id}">
+      <div class="rc-top">
+        <div class="rc-icon" style="background:${s.bg}">${s.emoji}</div>
+        <div class="rc-info">
+          <div class="rc-name">${s.name}</div>
+          <div class="rc-sin">${s.sin}</div>
+          <div class="rc-freq">${s.freq}</div>
+        </div>
+      </div>
+      <div class="rc-wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="rc-btns">
+        <button class="rc-play" id="rp-${s.id}" onclick="toggleRadio('${s.id}','${s.stream}','${s.web}')">▶ Play Live</button>
+        <a class="rc-web" href="${s.web}" target="_blank" title="Open website">🌐</a>
+      </div>
+    </div>`).join('');
+}
+
+function toggleRadio(id,streamUrl,webUrl){
+  const card=document.getElementById('rc-'+id);
+  const btn=document.getElementById('rp-'+id);
+  if(curAudio){
+    curAudio.pause();curAudio.src='';
+    const prevCard=document.getElementById('rc-'+curCardId);
+    const prevBtn=document.getElementById('rp-'+curCardId);
+    if(prevCard)prevCard.classList.remove('playing');
+    if(prevBtn)prevBtn.textContent='▶ Play Live';
+    if(curCardId===id){curAudio=null;curCardId=null;return;}
+  }
+  btn.textContent='⏳ Connecting...';
+  const audio=new Audio(streamUrl);
+  curAudio=audio;curCardId=id;
+  audio.oncanplay=()=>{
+    audio.play().then(()=>{card.classList.add('playing');btn.textContent='⏹ Stop';})
+    .catch(()=>{card.classList.remove('playing');btn.textContent='▶ Play Live';});
+  };
+  audio.onerror=()=>{
+    card.classList.remove('playing');
+    btn.textContent='⚠️ Opening website...';
+    curAudio=null;curCardId=null;
+    setTimeout(()=>{window.open(webUrl,'_blank');btn.textContent='▶ Play Live';},600);
+  };
+  audio.load();
+}
+buildRadioGrid();
+</script>
+</div>
+
+<!-- ════════════ TV TAB ════════════ -->
+<div id="tab-tv" style="display:none">
+<section class="media-hero" style="background:linear-gradient(135deg,#0a0f1e 0%,#1a1040 100%)">
+  <div class="media-hero-title">📺 Sinhala TV</div>
+  <p class="media-hero-sin">ශ්‍රී ලාංකික රූපවාහිනී නාලිකා — සජීවීව</p>
+  <p class="media-hero-sub">Watch Sri Lankan TV channels live from anywhere in Italy</p>
+</section>
+
+<div class="media-section">
+  <div class="media-notice" style="background:var(--Bl);border-color:rgba(26,86,219,.3)">
+    📺 Click "Watch Live" to open each channel's official YouTube live stream in a new tab.<br/>
+    <span style="font-family:'Noto Sans Sinhala',sans-serif;font-size:11px">"Watch Live" ක්ලික් කළ විට YouTube සජීවී ධාරාව නව ටැබයක විවෘත වේ.</span>
+  </div>
+  <div class="media-section-title">🇱🇰 Live TV Channels · සජීවී TV නාලිකා</div>
+  <div class="media-grid" id="tv-grid"></div>
+</div>
+
+<script>
+const TV_CHANNELS=[
+  {name:'Sirasa TV',sin:'සිරස TV',desc:'Drama, entertainment & news',emoji:'🔴',bg:'linear-gradient(135deg,#e8192c,#c0101f)',yt:'https://www.youtube.com/@SirasaTV/streams'},
+  {name:'Hiru TV',sin:'හිරු TV',desc:"Sri Lanka's #1 entertainment channel",emoji:'⭐',bg:'linear-gradient(135deg,#f59f00,#d97706)',yt:'https://www.youtube.com/@HiruTV/streams'},
+  {name:'Rupavahini',sin:'රූපවාහිනී',desc:'National Broadcast — SLRC',emoji:'🏛️',bg:'linear-gradient(135deg,#1a56db,#1e40af)',yt:'https://www.youtube.com/@RupavahiniTV/streams'},
+  {name:'TV Derana',sin:'TV දෙරණ',desc:'News, drama & entertainment',emoji:'📡',bg:'linear-gradient(135deg,#e85d04,#c2410c)',yt:'https://www.youtube.com/@tvderana/streams'},
+  {name:'Swarnawahini',sin:'ස්වර්ණවාහිනී',desc:'Sinhala drama & programmes',emoji:'🌟',bg:'linear-gradient(135deg,#c9a227,#a16207)',yt:'https://www.youtube.com/@swarnawahini/streams'},
+  {name:'Ada Derana',sin:'ආදා දෙරණ',desc:'24/7 news & current affairs',emoji:'📰',bg:'linear-gradient(135deg,#d00000,#9b0000)',yt:'https://www.youtube.com/@AdaDerana/streams'},
+  {name:'Shakthi TV',sin:'ශක්ති TV',desc:'Tamil language channel',emoji:'⚡',bg:'linear-gradient(135deg,#6741d9,#4c1d95)',yt:'https://www.youtube.com/@ShakthiTV/streams'},
+  {name:'TV 1',sin:'TV 1',desc:'Music & entertainment',emoji:'🎬',bg:'linear-gradient(135deg,#00a86b,#065f46)',yt:'https://www.youtube.com/@tv1srilanka/streams'},
+];
+
+function buildTVGrid(){
+  const g=document.getElementById('tv-grid');
+  if(!g)return;
+  g.innerHTML=TV_CHANNELS.map(ch=>`
+    <div class="tv-card">
+      <div class="tv-thumb" style="background:${ch.bg}">${ch.emoji}</div>
+      <div class="tv-body">
+        <div class="tv-name">${ch.name}</div>
+        <div class="tv-sin">${ch.sin}</div>
+        <div class="tv-desc">${ch.desc}</div>
+        <button class="tv-btn" onclick="window.open('${ch.yt}','_blank')">▶ Watch Live</button>
+      </div>
+    </div>`).join('');
+}
+buildTVGrid();
+</script>
+</div>
+
 <!-- ════════════ FOOTER ════════════ -->
 <footer class="footer">
   <div class="footer-grid">
@@ -1760,7 +1941,7 @@ function doSearch(){
 }
 
 function showTab(name,el){
-  ['jobs','seekers','cv','services'].forEach(t=>document.getElementById('tab-'+t).style.display='none');
+  ['jobs','seekers','cv','services','radio','tv'].forEach(t=>document.getElementById('tab-'+t).style.display='none');
   document.getElementById('tab-'+name).style.display='block';
   document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('on'));
   if(el)el.classList.add('on');
