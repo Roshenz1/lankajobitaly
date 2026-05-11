@@ -1124,14 +1124,14 @@ img{max-width:100%;display:block}
         <div class="step-sin-q">ඔබේ නම කුමක්ද?</div>
         <div class="step-it">Come ti chiami?</div>
         <div class="fg-row">
-          <div class="fg-item"><label>First Name <span class="lsin">මුල් නම</span></label><input type="text" placeholder="Kasun"/></div>
-          <div class="fg-item"><label>Last Name <span class="lsin">අවසාන නම</span></label><input type="text" placeholder="Perera"/></div>
+          <div class="fg-item"><label>First Name <span class="lsin">මුල් නම</span></label><input id="cv-fname" type="text" placeholder="Kasun"/></div>
+          <div class="fg-item"><label>Last Name <span class="lsin">අවසාන නම</span></label><input id="cv-lname" type="text" placeholder="Perera"/></div>
         </div>
         <div class="fg-row">
-          <div class="fg-item"><label>Phone Italy <span class="lsin">දුරකථනය</span></label><input type="tel" placeholder="+39 333 000 0000"/></div>
-          <div class="fg-item"><label>Email <span class="lsin">ඊමේල්</span></label><input type="email" placeholder="kasun@email.com"/></div>
+          <div class="fg-item"><label>Phone Italy <span class="lsin">දුරකථනය</span></label><input id="cv-phone" type="tel" placeholder="+39 333 000 0000"/></div>
+          <div class="fg-item"><label>Email <span class="lsin">ඊමේල්</span></label><input id="cv-email" type="email" placeholder="kasun@email.com"/></div>
         </div>
-        <div class="fg-row one"><div class="fg-item"><label>City / Province <span class="lsin">නගරය</span></label><input placeholder="Verona, VR"/></div></div>
+        <div class="fg-row one"><div class="fg-item"><label>City / Province <span class="lsin">නගරය</span></label><input id="cv-city" placeholder="Verona, VR"/></div></div>
         <div class="cv-nav">
           <span class="step-ctr">Step 1 of 4</span>
           <button class="cv-next" onclick="cvGo(2)">Next →</button>
@@ -1149,8 +1149,8 @@ img{max-width:100%;display:block}
           <div class="opt-tile" onclick="selTile(this,'perm-tiles')"><div class="ot-en">Renewal Pending</div><div class="ot-sin">අළුත් කිරීමේ</div><div class="ot-it">Attesa rinnovo</div></div>
         </div>
         <div class="fg-row">
-          <div class="fg-item"><label>Expiry Date <span class="lsin">කල් ඉකුත්වීම</span></label><input type="date"/></div>
-          <div class="fg-item"><label>Codice Fiscale</label><input placeholder="PRRKSN80A01Z114X"/></div>
+          <div class="fg-item"><label>Expiry Date <span class="lsin">කල් ඉකුත්වීම</span></label><input id="cv-permit-exp" type="date"/></div>
+          <div class="fg-item"><label>Codice Fiscale</label><input id="cv-fiscal" placeholder="PRRKSN80A01Z114X"/></div>
         </div>
         <div class="step-q" style="font-size:16px;margin-top:8px">How is your Italian?</div>
         <div class="step-sin-q">ඔබේ ඉතාලි භාෂා මට්ටම?</div>
@@ -1177,13 +1177,13 @@ img{max-width:100%;display:block}
           <div class="opt-tile" onclick="selTile(this,'work-tiles')"><div class="ot-en">🏭 Factory</div><div class="ot-sin">කර්මාන්ත</div></div>
         </div>
         <div class="fg-row">
-          <div class="fg-item"><label>Employer <span class="lsin">සේවා යෝජකයා</span></label><input placeholder="Cooperativa XYZ or Family name"/></div>
-          <div class="fg-item"><label>Years <span class="lsin">වසර ගණන</span></label><input placeholder="2021 – 2024"/></div>
+          <div class="fg-item"><label>Employer <span class="lsin">සේවා යෝජකයා</span></label><input id="cv-employer" placeholder="Cooperativa XYZ or Family name"/></div>
+          <div class="fg-item"><label>Years <span class="lsin">වසර ගණන</span></label><input id="cv-years" placeholder="2021 – 2024"/></div>
         </div>
         <div class="fg-row one">
           <div class="fg-item">
             <label>Describe your duties <span class="lsin">ඕනෑම භාෂාවකින් ලියන්න</span></label>
-            <textarea placeholder="Write in Sinhala, English or Italian. / සිංහලෙන් හෝ ඉංග්‍රීසියෙන් ලියන්න. E.g.: I cared for an elderly lady, helped with meals, hygiene and appointments..."></textarea>
+            <textarea id="cv-duties" placeholder="Write in Sinhala, English or Italian. / සිංහලෙන් හෝ ඉංග්‍රීසියෙන් ලියන්න. E.g.: I cared for an elderly lady, helped with meals, hygiene and appointments..."></textarea>
           </div>
         </div>
         <div class="cv-nav">
@@ -1232,7 +1232,7 @@ img{max-width:100%;display:block}
         <div class="cv-done-icon">✅</div>
         <h3>Your CV is ready!</h3>
         <span class="sin">ඔබේ CV ලෑස්ති!</span>
-        <button class="cv-dl-btn">📥 Download Europass PDF</button>
+        <button class="cv-dl-btn" onclick="downloadCV()">📥 Download Europass PDF</button>
         <p class="cv-upsell">Want a professional Italian rewrite? <a href="#">€8 Pro Service →</a></p>
       </div>
     </div>
@@ -1801,6 +1801,116 @@ function buildProg(cur){
 function cvDone(){
   if(!document.getElementById('gdpr-chk').checked){alert('Please accept the data consent. / GDPR සම්මතය ටික් කරන්න.');return;}
   cvGo(5);
+}
+
+function downloadCV(){
+  // Collect all CV data from the form
+  const fname=document.getElementById('cv-fname')?.value||'';
+  const lname=document.getElementById('cv-lname')?.value||'';
+  const name=`${fname} ${lname}`.trim()||'Your Name';
+  const email=document.getElementById('cv-email')?.value||'';
+  const phone=document.getElementById('cv-phone')?.value||'';
+  const city=document.getElementById('cv-city')?.value||'';
+  const fiscal=document.getElementById('cv-fiscal')?.value||'';
+  const permitExp=document.getElementById('cv-permit-exp')?.value||'';
+  
+  // Permesso status - get selected tile
+  const permesso=document.querySelector('#perm-tiles .opt-tile.sel')?.querySelector('.ot-en')?.textContent||'Not specified';
+  const permessoIt=document.querySelector('#perm-tiles .opt-tile.sel')?.querySelector('.ot-it')?.textContent||'';
+  
+  // Italian language level
+  const italianLevel=document.querySelector('#lang-tiles .opt-tile.sel')?.querySelector('.ot-en')?.textContent||'Not specified';
+  
+  // Work type preference
+  const workType=document.querySelector('#work-tiles .opt-tile.sel')?.querySelector('.ot-en')?.textContent||'Not specified';
+  
+  // Experience
+  const employer=document.getElementById('cv-employer')?.value||'';
+  const years=document.getElementById('cv-years')?.value||'';
+  const duties=document.getElementById('cv-duties')?.value||'';
+  
+  // Skills - get all selected
+  const skills=Array.from(document.querySelectorAll('.spick.on')).map(el=>el.textContent.trim()).join(', ')||'Not specified';
+  
+  // Build CV content in Europass-style format
+  const cvContent=`
+═══════════════════════════════════════════════════════
+                    CURRICULUM VITAE
+                     EUROPASS FORMAT
+═══════════════════════════════════════════════════════
+
+INFORMAZIONI PERSONALI / PERSONAL INFORMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Nome e Cognome:      ${name}
+Email:               ${email}
+Telefono:            ${phone}
+Città:               ${city}
+Codice Fiscale:      ${fiscal}
+
+PERMESSO DI SOGGIORNO / RESIDENCE PERMIT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Tipo:                ${permesso} ${permessoIt?'('+permessoIt+')':''}
+Scadenza:            ${permitExp||'Da specificare'}
+
+COMPETENZE LINGUISTICHE / LANGUAGE SKILLS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Italiano:            ${italianLevel}
+Inglese:             Base
+Sinhala:             Madrelingua / Native
+
+ESPERIENZA PROFESSIONALE / WORK EXPERIENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Settore preferito:   ${workType}
+${employer?`Datore di lavoro:   ${employer}`:''}
+${years?`Periodo:             ${years}`:''}
+
+Mansioni svolte:
+${duties||'Da completare'}
+
+COMPETENZE E CAPACITÀ / SKILLS & COMPETENCIES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+${skills}
+
+═══════════════════════════════════════════════════════
+CV generato tramite Lanka Job Italy
+www.lankajobitaly.com
+Data: ${new Date().toLocaleDateString('it-IT')}
+═══════════════════════════════════════════════════════
+
+Autorizzo il trattamento dei miei dati personali ai sensi del
+D.Lgs. 196/2003 e del Regolamento UE 2016/679 (GDPR).
+
+I authorize the processing of my personal data in accordance with
+Italian Legislative Decree 196/2003 and EU Regulation 2016/679 (GDPR).
+
+Firma / Signature: ${name}
+`;
+
+  // Create download
+  const blob=new Blob([cvContent],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download=`CV_${fname||'LankaJobItaly'}_${lname||new Date().getTime()}.txt`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  
+  // Show success feedback
+  const btn=event.target;
+  const origText=btn.textContent;
+  btn.textContent='✅ Downloaded!';
+  btn.style.background='var(--G)';
+  setTimeout(()=>{
+    btn.textContent=origText;
+    btn.style.background='';
+  },2500);
 }
 function selTile(el,grp){
   document.querySelectorAll('#'+grp+' .opt-tile').forEach(t=>t.classList.remove('sel'));
