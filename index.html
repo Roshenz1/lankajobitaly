@@ -1804,6 +1804,12 @@ function cvDone(){
 }
 
 function downloadCV(){
+  const btn=document.querySelector('.cv-dl-btn');
+  if(btn){
+    btn.textContent='⏳ Generating PDF...';
+    btn.disabled=true;
+  }
+  
   // Collect all CV data
   const fname=document.getElementById('cv-fname')?.value||'';
   const lname=document.getElementById('cv-lname')?.value||'';
@@ -1824,167 +1830,174 @@ function downloadCV(){
   const duties=document.getElementById('cv-duties')?.value||'';
   const skills=Array.from(document.querySelectorAll('.spick.on')).map(el=>el.textContent.trim()).join(', ')||'';
   
-  // Load jsPDF library
-  const script=document.createElement('script');
-  script.src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
-  script.onload=function(){
-    const {jsPDF}=window.jspdf;
-    const doc=new jsPDF();
-    
-    let y=20;
-    
-    // HEADER - Europass logo text
-    doc.setFontSize(10);
-    doc.setTextColor(41,128,185);
-    doc.text('Curriculum Vitae Europass', 105, y, {align:'center'});
-    y+=15;
-    
-    // PERSONAL INFO BOX
-    doc.setFillColor(41,128,185);
-    doc.rect(15, y, 180, 8, 'F');
-    doc.setFontSize(11);
-    doc.setTextColor(255,255,255);
-    doc.setFont(undefined,'bold');
-    doc.text('INFORMAZIONI PERSONALI', 17, y+5.5);
-    y+=12;
-    
-    doc.setTextColor(0,0,0);
-    doc.setFontSize(10);
-    doc.setFont(undefined,'normal');
-    
-    // Name - larger
-    doc.setFontSize(14);
-    doc.setFont(undefined,'bold');
-    doc.text(name.toUpperCase(), 17, y);
-    y+=8;
-    doc.setFontSize(10);
-    doc.setFont(undefined,'normal');
-    
-    // Contact details
-    if(phone){doc.text(`Telefono: ${phone}`, 17, y); y+=6;}
-    if(email){doc.text(`Email: ${email}`, 17, y); y+=6;}
-    if(city){doc.text(`Residenza: ${city}`, 17, y); y+=6;}
-    if(fiscal){doc.text(`Codice Fiscale: ${fiscal}`, 17, y); y+=6;}
-    y+=5;
-    
-    // PERMESSO
-    doc.setFillColor(41,128,185);
-    doc.rect(15, y, 180, 8, 'F');
-    doc.setTextColor(255,255,255);
-    doc.setFont(undefined,'bold');
-    doc.text('PERMESSO DI SOGGIORNO', 17, y+5.5);
-    y+=12;
-    
-    doc.setTextColor(0,0,0);
-    doc.setFont(undefined,'normal');
-    doc.text(`Tipo: ${permessoIt || permesso}`, 17, y); y+=6;
-    if(permitExp){
-      const expDate=new Date(permitExp).toLocaleDateString('it-IT');
-      doc.text(`Scadenza: ${expDate}`, 17, y); y+=6;
-    }
-    y+=5;
-    
-    // LANGUAGES
-    doc.setFillColor(41,128,185);
-    doc.rect(15, y, 180, 8, 'F');
-    doc.setTextColor(255,255,255);
-    doc.setFont(undefined,'bold');
-    doc.text('COMPETENZE LINGUISTICHE', 17, y+5.5);
-    y+=12;
-    
-    doc.setTextColor(0,0,0);
-    doc.setFont(undefined,'normal');
-    
-    // Language table
-    const levelMap={'A1 — Beginner':'A1','B1 — OK':'B1','C1 — Fluent':'C1'};
-    const itLevel=levelMap[italianLevel]||italianLevel.split(' ')[0]||'A1';
-    
-    doc.setFont(undefined,'bold');
-    doc.text('Lingua', 20, y);
-    doc.text('Livello', 80, y);
-    y+=6;
-    doc.setFont(undefined,'normal');
-    
-    doc.text('Italiano', 20, y);
-    doc.text(itLevel+' (Quadro Europeo)', 80, y);
-    y+=5;
-    doc.text('Inglese', 20, y);
-    doc.text('A2 - B1', 80, y);
-    y+=5;
-    doc.text('Sinhala', 20, y);
-    doc.text('Madrelingua', 80, y);
-    y+=8;
-    
-    // WORK EXPERIENCE
-    doc.setFillColor(41,128,185);
-    doc.rect(15, y, 180, 8, 'F');
-    doc.setTextColor(255,255,255);
-    doc.setFont(undefined,'bold');
-    doc.text('ESPERIENZA PROFESSIONALE', 17, y+5.5);
-    y+=12;
-    
-    doc.setTextColor(0,0,0);
-    doc.setFont(undefined,'normal');
-    
-    if(years){doc.text(`Periodo: ${years}`, 17, y); y+=6;}
-    if(employer){doc.text(`Datore di lavoro: ${employer}`, 17, y); y+=6;}
-    if(workType){doc.text(`Settore: ${workType.replace(/[🧓🧹👶🏭]/g,'').trim()}`, 17, y); y+=6;}
-    
-    if(duties){
-      doc.text('Mansioni e responsabilità:', 17, y); y+=6;
-      const lines=doc.splitTextToSize(duties, 175);
-      lines.forEach(line=>{
-        if(y>270){doc.addPage();y=20;}
-        doc.text(line, 20, y);
-        y+=5;
-      });
-      y+=3;
-    }
-    y+=5;
-    
-    // SKILLS
-    if(skills){
+  // Function to generate PDF
+  function generatePDF(){
+    try{
+      const {jsPDF}=window.jspdf;
+      const doc=new jsPDF();
+      
+      let y=20;
+      
+      // HEADER - Europass
+      doc.setFontSize(10);
+      doc.setTextColor(41,128,185);
+      doc.text('Curriculum Vitae Europass', 105, y, {align:'center'});
+      y+=15;
+      
+      // PERSONAL INFO
+      doc.setFillColor(41,128,185);
+      doc.rect(15, y, 180, 8, 'F');
+      doc.setFontSize(11);
+      doc.setTextColor(255,255,255);
+      doc.setFont(undefined,'bold');
+      doc.text('INFORMAZIONI PERSONALI', 17, y+5.5);
+      y+=12;
+      
+      doc.setTextColor(0,0,0);
+      doc.setFontSize(14);
+      doc.setFont(undefined,'bold');
+      doc.text(name.toUpperCase(), 17, y);
+      y+=8;
+      
+      doc.setFontSize(10);
+      doc.setFont(undefined,'normal');
+      if(phone){doc.text('Telefono: '+phone, 17, y); y+=6;}
+      if(email){doc.text('Email: '+email, 17, y); y+=6;}
+      if(city){doc.text('Residenza: '+city, 17, y); y+=6;}
+      if(fiscal){doc.text('Codice Fiscale: '+fiscal, 17, y); y+=6;}
+      y+=5;
+      
+      // PERMESSO
       doc.setFillColor(41,128,185);
       doc.rect(15, y, 180, 8, 'F');
       doc.setTextColor(255,255,255);
       doc.setFont(undefined,'bold');
-      doc.text('COMPETENZE PROFESSIONALI', 17, y+5.5);
+      doc.text('PERMESSO DI SOGGIORNO', 17, y+5.5);
       y+=12;
       
       doc.setTextColor(0,0,0);
       doc.setFont(undefined,'normal');
-      const skillLines=doc.splitTextToSize(skills, 175);
-      skillLines.forEach(line=>{
-        if(y>270){doc.addPage();y=20;}
-        doc.text(line, 17, y);
-        y+=5;
-      });
+      doc.text('Tipo: '+(permessoIt||permesso), 17, y); y+=6;
+      if(permitExp){
+        const d=new Date(permitExp);
+        doc.text('Scadenza: '+d.toLocaleDateString('it-IT'), 17, y); y+=6;
+      }
       y+=5;
+      
+      // LANGUAGES
+      doc.setFillColor(41,128,185);
+      doc.rect(15, y, 180, 8, 'F');
+      doc.setTextColor(255,255,255);
+      doc.setFont(undefined,'bold');
+      doc.text('COMPETENZE LINGUISTICHE', 17, y+5.5);
+      y+=12;
+      
+      doc.setTextColor(0,0,0);
+      doc.setFont(undefined,'normal');
+      
+      const lvl=italianLevel.split(' ')[0]||'A1';
+      doc.text('Italiano: '+lvl+' (Quadro Europeo)', 17, y); y+=5;
+      doc.text('Inglese: A2 - B1', 17, y); y+=5;
+      doc.text('Sinhala: Madrelingua', 17, y); y+=8;
+      
+      // WORK EXPERIENCE
+      doc.setFillColor(41,128,185);
+      doc.rect(15, y, 180, 8, 'F');
+      doc.setTextColor(255,255,255);
+      doc.setFont(undefined,'bold');
+      doc.text('ESPERIENZA PROFESSIONALE', 17, y+5.5);
+      y+=12;
+      
+      doc.setTextColor(0,0,0);
+      doc.setFont(undefined,'normal');
+      
+      if(years){doc.text('Periodo: '+years, 17, y); y+=6;}
+      if(employer){doc.text('Datore di lavoro: '+employer, 17, y); y+=6;}
+      if(workType){doc.text('Settore: '+workType.replace(/[🧓🧹👶🏭]/g,'').trim(), 17, y); y+=6;}
+      
+      if(duties){
+        doc.text('Mansioni e responsabilita:', 17, y); y+=6;
+        const lines=doc.splitTextToSize(duties, 175);
+        lines.forEach(line=>{
+          if(y>270){doc.addPage();y=20;}
+          doc.text(line, 20, y);
+          y+=5;
+        });
+        y+=3;
+      }
+      y+=5;
+      
+      // SKILLS
+      if(skills){
+        doc.setFillColor(41,128,185);
+        doc.rect(15, y, 180, 8, 'F');
+        doc.setTextColor(255,255,255);
+        doc.setFont(undefined,'bold');
+        doc.text('COMPETENZE PROFESSIONALI', 17, y+5.5);
+        y+=12;
+        
+        doc.setTextColor(0,0,0);
+        doc.setFont(undefined,'normal');
+        const skillLines=doc.splitTextToSize(skills, 175);
+        skillLines.forEach(line=>{
+          if(y>270){doc.addPage();y=20;}
+          doc.text(line, 17, y);
+          y+=5;
+        });
+      }
+      
+      // GDPR
+      if(y>250){doc.addPage();y=20;}
+      y=Math.max(y,260);
+      doc.setFontSize(8);
+      doc.setTextColor(100,100,100);
+      const gdpr='Autorizzo il trattamento dei miei dati personali ai sensi del D.Lgs. 196/2003 e del Regolamento UE 2016/679 (GDPR).';
+      const gdprLines=doc.splitTextToSize(gdpr, 175);
+      gdprLines.forEach(line=>{doc.text(line, 17, y);y+=4;});
+      
+      doc.setFontSize(7);
+      doc.text('CV generato tramite www.lankajobitaly.com - '+new Date().toLocaleDateString('it-IT'), 105, 290, {align:'center'});
+      
+      // Download
+      doc.save('CV_Europass_'+(fname||'Lanka')+'_'+(lname||'Job')+'.pdf');
+      
+      // Success
+      if(btn){
+        btn.textContent='✅ Downloaded!';
+        btn.style.background='var(--G)';
+        setTimeout(()=>{
+          btn.textContent='📥 Download Europass PDF';
+          btn.style.background='';
+          btn.disabled=false;
+        },2500);
+      }
+    }catch(e){
+      console.error('PDF Error:',e);
+      alert('Error generating PDF: '+e.message);
+      if(btn){
+        btn.textContent='❌ Error - Try Again';
+        btn.disabled=false;
+        setTimeout(()=>{btn.textContent='📥 Download Europass PDF';},3000);
+      }
     }
-    
-    // GDPR at bottom
-    if(y>250){doc.addPage();y=20;}
-    y=Math.max(y,260);
-    doc.setFontSize(8);
-    doc.setTextColor(100,100,100);
-    const gdprText='Autorizzo il trattamento dei miei dati personali ai sensi del D.Lgs. 196/2003 e del Regolamento UE 2016/679 (GDPR).';
-    const gdprLines=doc.splitTextToSize(gdprText, 175);
-    gdprLines.forEach(line=>{doc.text(line, 17, y);y+=4;});
-    
-    doc.setFontSize(7);
-    doc.text(`CV generato tramite www.lankajobitaly.com - ${new Date().toLocaleDateString('it-IT')}`, 105, 290, {align:'center'});
-    
-    // Download
-    doc.save(`CV_Europass_${fname||'Lanka'}_${lname||'Job'}.pdf`);
-    
-    // Success feedback
-    const btn=event.target;
-    const origText=btn.textContent;
-    btn.textContent='✅ Downloaded!';
-    btn.style.background='var(--G)';
-    setTimeout(()=>{btn.textContent=origText;btn.style.background='';},2500);
-  };
-  document.head.appendChild(script);
+  }
+  
+  // Load library if needed
+  if(typeof window.jspdf==='undefined'){
+    const script=document.createElement('script');
+    script.src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+    script.onload=generatePDF;
+    script.onerror=function(){
+      alert('Failed to load PDF library. Please check your internet connection.');
+      if(btn){
+        btn.textContent='📥 Download Europass PDF';
+        btn.disabled=false;
+      }
+    };
+    document.head.appendChild(script);
+  }else{
+    generatePDF();
+  }
 }
 function selTile(el,grp){
   document.querySelectorAll('#'+grp+' .opt-tile').forEach(t=>t.classList.remove('sel'));
