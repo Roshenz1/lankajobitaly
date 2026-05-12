@@ -1525,24 +1525,65 @@ img{max-width:100%;display:block}
 
 <div class="media-section">
   <div class="media-notice">
-    📡 Click ▶ Play Live to stream directly in your browser. If a stream fails, click 🌐 to open the station website.<br/>
-    <span style="font-family:'Noto Sans Sinhala',sans-serif;font-size:11px">ධාරාවක් ක්‍රියා නොකළ හොත් 🌐 ක්ලික් කර වෙබ් අඩවිය විවෘත කරන්න.</span>
+    📻 Click <strong>▶ Tune In</strong> to load the live stream right here on this page — no new tab needed.<br/>
+    <span style="font-family:'Noto Sans Sinhala',sans-serif;font-size:11px">▶ Tune In ඔබන්න — YouTube සජීවී ධාරාව මෙම පිටුවේම ලෝඩ් වේ.</span>
   </div>
   <div class="media-section-title">🇱🇰 Popular Sinhala &amp; Tamil Stations · ජනප්‍රිය රේඩියෝ නාලිකා</div>
   <div class="media-grid" id="radio-grid"></div>
 </div>
 
 <script>
+/* Radio stations — embed = YouTube live_stream channel ID or direct video ID */
 const RADIO_STATIONS=[
-  {id:'sirasa',name:'Sirasa FM',sin:'සිරස FM',freq:'107.4 MHz',emoji:'📻',bg:'#fff0f1',web:'https://www.youtube.com/@SirasaFMOfficial/live',site:'https://www.sirasamedia.lk/'},
-  {id:'hiru',name:'Hiru FM',sin:'හිරු FM',freq:'106.0 MHz',emoji:'🎵',bg:'#fff8e6',web:'https://www.youtube.com/@HiruFM/live',site:'https://www.hiruuniverse.com/'},
-  {id:'shakthi',name:'Shakthi FM',sin:'ශක්ති FM',freq:'97.0 MHz',emoji:'⚡',bg:'#eef3ff',web:'https://www.youtube.com/@ShakthiFMSriLanka/live',site:'https://www.shakthi.fm/'},
-  {id:'yes',name:'Yes FM',sin:'Yes FM',freq:'89.5 MHz',emoji:'✅',bg:'#e6f8f2',web:'https://www.youtube.com/@YesFMSriLanka/live',site:'https://www.yesfm.lk/'},
-  {id:'neth',name:'Neth FM',sin:'නෙත් FM',freq:'97.4 MHz',emoji:'🌿',bg:'#f3e8ff',web:'https://www.youtube.com/@NetHFMSriLanka/live',site:'https://www.slbc.lk/'},
-  {id:'tnl',name:'TNL Radio',sin:'TNL රේඩියෝ',freq:'101.5 MHz',emoji:'🎙️',bg:'#fff4e6',web:'https://www.youtube.com/@TNLTelevision/live',site:'https://www.tnlradio.lk/'},
-  {id:'sooriyan',name:'Sooriyan FM',sin:'සූරියන් FM',freq:'93.0 MHz',emoji:'☀️',bg:'#fffbeb',web:'https://www.youtube.com/@SooriyanFM/live',site:'https://sooriyanfm.lk/'},
-  {id:'swarna',name:'Swarna FM',sin:'ස්වර්ණ FM',freq:'90.0 MHz',emoji:'⭐',bg:'#fefce8',web:'https://www.youtube.com/@SwarnawahiniTV/live',site:'https://www.swarna.lk/'},
+  {id:'sirasa',name:'Sirasa FM',sin:'සිරස FM',freq:'107.4 MHz',emoji:'📻',bg:'#fff0f1',
+   embed:'live_stream?channel=UCpp3TTx7OU3SmCECA1-6r3w',site:'https://sirasafm.lk/'},
+  {id:'hiru',name:'Hiru FM',sin:'හිරු FM',freq:'96.1 MHz',emoji:'🎵',bg:'#fff8e6',
+   embed:'npYbd3o42sA',site:'https://www.hirufm.lk/'},
+  {id:'yes',name:'Yes FM',sin:'Yes FM',freq:'89.5 MHz',emoji:'✅',bg:'#e6f8f2',
+   embed:'live_stream?channel=UCXFcukf9VvSWp731oQDJ7Bg',site:'https://yesfmonline.com/'},
+  {id:'sooriyan',name:'Sooriyan FM',sin:'සූරියන් FM',freq:'103.6 MHz',emoji:'☀️',bg:'#fffbeb',
+   embed:'live_stream?channel=UCAhm21YQOdHZP7fKwMtyyeA',site:'https://www.sooriyanfm.lk/'},
 ];
+
+let activeRadio=null;
+
+function tuneIn(id){
+  const s=RADIO_STATIONS.find(x=>x.id===id);
+  if(!s)return;
+  const card=document.getElementById('rc-'+id);
+  const player=document.getElementById('rp-'+id);
+  const btn=document.getElementById('rb-'+id);
+  const wave=card.querySelector('.rc-wave');
+  if(player.querySelector('iframe')){
+    player.innerHTML='';
+    player.style.height='0';
+    player.style.marginTop='0';
+    btn.textContent='▶ Tune In';
+    card.classList.remove('playing');
+    wave.querySelectorAll('span').forEach(sp=>sp.style.opacity='.2');
+    activeRadio=null;
+    return;
+  }
+  /* close any other open player first */
+  if(activeRadio&&activeRadio!==id){
+    const prevPlayer=document.getElementById('rp-'+activeRadio);
+    const prevBtn=document.getElementById('rb-'+activeRadio);
+    const prevCard=document.getElementById('rc-'+activeRadio);
+    if(prevPlayer){prevPlayer.innerHTML='';prevPlayer.style.height='0';prevPlayer.style.marginTop='0';}
+    if(prevBtn)prevBtn.textContent='▶ Tune In';
+    if(prevCard){prevCard.classList.remove('playing');prevCard.querySelectorAll('.rc-wave span').forEach(sp=>sp.style.opacity='.2');}
+  }
+  const src=s.embed.startsWith('live_stream')
+    ?`https://www.youtube.com/embed/${s.embed}&autoplay=1`
+    :`https://www.youtube.com/embed/${s.embed}?autoplay=1`;
+  player.style.height='200px';
+  player.style.marginTop='12px';
+  player.innerHTML=`<iframe src="${src}" frameborder="0" allow="autoplay;encrypted-media;fullscreen" allowfullscreen style="width:100%;height:100%;border:0;border-radius:8px"></iframe>`;
+  btn.textContent='⏹ Stop';
+  card.classList.add('playing');
+  wave.querySelectorAll('span').forEach(sp=>sp.style.opacity='1');
+  activeRadio=id;
+}
 
 function buildRadioGrid(){
   const g=document.getElementById('radio-grid');
@@ -1559,9 +1600,10 @@ function buildRadioGrid(){
       </div>
       <div class="rc-wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
       <div class="rc-btns">
-        <button class="rc-play" onclick="window.open('${s.web}','_blank')">▶ Listen Live</button>
+        <button class="rc-play" id="rb-${s.id}" onclick="tuneIn('${s.id}')">▶ Tune In</button>
         <a class="rc-web" href="${s.site}" target="_blank" title="Official website">🌐</a>
       </div>
+      <div id="rp-${s.id}" style="height:0;overflow:hidden;transition:height .3s ease,margin-top .3s ease"></div>
     </div>`).join('');
 }
 buildRadioGrid();
@@ -1578,38 +1620,63 @@ buildRadioGrid();
 
 <div class="media-section">
   <div class="media-notice" style="background:var(--Bl);border-color:rgba(26,86,219,.3)">
-    📺 Click "Watch Live" to open each channel's official YouTube live stream in a new tab.<br/>
-    <span style="font-family:'Noto Sans Sinhala',sans-serif;font-size:11px">"Watch Live" ක්ලික් කළ විට YouTube සජීවී ධාරාව නව ටැබයක විවෘත වේ.</span>
+    📺 Click <strong>▶ Watch Live</strong> to load the channel's 24/7 live stream right here on this page.<br/>
+    <span style="font-family:'Noto Sans Sinhala',sans-serif;font-size:11px">▶ Watch Live ඔබන්න — 24/7 සජීවී ධාරාව මෙම පිටුවේම ලෝඩ් වේ.</span>
   </div>
   <div class="media-section-title">🇱🇰 Live TV Channels · සජීවී TV නාලිකා</div>
   <div class="media-grid" id="tv-grid"></div>
 </div>
 
 <script>
+/* TV channels — vid = YouTube 24/7 live stream video ID */
 const TV_CHANNELS=[
-  {name:'Sirasa TV',sin:'සිරස TV',desc:'Drama, entertainment & news',emoji:'🔴',bg:'linear-gradient(135deg,#e8192c,#c0101f)',yt:'https://www.youtube.com/@SirasaTV/live'},
-  {name:'Hiru TV',sin:'හිරු TV',desc:"Sri Lanka's #1 entertainment channel",emoji:'⭐',bg:'linear-gradient(135deg,#f59f00,#d97706)',yt:'https://www.youtube.com/@HiruTV/live'},
-  {name:'Rupavahini',sin:'රූපවාහිනී',desc:'National Broadcast — SLRC',emoji:'🏛️',bg:'linear-gradient(135deg,#1a56db,#1e40af)',yt:'https://www.youtube.com/@RupavahiniTV/live'},
-  {name:'TV Derana',sin:'TV දෙරණ',desc:'News, drama & entertainment',emoji:'📡',bg:'linear-gradient(135deg,#e85d04,#c2410c)',yt:'https://www.youtube.com/@tvderana/live'},
-  {name:'Swarnawahini',sin:'ස්වර්ණවාහිනී',desc:'Sinhala drama & programmes',emoji:'🌟',bg:'linear-gradient(135deg,#c9a227,#a16207)',yt:'https://www.youtube.com/@swarnawahini/live'},
-  {name:'Ada Derana',sin:'ආදා දෙරණ',desc:'24/7 news & current affairs',emoji:'📰',bg:'linear-gradient(135deg,#d00000,#9b0000)',yt:'https://www.youtube.com/@AdaDerana/live'},
-  {name:'Shakthi TV',sin:'ශක්ති TV',desc:'Tamil language channel',emoji:'⚡',bg:'linear-gradient(135deg,#6741d9,#4c1d95)',yt:'https://www.youtube.com/@ShakthiTV/live'},
-  {name:'TV 1',sin:'TV 1',desc:'Music & entertainment',emoji:'🎬',bg:'linear-gradient(135deg,#00a86b,#065f46)',yt:'https://www.youtube.com/@tv1srilanka/live'},
+  {name:'Sirasa TV',sin:'සිරස TV',desc:'Drama, entertainment & news',emoji:'🔴',
+   bg:'linear-gradient(135deg,#e8192c,#c0101f)',vid:'sjYsrbWNTkk',yt:'https://www.youtube.com/channel/UCn0XmAUFv6d2tofMFEesSNw/live'},
+  {name:'Hiru TV',sin:'හිරු TV',desc:"Sri Lanka's No.1 entertainment channel",emoji:'⭐',
+   bg:'linear-gradient(135deg,#f59f00,#d97706)',vid:'p-OvM8hxx4s',yt:'https://www.youtube.com/channel/UCOtYyt7W5PmPnwQjWWF_Z-Q/live'},
+  {name:'Rupavahini',sin:'රූපවාහිනී',desc:'National Broadcast — SLRC',emoji:'🏛️',
+   bg:'linear-gradient(135deg,#1a56db,#1e40af)',vid:'Erwo6lFrxQU',yt:'https://www.youtube.com/channel/UCT83ymyAGm7Gnk_4ifxjxIA/live'},
+  {name:'TV Derana',sin:'TV දෙරණ',desc:'News, drama & entertainment',emoji:'📡',
+   bg:'linear-gradient(135deg,#e85d04,#c2410c)',vid:'8gGvKflB2BU',yt:'https://www.youtube.com/channel/UCbkMFGQ_RWIf0OiYeOpf6Ng/live'},
+  {name:'Swarnavahini',sin:'ස්වර්ණවාහිනී',desc:'Sinhala drama & programmes',emoji:'🌟',
+   bg:'linear-gradient(135deg,#c9a227,#a16207)',vid:'Hpzxu1pN3WI',yt:'https://www.youtube.com/channel/UCaIc6SgS90ud_RgMSC6hW_w/live'},
+  {name:'Ada Derana 24',sin:'ආදා දෙරණ',desc:'24/7 news & current affairs',emoji:'📰',
+   bg:'linear-gradient(135deg,#d00000,#9b0000)',vid:'bykPHLCpigs',yt:'https://www.youtube.com/channel/UCW_rA_jb-_vbZtU4cTpnT5Q/live'},
 ];
 
 function buildTVGrid(){
   const g=document.getElementById('tv-grid');
   if(!g)return;
-  g.innerHTML=TV_CHANNELS.map(ch=>`
-    <div class="tv-card">
-      <div class="tv-thumb" style="background:${ch.bg}">${ch.emoji}</div>
+  g.innerHTML=TV_CHANNELS.map((ch,i)=>`
+    <div class="tv-card" id="tvc-${i}">
+      <div class="tv-thumb" id="tvt-${i}" style="background:${ch.bg}">${ch.emoji}</div>
       <div class="tv-body">
         <div class="tv-name">${ch.name}</div>
         <div class="tv-sin">${ch.sin}</div>
         <div class="tv-desc">${ch.desc}</div>
-        <button class="tv-btn" onclick="window.open('${ch.yt}','_blank')">▶ Watch Live</button>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="tv-btn" id="tvb-${i}" onclick="loadTV(${i})" style="flex:1">▶ Watch Live</button>
+          <a href="${ch.yt}" target="_blank" title="Open on YouTube" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;background:#ff0000;border-radius:8px;text-decoration:none;font-size:14px;flex-shrink:0">▶</a>
+        </div>
       </div>
     </div>`).join('');
+}
+
+function loadTV(i){
+  const ch=TV_CHANNELS[i];
+  const thumb=document.getElementById('tvt-'+i);
+  const btn=document.getElementById('tvb-'+i);
+  if(thumb.querySelector('iframe')){
+    thumb.innerHTML=ch.emoji;
+    thumb.style.height='90px';
+    thumb.style.padding='';
+    btn.textContent='▶ Watch Live';
+    return;
+  }
+  thumb.style.height='210px';
+  thumb.style.padding='0';
+  thumb.innerHTML=`<iframe src="https://www.youtube.com/embed/${ch.vid}?autoplay=1" frameborder="0" allow="autoplay;encrypted-media;fullscreen" allowfullscreen style="width:100%;height:100%;border:0"></iframe>`;
+  btn.textContent='✕ Close';
 }
 buildTVGrid();
 </script>
