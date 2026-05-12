@@ -1525,27 +1525,57 @@ img{max-width:100%;display:block}
 
 <div class="media-section">
   <div class="media-notice">
-    📻 Click <strong>▶ Tune In</strong> to load the live stream right here on this page — no new tab needed.<br/>
-    <span style="font-family:'Noto Sans Sinhala',sans-serif;font-size:11px">▶ Tune In ඔබන්න — YouTube සජීවී ධාරාව මෙම පිටුවේම ලෝඩ් වේ.</span>
+    📻 Click <strong>▶ Tune In</strong> — audio plays live directly in your browser. No new tab needed.<br/>
+    <span style="font-family:'Noto Sans Sinhala',sans-serif;font-size:11px">▶ Tune In ඔබන්න — සජීවී ශ්‍රව්‍ය ධාරාව කෙලින්ම බ්‍රව්සරයේ වාදනය වේ.</span>
   </div>
-  <div class="media-section-title">🇱🇰 Popular Sinhala &amp; Tamil Stations · ජනප්‍රිය රේඩියෝ නාලිකා</div>
+  <div class="media-section-title">🇱🇰 Sri Lankan Live Radio Stations · ශ්‍රී ලාංකික රේඩියෝ</div>
   <div class="media-grid" id="radio-grid"></div>
 </div>
 
 <script>
-/* Radio stations — embed = YouTube live_stream channel ID or direct video ID */
+/*
+ * type:'audio' — HTTPS audio stream, plays via HTML5 <audio>
+ * type:'yt'    — YouTube live embed (fallback for stations without HTTPS streams)
+ */
 const RADIO_STATIONS=[
-  {id:'sirasa',name:'Sirasa FM',sin:'සිරස FM',freq:'107.4 MHz',emoji:'📻',bg:'#fff0f1',
-   embed:'live_stream?channel=UCpp3TTx7OU3SmCECA1-6r3w',site:'https://sirasafm.lk/'},
-  {id:'hiru',name:'Hiru FM',sin:'හිරු FM',freq:'96.1 MHz',emoji:'🎵',bg:'#fff8e6',
-   embed:'npYbd3o42sA',site:'https://www.hirufm.lk/'},
-  {id:'yes',name:'Yes FM',sin:'Yes FM',freq:'89.5 MHz',emoji:'✅',bg:'#e6f8f2',
-   embed:'live_stream?channel=UCXFcukf9VvSWp731oQDJ7Bg',site:'https://yesfmonline.com/'},
-  {id:'sooriyan',name:'Sooriyan FM',sin:'සූරියන් FM',freq:'103.6 MHz',emoji:'☀️',bg:'#fffbeb',
-   embed:'live_stream?channel=UCAhm21YQOdHZP7fKwMtyyeA',site:'https://www.sooriyanfm.lk/'},
+  {id:'hiru',   name:'Hiru FM',        sin:'හිරු FM',       freq:'96.1 MHz', emoji:'🎵',bg:'#fff8e6',
+   type:'audio',src:'https://radio.lotustechnologieslk.net:2020/stream/hirufmgarden',   site:'https://www.hirufm.lk/'},
+  {id:'sirasa', name:'Sirasa FM',      sin:'සිරස FM',       freq:'106.5 MHz',emoji:'📻',bg:'#fff0f1',
+   type:'yt',   src:'live_stream?channel=UCpp3TTx7OU3SmCECA1-6r3w',                      site:'https://sirasafm.lk/'},
+  {id:'sooriyan',name:'Sooriyan FM',   sin:'සූරියන් FM',    freq:'103.6 MHz',emoji:'☀️',bg:'#fffbeb',
+   type:'audio',src:'https://radio.lotustechnologieslk.net:8006/',                       site:'https://www.sooriyanfm.lk/'},
+  {id:'shakthi',name:'Shakthi FM',     sin:'ශක්ති FM',      freq:'104.1 MHz',emoji:'⚡',bg:'#eef3ff',
+   type:'audio',src:'https://mbc.thestreamtech.com:8086/stream',                         site:'https://www.shakthi.fm/'},
+  {id:'gold',   name:'Gold FM',        sin:'ගෝල්ඩ් FM',     freq:'105.6 MHz',emoji:'🌟',bg:'#fefce8',
+   type:'audio',src:'https://radio.lotustechnologieslk.net:2020/stream/goldfmgarden',   site:'https://www.goldfm.lk/'},
+  {id:'sun',    name:'Sun FM',         sin:'සන් FM',        freq:'96.7 MHz', emoji:'🌤️',bg:'#fef9c3',
+   type:'audio',src:'https://radio.lotustechnologieslk.net:2020/stream/sunfmgarden',    site:'https://www.sunfm.lk/'},
+  {id:'neth',   name:'Neth FM',        sin:'නෙත් FM',       freq:'97.4 MHz', emoji:'🌿',bg:'#f3e8ff',
+   type:'audio',src:'https://cp11.serverse.com/proxy/nethfm/stream',                    site:'https://www.slbc.lk/'},
+  {id:'siyatha',name:'Siyatha FM',     sin:'සියත FM',       freq:'100.4 MHz',emoji:'🎙️',bg:'#fff4e6',
+   type:'audio',src:'https://srv01.onlineradio.voaplus.com/siyathafm',                  site:'https://www.siyathatv.lk/'},
+  {id:'classic',name:'Classic Radio',  sin:'ක්ලැසික් රේඩියෝ',freq:'—',      emoji:'🎼',bg:'#fdf4ff',
+   type:'audio',src:'https://cp11.serverse.com/proxy/classic/stream',                   site:'https://onlineradiobox.com/lk/classiconline/'},
+  {id:'yes',    name:'Yes FM',         sin:'Yes FM',         freq:'89.5 MHz', emoji:'✅',bg:'#e6f8f2',
+   type:'yt',   src:'live_stream?channel=UCXFcukf9VvSWp731oQDJ7Bg',                     site:'https://yesfmonline.com/'},
 ];
 
 let activeRadio=null;
+
+function stopRadio(id){
+  const card=document.getElementById('rc-'+id);
+  const player=document.getElementById('rp-'+id);
+  const btn=document.getElementById('rb-'+id);
+  if(!card)return;
+  const audio=player.querySelector('audio');
+  if(audio){audio.pause();audio.src='';}
+  player.innerHTML='';
+  player.style.height='0';
+  player.style.marginTop='0';
+  btn.textContent='▶ Tune In';
+  card.classList.remove('playing');
+  card.querySelectorAll('.rc-wave span').forEach(sp=>sp.style.opacity='.2');
+}
 
 function tuneIn(id){
   const s=RADIO_STATIONS.find(x=>x.id===id);
@@ -1553,36 +1583,33 @@ function tuneIn(id){
   const card=document.getElementById('rc-'+id);
   const player=document.getElementById('rp-'+id);
   const btn=document.getElementById('rb-'+id);
-  const wave=card.querySelector('.rc-wave');
-  if(player.querySelector('iframe')){
-    player.innerHTML='';
-    player.style.height='0';
-    player.style.marginTop='0';
-    btn.textContent='▶ Tune In';
-    card.classList.remove('playing');
-    wave.querySelectorAll('span').forEach(sp=>sp.style.opacity='.2');
-    activeRadio=null;
-    return;
+  /* toggle off if already playing */
+  if(player.innerHTML.trim()){stopRadio(id);activeRadio=null;return;}
+  /* stop previous */
+  if(activeRadio&&activeRadio!==id)stopRadio(activeRadio);
+  activeRadio=id;
+  if(s.type==='audio'){
+    player.style.height='auto';
+    player.style.marginTop='12px';
+    player.innerHTML=`<audio controls autoplay style="width:100%;border-radius:8px;height:40px" src="${s.src}">
+      Your browser does not support audio.
+    </audio>
+    <p style="font-size:10px;color:#888;margin-top:4px;text-align:center">🔴 LIVE · ${s.name} · <a href="${s.site}" target="_blank" style="color:#888">official site</a></p>`;
+    const au=player.querySelector('audio');
+    au.addEventListener('error',()=>{
+      player.innerHTML=`<p style="font-size:12px;color:#c00;text-align:center;padding:8px">⚠️ Stream unavailable right now. <a href="${s.site}" target="_blank">Try official site</a></p>`;
+    });
+  } else {
+    const src=s.src.startsWith('live_stream')
+      ?`https://www.youtube.com/embed/${s.src}&autoplay=1`
+      :`https://www.youtube.com/embed/${s.src}?autoplay=1`;
+    player.style.height='200px';
+    player.style.marginTop='12px';
+    player.innerHTML=`<iframe src="${src}" frameborder="0" allow="autoplay;encrypted-media;fullscreen" allowfullscreen style="width:100%;height:100%;border:0;border-radius:8px"></iframe>`;
   }
-  /* close any other open player first */
-  if(activeRadio&&activeRadio!==id){
-    const prevPlayer=document.getElementById('rp-'+activeRadio);
-    const prevBtn=document.getElementById('rb-'+activeRadio);
-    const prevCard=document.getElementById('rc-'+activeRadio);
-    if(prevPlayer){prevPlayer.innerHTML='';prevPlayer.style.height='0';prevPlayer.style.marginTop='0';}
-    if(prevBtn)prevBtn.textContent='▶ Tune In';
-    if(prevCard){prevCard.classList.remove('playing');prevCard.querySelectorAll('.rc-wave span').forEach(sp=>sp.style.opacity='.2');}
-  }
-  const src=s.embed.startsWith('live_stream')
-    ?`https://www.youtube.com/embed/${s.embed}&autoplay=1`
-    :`https://www.youtube.com/embed/${s.embed}?autoplay=1`;
-  player.style.height='200px';
-  player.style.marginTop='12px';
-  player.innerHTML=`<iframe src="${src}" frameborder="0" allow="autoplay;encrypted-media;fullscreen" allowfullscreen style="width:100%;height:100%;border:0;border-radius:8px"></iframe>`;
   btn.textContent='⏹ Stop';
   card.classList.add('playing');
-  wave.querySelectorAll('span').forEach(sp=>sp.style.opacity='1');
-  activeRadio=id;
+  card.querySelectorAll('.rc-wave span').forEach(sp=>sp.style.opacity='1');
 }
 
 function buildRadioGrid(){
