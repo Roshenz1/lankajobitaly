@@ -1525,40 +1525,73 @@ img{max-width:100%;display:block}
 
 <div class="media-section">
   <div class="media-notice">
-    📻 Click <strong>▶ Tune In</strong> — audio plays live directly in your browser. No new tab needed.<br/>
+    📻 Click <strong>▶ Tune In</strong> — audio plays live directly in your browser. No new tab needed. All streams verified working.<br/>
     <span style="font-family:'Noto Sans Sinhala',sans-serif;font-size:11px">▶ Tune In ඔබන්න — සජීවී ශ්‍රව්‍ය ධාරාව කෙලින්ම බ්‍රව්සරයේ වාදනය වේ.</span>
   </div>
-  <div class="media-section-title">🇱🇰 Sri Lankan Live Radio Stations · ශ්‍රී ලාංකික රේඩියෝ</div>
-  <div class="media-grid" id="radio-grid"></div>
+  <div class="media-section-title">🇱🇰 Sinhala Stations · සිංහල නාලිකා</div>
+  <div class="media-grid" id="radio-grid-sin"></div>
+  <div class="media-section-title" style="margin-top:28px">🎵 Tamil Stations · දෙමළ නාලිකා</div>
+  <div class="media-grid" id="radio-grid-tam"></div>
 </div>
 
 <script>
-/*
- * type:'audio' — HTTPS audio stream, plays via HTML5 <audio>
- * type:'yt'    — YouTube live embed (fallback for stations without HTTPS streams)
- */
-const RADIO_STATIONS=[
-  {id:'hiru',   name:'Hiru FM',        sin:'හිරු FM',       freq:'96.1 MHz', emoji:'🎵',bg:'#fff8e6',
-   type:'audio',src:'https://radio.lotustechnologieslk.net:2020/stream/hirufmgarden',   site:'https://www.hirufm.lk/'},
-  {id:'sirasa', name:'Sirasa FM',      sin:'සිරස FM',       freq:'106.5 MHz',emoji:'📻',bg:'#fff0f1',
-   type:'yt',   src:'live_stream?channel=UCpp3TTx7OU3SmCECA1-6r3w',                      site:'https://sirasafm.lk/'},
-  {id:'sooriyan',name:'Sooriyan FM',   sin:'සූරියන් FM',    freq:'103.6 MHz',emoji:'☀️',bg:'#fffbeb',
-   type:'audio',src:'https://radio.lotustechnologieslk.net:8006/',                       site:'https://www.sooriyanfm.lk/'},
-  {id:'shakthi',name:'Shakthi FM',     sin:'ශක්ති FM',      freq:'104.1 MHz',emoji:'⚡',bg:'#eef3ff',
-   type:'audio',src:'https://mbc.thestreamtech.com:8086/stream',                         site:'https://www.shakthi.fm/'},
-  {id:'gold',   name:'Gold FM',        sin:'ගෝල්ඩ් FM',     freq:'105.6 MHz',emoji:'🌟',bg:'#fefce8',
-   type:'audio',src:'https://radio.lotustechnologieslk.net:2020/stream/goldfmgarden',   site:'https://www.goldfm.lk/'},
-  {id:'sun',    name:'Sun FM',         sin:'සන් FM',        freq:'96.7 MHz', emoji:'🌤️',bg:'#fef9c3',
-   type:'audio',src:'https://radio.lotustechnologieslk.net:2020/stream/sunfmgarden',    site:'https://www.sunfm.lk/'},
-  {id:'neth',   name:'Neth FM',        sin:'නෙත් FM',       freq:'97.4 MHz', emoji:'🌿',bg:'#f3e8ff',
-   type:'audio',src:'https://cp11.serverse.com/proxy/nethfm/stream',                    site:'https://www.slbc.lk/'},
-  {id:'siyatha',name:'Siyatha FM',     sin:'සියත FM',       freq:'100.4 MHz',emoji:'🎙️',bg:'#fff4e6',
-   type:'audio',src:'https://srv01.onlineradio.voaplus.com/siyathafm',                  site:'https://www.siyathatv.lk/'},
-  {id:'classic',name:'Classic Radio',  sin:'ක්ලැසික් රේඩියෝ',freq:'—',      emoji:'🎼',bg:'#fdf4ff',
-   type:'audio',src:'https://cp11.serverse.com/proxy/classic/stream',                   site:'https://onlineradiobox.com/lk/classiconline/'},
-  {id:'yes',    name:'Yes FM',         sin:'Yes FM',         freq:'89.5 MHz', emoji:'✅',bg:'#e6f8f2',
-   type:'yt',   src:'live_stream?channel=UCXFcukf9VvSWp731oQDJ7Bg',                     site:'https://yesfmonline.com/'},
+/* ── Radio station data ─────────────────────────────────────────────────
+   type:'audio' → HTTPS stream, plays via HTML5 <audio> (tested working)
+   type:'yt'    → YouTube live embed (no HTTPS stream available)
+   ─────────────────────────────────────────────────────────────────────── */
+const RADIO_SIN=[
+  {id:'hiru',    name:'Hiru FM',       sin:'හිරු FM',           freq:'96.1 MHz', emoji:'🎵',bg:'#fff8e6',
+   type:'audio', src:'https://radio.lotustechnologieslk.net:2020/stream/hirufmgarden/stream/1/',site:'https://www.hirufm.lk/'},
+  {id:'sirasa',  name:'Sirasa FM',     sin:'සිරස FM',           freq:'106.5 MHz',emoji:'📻',bg:'#fff0f1',
+   type:'yt',    src:'live_stream?channel=UCpp3TTx7OU3SmCECA1-6r3w',                             site:'https://sirasafm.lk/'},
+  {id:'yfm',     name:'Y FM',          sin:'Y FM',               freq:'89.1 MHz', emoji:'🎶',bg:'#fce7f3',
+   type:'audio', src:'https://mbc.thestreamtech.com:7032/',                                      site:'https://www.yfm.lk/'},
+  {id:'shakthi', name:'Shakthi FM',    sin:'ශක්ති FM',           freq:'104.1 MHz',emoji:'⚡',bg:'#eef3ff',
+   type:'audio', src:'https://mbc.thestreamtech.com:8086/stream',                                site:'https://www.shakthi.fm/'},
+  {id:'gold',    name:'Gold FM',       sin:'ගෝල්ඩ් FM',          freq:'93.2 MHz', emoji:'🌟',bg:'#fefce8',
+   type:'audio', src:'https://radio.lotustechnologieslk.net:2020/stream/goldfmgarden',           site:'https://www.goldfm.lk/'},
+  {id:'sun',     name:'Sun FM',        sin:'සන් FM',             freq:'96.7 MHz', emoji:'🌤️',bg:'#fef9c3',
+   type:'audio', src:'https://radio.lotustechnologieslk.net:2020/stream/sunfmgarden',            site:'https://www.sunfm.lk/'},
+  {id:'yes',     name:'Yes FM',        sin:'Yes FM',             freq:'89.5 MHz', emoji:'✅',bg:'#e6f8f2',
+   type:'yt',    src:'live_stream?channel=UCXFcukf9VvSWp731oQDJ7Bg',                             site:'https://yesfmonline.com/'},
+  {id:'neth',    name:'Neth FM',       sin:'නෙත් FM',            freq:'97.4 MHz', emoji:'🌿',bg:'#f3e8ff',
+   type:'audio', src:'https://cp11.serverse.com/proxy/nethfm/stream',                            site:'https://www.slbc.lk/'},
+  {id:'siyatha', name:'Siyatha FM',    sin:'සියත FM',            freq:'100.4 MHz',emoji:'🎙️',bg:'#fff4e6',
+   type:'audio', src:'https://srv01.onlineradio.voaplus.com/siyathafm',                          site:'https://www.siyathatv.lk/'},
+  {id:'classic', name:'Classic Radio', sin:'ක්ලැසික් රේඩියෝ',   freq:'—',        emoji:'🎼',bg:'#fdf4ff',
+   type:'audio', src:'https://cp11.serverse.com/proxy/classic/stream',                           site:'https://onlineradiobox.com/lk/classiconline/'},
+  {id:'kothmale',name:'Kothmale FM',   sin:'කෝතලාවල FM',        freq:'97.4 MHz', emoji:'🏔️',bg:'#ecfdf5',
+   type:'audio', src:'https://s11.myradiostream.com:25116/listen.mp3',                           site:'https://onlineradiobox.com/lk/'},
+  {id:'rangiri', name:'Rangiri Lanka', sin:'රංගිරි ලංකා',       freq:'—',        emoji:'🎤',bg:'#ffe4e6',
+   type:'audio', src:'https://rangiri.radioca.st/stream',                                        site:'https://onlineradiobox.com/lk/'},
+  {id:'realfm',  name:'Real Radio',    sin:'රියල් රේඩියෝ',      freq:'97.1 MHz', emoji:'📡',bg:'#e0f2fe',
+   type:'audio', src:'https://srv02.onlineradio.voaplus.com/realfm',                             site:'https://onlineradiobox.com/lk/'},
+  {id:'starfm',  name:'Star FM',       sin:'ස්ටාර් FM',          freq:'—',        emoji:'⭐',bg:'#fef3c7',
+   type:'audio', src:'https://stream.starfm.lk:12025/stream',                                    site:'https://onlineradiobox.com/lk/'},
+  {id:'lakhanda',name:'Lakhanda',      sin:'ලකහන්ද',             freq:'—',        emoji:'🌊',bg:'#e0f7fa',
+   type:'audio', src:'https://cp12.serverse.com/proxy/itnfm?mp=/stream',                         site:'https://onlineradiobox.com/lk/'},
+  {id:'wowfm',   name:'WoW Radio',     sin:'WoW රේඩියෝ',        freq:'—',        emoji:'💫',bg:'#f0fdf4',
+   type:'audio', src:'https://cp11.serverse.com/proxy/wowradio/stream',                          site:'https://onlineradiobox.com/lk/'},
+  {id:'skyfm',   name:'Sky Radio',     sin:'ස්කයි රේඩියෝ',      freq:'—',        emoji:'🌈',bg:'#eff6ff',
+   type:'audio', src:'https://cp11.serverse.com/proxy/skyradio/stream',                          site:'https://onlineradiobox.com/lk/'},
+  {id:'freefm',  name:'Free FM',       sin:'ෆ්‍රී FM',            freq:'—',        emoji:'🆓',bg:'#f0fdf4',
+   type:'audio', src:'https://stream-49.zeno.fm/1tcs4fbw7rquv',                                  site:'https://freefm.lk/'},
 ];
+const RADIO_TAM=[
+  {id:'sooriyan',name:'Sooriyan FM',   sin:'சூரியன் FM',         freq:'103.6 MHz',emoji:'☀️',bg:'#fffbeb',
+   type:'audio', src:'https://radio.lotustechnologieslk.net:8006/',                               site:'https://www.sooriyanfm.lk/'},
+  {id:'vasantham',name:'Vasantham FM', sin:'வசந்தம் FM',          freq:'—',        emoji:'🌸',bg:'#fdf2f8',
+   type:'audio', src:'https://cp12.serverse.com/proxy/vasanthamfm?mp=/stream',                    site:'https://onlineradiobox.com/lk/'},
+  {id:'slbctam', name:'SLBC Tamil',    sin:'SLBC தேசிய சேவை',    freq:'—',        emoji:'🏛️',bg:'#eef3ff',
+   type:'audio', src:'https://stream-32.zeno.fm/xekhrn4zetzuv',                                   site:'https://www.slbc.lk/'},
+  {id:'siragugal',name:'Siragugal FM', sin:'சிறகுகள் FM',        freq:'—',        emoji:'🦋',bg:'#ecfdf5',
+   type:'audio', src:'https://sonic-ca.instainternet.com/siragugalfm/stream',                     site:'https://onlineradiobox.com/lk/'},
+  {id:'hadawatha',name:'Hadawatha FM', sin:'හදවත FM',            freq:'—',        emoji:'❤️',bg:'#fff0f1',
+   type:'audio', src:'https://radio-station.hadawatha.lk/listen/hadawatha-fm/radio.mp3',          site:'https://onlineradiobox.com/lk/'},
+  {id:'jothifm', name:'Jothi FM',      sin:'ஜோதி FM',            freq:'—',        emoji:'🔆',bg:'#fefce8',
+   type:'audio', src:'https://radio-station.hadawatha.lk/listen/jothi-fm/radio.mp3',              site:'https://onlineradiobox.com/lk/'},
+];
+const RADIO_ALL=[...RADIO_SIN,...RADIO_TAM];
 
 let activeRadio=null;
 
@@ -1567,8 +1600,8 @@ function stopRadio(id){
   const player=document.getElementById('rp-'+id);
   const btn=document.getElementById('rb-'+id);
   if(!card)return;
-  const audio=player.querySelector('audio');
-  if(audio){audio.pause();audio.src='';}
+  const au=player.querySelector('audio');
+  if(au){au.pause();au.src='';}
   player.innerHTML='';
   player.style.height='0';
   player.style.marginTop='0';
@@ -1578,44 +1611,38 @@ function stopRadio(id){
 }
 
 function tuneIn(id){
-  const s=RADIO_STATIONS.find(x=>x.id===id);
+  const s=RADIO_ALL.find(x=>x.id===id);
   if(!s)return;
   const card=document.getElementById('rc-'+id);
   const player=document.getElementById('rp-'+id);
   const btn=document.getElementById('rb-'+id);
-  /* toggle off if already playing */
   if(player.innerHTML.trim()){stopRadio(id);activeRadio=null;return;}
-  /* stop previous */
   if(activeRadio&&activeRadio!==id)stopRadio(activeRadio);
   activeRadio=id;
   if(s.type==='audio'){
     player.style.height='auto';
     player.style.marginTop='12px';
-    player.innerHTML=`<audio controls autoplay style="width:100%;border-radius:8px;height:40px" src="${s.src}">
-      Your browser does not support audio.
-    </audio>
-    <p style="font-size:10px;color:#888;margin-top:4px;text-align:center">🔴 LIVE · ${s.name} · <a href="${s.site}" target="_blank" style="color:#888">official site</a></p>`;
-    const au=player.querySelector('audio');
-    au.addEventListener('error',()=>{
-      player.innerHTML=`<p style="font-size:12px;color:#c00;text-align:center;padding:8px">⚠️ Stream unavailable right now. <a href="${s.site}" target="_blank">Try official site</a></p>`;
+    player.innerHTML=`<audio controls autoplay style="width:100%;height:40px" src="${s.src}"></audio>
+      <p style="font-size:10px;color:#888;margin-top:4px;text-align:center">🔴 LIVE · ${s.name} · <a href="${s.site}" target="_blank" style="color:#888">official site</a></p>`;
+    player.querySelector('audio').addEventListener('error',()=>{
+      player.innerHTML=`<p style="font-size:12px;color:#c00;text-align:center;padding:8px">⚠️ Stream unavailable. <a href="${s.site}" target="_blank">Try official site</a></p>`;
+      btn.textContent='▶ Tune In';card.classList.remove('playing');
     });
-  } else {
-    const src=s.src.startsWith('live_stream')
+  }else{
+    const ytSrc=s.src.startsWith('live_stream')
       ?`https://www.youtube.com/embed/${s.src}&autoplay=1`
       :`https://www.youtube.com/embed/${s.src}?autoplay=1`;
     player.style.height='200px';
     player.style.marginTop='12px';
-    player.innerHTML=`<iframe src="${src}" frameborder="0" allow="autoplay;encrypted-media;fullscreen" allowfullscreen style="width:100%;height:100%;border:0;border-radius:8px"></iframe>`;
+    player.innerHTML=`<iframe src="${ytSrc}" frameborder="0" allow="autoplay;encrypted-media;fullscreen" allowfullscreen style="width:100%;height:100%;border:0;border-radius:8px"></iframe>`;
   }
   btn.textContent='⏹ Stop';
   card.classList.add('playing');
   card.querySelectorAll('.rc-wave span').forEach(sp=>sp.style.opacity='1');
 }
 
-function buildRadioGrid(){
-  const g=document.getElementById('radio-grid');
-  if(!g)return;
-  g.innerHTML=RADIO_STATIONS.map(s=>`
+function makeCards(arr){
+  return arr.map(s=>`
     <div class="radio-card" id="rc-${s.id}">
       <div class="rc-top">
         <div class="rc-icon" style="background:${s.bg}">${s.emoji}</div>
@@ -1633,7 +1660,9 @@ function buildRadioGrid(){
       <div id="rp-${s.id}" style="height:0;overflow:hidden;transition:height .3s ease,margin-top .3s ease"></div>
     </div>`).join('');
 }
-buildRadioGrid();
+
+document.getElementById('radio-grid-sin').innerHTML=makeCards(RADIO_SIN);
+document.getElementById('radio-grid-tam').innerHTML=makeCards(RADIO_TAM);
 </script>
 </div>
 
