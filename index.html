@@ -1543,9 +1543,9 @@ const RADIO_SIN=[
   {id:'hiru',    name:'Hiru FM',       sin:'හිරු FM',           freq:'96.1 MHz', emoji:'🎵',bg:'#fff8e6',
    type:'audio', src:'https://radio.lotustechnologieslk.net:2020/stream/hirufmgarden/stream/1/',site:'https://www.hirufm.lk/'},
   {id:'sirasa',  name:'Sirasa FM',     sin:'සිරස FM',           freq:'106.5 MHz',emoji:'📻',bg:'#fff0f1',
-   type:'yt',    src:'live_stream?channel=UCpp3TTx7OU3SmCECA1-6r3w',                             site:'https://sirasafm.lk/'},
+   type:'link',  src:'https://sirasafm.lk/listenlive.php',  /* no HTTPS stream — open official */site:'https://sirasafm.lk/'},
   {id:'yfm',     name:'Y FM',          sin:'Y FM',               freq:'89.1 MHz', emoji:'🎶',bg:'#fce7f3',
-   type:'audio', src:'https://mbc.thestreamtech.com:7032/',                                      site:'https://www.yfm.lk/'},
+   type:'audio', src:'https://mbc.thestreamtech.com:7032/;stream.mp3',                           site:'https://www.yfm.lk/'},
   {id:'shakthi', name:'Shakthi FM',    sin:'ශක්ති FM',           freq:'104.1 MHz',emoji:'⚡',bg:'#eef3ff',
    type:'audio', src:'https://mbc.thestreamtech.com:8086/stream',                                site:'https://www.shakthi.fm/'},
   {id:'gold',    name:'Gold FM',       sin:'ගෝල්ඩ් FM',          freq:'93.2 MHz', emoji:'🌟',bg:'#fefce8',
@@ -1579,7 +1579,7 @@ const RADIO_SIN=[
 ];
 const RADIO_TAM=[
   {id:'sooriyan',name:'Sooriyan FM',   sin:'சூரியன் FM',         freq:'103.6 MHz',emoji:'☀️',bg:'#fffbeb',
-   type:'audio', src:'https://radio.lotustechnologieslk.net:8006/',                               site:'https://www.sooriyanfm.lk/'},
+   type:'audio', src:'https://radio.lotustechnologieslk.net:8006/;stream.mp3',                    site:'https://www.sooriyanfm.lk/'},
   {id:'vasantham',name:'Vasantham FM', sin:'வசந்தம் FM',          freq:'—',        emoji:'🌸',bg:'#fdf2f8',
    type:'audio', src:'https://cp12.serverse.com/proxy/vasanthamfm?mp=/stream',                    site:'https://onlineradiobox.com/lk/'},
   {id:'slbctam', name:'SLBC Tamil',    sin:'SLBC தேசிய சேவை',    freq:'—',        emoji:'🏛️',bg:'#eef3ff',
@@ -1616,6 +1616,8 @@ function tuneIn(id){
   const card=document.getElementById('rc-'+id);
   const player=document.getElementById('rp-'+id);
   const btn=document.getElementById('rb-'+id);
+  /* link-type: just open the official player in a new tab */
+  if(s.type==='link'){window.open(s.src,'_blank');return;}
   if(player.innerHTML.trim()){stopRadio(id);activeRadio=null;return;}
   if(activeRadio&&activeRadio!==id)stopRadio(activeRadio);
   activeRadio=id;
@@ -1654,7 +1656,7 @@ function makeCards(arr){
       </div>
       <div class="rc-wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
       <div class="rc-btns">
-        <button class="rc-play" id="rb-${s.id}" onclick="tuneIn('${s.id}')">▶ Tune In</button>
+        <button class="rc-play" id="rb-${s.id}" onclick="tuneIn('${s.id}')">${s.type==='link'?'🌐 Open Player':'▶ Tune In'}</button>
         <a class="rc-web" href="${s.site}" target="_blank" title="Official website">🌐</a>
       </div>
       <div id="rp-${s.id}" style="height:0;overflow:hidden;transition:height .3s ease,margin-top .3s ease"></div>
