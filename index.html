@@ -119,6 +119,9 @@ img{max-width:100%;display:block}
 }
 .ntab:hover{background:var(--bg);color:var(--ink)}
 .ntab.on{background:var(--ink);color:#fff}
+.ntab-karaoke{background:linear-gradient(135deg,#7c3aed,#db2777)!important;color:#fff!important;font-weight:700!important}
+.ntab-karaoke:hover{opacity:.9;transform:translateY(-1px)}
+.ntab-karaoke.on{background:linear-gradient(135deg,#6d28d9,#be185d)!important}
 .nav-lang{display:flex;gap:4px;padding-left:var(--s1);border-left:1px solid var(--line)}
 .lb{
   padding:5px 10px;border-radius:var(--ra);
@@ -901,6 +904,8 @@ img{max-width:100%;display:block}
     <button class="ntab" onclick="showTab('services',this)">Pro Services</button>
     <button class="ntab" onclick="showTab('radio',this)">📻 Radio</button>
     <button class="ntab" onclick="showTab('tv',this)">📺 TV</button>
+    <button class="ntab ntab-karaoke" onclick="showTab('karaoke',this)">🎤 Karaoke</button>
+    <button class="ntab" onclick="showTab('music',this)">🎵 Music</button>
   </div>
   <div class="nav-lang">
     <button class="lb on" onclick="setLang('en',this)">EN</button>
@@ -1740,6 +1745,281 @@ buildTVGrid();
 </script>
 </div>
 
+<!-- ════════════ KARAOKE TAB ════════════ -->
+<div id="tab-karaoke" style="display:none">
+<style>
+.karo-hero{background:linear-gradient(135deg,#1e0533 0%,#4c1d95 40%,#831843 80%,#1e0533 100%);padding:56px var(--s3) 48px;text-align:center;position:relative;overflow:hidden}
+.karo-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(167,139,250,.18),transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(244,114,182,.18),transparent 60%)}
+.karo-badge{display:inline-block;background:linear-gradient(90deg,#f59e0b,#ef4444);color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;padding:4px 14px;border-radius:20px;margin-bottom:16px;text-transform:uppercase}
+.karo-title{font-size:clamp(36px,6vw,64px);font-weight:800;color:#fff;line-height:1;margin-bottom:10px;text-shadow:0 0 40px rgba(167,139,250,.5)}
+.karo-sin{font-family:var(--sin);font-size:18px;color:rgba(255,255,255,.7);margin-bottom:8px}
+.karo-sub{font-size:14px;color:rgba(255,255,255,.45);max-width:500px;margin:0 auto}
+.karo-section{max-width:1100px;margin:0 auto;padding:36px var(--s3)}
+.karo-section-title{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.karo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+/* karaoke card */
+.karo-card{background:var(--wh);border:1.5px solid var(--line);border-radius:var(--rb);overflow:hidden;transition:var(--ease);cursor:default}
+.karo-card:hover{border-color:rgba(124,58,237,.4);box-shadow:0 8px 32px rgba(124,58,237,.12);transform:translateY(-2px)}
+.karo-thumb{height:110px;display:flex;align-items:center;justify-content:center;font-size:40px;position:relative;flex-shrink:0}
+.karo-thumb::after{content:'🎤 KARAOKE';position:absolute;top:8px;left:8px;background:rgba(0,0,0,.55);color:#fff;font-size:9px;font-weight:800;letter-spacing:.06em;padding:3px 8px;border-radius:4px;backdrop-filter:blur(4px)}
+.karo-body{padding:14px}
+.karo-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:2px;line-height:1.3}
+.karo-artist{font-size:11px;color:var(--ink3);margin-bottom:10px}
+.karo-tag{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:12px;margin-bottom:10px}
+.karo-btns{display:flex;gap:8px}
+.karo-play{flex:1;padding:9px;background:linear-gradient(135deg,#7c3aed,#db2777);color:#fff;border:none;border-radius:var(--ra);font-size:12px;font-weight:700;cursor:pointer;transition:var(--ease)}
+.karo-play:hover{opacity:.88}
+.karo-play.active{background:linear-gradient(135deg,#6d28d9,#be185d)}
+.karo-yt{width:36px;height:36px;background:#ff0000;border:none;border-radius:var(--ra);display:flex;align-items:center;justify-content:center;font-size:13px;text-decoration:none;color:#fff;flex-shrink:0;cursor:pointer;transition:var(--ease)}
+.karo-yt:hover{opacity:.85}
+.karo-player{overflow:hidden;transition:height .35s ease,margin-top .35s ease;height:0;margin-top:0}
+</style>
+
+<section class="karo-hero">
+  <div class="karo-badge">🔥 Top Trending 2025 · 2026</div>
+  <div class="karo-title">🎤 Karaoke</div>
+  <p class="karo-sin">ඔබේ ප්‍රිය සිංහල ගීත ගයන්න</p>
+  <p class="karo-sub">Lyrics on screen · Voice removed · Sing along right here</p>
+</section>
+
+<div class="karo-section">
+  <div class="karo-section-title">🔥 Trending Karaoke Nonstop · 2025 / 2026</div>
+  <div class="karo-grid" id="kg-trending"></div>
+</div>
+
+<div class="karo-section" style="padding-top:0">
+  <div class="karo-section-title">🎵 Popular Sinhala Songs · ජනප්‍රිය ගීත</div>
+  <div class="karo-grid" id="kg-songs"></div>
+</div>
+
+<script>
+const KARO_TRENDING=[
+  {vid:'E1Sbc0Jj8mg',name:'2025 Trending Sinhala Karaoke Nonstop',artist:'Without Voice · With Lyrics',tag:'🔥 2025',tagbg:'#fef3c7',tagc:'#92400e',bg:'linear-gradient(135deg,#7c3aed,#4c1d95)'},
+  {vid:'TcZQt5vR3DE',name:'Old Best Songs Nonstop Karaoke',artist:'6/8 Normal · Without Voice · With Lyrics',tag:'🎼 Classics',tagbg:'#fdf4ff',tagc:'#6b21a8',bg:'linear-gradient(135deg,#1d4ed8,#312e81)'},
+  {vid:'PlwsSiYqo0U',name:'Milton Mallawaarachchi Karaoke Nonstop',artist:'Without Voice Track · With Lyrics',tag:'🌟 Legend',tagbg:'#fffbeb',tagc:'#92400e',bg:'linear-gradient(135deg,#0f766e,#164e63)'},
+  {vid:'RzkzyAc7OJ8',name:'Chandana Liyanaarachchi Nonstop',artist:'6/8 Beat · Without Voice · With Lyrics',tag:'🎶 6/8 Beat',tagbg:'#ecfdf5',tagc:'#065f46',bg:'linear-gradient(135deg,#be185d,#7c3aed)'},
+  {vid:'x8m3jgX8GSc',name:'C.T. Fernando Karaoke Nonstop',artist:'Without Voice · With Lyrics',tag:'🎤 Nonstop',tagbg:'#fff0f1',tagc:'#be123c',bg:'linear-gradient(135deg,#b45309,#78350f)'},
+  {vid:'UgbqFYjM1jU',name:'Anil Bharathi Karaoke Nonstop',artist:'Without Voice · With Lyrics',tag:'🎸 Live',tagbg:'#eff6ff',tagc:'#1e40af',bg:'linear-gradient(135deg,#0369a1,#1e3a5f)'},
+];
+const KARO_SONGS=[
+  {vid:'I3EtzMUuPQI',name:'Vikasitha Pem',artist:'W.D. Amaradeva · Karaoke',tag:'🌸 Classic',tagbg:'#fdf4ff',tagc:'#6b21a8',bg:'linear-gradient(135deg,#7c3aed,#a855f7)'},
+  {vid:'7ghEo54xrPA',name:'Me Guru Pare',artist:'Karaoke Without Voice',tag:'🎵 Popular',tagbg:'#fef3c7',tagc:'#92400e',bg:'linear-gradient(135deg,#ea580c,#b45309)'},
+  {vid:'RFZ2z6U5QxM',name:'Dasa Nilupul Thema',artist:'Gunadasa Kapuge · Karaoke',tag:'🌿 Classic',tagbg:'#ecfdf5',tagc:'#065f46',bg:'linear-gradient(135deg,#059669,#047857)'},
+  {vid:'LZx3CrojCqw',name:'Lowa Nisasala Wee',artist:'Karaoke Without Voice',tag:'🕊️ Peaceful',tagbg:'#eff6ff',tagc:'#1e40af',bg:'linear-gradient(135deg,#0ea5e9,#0284c7)'},
+  {vid:'e2Z59wi_-4I',name:'Sulage Lelena',artist:'Shalitha Abeywickrama · Karaoke',tag:'💙 Romantic',tagbg:'#eff6ff',tagc:'#1e40af',bg:'linear-gradient(135deg,#6366f1,#4f46e5)'},
+  {vid:'Ef75Czm78uU',name:'Mal Viyanen Badi',artist:'Karaoke Without Voice · 2025',tag:'🆕 2025',tagbg:'#fff0f1',tagc:'#be123c',bg:'linear-gradient(135deg,#e11d48,#be123c)'},
+  {vid:'bd31jvMMpK0',name:'Sudu Sada Ras Gala',artist:'Karaoke Without Voice',tag:'🌙 Soothing',tagbg:'#f0f9ff',tagc:'#0369a1',bg:'linear-gradient(135deg,#0f172a,#1e3a5f)'},
+  {vid:'Ygh6ZljAUrI',name:'Hits Sinhala Nonstop Karaoke',artist:'Without Voice · Live Band Music',tag:'🎸 Band',tagbg:'#fdf4ff',tagc:'#6b21a8',bg:'linear-gradient(135deg,#db2777,#9d174d)'},
+];
+
+let activeKaro=null;
+function karoPlay(vid,btn){
+  const player=document.getElementById('kp-'+vid);
+  if(player.style.height==='215px'){
+    player.style.height='0';player.style.marginTop='0';
+    player.innerHTML='';btn.textContent='▶ Sing Along';btn.classList.remove('active');
+    activeKaro=null;return;
+  }
+  if(activeKaro){
+    const pp=document.getElementById('kp-'+activeKaro);
+    const pb=document.getElementById('kb-'+activeKaro);
+    if(pp){pp.style.height='0';pp.style.marginTop='0';pp.innerHTML='';}
+    if(pb){pb.textContent='▶ Sing Along';pb.classList.remove('active');}
+  }
+  player.style.height='215px';player.style.marginTop='12px';
+  player.innerHTML=`<iframe src="https://www.youtube.com/embed/${vid}?autoplay=1" frameborder="0" allow="autoplay;encrypted-media;fullscreen" allowfullscreen style="width:100%;height:100%;border:0;border-radius:10px"></iframe>`;
+  btn.textContent='⏹ Stop';btn.classList.add('active');
+  activeKaro=vid;
+}
+function makeKaroCards(arr,gridId){
+  const g=document.getElementById(gridId);
+  if(!g)return;
+  g.innerHTML=arr.map(k=>`
+    <div class="karo-card">
+      <div class="karo-thumb" style="background:${k.bg}">${k.bg.includes('7c3aed')||k.bg.includes('1d4ed8')||k.bg.includes('0f766e')||k.bg.includes('be185d')||k.bg.includes('b45309')||k.bg.includes('0369a1')?'🎤':'🎵'}</div>
+      <div class="karo-body">
+        <div class="karo-name">${k.name}</div>
+        <div class="karo-artist">${k.artist}</div>
+        <span class="karo-tag" style="background:${k.tagbg};color:${k.tagc}">${k.tag}</span>
+        <div class="karo-btns">
+          <button class="karo-play" id="kb-${k.vid}" onclick="karoPlay('${k.vid}',this)">▶ Sing Along</button>
+          <a class="karo-yt" href="https://www.youtube.com/watch?v=${k.vid}" target="_blank" title="Open on YouTube">▶</a>
+        </div>
+        <div class="karo-player" id="kp-${k.vid}"></div>
+      </div>
+    </div>`).join('');
+}
+makeKaroCards(KARO_TRENDING,'kg-trending');
+makeKaroCards(KARO_SONGS,'kg-songs');
+</script>
+</div>
+
+<!-- ════════════ MUSIC TAB ════════════ -->
+<div id="tab-music" style="display:none">
+<style>
+.music-hero{background:linear-gradient(135deg,#0a0f1e 0%,#0c2340 50%,#0a0f1e 100%);padding:44px var(--s3) 38px;text-align:center;position:relative;overflow:hidden}
+.music-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(99,102,241,.15),transparent 55%),radial-gradient(ellipse at 80% 50%,rgba(245,158,11,.12),transparent 55%)}
+.music-hero-title{font-size:clamp(28px,4vw,44px);font-weight:800;color:#fff;margin-bottom:8px}
+.music-hero-sin{font-family:var(--sin);font-size:15px;color:rgba(255,255,255,.5);margin-bottom:6px}
+.music-hero-sub{font-size:13px;color:rgba(255,255,255,.35);max-width:460px;margin:0 auto}
+.mus-section{max-width:1100px;margin:0 auto;padding:36px var(--s3)}
+.mus-section-title{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.mus-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+/* trending card */
+.mus-card{background:var(--wh);border:1.5px solid var(--line);border-radius:var(--rb);overflow:hidden;transition:var(--ease)}
+.mus-card:hover{border-color:rgba(99,102,241,.4);box-shadow:0 8px 28px rgba(99,102,241,.1);transform:translateY(-2px)}
+.mus-thumb{height:100px;display:flex;align-items:center;justify-content:center;font-size:38px;position:relative}
+.mus-year{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.6);color:#fff;font-size:9px;font-weight:800;padding:3px 8px;border-radius:4px;backdrop-filter:blur(4px)}
+.mus-body{padding:14px}
+.mus-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;line-height:1.3}
+.mus-desc{font-size:11px;color:var(--ink3);margin-bottom:10px}
+.mus-btns{display:flex;gap:8px}
+.mus-play{flex:1;padding:9px;background:var(--ink);color:#fff;border:none;border-radius:var(--ra);font-size:12px;font-weight:700;cursor:pointer;transition:var(--ease)}
+.mus-play:hover{background:var(--B)}
+.mus-play.active{background:var(--R)}
+.mus-ytlink{width:36px;height:36px;background:#ff0000;border:none;border-radius:var(--ra);display:flex;align-items:center;justify-content:center;font-size:13px;text-decoration:none;color:#fff;flex-shrink:0;transition:var(--ease)}
+.mus-ytlink:hover{opacity:.85}
+.mus-embed{overflow:hidden;height:0;margin-top:0;transition:height .35s ease,margin-top .35s ease}
+/* program card */
+.prog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.prog-card{background:var(--wh);border:1.5px solid var(--line);border-radius:var(--rb);overflow:hidden;transition:var(--ease)}
+.prog-card:hover{border-color:rgba(232,25,44,.3);box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.prog-thumb{height:90px;display:flex;align-items:center;justify-content:center;font-size:32px;position:relative}
+.prog-live-badge{position:absolute;top:6px;right:6px;background:var(--R);color:#fff;font-size:8px;font-weight:800;padding:2px 7px;border-radius:4px}
+.prog-body{padding:12px}
+.prog-show{font-size:10px;font-weight:700;color:var(--R);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.prog-name{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:3px;line-height:1.3}
+.prog-artist{font-size:11px;color:var(--ink3);margin-bottom:10px}
+.prog-btn{width:100%;padding:8px;background:var(--ink);color:#fff;border:none;border-radius:var(--ra);font-size:11px;font-weight:700;cursor:pointer;transition:var(--ease)}
+.prog-btn:hover{background:var(--R)}
+.prog-btn.active{background:var(--R)}
+.prog-embed{overflow:hidden;height:0;margin-top:0;transition:height .35s ease,margin-top .35s ease}
+/* genre grid */
+.genre-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+.genre-card{border-radius:var(--ra);padding:18px 14px;text-align:center;cursor:pointer;transition:var(--ease);text-decoration:none;display:block}
+.genre-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}
+.genre-emoji{font-size:28px;margin-bottom:6px}
+.genre-name{font-size:13px;font-weight:700;color:#fff;margin-bottom:2px}
+.genre-sin{font-family:var(--sin);font-size:10px;color:rgba(255,255,255,.65)}
+</style>
+
+<section class="music-hero">
+  <div class="music-hero-title">🎵 Sinhala Music</div>
+  <p class="music-hero-sin">නවතම සිංහල ගීත · ගිතිකා · රූපවාහිනී වැඩසටහන්</p>
+  <p class="music-hero-sub">Trending nonstops · Music programs · Browse by genre</p>
+</section>
+
+<div class="mus-section">
+  <div class="mus-section-title">🔥 Trending Nonstop 2025 · 2026</div>
+  <div class="mus-grid" id="mus-trending"></div>
+</div>
+
+<div class="mus-section" style="padding-top:0">
+  <div class="mus-section-title">🎬 The Voice Teens Sri Lanka — Season 3 · 2026</div>
+  <div class="prog-grid" id="mus-voice"></div>
+</div>
+
+<div class="mus-section" style="padding-top:0">
+  <div class="mus-section-title">🏆 Derana Dream Star — Season 12 · 2025</div>
+  <div class="prog-grid" id="mus-derana"></div>
+</div>
+
+<div class="mus-section" style="padding-top:0">
+  <div class="mus-section-title">🎵 Browse by Genre · ප්‍රභේද අනුව</div>
+  <div class="genre-grid">
+    <a class="genre-card" href="https://www.youtube.com/results?search_query=sinhala+baila+nonstop+2025" target="_blank" style="background:linear-gradient(135deg,#e11d48,#be123c)"><div class="genre-emoji">💃</div><div class="genre-name">Baila</div><div class="genre-sin">බයිලා</div></a>
+    <a class="genre-card" href="https://www.youtube.com/results?search_query=sinhala+nonstop+2026+trending" target="_blank" style="background:linear-gradient(135deg,#7c3aed,#4c1d95)"><div class="genre-emoji">🎶</div><div class="genre-name">Nonstop</div><div class="genre-sin">නොනවතින</div></a>
+    <a class="genre-card" href="https://www.youtube.com/results?search_query=sinhala+old+classic+songs" target="_blank" style="background:linear-gradient(135deg,#b45309,#78350f)"><div class="genre-emoji">🌟</div><div class="genre-name">Old Classics</div><div class="genre-sin">පැරණි ගීත</div></a>
+    <a class="genre-card" href="https://www.youtube.com/results?search_query=sinhala+wedding+songs+nonstop" target="_blank" style="background:linear-gradient(135deg,#db2777,#9d174d)"><div class="genre-emoji">💒</div><div class="genre-name">Wedding</div><div class="genre-sin">විවාහ ගීත</div></a>
+    <a class="genre-card" href="https://www.youtube.com/results?search_query=sinhala+dj+remix+nonstop+2025" target="_blank" style="background:linear-gradient(135deg,#0369a1,#0c4a6e)"><div class="genre-emoji">🎧</div><div class="genre-name">DJ Remix</div><div class="genre-sin">DJ රිමික්ස්</div></a>
+    <a class="genre-card" href="https://www.youtube.com/results?search_query=sinhala+instrumental+music" target="_blank" style="background:linear-gradient(135deg,#047857,#064e3b)"><div class="genre-emoji">🎸</div><div class="genre-name">Instrumental</div><div class="genre-sin">භාජනය</div></a>
+    <a class="genre-card" href="https://www.youtube.com/results?search_query=tamil+songs+nonstop+sri+lanka+2025" target="_blank" style="background:linear-gradient(135deg,#d97706,#92400e)"><div class="genre-emoji">🎺</div><div class="genre-name">Tamil</div><div class="genre-sin">දෙමළ</div></a>
+    <a class="genre-card" href="https://www.youtube.com/results?search_query=hindi+songs+nonstop+2025+trending" target="_blank" style="background:linear-gradient(135deg,#0f766e,#134e4a)"><div class="genre-emoji">🪗</div><div class="genre-name">Hindi</div><div class="genre-sin">හින්දි</div></a>
+  </div>
+</div>
+
+<script>
+const MUS_TRENDING=[
+  {vid:'j9eyGp4yLVs',name:'2026 Trending Sinhala Band Nonstop',desc:'Viral Hits · Hit New Collection',year:'2026',emoji:'🔥',bg:'linear-gradient(135deg,#7c3aed,#4c1d95)'},
+  {vid:'tyt7RMrlyqY',name:'2026 New Sinhala Nonstop',desc:'Best Trending Sindu · Bass Boosted',year:'2026',emoji:'⚡',bg:'linear-gradient(135deg,#1d4ed8,#1e3a8a)'},
+  {vid:'2eyjieSQWQs',name:'2026 Bass Boosted Nonstop',desc:'Hit Collection · Best Trending Songs',year:'2026',emoji:'🎵',bg:'linear-gradient(135deg,#0369a1,#075985)'},
+  {vid:'oaFN153YU9Q',name:'2025 Trending Band Nonstop',desc:'Viral Songs · Best New Collection',year:'2025',emoji:'🌟',bg:'linear-gradient(135deg,#059669,#065f46)'},
+  {vid:'UTMvKO0wbBQ',name:'2025 Hit Sinhala Band Nonstop',desc:'Top Hit New Sinhala Songs Collection',year:'2025',emoji:'🎶',bg:'linear-gradient(135deg,#ea580c,#c2410c)'},
+  {vid:'qZRQygj-hSY',name:'2025 Baila Dance Mix DJ Nonstop',desc:'6/8 Party Vibe · Sinhala Baila',year:'2025',emoji:'💃',bg:'linear-gradient(135deg,#e11d48,#9f1239)'},
+];
+const MUS_VOICE=[
+  {vid:'Zl8jml03ZgI',name:'Sansarini Mage — Blind Audition',artist:'Yugeeth & Yumeth',show:'The Voice Teens S3',emoji:'🎤',bg:'linear-gradient(135deg,#7c3aed,#db2777)'},
+  {vid:'SOdXj81DpUg',name:'Santhana Susum — Blind Audition',artist:'Nimsara Anuhas',show:'The Voice Teens S3',emoji:'🎵',bg:'linear-gradient(135deg,#0369a1,#7c3aed)'},
+  {vid:'VrXP-1Rwe7U',name:'Nissara Sansara — Blind Audition',artist:'Umasha Erandi',show:'The Voice Teens S3',emoji:'🌸',bg:'linear-gradient(135deg,#be185d,#9d174d)'},
+  {vid:'wg5z3_tShxI',name:'18 Wannam — Blind Audition',artist:'Methsithu Hansara',show:'The Voice Teens S3',emoji:'🎶',bg:'linear-gradient(135deg,#059669,#0f766e)'},
+  {vid:'BIW_vxbiW1M',name:'Oba Enna — Blind Audition',artist:'Yohan',show:'The Voice Teens S3',emoji:'🎸',bg:'linear-gradient(135deg,#d97706,#b45309)'},
+  {vid:'PuhO-GauCac',name:'Ridena Noriddana — Blind Audition',artist:'Sanuka Gamage',show:'The Voice Teens S3',emoji:'⭐',bg:'linear-gradient(135deg,#0ea5e9,#0369a1)'},
+];
+const MUS_DERANA=[
+  {vid:'NtXFurQxarE',name:'Top 04 — Round 01',artist:'Finals · Dec 13 2025',show:'Derana Dream Star S12',emoji:'🏆',bg:'linear-gradient(135deg,#e85d04,#c2410c)'},
+  {vid:'hox5yFOUkzc',name:'Top 04 — Round 03',artist:'Finals · Dec 27 2025',show:'Derana Dream Star S12',emoji:'🌟',bg:'linear-gradient(135deg,#d97706,#92400e)'},
+  {vid:'IQI_VKaEKiU',name:'Top 04 — Round 04',artist:'Grand Finale · Dec 28 2025',show:'Derana Dream Star S12',emoji:'🎤',bg:'linear-gradient(135deg,#7c3aed,#4c1d95)'},
+];
+
+let activeMus=null;
+function musPlay(vid,type){
+  const embed=document.getElementById('me-'+vid);
+  const btn=document.getElementById('mb-'+vid);
+  if(embed.style.height==='215px'){
+    embed.style.height='0';embed.style.marginTop='0';embed.innerHTML='';
+    btn.textContent=type==='prog'?'▶ Watch':'▶ Play';btn.classList.remove('active');
+    activeMus=null;return;
+  }
+  if(activeMus){
+    const pe=document.getElementById('me-'+activeMus);
+    const pb=document.getElementById('mb-'+activeMus);
+    if(pe){pe.style.height='0';pe.style.marginTop='0';pe.innerHTML='';}
+    if(pb){pb.textContent=pb.dataset.type==='prog'?'▶ Watch':'▶ Play';pb.classList.remove('active');}
+  }
+  embed.style.height='215px';embed.style.marginTop='12px';
+  embed.innerHTML=`<iframe src="https://www.youtube.com/embed/${vid}?autoplay=1" frameborder="0" allow="autoplay;encrypted-media;fullscreen" allowfullscreen style="width:100%;height:100%;border:0;border-radius:10px"></iframe>`;
+  btn.textContent='⏹ Stop';btn.classList.add('active');btn.dataset.type=type;
+  activeMus=vid;
+}
+
+function buildMusTrending(){
+  const g=document.getElementById('mus-trending');if(!g)return;
+  g.innerHTML=MUS_TRENDING.map(m=>`
+    <div class="mus-card">
+      <div class="mus-thumb" style="background:${m.bg}">${m.emoji}<span class="mus-year">${m.year}</span></div>
+      <div class="mus-body">
+        <div class="mus-name">${m.name}</div>
+        <div class="mus-desc">${m.desc}</div>
+        <div class="mus-btns">
+          <button class="mus-play" id="mb-${m.vid}" onclick="musPlay('${m.vid}','trending')">▶ Play</button>
+          <a class="mus-ytlink" href="https://www.youtube.com/watch?v=${m.vid}" target="_blank">▶</a>
+        </div>
+        <div class="mus-embed" id="me-${m.vid}"></div>
+      </div>
+    </div>`).join('');
+}
+
+function buildProgCards(arr,gridId){
+  const g=document.getElementById(gridId);if(!g)return;
+  g.innerHTML=arr.map(p=>`
+    <div class="prog-card">
+      <div class="prog-thumb" style="background:${p.bg}">${p.emoji}<span class="prog-live-badge">▶ VIDEO</span></div>
+      <div class="prog-body">
+        <div class="prog-show">${p.show}</div>
+        <div class="prog-name">${p.name}</div>
+        <div class="prog-artist">${p.artist}</div>
+        <button class="prog-btn" id="mb-${p.vid}" onclick="musPlay('${p.vid}','prog')">▶ Watch</button>
+        <div class="mus-embed" id="me-${p.vid}"></div>
+      </div>
+    </div>`).join('');
+}
+
+buildMusTrending();
+buildProgCards(MUS_VOICE,'mus-voice');
+buildProgCards(MUS_DERANA,'mus-derana');
+</script>
+</div>
+
 <!-- ════════════ FOOTER ════════════ -->
 <footer class="footer">
   <div class="footer-grid">
@@ -2037,7 +2317,7 @@ function doSearch(){
 }
 
 function showTab(name,el){
-  ['jobs','seekers','cv','services','radio','tv'].forEach(t=>document.getElementById('tab-'+t).style.display='none');
+  ['jobs','seekers','cv','services','radio','tv','karaoke','music'].forEach(t=>document.getElementById('tab-'+t).style.display='none');
   document.getElementById('tab-'+name).style.display='block';
   document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('on'));
   if(el)el.classList.add('on');
