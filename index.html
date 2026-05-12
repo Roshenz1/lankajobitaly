@@ -1534,14 +1534,14 @@ img{max-width:100%;display:block}
 
 <script>
 const RADIO_STATIONS=[
-  {id:'sirasa',name:'Sirasa FM',sin:'සිරස FM',freq:'107.4 MHz',emoji:'📻',bg:'#fff0f1',web:'https://www.youtube.com/@SirasaFMOfficial/live',site:'https://www.sirasamedia.lk/'},
-  {id:'hiru',name:'Hiru FM',sin:'හිරු FM',freq:'106.0 MHz',emoji:'🎵',bg:'#fff8e6',web:'https://www.youtube.com/@HiruFM/live',site:'https://www.hiruuniverse.com/'},
-  {id:'shakthi',name:'Shakthi FM',sin:'ශක්ති FM',freq:'97.0 MHz',emoji:'⚡',bg:'#eef3ff',web:'https://www.youtube.com/@ShakthiFMSriLanka/live',site:'https://www.shakthi.fm/'},
-  {id:'yes',name:'Yes FM',sin:'Yes FM',freq:'89.5 MHz',emoji:'✅',bg:'#e6f8f2',web:'https://www.youtube.com/@YesFMSriLanka/live',site:'https://www.yesfm.lk/'},
-  {id:'neth',name:'Neth FM',sin:'නෙත් FM',freq:'97.4 MHz',emoji:'🌿',bg:'#f3e8ff',web:'https://www.youtube.com/@NetHFMSriLanka/live',site:'https://www.slbc.lk/'},
-  {id:'tnl',name:'TNL Radio',sin:'TNL රේඩියෝ',freq:'101.5 MHz',emoji:'🎙️',bg:'#fff4e6',web:'https://www.youtube.com/@TNLTelevision/live',site:'https://www.tnlradio.lk/'},
-  {id:'sooriyan',name:'Sooriyan FM',sin:'සූරියන් FM',freq:'93.0 MHz',emoji:'☀️',bg:'#fffbeb',web:'https://www.youtube.com/@SooriyanFM/live',site:'https://sooriyanfm.lk/'},
-  {id:'swarna',name:'Swarna FM',sin:'ස්වර්ණ FM',freq:'90.0 MHz',emoji:'⭐',bg:'#fefce8',web:'https://www.youtube.com/@SwarnawahiniTV/live',site:'https://www.swarna.lk/'},
+  {id:'sirasa',name:'Sirasa FM',sin:'සිරස FM',freq:'107.4 MHz',emoji:'📻',bg:'#fff0f1',yt:'https://www.youtube.com/channel/UCpp3TTx7OU3SmCECA1-6r3w/live',site:'https://sirasafm.lk/'},
+  {id:'hiru',name:'Hiru FM',sin:'හිරු FM',freq:'96.1 MHz',emoji:'🎵',bg:'#fff8e6',yt:'https://www.youtube.com/@hirufmlive7113/live',site:'https://www.hirufm.lk/'},
+  {id:'yes',name:'Yes FM',sin:'Yes FM',freq:'89.5 MHz',emoji:'✅',bg:'#e6f8f2',yt:'https://www.youtube.com/channel/UCXFcukf9VvSWp731oQDJ7Bg/live',site:'https://yesfmonline.com/'},
+  {id:'sooriyan',name:'Sooriyan FM',sin:'සූරියන් FM',freq:'103.6 MHz',emoji:'☀️',bg:'#fffbeb',yt:'https://www.youtube.com/c/sooriyanfm/live',site:'https://www.sooriyanfm.lk/'},
+  {id:'shakthi',name:'Shakthi FM',sin:'ශක්ති FM',freq:'104.1 MHz',emoji:'⚡',bg:'#eef3ff',yt:'https://www.youtube.com/@ShakthiFM/live',site:'https://www.shakthi.fm/'},
+  {id:'neth',name:'Neth FM',sin:'නෙත් FM',freq:'97.4 MHz',emoji:'🌿',bg:'#f3e8ff',yt:'https://www.slbc.lk/',site:'https://www.slbc.lk/'},
+  {id:'tnl',name:'TNL Radio',sin:'TNL රේඩියෝ',freq:'101.5 MHz',emoji:'🎙️',bg:'#fff4e6',yt:'https://www.tnlradio.lk/',site:'https://www.tnlradio.lk/'},
+  {id:'swarna',name:'Swarnavahini FM',sin:'ස්වර්ණ FM',freq:'91.3 MHz',emoji:'⭐',bg:'#fefce8',yt:'https://www.swarnavahini.lk/',site:'https://www.swarnavahini.lk/'},
 ];
 
 function buildRadioGrid(){
@@ -1559,7 +1559,7 @@ function buildRadioGrid(){
       </div>
       <div class="rc-wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
       <div class="rc-btns">
-        <button class="rc-play" onclick="window.open('${s.web}','_blank')">▶ Listen Live</button>
+        <button class="rc-play" onclick="window.open('${s.yt}','_blank')">▶ Listen Live</button>
         <a class="rc-web" href="${s.site}" target="_blank" title="Official website">🌐</a>
       </div>
     </div>`).join('');
@@ -1587,29 +1587,42 @@ buildRadioGrid();
 
 <script>
 const TV_CHANNELS=[
-  {name:'Sirasa TV',sin:'සිරස TV',desc:'Drama, entertainment & news',emoji:'🔴',bg:'linear-gradient(135deg,#e8192c,#c0101f)',yt:'https://www.youtube.com/@SirasaTV/live'},
-  {name:'Hiru TV',sin:'හිරු TV',desc:"Sri Lanka's #1 entertainment channel",emoji:'⭐',bg:'linear-gradient(135deg,#f59f00,#d97706)',yt:'https://www.youtube.com/@HiruTV/live'},
-  {name:'Rupavahini',sin:'රූපවාහිනී',desc:'National Broadcast — SLRC',emoji:'🏛️',bg:'linear-gradient(135deg,#1a56db,#1e40af)',yt:'https://www.youtube.com/@RupavahiniTV/live'},
-  {name:'TV Derana',sin:'TV දෙරණ',desc:'News, drama & entertainment',emoji:'📡',bg:'linear-gradient(135deg,#e85d04,#c2410c)',yt:'https://www.youtube.com/@tvderana/live'},
-  {name:'Swarnawahini',sin:'ස්වර්ණවාහිනී',desc:'Sinhala drama & programmes',emoji:'🌟',bg:'linear-gradient(135deg,#c9a227,#a16207)',yt:'https://www.youtube.com/@swarnawahini/live'},
-  {name:'Ada Derana',sin:'ආදා දෙරණ',desc:'24/7 news & current affairs',emoji:'📰',bg:'linear-gradient(135deg,#d00000,#9b0000)',yt:'https://www.youtube.com/@AdaDerana/live'},
-  {name:'Shakthi TV',sin:'ශක්ති TV',desc:'Tamil language channel',emoji:'⚡',bg:'linear-gradient(135deg,#6741d9,#4c1d95)',yt:'https://www.youtube.com/@ShakthiTV/live'},
-  {name:'TV 1',sin:'TV 1',desc:'Music & entertainment',emoji:'🎬',bg:'linear-gradient(135deg,#00a86b,#065f46)',yt:'https://www.youtube.com/@tv1srilanka/live'},
+  {name:'Sirasa TV',sin:'සිරස TV',desc:'Drama, entertainment & news',emoji:'🔴',bg:'linear-gradient(135deg,#e8192c,#c0101f)',cid:'UCn0XmAUFv6d2tofMFEesSNw'},
+  {name:'Hiru TV',sin:'හිරු TV',desc:"Sri Lanka's No.1 entertainment channel",emoji:'⭐',bg:'linear-gradient(135deg,#f59f00,#d97706)',cid:'UCOtYyt7W5PmPnwQjWWF_Z-Q'},
+  {name:'Rupavahini',sin:'රූපවාහිනී',desc:'National Broadcast — SLRC',emoji:'🏛️',bg:'linear-gradient(135deg,#1a56db,#1e40af)',cid:'UCT83ymyAGm7Gnk_4ifxjxIA'},
+  {name:'TV Derana Live',sin:'TV දෙරණ',desc:'News, drama & entertainment',emoji:'📡',bg:'linear-gradient(135deg,#e85d04,#c2410c)',cid:'UCbkMFGQ_RWIf0OiYeOpf6Ng'},
+  {name:'Swarnavahini',sin:'ස්වර්ණවාහිනී',desc:'Sinhala drama & programmes',emoji:'🌟',bg:'linear-gradient(135deg,#c9a227,#a16207)',cid:'UCaIc6SgS90ud_RgMSC6hW_w'},
+  {name:'Ada Derana 24',sin:'ආදා දෙරණ',desc:'24/7 news & current affairs',emoji:'📰',bg:'linear-gradient(135deg,#d00000,#9b0000)',cid:'UCW_rA_jb-_vbZtU4cTpnT5Q'},
 ];
 
 function buildTVGrid(){
   const g=document.getElementById('tv-grid');
   if(!g)return;
-  g.innerHTML=TV_CHANNELS.map(ch=>`
-    <div class="tv-card">
-      <div class="tv-thumb" style="background:${ch.bg}">${ch.emoji}</div>
+  g.innerHTML=TV_CHANNELS.map((ch,i)=>`
+    <div class="tv-card" id="tvc-${i}">
+      <div class="tv-thumb" id="tvt-${i}" style="background:${ch.bg}">${ch.emoji}</div>
       <div class="tv-body">
         <div class="tv-name">${ch.name}</div>
         <div class="tv-sin">${ch.sin}</div>
         <div class="tv-desc">${ch.desc}</div>
-        <button class="tv-btn" onclick="window.open('${ch.yt}','_blank')">▶ Watch Live</button>
+        <button class="tv-btn" id="tvb-${i}" onclick="loadTV(${i},'${ch.cid}')">▶ Watch Live</button>
       </div>
     </div>`).join('');
+}
+
+function loadTV(i,cid){
+  const thumb=document.getElementById('tvt-'+i);
+  const btn=document.getElementById('tvb-'+i);
+  if(thumb.querySelector('iframe')){
+    thumb.innerHTML=TV_CHANNELS[i].emoji;
+    thumb.style.height='90px';
+    btn.textContent='▶ Watch Live';
+    return;
+  }
+  thumb.style.height='210px';
+  thumb.style.padding='0';
+  thumb.innerHTML=`<iframe src="https://www.youtube.com/embed/live_stream?channel=${cid}&autoplay=1" frameborder="0" allow="autoplay;encrypted-media;fullscreen" allowfullscreen style="width:100%;height:100%;border:0"></iframe>`;
+  btn.textContent='✕ Close';
 }
 buildTVGrid();
 </script>
