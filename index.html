@@ -338,6 +338,7 @@ img{max-width:100%;display:block}
 
 /* JOB CARD */
 .jcard{
+  position:relative;
   background:var(--wh);border:1.5px solid var(--line);
   border-radius:var(--rb);padding:var(--s2) 20px;
   cursor:pointer;transition:var(--ease);
@@ -2205,13 +2206,139 @@ document.getElementById('drama-updated-date').textContent='Last updated: '+new D
 </footer>
 
 <script>
-const JOBS=[
-  {id:1,title:"Live-in Carer for Elderly Lady",sin:"වැඩිහිටි කාන්තාවකට රැකවරණය",company:"Private Family – Verona",city:"Verona",type:"Elder Care",typeKey:"elder",salary:"€1,100/mo",perm:true,isNew:true,urgent:false,featured:true,ico:"🧓",bg:"#fff0f1",desc:"Kind 83-year-old lady in Verona Ovest needs a live-in carer. Meals, hygiene, companionship. Accommodation and meals included. No Italian required initially. Immediate start."},
-  {id:2,title:"Office & Apartment Cleaning",sin:"කාර්යාල හා නිවාස පිරිසිදු කිරීම",company:"CleanPro Cooperativa – Milan",city:"Milan",type:"Cleaning",typeKey:"clean",salary:"€11/hr",perm:false,isNew:true,urgent:false,featured:false,ico:"🧹",bg:"#eef3ff",desc:"Experienced cleaner needed for offices and apartments in Milan zona 9. 25–30 hrs/week. Flexible hours. Reliable team environment."},
-  {id:3,title:"Babysitter – 2 Children (Age 3 & 5)",sin:"ළමයින් 2 දෙනෙකු රැකවරණය",company:"Rossi Family – Verona",city:"Verona",type:"Baby Sitting",typeKey:"baby",salary:"€10/hr",perm:false,isNew:false,urgent:false,featured:false,ico:"👶",bg:"#f3e8ff",desc:"Mon/Wed/Fri afternoons 15:00–19:00. School pickup, snack, homework help. Warm welcoming family. Basic Italian helpful."},
-  {id:4,title:"Warehouse Operator – Amazon DSP",sin:"Amazon ගබඩා ශ්‍රමිකයා",company:"Amazon DSP – Bologna",city:"Bologna",type:"Factory",typeKey:"factory",salary:"€1,400/mo",perm:true,isNew:true,urgent:true,featured:true,ico:"🏭",bg:"#e6f8f2",desc:"Package sorting, scanning, loading. Full-time shifts. Permesso required. Bus from city centre provided. Great team environment."},
-  {id:5,title:"Night Carer – RSA Nursing Home",sin:"රාත්‍රී රැකවරණ සේවය",company:"RSA Villa Serena – Turin",city:"Turin",type:"Elder Care",typeKey:"elder",salary:"€1,250/mo",perm:true,isNew:false,urgent:false,featured:false,ico:"🧓",bg:"#fff0f1",desc:"Night shift 22:00–07:00. Assist residents with mobility and hygiene. Prior experience preferred. Formal Italian contract offered."},
-  {id:6,title:"Hotel Housekeeper – 4 Star Hotel",sin:"හෝටල් කාමර පිරිසිදු කිරීම",company:"Hotel Arena Palace – Verona",city:"Verona",type:"Cleaning",typeKey:"clean",salary:"€1,000/mo",perm:false,isNew:false,urgent:false,featured:false,ico:"🧹",bg:"#eef3ff",desc:"Mon–Sat 09:00–15:00. Near Verona Arena. 2 positions available. Experience helpful but not essential. Immediate start."},
+/* ══════ ADZUNA API — REAL JOBS FROM ITALY ══════ */
+const ADZUNA_APP_ID = 'YOUR_APP_ID';   // ← Replace after signup at developer.adzuna.com
+const ADZUNA_APP_KEY = 'YOUR_APP_KEY'; // ← Replace after signup at developer.adzuna.com
+const ADZUNA_BASE = 'https://api.adzuna.com/v1/api/jobs/it/search';
+
+/* Category → Italian search keywords for Adzuna */
+const CAT_KEYWORDS = {
+  'Elder Care': 'assistenza anziani badante colf',
+  'Cleaning': 'pulizie pulizia addetto pulizie',
+  'Baby Sitting': 'babysitter baby sitter tata',
+  'Factory': 'magazziniere operaio logistica fabbrica',
+  '': '' /* all jobs */
+};
+
+/* Category → icon and style mapping */
+const CAT_STYLE = {
+  'Elder Care': {ico:'🧓',bg:'#fff0f1',typeKey:'elder'},
+  'Cleaning': {ico:'🧹',bg:'#eef3ff',typeKey:'clean'},
+  'Baby Sitting': {ico:'👶',bg:'#f3e8ff',typeKey:'baby'},
+  'Factory': {ico:'🏭',bg:'#e6f8f2',typeKey:'factory'},
+  'default': {ico:'💼',bg:'#f0f4ff',typeKey:'other'}
+};
+
+/* Detect category from job title */
+function detectCategory(title){
+  const t=(title||'').toLowerCase();
+  if(t.match(/anzian|badant|colf|carer|elder|assistenza|infermier/)) return 'Elder Care';
+  if(t.match(/pulizi|housekeep|clean|lavan|igien/)) return 'Cleaning';
+  if(t.match(/baby|sitter|tata|bambin|nanny|child/)) return 'Baby Sitting';
+  if(t.match(/magazz|operai|fabbric|logistic|warehouse|factory|muletti/)) return 'Factory';
+  return '';
+}
+
+/* Detect city from location text */
+function detectCity(loc){
+  const l=(loc||'').toLowerCase();
+  const cities=['Verona','Milan','Rome','Turin','Bologna','Florence','Naples','Genoa','Padova','Brescia','Bergamo'];
+  const aliases={milano:'Milan',roma:'Rome',torino:'Turin',firenze:'Florence',napoli:'Naples',genova:'Genoa'};
+  for(const c of cities) if(l.includes(c.toLowerCase())) return c;
+  for(const [alias,name] of Object.entries(aliases)) if(l.includes(alias)) return name;
+  return loc ? loc.split(',')[0].trim() : 'Italy';
+}
+
+/* Store fetched jobs */
+let JOBS = [];
+let adzunaLoaded = false;
+
+/* Fetch real jobs from Adzuna */
+async function fetchAdzunaJobs(category, city, page){
+  page = page || 1;
+  const kw = CAT_KEYWORDS[category] || '';
+  const where = city || '';
+  const params = new URLSearchParams({
+    app_id: ADZUNA_APP_ID,
+    app_key: ADZUNA_APP_KEY,
+    results_per_page: 20,
+    what: kw,
+    where: where,
+    content_type: 'application/json',
+    sort_by: 'date'
+  });
+  try {
+    const res = await fetch(`${ADZUNA_BASE}/${page}?${params}`);
+    if(!res.ok) throw new Error('API error: ' + res.status);
+    const data = await res.json();
+    return (data.results || []).map((j, i) => {
+      const cat = category || detectCategory(j.title);
+      const style = CAT_STYLE[cat] || CAT_STYLE['default'];
+      const cityName = detectCity(j.location?.display_name);
+      const daysAgo = Math.floor((Date.now() - new Date(j.created).getTime()) / 86400000);
+      return {
+        id: page * 100 + i,
+        title: j.title,
+        sin: '', /* no Sinhala translation for API jobs */
+        company: (j.company?.display_name || 'Company') + ' – ' + cityName,
+        city: cityName,
+        type: cat || 'General',
+        typeKey: style.typeKey,
+        salary: j.salary_min ? ('€' + Math.round(j.salary_min).toLocaleString() + (j.salary_max && j.salary_max !== j.salary_min ? '–' + Math.round(j.salary_max).toLocaleString() : '') + '/yr') : 'Salary not listed',
+        perm: false,
+        isNew: daysAgo <= 3,
+        urgent: false,
+        featured: false,
+        ico: style.ico,
+        bg: style.bg,
+        desc: (j.description || '').replace(/<[^>]*>/g, '').substring(0, 200) + '...',
+        applyUrl: j.redirect_url || j.url || '#',
+        source: j.source || 'Adzuna',
+        postedAgo: daysAgo <= 0 ? 'Today' : daysAgo === 1 ? '1 day ago' : daysAgo + ' days ago'
+      };
+    });
+  } catch(err) {
+    console.warn('Adzuna API error:', err);
+    return [];
+  }
+}
+
+/* Load jobs — tries Adzuna first, falls back to demo data */
+async function loadJobs(category, city){
+  if(ADZUNA_APP_ID === 'YOUR_APP_ID'){
+    /* No API key yet — use demo jobs */
+    if(!adzunaLoaded){
+      JOBS = DEMO_JOBS;
+      renderJobs(JOBS);
+    }
+    return;
+  }
+  document.getElementById('job-list').innerHTML='<div style="text-align:center;padding:40px"><div style="font-size:24px;margin-bottom:8px">⏳</div><div style="color:var(--ink3);font-size:13px">Loading real jobs from Italy...</div></div>';
+  const results = await fetchAdzunaJobs(category || '', city || '');
+  if(results.length > 0){
+    JOBS = results;
+    adzunaLoaded = true;
+    renderJobs(JOBS);
+    /* Update counts */
+    const counts = {total:results.length};
+    ['Elder Care','Cleaning','Baby Sitting','Factory'].forEach(c => counts[c] = results.filter(j=>j.type===c).length);
+    document.querySelectorAll('.radio-count').forEach((el,i) => {
+      if(i===0) el.textContent = counts.total;
+    });
+  } else {
+    JOBS = DEMO_JOBS;
+    renderJobs(JOBS);
+  }
+}
+
+/* Demo/fallback jobs (shown before API key is set) */
+const DEMO_JOBS=[
+  {id:1,title:"Live-in Carer for Elderly Lady",sin:"වැඩිහිටි කාන්තාවකට රැකවරණය",company:"Private Family – Verona",city:"Verona",type:"Elder Care",typeKey:"elder",salary:"€1,100/mo",perm:true,isNew:true,urgent:false,featured:true,ico:"🧓",bg:"#fff0f1",desc:"Kind 83-year-old lady in Verona Ovest needs a live-in carer. Meals, hygiene, companionship. Accommodation and meals included. No Italian required initially. Immediate start.",applyUrl:'',source:'',postedAgo:'Today'},
+  {id:2,title:"Office & Apartment Cleaning",sin:"කාර්යාල හා නිවාස පිරිසිදු කිරීම",company:"CleanPro Cooperativa – Milan",city:"Milan",type:"Cleaning",typeKey:"clean",salary:"€11/hr",perm:false,isNew:true,urgent:false,featured:false,ico:"🧹",bg:"#eef3ff",desc:"Experienced cleaner needed for offices and apartments in Milan zona 9. 25–30 hrs/week. Flexible hours. Reliable team environment.",applyUrl:'',source:'',postedAgo:'Today'},
+  {id:3,title:"Babysitter – 2 Children (Age 3 & 5)",sin:"ළමයින් 2 දෙනෙකු රැකවරණය",company:"Rossi Family – Verona",city:"Verona",type:"Baby Sitting",typeKey:"baby",salary:"€10/hr",perm:false,isNew:false,urgent:false,featured:false,ico:"👶",bg:"#f3e8ff",desc:"Mon/Wed/Fri afternoons 15:00–19:00. School pickup, snack, homework help. Warm welcoming family. Basic Italian helpful.",applyUrl:'',source:'',postedAgo:'2 days ago'},
+  {id:4,title:"Warehouse Operator – Amazon DSP",sin:"Amazon ගබඩා ශ්‍රමිකයා",company:"Amazon DSP – Bologna",city:"Bologna",type:"Factory",typeKey:"factory",salary:"€1,400/mo",perm:true,isNew:true,urgent:true,featured:true,ico:"🏭",bg:"#e6f8f2",desc:"Package sorting, scanning, loading. Full-time shifts. Permesso required. Bus from city centre provided. Great team environment.",applyUrl:'',source:'',postedAgo:'Today'},
+  {id:5,title:"Night Carer – RSA Nursing Home",sin:"රාත්‍රී රැකවරණ සේවය",company:"RSA Villa Serena – Turin",city:"Turin",type:"Elder Care",typeKey:"elder",salary:"€1,250/mo",perm:true,isNew:false,urgent:false,featured:false,ico:"🧓",bg:"#fff0f1",desc:"Night shift 22:00–07:00. Assist residents with mobility and hygiene. Prior experience preferred. Formal Italian contract offered.",applyUrl:'',source:'',postedAgo:'3 days ago'},
+  {id:6,title:"Hotel Housekeeper – 4 Star Hotel",sin:"හෝටල් කාමර පිරිසිදු කිරීම",company:"Hotel Arena Palace – Verona",city:"Verona",type:"Cleaning",typeKey:"clean",salary:"€1,000/mo",perm:false,isNew:false,urgent:false,featured:false,ico:"🧹",bg:"#eef3ff",desc:"Mon–Sat 09:00–15:00. Near Verona Arena. 2 positions available. Experience helpful but not essential. Immediate start.",applyUrl:'',source:'',postedAgo:'5 days ago'},
 ];
 
 const SEEKERS=[
@@ -2228,31 +2355,35 @@ const TMAP={elder:"jt-elder",clean:"jt-clean",baby:"jt-baby",factory:"jt-factory
 
 function renderJobs(list){
   document.getElementById('job-list').innerHTML=list.length?list.map(j=>`
-    <div class="jcard${j.featured?' featured':''}" onclick="openModal(${j.id})">
+    <div class="jcard${j.featured?' featured':''}" onclick="${j.applyUrl ? `window.open('${j.applyUrl}','_blank')` : `openModal(${j.id})`}">
       ${j.featured?'<div class="jcard-featured-badge">⭐ Featured</div>':''}
+      ${j.source?`<div style="position:absolute;top:8px;right:8px;background:rgba(0,128,0,.1);color:#059669;font-size:9px;font-weight:800;padding:2px 8px;border-radius:4px">🟢 REAL JOB via ${j.source}</div>`:''}
       <div class="jcard-top">
         <div class="jcard-logo" style="background:${j.bg}">${j.ico}</div>
         <div class="jcard-meta-block">
           <div class="jcard-title">${j.title}</div>
-          <div class="jcard-sin">${j.sin}</div>
+          ${j.sin?`<div class="jcard-sin">${j.sin}</div>`:''}
           <div class="jcard-company">${j.company}</div>
           <div class="jcard-meta-row">
             <span>📍 ${j.city}</span>
             <span>🕐 Full-time</span>
-            <span>📅 Posted today</span>
+            <span>📅 ${j.postedAgo || 'Posted today'}</span>
           </div>
         </div>
       </div>
       <div class="jcard-desc">${j.desc}</div>
       <div class="jcard-footer">
-        <span class="jtag ${TMAP[j.typeKey]}">${j.ico} ${j.type}</span>
+        <span class="jtag ${TMAP[j.typeKey]||''}">${j.ico} ${j.type}</span>
         ${j.perm?'<span class="jtag jt-perm">Permesso ✓</span>':''}
         ${j.isNew?'<span class="jtag jt-new">New</span>':''}
         ${j.urgent?'<span class="jtag jt-urgent">Urgent!</span>':''}
         <span class="jcard-salary">${j.salary}</span>
         <div class="jcard-actions">
           <button class="save-btn" onclick="event.stopPropagation()" title="Save">♡</button>
-          <button class="apply-btn" onclick="event.stopPropagation();openModal(${j.id})">Apply Now</button>
+          ${j.applyUrl
+            ? `<a class="apply-btn" href="${j.applyUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="text-decoration:none;text-align:center">Apply on Site →</a>`
+            : `<button class="apply-btn" onclick="event.stopPropagation();openModal(${j.id})">Apply Now</button>`
+          }
         </div>
       </div>
     </div>`).join('')
@@ -2449,9 +2580,13 @@ function showSuccess(method){
   document.getElementById('as-next-steps').textContent=nextSteps;
 }
 
-function applyFilters(){
+async function applyFilters(){
   const cat=document.querySelector('input[name="cat"]:checked').value;
   const perm=document.querySelector('input[name="perm"]:checked').value;
+  if(ADZUNA_APP_ID !== 'YOUR_APP_ID' && cat){
+    await loadJobs(cat, '');
+    return;
+  }
   let list=JOBS.filter(j=>(!cat||j.type===cat)&&(!perm||(perm==='yes'?j.perm:!j.perm)));
   renderJobs(list);
 }
@@ -2468,12 +2603,25 @@ function filterCity(city,el){
   renderJobs(city?JOBS.filter(j=>j.city===city):JOBS);
 }
 
-function doSearch(){
+async function doSearch(){
   const kw=document.getElementById('nav-kw').value.toLowerCase();
   const city=document.getElementById('nav-city').value;
-  const list=JOBS.filter(j=>(!kw||(j.title.toLowerCase().includes(kw)||j.type.toLowerCase().includes(kw)))&&(!city||j.city===city));
   showTab('jobs',null);
-  setTimeout(()=>renderJobs(list),50);
+  if(ADZUNA_APP_ID !== 'YOUR_APP_ID'){
+    /* Search via Adzuna API */
+    document.getElementById('job-list').innerHTML='<div style="text-align:center;padding:40px"><div style="font-size:24px;margin-bottom:8px">🔍</div><div style="color:var(--ink3);font-size:13px">Searching real jobs in Italy...</div></div>';
+    const cat = detectCategory(kw);
+    const results = await fetchAdzunaJobs(cat, city);
+    if(kw){
+      JOBS = results.filter(j=>j.title.toLowerCase().includes(kw)||j.type.toLowerCase().includes(kw)||j.company.toLowerCase().includes(kw));
+    } else {
+      JOBS = results;
+    }
+    renderJobs(JOBS);
+  } else {
+    const list=JOBS.filter(j=>(!kw||(j.title.toLowerCase().includes(kw)||j.type.toLowerCase().includes(kw)))&&(!city||j.city===city));
+    setTimeout(()=>renderJobs(list),50);
+  }
 }
 
 function showTab(name,el){
@@ -2735,7 +2883,10 @@ function setLang(l,el){
   document.getElementById('hero-sub').textContent=t.sub;
 }
 
+/* Initial load — try Adzuna API first, fall back to demo */
+JOBS = DEMO_JOBS;
 renderJobs(JOBS);
+loadJobs('', '');
 buildProg(1);
 </script>
 </body>
