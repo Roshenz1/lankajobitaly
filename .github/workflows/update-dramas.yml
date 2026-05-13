@@ -1,9 +1,11 @@
-name: Auto-update Teledrama Episodes
+name: Auto-update Teledramas & Job Listings
 
 on:
   schedule:
-    # Run every 3 days at 6:30 AM UTC (roughly 12:00 PM Sri Lanka time)
+    # Run every 3 days at 6:30 AM UTC (teledramas)
     - cron: '30 6 */3 * *'
+    # Run every 4 days at 8:15 AM UTC (job category counts)
+    - cron: '15 8 */4 * *'
   workflow_dispatch: # Allow manual trigger from GitHub UI
 
 permissions:
@@ -18,3 +20,12 @@ jobs:
 
       - name: Run drama update script
         run: bash .github/scripts/update-dramas.sh
+
+  update-job-counts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Update job category counts
+        run: bash .github/scripts/update-jobs.sh

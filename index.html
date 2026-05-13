@@ -979,9 +979,30 @@ img{max-width:100%;display:block}
       <div class="cat-tile ct-factory" onclick="filterCat('Factory',null)">
         <div class="cat-tile-count">14</div>
         <div class="cat-tile-icon">🏭</div>
-        <div class="cat-tile-en">Factory / Logistics</div>
+        <div class="cat-tile-en">Factory</div>
         <div class="cat-tile-sin">කර්මාන්ත රැකියා</div>
-        <div class="cat-tile-it">Fabbrica / Logistica</div>
+        <div class="cat-tile-it">Operaio / Fabbrica</div>
+      </div>
+      <div class="cat-tile" onclick="filterCat('Warehouse',null)" style="background:var(--wh)">
+        <div class="cat-tile-count">📦</div>
+        <div class="cat-tile-icon">📦</div>
+        <div class="cat-tile-en">Warehouse</div>
+        <div class="cat-tile-sin">ගබඩා රැකියා</div>
+        <div class="cat-tile-it">Magazziniere</div>
+      </div>
+      <div class="cat-tile" onclick="filterCat('Restaurant',null)" style="background:var(--wh)">
+        <div class="cat-tile-count">🍽️</div>
+        <div class="cat-tile-icon">🍽️</div>
+        <div class="cat-tile-en">Restaurant</div>
+        <div class="cat-tile-sin">ආපනශාලා</div>
+        <div class="cat-tile-it">Ristorazione</div>
+      </div>
+      <div class="cat-tile" onclick="filterCat('Driving',null)" style="background:var(--wh)">
+        <div class="cat-tile-count">🚗</div>
+        <div class="cat-tile-icon">🚗</div>
+        <div class="cat-tile-en">Driving</div>
+        <div class="cat-tile-sin">රියදුරු</div>
+        <div class="cat-tile-it">Autista</div>
       </div>
     </div>
   </div>
@@ -1016,6 +1037,9 @@ img{max-width:100%;display:block}
             <label class="radio-opt"><input type="radio" name="cat" value="Cleaning" onchange="applyFilters()"/> 🧹 Cleaning<span class="radio-opt-sin">පිරිසිදු</span><span class="radio-count">31</span></label>
             <label class="radio-opt"><input type="radio" name="cat" value="Baby Sitting" onchange="applyFilters()"/> 👶 Baby Sitting<span class="radio-opt-sin">ළමා රැකවරණය</span><span class="radio-count">18</span></label>
             <label class="radio-opt"><input type="radio" name="cat" value="Factory" onchange="applyFilters()"/> 🏭 Factory<span class="radio-opt-sin">කර්මාන්ත</span><span class="radio-count">14</span></label>
+            <label class="radio-opt"><input type="radio" name="cat" value="Warehouse" onchange="applyFilters()"/> 📦 Warehouse<span class="radio-opt-sin">ගබඩා</span><span class="radio-count">23k</span></label>
+            <label class="radio-opt"><input type="radio" name="cat" value="Restaurant" onchange="applyFilters()"/> 🍽️ Restaurant<span class="radio-opt-sin">ආපනශාලා</span><span class="radio-count">4k</span></label>
+            <label class="radio-opt"><input type="radio" name="cat" value="Driving" onchange="applyFilters()"/> 🚗 Driving<span class="radio-opt-sin">රියදුරු</span><span class="radio-count">4k</span></label>
           </div>
         </div>
         <div class="filter-group">
@@ -2216,7 +2240,10 @@ const CAT_KEYWORDS = {
   'Elder Care': 'assistenza anziani badante colf',
   'Cleaning': 'pulizie pulizia addetto pulizie',
   'Baby Sitting': 'babysitter baby sitter tata',
-  'Factory': 'magazziniere operaio logistica fabbrica',
+  'Factory': 'operaio produzione fabbrica confezionamento imballaggio',
+  'Warehouse': 'magazziniere scaffalista carrellista muletto logistica facchino',
+  'Restaurant': 'cuoco cameriere lavapiatti aiuto cucina pizzaiolo',
+  'Driving': 'autista corriere rider consegne patente',
   '': '' /* all jobs */
 };
 
@@ -2226,6 +2253,9 @@ const CAT_STYLE = {
   'Cleaning': {ico:'🧹',bg:'#eef3ff',typeKey:'clean'},
   'Baby Sitting': {ico:'👶',bg:'#f3e8ff',typeKey:'baby'},
   'Factory': {ico:'🏭',bg:'#e6f8f2',typeKey:'factory'},
+  'Warehouse': {ico:'📦',bg:'#fef3c7',typeKey:'warehouse'},
+  'Restaurant': {ico:'🍽️',bg:'#fce7f3',typeKey:'restaurant'},
+  'Driving': {ico:'🚗',bg:'#e0f2fe',typeKey:'driving'},
   'default': {ico:'💼',bg:'#f0f4ff',typeKey:'other'}
 };
 
@@ -2235,7 +2265,10 @@ function detectCategory(title){
   if(t.match(/anzian|badant|colf|carer|elder|assistenza|infermier/)) return 'Elder Care';
   if(t.match(/pulizi|housekeep|clean|lavan|igien/)) return 'Cleaning';
   if(t.match(/baby|sitter|tata|bambin|nanny|child/)) return 'Baby Sitting';
-  if(t.match(/magazz|operai|fabbric|logistic|warehouse|factory|muletti/)) return 'Factory';
+  if(t.match(/magazz|scaffal|carrelli|muletto|logistic|facchino|warehouse/)) return 'Warehouse';
+  if(t.match(/operai|fabbric|produzion|confezion|imballag|factory|manifat/)) return 'Factory';
+  if(t.match(/cuoco|camerier|lavapiatt|cucina|pizz|ristorant|chef|barista/)) return 'Restaurant';
+  if(t.match(/autist|corrier|rider|consegn|driving|driver|patente/)) return 'Driving';
   return '';
 }
 
@@ -2883,10 +2916,30 @@ function setLang(l,el){
   document.getElementById('hero-sub').textContent=t.sub;
 }
 
-/* Initial load — try Adzuna API first, fall back to demo */
+/* Initial load — fetch real jobs from Verona + Milan + popular categories */
 JOBS = DEMO_JOBS;
 renderJobs(JOBS);
-loadJobs('', '');
+(async function(){
+  if(ADZUNA_APP_ID === 'YOUR_APP_ID') return;
+  document.getElementById('job-list').innerHTML='<div style="text-align:center;padding:40px"><div style="font-size:24px;margin-bottom:8px">⏳</div><div style="color:var(--ink3);font-size:13px">Loading real jobs from Italy...</div></div>';
+  /* Fetch from multiple categories and cities in parallel */
+  const fetches = [
+    fetchAdzunaJobs('', 'verona'),
+    fetchAdzunaJobs('', 'milano'),
+    fetchAdzunaJobs('Warehouse', ''),
+    fetchAdzunaJobs('Factory', ''),
+    fetchAdzunaJobs('Elder Care', 'verona'),
+  ];
+  const results = await Promise.all(fetches);
+  const all = results.flat();
+  /* Deduplicate by job ID */
+  const seen = new Set();
+  JOBS = all.filter(j => { if(seen.has(j.applyUrl)) return false; seen.add(j.applyUrl); return true; });
+  JOBS.sort((a,b) => (a.isNew===b.isNew ? 0 : a.isNew ? -1 : 1));
+  adzunaLoaded = true;
+  renderJobs(JOBS);
+  document.getElementById('res-count').innerHTML='<b>'+JOBS.length+'</b> real jobs found <span>• from Verona, Milan & all Italy</span>';
+})();
 buildProg(1);
 </script>
 </body>
