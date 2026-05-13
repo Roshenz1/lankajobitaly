@@ -1,0 +1,20 @@
+name: Auto-update Teledrama Episodes
+
+on:
+  schedule:
+    # Run every 3 days at 6:30 AM UTC (roughly 12:00 PM Sri Lanka time)
+    - cron: '30 6 */3 * *'
+  workflow_dispatch: # Allow manual trigger from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  update-dramas:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run drama update script
+        run: bash .github/scripts/update-dramas.sh
