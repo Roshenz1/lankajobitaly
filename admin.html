@@ -150,10 +150,16 @@ tr:hover td{background:var(--bg)}
     <div class="lock-logo">🏝️</div>
     <div class="lock-title">Lanka Job Italy</div>
     <div class="lock-sub">Admin Panel · lankajobitaly.com</div>
-    <input type="password" id="pwd" placeholder="Admin password" onkeydown="if(event.key==='Enter')doLogin()"/>
-    <input type="password" id="token" placeholder="GitHub token (ghp_…)" onkeydown="if(event.key==='Enter')doLogin()" style="margin-top:-4px"/>
+    <div style="position:relative;margin-bottom:12px">
+      <input type="password" id="pwd" placeholder="Admin password" autocomplete="new-password" onkeydown="if(event.key==='Enter')doLogin()" style="padding-right:40px;margin-bottom:0"/>
+      <span onclick="toggleVis('pwd',this)" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:17px;color:rgba(255,255,255,.4);user-select:none">👁</span>
+    </div>
+    <div style="position:relative;margin-bottom:16px">
+      <input type="password" id="token" placeholder="GitHub token (ghp_…)" autocomplete="off" onkeydown="if(event.key==='Enter')doLogin()" style="padding-right:40px;margin-bottom:0"/>
+      <span onclick="toggleVis('token',this)" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:17px;color:rgba(255,255,255,.4);user-select:none">👁</span>
+    </div>
     <button class="btn-login" onclick="doLogin()">Sign In →</button>
-    <div style="font-size:11px;color:rgba(255,255,255,.25);margin-top:10px">Token is stored in memory only — never saved to disk</div>
+    <div style="font-size:11px;color:rgba(255,255,255,.25);margin-top:10px">Token stored in memory only — never saved to disk</div>
     <div class="lock-err" id="lock-err"></div>
   </div>
 </div>
@@ -222,7 +228,7 @@ tr:hover td{background:var(--bg)}
             <div style="display:flex;flex-direction:column;gap:20px">
               <div style="display:flex;gap:14px">
                 <div style="width:32px;height:32px;background:var(--r);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;flex-shrink:0">0</div>
-                <div><b>Login: password + GitHub token</b><br/><span style="color:var(--ink2)">Password: <code style="background:var(--bg);padding:2px 6px;border-radius:4px">SriLanka2025!</code> · Token: go to <b>github.com → Settings → Developer Settings → Personal Access Tokens → Tokens (classic)</b> and generate one with <b>repo</b> permission. Paste it in the token field.</span></div>
+                <div><b>Login: password + GitHub token</b><br/><span style="color:var(--ink2)">Password: <code style="background:var(--bg);padding:2px 6px;border-radius:4px">SriLanka2025!</code><br/><br/><b>To get your GitHub token (do this once):</b><br/>1. Go to <b>github.com</b> → click your profile picture (top right) → <b>Settings</b><br/>2. Scroll all the way down → click <b>Developer settings</b> (bottom left)<br/>3. Click <b>Personal access tokens</b> → <b>Tokens (classic)</b><br/>4. Click <b>"Generate new token (classic)"</b><br/>5. Give it a name (e.g. "LankaJobAdmin"), set expiration to <b>No expiration</b><br/>6. Tick the <b>repo</b> checkbox (the first one in the list — ticks all sub-items)<br/>7. Click <b>Generate token</b> → copy the token starting with <b>ghp_</b><br/>8. Paste it in the token field above. If you lose it, just generate a new one.</span></div>
               </div>
               <div style="display:flex;gap:14px">
                 <div style="width:32px;height:32px;background:var(--r);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;flex-shrink:0">1</div>
@@ -360,6 +366,12 @@ const PASS='SriLanka2025!';
 let JOBS=[];
 let deleteTargetId=null;
 let selectedIco='🧓';
+
+function toggleVis(id,el){
+  const inp=document.getElementById(id);
+  inp.type=inp.type==='password'?'text':'password';
+  el.style.opacity=inp.type==='text'?'1':'0.4';
+}
 
 function doLogin(){
   const pwd=document.getElementById('pwd').value;
