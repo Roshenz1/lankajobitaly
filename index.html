@@ -359,6 +359,25 @@ img{max-width:100%;display:block}
 .ntw-sinhala-box .ntw-steps span{font-weight:700;color:#b45309}
 .ntw-loading{text-align:center;padding:24px;color:var(--ink3);font-size:12px}
 
+/* ── ITALIAN JOB SITES GUIDE ── */
+.jobsites-section{margin:20px 0}
+.jobsites-hd{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding:12px 16px;background:linear-gradient(135deg,#dbeafe 0%,#bfdbfe 100%);border-radius:var(--rb);border:1.5px solid #3b82f6}
+.jobsites-hd-icon{font-size:22px}
+.jobsites-hd-title{font-size:15px;font-weight:700;color:#1e3a5f}
+.jobsites-hd-sub{font-size:11px;color:#2563eb;margin-left:auto;font-weight:600}
+.jobsites-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:700px){.jobsites-grid{grid-template-columns:1fr}}
+.jsite-card{background:var(--wh);border:1.5px solid var(--line);border-radius:var(--rb);padding:14px;transition:var(--ease);position:relative;overflow:hidden}
+.jsite-card:hover{border-color:#3b82f6;box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.jsite-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.jsite-logo{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;flex-shrink:0}
+.jsite-name{font-size:14px;font-weight:700;color:var(--ink)}
+.jsite-url{font-size:10px;color:var(--ink3);display:block}
+.jsite-sin{font-family:var(--sin);font-size:11px;color:#334155;line-height:1.7;margin-bottom:8px;background:#f8fafc;padding:8px 10px;border-radius:8px;border-left:3px solid #3b82f6}
+.jsite-btn{display:inline-block;background:#1a56db;color:#fff;font-size:11px;font-weight:700;padding:6px 16px;border-radius:20px;text-decoration:none;transition:var(--ease)}
+.jsite-btn:hover{background:#1e40af}
+.jsite-free{display:inline-block;background:#dcfce7;color:#166534;font-size:9px;font-weight:800;padding:2px 8px;border-radius:4px;margin-left:8px}
+
 /* JOB CARD */
 .jcard{
   position:relative;
@@ -914,98 +933,10 @@ img{max-width:100%;display:block}
   .seekers-grid{grid-template-columns:1fr}
   .nav-post span{display:none}
   .nav-post{padding:6px 10px;font-size:12px}
-  .news-grid{grid-template-columns:1fr!important}
-  .jobsites-grid{grid-template-columns:1fr 1fr!important}
 }
-@media(max-width:960px){.news-grid{grid-template-columns:repeat(2,1fr)!important}}
-
-/* ─── SRI LANKA IDENTITY ─── */
-:root{--gold:#D4A017;--gold-l:rgba(212,160,23,.12);--gold-b:rgba(212,160,23,.3);--saffron:#E07020}
-.flag-stripe{height:4px;background:linear-gradient(90deg,#8B1A1A 0%,#8B1A1A 12%,#E07020 12%,#E07020 24%,#006400 24%,#006400 36%,#D4A017 36%,#D4A017 100%)}
-.hero{background:linear-gradient(145deg,#160308 0%,#0a0f1e 55%,#0a1528 100%)!important}
-.hero-bg-circle{background:radial-gradient(circle,rgba(232,25,44,.22) 0%,transparent 70%)!important}
-.hero-bg-circle2{background:radial-gradient(circle,rgba(212,160,23,.14) 0%,transparent 70%)!important}
-.hero-badge{background:var(--gold-l)!important;border:1px solid var(--gold-b)!important}
-.hero-sin-h{color:rgba(212,160,23,.75)!important}
-.hero-lotus{position:absolute;right:-60px;top:20px;opacity:.06;width:300px;height:300px;pointer-events:none}
-.ntab-news{background:linear-gradient(135deg,#D4A017,#E07020)!important;color:#fff!important;font-weight:700!important}
-.ntab-news:hover{opacity:.9;transform:translateY(-1px)}
-.ntab-news.on{filter:brightness(.85)}
-
-/* ─── NEWS TAB ─── */
-#tab-news{min-height:80vh}
-.news-header{background:linear-gradient(145deg,#160308 0%,#0a0f1e 100%);padding:24px var(--s3) 18px}
-.news-header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.news-title{font-size:22px;font-weight:800;color:#fff}
-.news-sin-title{font-family:var(--sin);font-size:12px;color:rgba(212,160,23,.7);margin-top:2px}
-.news-refresh-info{font-size:12px;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:6px}
-.news-dot{width:7px;height:7px;background:#00a86b;border-radius:50%;animation:pulse 2s infinite}
-.ticker-wrap{background:var(--R);height:36px;display:flex;align-items:center;overflow:hidden}
-.ticker-label{background:var(--Rd);color:#fff;font-size:10px;font-weight:800;padding:0 14px;height:100%;display:flex;align-items:center;flex-shrink:0;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
-.ticker-track{flex:1;overflow:hidden;height:100%}
-.ticker-inner{display:inline-flex;white-space:nowrap;animation:tickScroll 45s linear infinite}
-.ticker-inner:hover{animation-play-state:paused}
-.ticker-item{display:inline-flex;align-items:center;color:#fff;font-size:12px;font-weight:600;padding:0 22px;height:36px;border-right:1px solid rgba(255,255,255,.2);text-decoration:none;transition:.15s}
-.ticker-item:hover{background:var(--Rd)}
-@keyframes tickScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.news-controls-wrap{background:var(--wh);border-bottom:1px solid var(--line);padding:10px var(--s3)}
-.news-controls{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.news-chip{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;border:1.5px solid var(--line);background:var(--bg);color:var(--ink2);transition:var(--ease)}
-.news-chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.news-chip.derana.on{background:var(--R);border-color:var(--R);color:#fff}
-.news-chip.sinhala.on{background:#D4A017;border-color:#D4A017;color:#fff}
-.news-chip.newsfirst.on{background:var(--B);border-color:var(--B);color:#fff}
-.news-chip.mirror.on{background:#00a86b;border-color:#00a86b;color:#fff}
-.news-meta-right{margin-left:auto;font-size:11px;color:var(--ink3)}
-.news-body{padding:20px var(--s3);max-width:1100px;margin:0 auto}
-.news-section-lbl{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);display:flex;align-items:center;gap:8px;margin-bottom:14px}
-.news-section-lbl::after{content:'';flex:1;height:1px;background:var(--line)}
-.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.ncard{background:var(--wh);border:1px solid var(--line);border-radius:var(--rb);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:var(--ease)}
-.ncard:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
-.ncard-img{height:140px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:40px;overflow:hidden;flex-shrink:0}
-.ncard-img img{width:100%;height:100%;object-fit:cover;display:block}
-.ncard-body{padding:12px;flex:1;display:flex;flex-direction:column;gap:6px}
-.ncard-meta{display:flex;align-items:center;gap:7px}
-.ncard-badge{padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
-.nb-derana{background:#fff0f1;color:#c0101f}
-.nb-sinhala{background:#fff8e6;color:#92400e}
-.nb-newsfirst{background:#eef3ff;color:#1a56db}
-.nb-mirror{background:#e6f8f2;color:#047857}
-.ncard-time{font-size:11px;color:var(--ink3);margin-left:auto;white-space:nowrap}
-.ncard-title{font-size:13px;font-weight:700;line-height:1.4;color:var(--ink)}
-.ncard-title.sin{font-family:var(--sin);font-size:14px}
-.ncard-desc{font-size:12px;color:var(--ink2);line-height:1.5;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.ncard-read{font-size:12px;font-weight:700;color:var(--R);margin-top:2px}
-.news-loading-box{text-align:center;padding:60px;color:var(--ink3)}
-.news-spinner{width:36px;height:36px;border:3px solid var(--line);border-top-color:var(--R);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
-@keyframes spin{to{transform:rotate(360deg)}}
-.news-error-box{text-align:center;padding:48px;background:var(--wh);border:1px solid var(--line);border-radius:var(--rb);color:var(--ink2)}
-
-/* ─── ITALIAN JOB SITES SECTION ─── */
-.jobsites-section{background:var(--bg);padding:28px var(--s3) 32px;border-top:2px solid var(--line)}
-.jobsites-inner{max-width:1100px;margin:0 auto}
-.jobsites-hd{font-size:17px;font-weight:800;margin-bottom:4px}
-.jobsites-sub{font-size:13px;color:var(--ink2);margin-bottom:16px;font-family:var(--sin)}
-.jsc-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
-.jsc-chip{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;border:1.5px solid var(--line);background:var(--wh);color:var(--ink2);transition:var(--ease)}
-.jsc-chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.jsc-cat-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
-.jsc-cat-chip{padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid var(--line);background:var(--wh);color:var(--ink2);transition:var(--ease)}
-.jsc-cat-chip.on{background:var(--R);color:#fff;border-color:var(--R)}
-.jobsites-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.jsite-card{background:var(--wh);border:1.5px solid var(--line);border-radius:var(--rb);padding:16px 14px;display:flex;flex-direction:column;gap:6px;text-decoration:none;color:inherit;transition:var(--ease)}
-.jsite-card:hover{border-color:var(--R);box-shadow:0 4px 18px rgba(232,25,44,.12);transform:translateY(-2px)}
-.jsite-name{font-size:14px;font-weight:800;color:var(--ink)}
-.jsite-country{font-size:10px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.05em}
-.jsite-desc{font-size:11px;color:var(--ink2);line-height:1.4;flex:1}
-.jsite-open{display:inline-flex;align-items:center;gap:4px;margin-top:6px;font-size:11px;font-weight:700;color:var(--R)}
 </style>
 </head>
 <body>
-<div class="flag-stripe"></div>
-
-<!-- ════════════ NAV ════════════ -->
 
 <!-- ════════════ NAV ════════════ -->
 <nav class="nav">
@@ -1031,7 +962,6 @@ img{max-width:100%;display:block}
     <button class="ntab ntab-karaoke" onclick="showTab('karaoke',this)">🎤 Karaoke</button>
     <button class="ntab" onclick="showTab('music',this)">🎵 Music</button>
     <button class="ntab ntab-drama" onclick="showTab('dramas',this)">🎬 Dramas</button>
-    <button class="ntab ntab-news" onclick="showTab('news',this);loadNewsIfNeeded()">📰 News</button>
   </div>
   <div class="nav-lang">
     <button class="lb on" onclick="setLang('en',this)">EN</button>
@@ -1048,18 +978,6 @@ img{max-width:100%;display:block}
 <section class="hero">
   <div class="hero-bg-circle"></div>
   <div class="hero-bg-circle2"></div>
-  <svg class="hero-lotus" viewBox="0 0 300 300" fill="none" aria-hidden="true">
-    <ellipse cx="150" cy="150" rx="18" ry="68" fill="#D4A017" transform="rotate(0 150 150)"/>
-    <ellipse cx="150" cy="150" rx="18" ry="68" fill="#D4A017" transform="rotate(40 150 150)"/>
-    <ellipse cx="150" cy="150" rx="18" ry="68" fill="#D4A017" transform="rotate(80 150 150)"/>
-    <ellipse cx="150" cy="150" rx="18" ry="68" fill="#D4A017" transform="rotate(120 150 150)"/>
-    <ellipse cx="150" cy="150" rx="18" ry="68" fill="#D4A017" transform="rotate(160 150 150)"/>
-    <ellipse cx="150" cy="150" rx="18" ry="68" fill="#D4A017" transform="rotate(200 150 150)"/>
-    <ellipse cx="150" cy="150" rx="18" ry="68" fill="#D4A017" transform="rotate(240 150 150)"/>
-    <ellipse cx="150" cy="150" rx="18" ry="68" fill="#D4A017" transform="rotate(280 150 150)"/>
-    <ellipse cx="150" cy="150" rx="18" ry="68" fill="#D4A017" transform="rotate(320 150 150)"/>
-    <circle cx="150" cy="150" r="20" fill="#D4A017"/>
-  </svg>
   <div class="hero-inner">
     <div class="hero-badge fade-up">
       <span class="hero-flag">🇱🇰</span>
@@ -1244,6 +1162,122 @@ img{max-width:100%;display:block}
       </div>
     </div>
 
+    <!-- ══════ ITALIAN JOB SITES GUIDE ══════ -->
+    <div class="jobsites-section">
+      <div class="jobsites-hd">
+        <div class="jobsites-hd-icon">🌐</div>
+        <div class="jobsites-hd-title">Italian Job Sites Guide</div>
+        <div class="jobsites-hd-sub">ඉතාලි රැකියා වෙබ් අඩවි</div>
+      </div>
+      <div class="jobsites-grid">
+
+        <!-- Indeed Italy -->
+        <div class="jsite-card">
+          <div class="jsite-top">
+            <div class="jsite-logo" style="background:#2164f3">in</div>
+            <div><div class="jsite-name">Indeed Italy</div><div class="jsite-url">it.indeed.com</div></div>
+            <span class="jsite-free">Free</span>
+          </div>
+          <div class="jsite-sin">
+            🔍 Indeed වෙත ගොස් search bar එකේ <b>"badante"</b> හෝ <b>"pulizie"</b> type කරන්න → ඔබේ නගරය ලියන්න (උදා: Verona) → "Cerca" ඔබන්න → රැකියාවක් click කර <b>"Candidati"</b> ඔබන්න → CV upload කරන්න → Submit!
+          </div>
+          <a class="jsite-btn" href="https://it.indeed.com/" target="_blank" rel="noopener">Visit Indeed →</a>
+        </div>
+
+        <!-- InfoJobs -->
+        <div class="jsite-card">
+          <div class="jsite-top">
+            <div class="jsite-logo" style="background:#ff6600">iJ</div>
+            <div><div class="jsite-name">InfoJobs</div><div class="jsite-url">www.infojobs.it</div></div>
+            <span class="jsite-free">Free</span>
+          </div>
+          <div class="jsite-sin">
+            📝 InfoJobs වෙත ගොස් <b>නොමිලේ account එකක්</b> හදන්න (email + password) → "Cerca lavoro" search එකේ <b>"operaio"</b> හෝ <b>"magazziniere"</b> ලියන්න → නගරය තෝරන්න → <b>"Candidati subito"</b> ඔබන්න → ඔබේ CV එක upload වේ!
+          </div>
+          <a class="jsite-btn" href="https://www.infojobs.it/" target="_blank" rel="noopener">Visit InfoJobs →</a>
+        </div>
+
+        <!-- LinkedIn -->
+        <div class="jsite-card">
+          <div class="jsite-top">
+            <div class="jsite-logo" style="background:#0a66c2">Li</div>
+            <div><div class="jsite-name">LinkedIn Jobs</div><div class="jsite-url">www.linkedin.com/jobs</div></div>
+            <span class="jsite-free">Free</span>
+          </div>
+          <div class="jsite-sin">
+            💼 LinkedIn app download කරන්න හෝ website එකට යන්න → <b>Profile එකක් හදන්න</b> (ඔබේ photo + experience ලියන්න) → "Jobs" tab එක ඔබන්න → Italy jobs search කරන්න → <b>"Easy Apply"</b> ඇති job එකකට apply කරන්න — එක click එකෙන් apply වේ!
+          </div>
+          <a class="jsite-btn" href="https://www.linkedin.com/jobs/" target="_blank" rel="noopener">Visit LinkedIn →</a>
+        </div>
+
+        <!-- Subito.it -->
+        <div class="jsite-card">
+          <div class="jsite-top">
+            <div class="jsite-logo" style="background:#e5322d">Su</div>
+            <div><div class="jsite-name">Subito.it</div><div class="jsite-url">www.subito.it/offerte-lavoro</div></div>
+            <span class="jsite-free">Free</span>
+          </div>
+          <div class="jsite-sin">
+            🏠 Subito.it යනු ඉතාලියේ ජනප්‍රියම classified site එකයි → <b>"Offerte di lavoro"</b> section එකට යන්න → ඔබේ නගරය + රැකියා වර්ගය search කරන්න → දැන්වීම click කර <b>phone number එකට call කරන්න</b> හෝ message යවන්න → Account අවශ්‍ය නැත!
+          </div>
+          <a class="jsite-btn" href="https://www.subito.it/annunci-italia/vendita/offerte-lavoro/" target="_blank" rel="noopener">Visit Subito →</a>
+        </div>
+
+        <!-- Bakeca.it -->
+        <div class="jsite-card">
+          <div class="jsite-top">
+            <div class="jsite-logo" style="background:#00b84d">Ba</div>
+            <div><div class="jsite-name">Bakeca Lavoro</div><div class="jsite-url">www.bakeca.it/lavoro</div></div>
+            <span class="jsite-free">Free</span>
+          </div>
+          <div class="jsite-sin">
+            🟢 Bakeca යනු <b>badante, pulizie, babysitter</b> රැකියා සොයන්න හොඳම site එකයි → ඔබේ නගරය තෝරන්න (උදා: Verona) → "Offerte lavoro domestico" click කරන්න → දැන්වීමේ ඇති <b>දුරකථන අංකයට call කරන්න</b> → සරලයි!
+          </div>
+          <a class="jsite-btn" href="https://www.bakeca.it/offerte-lavoro/" target="_blank" rel="noopener">Visit Bakeca →</a>
+        </div>
+
+        <!-- Randstad -->
+        <div class="jsite-card">
+          <div class="jsite-top">
+            <div class="jsite-logo" style="background:#0033a0">Ra</div>
+            <div><div class="jsite-name">Randstad Italia</div><div class="jsite-url">www.randstad.it</div></div>
+            <span class="jsite-free">Agency</span>
+          </div>
+          <div class="jsite-sin">
+            🏢 Randstad යනු <b>ඉතාලියේ විශාලතම job agency</b> එකයි → Website එකේ <b>"Cerca lavoro"</b> ඔබන්න → "operaio" / "magazziniere" search කරන්න → Apply කරන්න → Randstad office එකකට interview එකකට කැඳවනු ඇත → <b>ඔවුන් ඔබට රැකියාවක් සොයා දෙයි!</b>
+          </div>
+          <a class="jsite-btn" href="https://www.randstad.it/" target="_blank" rel="noopener">Visit Randstad →</a>
+        </div>
+
+        <!-- Adecco -->
+        <div class="jsite-card">
+          <div class="jsite-top">
+            <div class="jsite-logo" style="background:#e4002b">Ad</div>
+            <div><div class="jsite-name">Adecco Italia</div><div class="jsite-url">www.adecco.it</div></div>
+            <span class="jsite-free">Agency</span>
+          </div>
+          <div class="jsite-sin">
+            🔴 Adecco යනු තවත් ප්‍රධාන agency එකකි → <b>"Trova lavoro"</b> ඔබන්න → ඔබේ keyword + නගරය ලියන්න → Apply කරන්න → Adecco ඔබව interview එකකට කැඳවයි → <b>Factory, warehouse, cleaning jobs විශේෂයි</b> → Permesso තිබිය යුතුයි!
+          </div>
+          <a class="jsite-btn" href="https://www.adecco.it/" target="_blank" rel="noopener">Visit Adecco →</a>
+        </div>
+
+        <!-- Jooble -->
+        <div class="jsite-card">
+          <div class="jsite-top">
+            <div class="jsite-logo" style="background:#5b2c8e">Jo</div>
+            <div><div class="jsite-name">Jooble Italia</div><div class="jsite-url">it.jooble.org</div></div>
+            <span class="jsite-free">Free</span>
+          </div>
+          <div class="jsite-sin">
+            🔎 Jooble යනු <b>සියලුම job sites එකට search කරන</b> site එකයි (Indeed + InfoJobs + Bakeca එකවර) → Search box එකේ ඔබේ රැකියාව + නගරය ලියන්න → Results බලන්න → Click කර <b>original site එකට ගොස් apply කරන්න</b>
+          </div>
+          <a class="jsite-btn" href="https://it.jooble.org/" target="_blank" rel="noopener">Visit Jooble →</a>
+        </div>
+
+      </div>
+    </div>
+
     <div class="jlist" id="job-list"></div>
   </div>
 
@@ -1280,40 +1314,6 @@ img{max-width:100%;display:block}
     </div>
   </div>
 </div>
-</div>
-
-<!-- ITALIAN JOB SITES SECTION (inside Jobs tab) -->
-<div class="jobsites-section">
-  <div class="jobsites-inner">
-    <div class="jobsites-hd">🔗 Find Real Jobs on Italian Job Sites</div>
-    <div class="jobsites-sub">ඉතාලි රැකියා වෙබ් අඩවිවල රැකියා සොයන්න — select your city and category, then click a site to see real vacancies</div>
-    <div style="font-size:12px;font-weight:700;color:var(--ink2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em">📍 Choose City</div>
-    <div class="jsc-row" id="jsc-city-row">
-      <div class="jsc-chip on" onclick="setJSCity('',this)">All Italy</div>
-      <div class="jsc-chip" onclick="setJSCity('Verona',this)">Verona</div>
-      <div class="jsc-chip" onclick="setJSCity('Milan',this)">Milan</div>
-      <div class="jsc-chip" onclick="setJSCity('Rome',this)">Rome</div>
-      <div class="jsc-chip" onclick="setJSCity('Turin',this)">Turin</div>
-      <div class="jsc-chip" onclick="setJSCity('Bologna',this)">Bologna</div>
-      <div class="jsc-chip" onclick="setJSCity('Florence',this)">Florence</div>
-      <div class="jsc-chip" onclick="setJSCity('Naples',this)">Naples</div>
-      <div class="jsc-chip" onclick="setJSCity('Genoa',this)">Genoa</div>
-    </div>
-    <div style="font-size:12px;font-weight:700;color:var(--ink2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em">💼 Choose Category</div>
-    <div class="jsc-cat-row" id="jsc-cat-row">
-      <div class="jsc-cat-chip on" onclick="setJSCat('',this)">All Jobs</div>
-      <div class="jsc-cat-chip" onclick="setJSCat('elder',this)">🧓 Elder Care</div>
-      <div class="jsc-cat-chip" onclick="setJSCat('clean',this)">🧹 Cleaning</div>
-      <div class="jsc-cat-chip" onclick="setJSCat('baby',this)">👶 Baby Sitting</div>
-      <div class="jsc-cat-chip" onclick="setJSCat('factory',this)">🏭 Factory</div>
-      <div class="jsc-cat-chip" onclick="setJSCat('warehouse',this)">📦 Warehouse</div>
-      <div class="jsc-cat-chip" onclick="setJSCat('restaurant',this)">🍽️ Restaurant</div>
-      <div class="jsc-cat-chip" onclick="setJSCat('driving',this)">🚗 Driving</div>
-    </div>
-    <div class="jobsites-grid" id="jobsites-grid">
-      <!-- Filled by JS -->
-    </div>
-  </div>
 </div>
 
 <!-- ════════════ SEEKERS TAB ════════════ -->
@@ -2388,61 +2388,6 @@ document.getElementById('drama-updated-date').textContent='Last updated: '+new D
 </script>
 </div>
 
-<!-- ════════════ NEWS TAB ════════════ -->
-<div id="tab-news" style="display:none">
-  <div class="news-header">
-    <div class="news-header-inner">
-      <div>
-        <div class="news-title">📰 Sri Lanka Live News</div>
-        <div class="news-sin-title">ශ්‍රී ලංකා සජීවී පුවත් — Ada Derana · NewsFirst · Daily Mirror</div>
-      </div>
-      <div class="news-refresh-info">
-        <span class="news-dot"></span>
-        <span id="news-updated-txt">Click a source to load</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Breaking ticker -->
-  <div class="ticker-wrap">
-    <div class="ticker-label">🔴 Breaking</div>
-    <div class="ticker-track">
-      <div class="ticker-inner" id="ticker-inner">
-        <span class="ticker-item">Loading Sri Lanka news — please wait…</span>
-        <span class="ticker-item">Loading Sri Lanka news — please wait…</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Source filter -->
-  <div class="news-controls-wrap">
-    <div class="news-controls">
-      <div class="news-chip on" onclick="filterNews('all',this)">🌐 All Sources</div>
-      <div class="news-chip derana" onclick="filterNews('derana',this)">Ada Derana English</div>
-      <div class="news-chip sinhala" onclick="filterNews('sinhala',this)">Ada Derana සිංහල</div>
-      <div class="news-chip newsfirst" onclick="filterNews('newsfirst',this)">NewsFirst</div>
-      <div class="news-chip mirror" onclick="filterNews('mirror',this)">Daily Mirror</div>
-      <div class="news-meta-right" id="news-count-txt"></div>
-    </div>
-  </div>
-
-  <!-- Cards -->
-  <div class="news-body">
-    <div class="news-section-lbl">Latest Stories</div>
-    <div class="news-grid" id="news-grid">
-      <div style="grid-column:1/-1">
-        <div class="news-loading-box">
-          <div class="news-spinner"></div>
-          Loading Sri Lanka news…
-        </div>
-      </div>
-    </div>
-    <div id="news-load-more-wrap" style="text-align:center;padding:20px 0;display:none">
-      <button style="background:var(--ink);color:#fff;border:none;padding:10px 28px;border-radius:var(--ra);font-size:13px;font-weight:700;cursor:pointer" onclick="showMoreNews()">Load More Stories</button>
-    </div>
-  </div>
-</div>
-
 <!-- ════════════ FOOTER ════════════ -->
 <footer class="footer">
   <div class="footer-grid">
@@ -2896,7 +2841,7 @@ async function doSearch(){
 }
 
 function showTab(name,el){
-  ['jobs','seekers','cv','services','radio','tv','karaoke','music','dramas','news'].forEach(t=>document.getElementById('tab-'+t).style.display='none');
+  ['jobs','seekers','cv','services','radio','tv','karaoke','music','dramas'].forEach(t=>document.getElementById('tab-'+t).style.display='none');
   document.getElementById('tab-'+name).style.display='block';
   document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('on'));
   if(el)el.classList.add('on');
@@ -3262,228 +3207,6 @@ renderJobs(JOBS);
   document.getElementById('res-count').innerHTML='<b>'+JOBS.length+'</b> real jobs found <span>• from Verona, Milan, Rome & all Italy</span>';
 })();
 buildProg(1);
-
-/* ══════════════════════════════════════════════════
-   ADMIN JOBS SYNC — load jobs.json from GitHub
-══════════════════════════════════════════════════ */
-(async function syncAdminJobs(){
-  try{
-    const r=await fetch('https://raw.githubusercontent.com/Roshenz1/lankajobitaly/main/jobs.json?t='+Date.now());
-    if(!r.ok)return;
-    const loaded=await r.json();
-    if(Array.isArray(loaded)&&loaded.length&&!adzunaLoaded){
-      DEMO_JOBS.length=0;loaded.forEach(j=>DEMO_JOBS.push(j));
-      JOBS=[...DEMO_JOBS];renderJobs(JOBS);
-    }
-  }catch(e){}
-})();
-
-/* ══════════════════════════════════════════════════
-   SRI LANKA NEWS — rss2json.com (reliable CORS-free)
-══════════════════════════════════════════════════ */
-const R2J='https://api.rss2json.com/v1/api.json?rss_url=';
-const NEWS_FEEDS=[
-  {key:'derana', name:'Ada Derana',        url:'https://www.adaderana.lk/rss.php',           badge:'nb-derana',   emoji:'📰'},
-  {key:'sinhala',name:'Ada Derana සිංහල', url:'https://sinhala.adaderana.lk/rss.php',       badge:'nb-sinhala',  emoji:'📰',sin:true},
-  {key:'newsfirst',name:'NewsFirst',       url:'https://www.newsfirst.lk/feed/',              badge:'nb-newsfirst',emoji:'📡'},
-  {key:'mirror', name:'Daily Mirror',      url:'https://www.dailymirror.lk/rss.php',         badge:'nb-mirror',   emoji:'📰'},
-];
-let ALL_NEWS=[],newsLoaded=false,newsFilter='all',newsPage=9;
-
-function loadNewsIfNeeded(){if(!newsLoaded)fetchNews();}
-
-async function fetchNews(){
-  const grid=document.getElementById('news-grid');
-  const ticker=document.getElementById('ticker-inner');
-  grid.innerHTML='<div style="grid-column:1/-1"><div class="news-loading-box"><div class="news-spinner"></div>Fetching Sri Lanka news…</div></div>';
-  document.getElementById('news-updated-txt').textContent='Fetching…';
-
-  let all=[];
-  await Promise.allSettled(NEWS_FEEDS.map(async feed=>{
-    try{
-      const r=await fetch(R2J+encodeURIComponent(feed.url)+'&count=15');
-      if(!r.ok)return;
-      const d=await r.json();
-      if(d.status!=='ok'||!d.items?.length)return;
-      d.items.forEach(item=>{
-        const title=(item.title||'').trim();
-        const link=(item.link||'').trim();
-        if(!title||!link)return;
-        const desc=(item.description||item.content||'').replace(/<[^>]*>/g,'').trim().slice(0,180);
-        const img=item.thumbnail||item.enclosure?.link||null;
-        all.push({title,link,desc,pubDate:item.pubDate||'',img,
-          source:feed.name,key:feed.key,badge:feed.badge,emoji:feed.emoji,sin:!!feed.sin});
-      });
-    }catch(e){console.warn('Feed failed:',feed.name,e.message)}
-  }));
-
-  all.sort((a,b)=>new Date(b.pubDate)-new Date(a.pubDate));
-  ALL_NEWS=all;newsLoaded=true;
-
-  /* ticker */
-  if(all.length){
-    const t=all.slice(0,16).map(n=>`<a class="ticker-item" href="${xH(n.link)}" target="_blank" rel="noopener">${xH(n.title.slice(0,90))}${n.title.length>90?'…':''}</a>`).join('');
-    ticker.innerHTML=t+t;
-  }
-
-  const now=new Date();
-  document.getElementById('news-updated-txt').textContent=
-    'Updated '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-
-  renderNewsGrid(all,newsFilter);
-  setTimeout(fetchNews,5*60*1000); /* auto-refresh 5 min */
-}
-
-function renderNewsGrid(items,filter){
-  const grid=document.getElementById('news-grid');
-  const filtered=filter==='all'?items:items.filter(n=>n.key===filter);
-  const total=filtered.length;
-  document.getElementById('news-count-txt').textContent=total?total+' stories':'';
-  newsPage=9;
-  if(!total){
-    grid.innerHTML='<div style="grid-column:1/-1"><div class="news-error-box"><div style="font-size:32px;margin-bottom:12px">📡</div>'+(newsLoaded?'No stories for this source. Try "All Sources".':'Loading…')+'</div></div>';
-    document.getElementById('news-load-more-wrap').style.display='none';
-    return;
-  }
-  grid.innerHTML=filtered.slice(0,newsPage).map(newsCard).join('');
-  grid.dataset.filter=filter;
-  document.getElementById('news-load-more-wrap').style.display=total>newsPage?'':'none';
-}
-
-function newsCard(n){
-  const t=nTimeAgo(n.pubDate);
-  const img=n.img
-    ?`<img src="${xH(n.img)}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='${n.emoji}'">`
-    :n.emoji;
-  return`<a class="ncard" href="${xH(n.link)}" target="_blank" rel="noopener noreferrer">
-  <div class="ncard-img">${img}</div>
-  <div class="ncard-body">
-    <div class="ncard-meta">
-      <span class="ncard-badge ${n.badge}">${xH(n.source)}</span>
-      <span class="ncard-time">${t}</span>
-    </div>
-    <div class="ncard-title${n.sin?' sin':''}">${xH(n.title)}</div>
-    ${n.desc?`<div class="ncard-desc">${xH(n.desc)}</div>`:''}
-    <div class="ncard-read">Read full article →</div>
-  </div>
-</a>`;
-}
-
-function filterNews(key,el){
-  document.querySelectorAll('.news-chip').forEach(c=>c.classList.remove('on'));
-  el.classList.add('on');newsFilter=key;
-  if(!newsLoaded){fetchNews();return;}
-  renderNewsGrid(ALL_NEWS,key);
-}
-
-function showMoreNews(){
-  const grid=document.getElementById('news-grid');
-  const f=grid.dataset.filter||'all';
-  const filtered=f==='all'?ALL_NEWS:ALL_NEWS.filter(n=>n.key===f);
-  newsPage+=9;
-  grid.innerHTML=filtered.slice(0,newsPage).map(newsCard).join('');
-  document.getElementById('news-load-more-wrap').style.display=filtered.length>newsPage?'':'none';
-}
-
-function nTimeAgo(pd){
-  if(!pd)return'';const d=new Date(pd);if(isNaN(d))return'';
-  const s=Math.floor((Date.now()-d)/1000);
-  if(s<60)return'just now';if(s<3600)return Math.floor(s/60)+'m ago';
-  if(s<86400)return Math.floor(s/3600)+'h ago';return Math.floor(s/86400)+'d ago';
-}
-function xH(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
-
-/* ══════════════════════════════════════════════════
-   ITALIAN JOB SITES SECTION
-══════════════════════════════════════════════════ */
-let jsCity='', jsCat='';
-
-const CITY_IT={
-  '':'',Verona:'Verona',Milan:'Milano',Rome:'Roma',Turin:'Torino',
-  Bologna:'Bologna',Florence:'Firenze',Naples:'Napoli',Genoa:'Genova'
-};
-
-const CAT_KW={
-  '':       {q:'lavoro',          label:'All Jobs'},
-  elder:    {q:'badante colf assistenza anziani', label:'Elder Care'},
-  clean:    {q:'addetto pulizie', label:'Cleaning'},
-  baby:     {q:'babysitter tata', label:'Baby Sitting'},
-  factory:  {q:'operaio fabbrica',label:'Factory'},
-  warehouse:{q:'magazziniere logistica',label:'Warehouse'},
-  restaurant:{q:'cuoco cameriere ristorazione',label:'Restaurant'},
-  driving:  {q:'autista corriere',label:'Driving'},
-};
-
-const JOB_SITES=[
-  {
-    name:'Indeed Italy',country:'🇮🇹 it.indeed.com',
-    desc:'Largest job site in Italy — millions of verified listings updated daily.',
-    url:(city,q)=>`https://it.indeed.com/lavoro?q=${encodeURIComponent(q)}&l=${encodeURIComponent(city)}`,
-  },
-  {
-    name:'InfoJobs',country:'🇮🇹 infojobs.it',
-    desc:'Top Italian job board — professional listings from companies across Italy.',
-    url:(city,q)=>`https://www.infojobs.it/offerte-lavoro/offerte-lavoro.xhtml?keyword=${encodeURIComponent(q)}&provincia=${encodeURIComponent(city)}`,
-  },
-  {
-    name:'Subito.it',country:'🇮🇹 subito.it',
-    desc:'Italy\'s most popular classifieds — thousands of job ads from private employers.',
-    url:(city,q)=>`https://www.subito.it/offerte-di-lavoro/${encodeURIComponent(city.toLowerCase()||'italia')}/?q=${encodeURIComponent(q)}`,
-  },
-  {
-    name:'Bakeca.it',country:'🇮🇹 bakeca.it',
-    desc:'Free local job ads across every Italian city — great for domestic and care jobs.',
-    url:(city,q)=>`https://www.bakeca.it/offerte-lavoro/${encodeURIComponent(city.toLowerCase()||'italia')}/?kw=${encodeURIComponent(q)}`,
-  },
-  {
-    name:'LinkedIn Jobs',country:'🌐 linkedin.com',
-    desc:'Professional network — find formal jobs with Italian companies and multinationals.',
-    url:(city,q)=>`https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(q)}&location=${encodeURIComponent(city+' Italy')}`,
-  },
-  {
-    name:'Jobrapido',country:'🇮🇹 jobrapido.com',
-    desc:'Job aggregator pulling listings from hundreds of Italian websites in one place.',
-    url:(city,q)=>`https://it.jobrapido.com/lavoro-${encodeURIComponent(q.split(' ')[0])}/cerca/?w=${encodeURIComponent(q)}&d=${encodeURIComponent(city)}`,
-  },
-  {
-    name:'Trovit Jobs',country:'🇮🇹 trovit.it',
-    desc:'Search engine for job ads — aggregates from dozens of Italian job portals.',
-    url:(city,q)=>`https://lavoro.trovit.it/index.php/cod.search/what_d/${encodeURIComponent(q)}/where_d/${encodeURIComponent(city)}`,
-  },
-  {
-    name:'Kijiji',country:'🇮🇹 kijiji.it',
-    desc:'Community classifieds — good for part-time, domestic, and informal job offers.',
-    url:(city,q)=>`https://www.kijiji.it/annunci/offerte-lavoro/${encodeURIComponent(city.toLowerCase()||'italia')}/${encodeURIComponent(q.split(' ')[0])}`,
-  },
-];
-
-function renderJobSites(){
-  const city=CITY_IT[jsCity]||'';
-  const cat=CAT_KW[jsCat]||CAT_KW[''];
-  const q=cat.q;
-  document.getElementById('jobsites-grid').innerHTML=JOB_SITES.map(s=>`
-    <a class="jsite-card" href="${xH(s.url(city,q))}" target="_blank" rel="noopener noreferrer">
-      <div class="jsite-name">${s.name}</div>
-      <div class="jsite-country">${s.country}</div>
-      <div class="jsite-desc">${s.desc}</div>
-      <div class="jsite-open">
-        🔎 Search${jsCat?' '+cat.label:''}${jsCity?' in '+jsCity:' in Italy'} →
-      </div>
-    </a>`).join('');
-}
-
-function setJSCity(city,el){
-  jsCity=city;
-  document.querySelectorAll('.jsc-chip').forEach(c=>c.classList.remove('on'));
-  el.classList.add('on');renderJobSites();
-}
-function setJSCat(cat,el){
-  jsCat=cat;
-  document.querySelectorAll('.jsc-cat-chip').forEach(c=>c.classList.remove('on'));
-  el.classList.add('on');renderJobSites();
-}
-
-renderJobSites(); /* initial render */
 </script>
 </body>
 </html>
