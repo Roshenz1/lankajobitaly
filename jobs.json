@@ -100,5 +100,22 @@
     "ico": "ð§¹",
     "bg": "#eef3ff",
     "desc": "MonâSat 09:00â15:00. Near Verona Arena. 2 positions available. Experience helpful but not essential. Immediate start."
+  },
+  {
+    "id": 7,
+    "title": "Badante",
+    "sin": "",
+    "company": "Private Family",
+    "city": "Verona",
+    "type": "Elder Care",
+    "typeKey": "elder",
+    "salary": "10 Per hour",
+    "perm": false,
+    "isNew": true,
+    "urgent": false,
+    "featured": false,
+    "ico": "🧓",
+    "bg": "#fff0f1",
+    "desc": "Corso Milano වැඩි විස්තර සදහා මට මැසේජ් එකක් දාන්න.CV එක එක්ක.\n3513111841"
   }
 ]
