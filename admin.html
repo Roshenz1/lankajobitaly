@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Lanka Job Italy — Admin Panel</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Noto+Sans+Sinhala:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0f172a;--navy2:#1e293b;--navy3:#334155;
+  --r:#e8192c;--rd:#c0101f;--g:#00a86b;--gold:#D4A017;
+  --ink:#1e293b;--ink2:#64748b;--ink3:#94a3b8;
+  --line:#e2e8f0;--bg:#f8fafc;--wh:#fff;
+  --ra:8px;--rb:12px;--rc:16px;
+  --shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);
+  --shadow-md:0 4px 16px rgba(0,0,0,.12);
+  --shadow-lg:0 20px 60px rgba(0,0,0,.2);
+}
+html,body{height:100%;font-family:'Sora',sans-serif;font-size:14px;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font-family:inherit;font-size:14px}
+input,select,textarea{width:100%;padding:9px 12px;border:1.5px solid var(--line);border-radius:var(--ra);background:var(--wh);color:var(--ink);outline:none;transition:.15s;line-height:1.5}
+input:focus,select:focus,textarea:focus{border-color:var(--r);box-shadow:0 0 0 3px rgba(232,25,44,.12)}
+textarea{resize:vertical;min-height:80px}
+label{display:block;font-size:12px;font-weight:700;color:var(--ink2);margin-bottom:5px;letter-spacing:.02em;text-transform:uppercase}
+
+/* LOCK */
+#lock{position:fixed;inset:0;background:var(--navy);display:flex;align-items:center;justify-content:center;z-index:999}
+#lock.hidden{display:none}
+.lock-card{background:var(--navy2);border:1px solid var(--navy3);border-radius:var(--rc);padding:40px;width:360px;text-align:center}
+.lock-logo{width:56px;height:56px;background:var(--r);border-radius:var(--rb);display:inline-flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:20px}
+.lock-title{font-size:20px;font-weight:800;color:#fff;margin-bottom:6px}
+.lock-sub{font-size:13px;color:var(--ink3);margin-bottom:28px}
+.lock-card input{background:var(--navy3);border-color:transparent;color:#fff;padding:12px 16px;font-size:15px;margin-bottom:16px}
+.lock-card input::placeholder{color:rgba(255,255,255,.3)}
+.lock-card input:focus{border-color:var(--r);background:var(--navy3)}
+.btn-login{width:100%;padding:12px;background:var(--r);color:#fff;border:none;border-radius:var(--ra);font-size:15px;font-weight:700;cursor:pointer;transition:.15s}
+.btn-login:hover{background:var(--rd)}
+.lock-err{font-size:13px;color:#fca5a5;margin-top:10px;min-height:20px}
+
+/* APP */
+#app{display:none;height:100%;flex-direction:row}
+#app.show{display:flex}
+
+/* SIDEBAR */
+.sidebar{width:220px;flex-shrink:0;background:var(--navy);display:flex;flex-direction:column;padding:24px 0;height:100vh;position:sticky;top:0}
+.sb-logo{display:flex;align-items:center;gap:10px;padding:0 20px 24px;border-bottom:1px solid var(--navy3);margin-bottom:16px}
+.sb-logo-icon{width:36px;height:36px;background:var(--r);border-radius:var(--ra);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.sb-logo-text{font-size:14px;font-weight:800;color:#fff;line-height:1.2}
+.sb-logo-sub{font-size:10px;color:var(--ink3)}
+.sb-nav{flex:1;padding:0 12px}
+.sb-link{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--ra);color:rgba(255,255,255,.55);font-size:13px;font-weight:600;cursor:pointer;transition:.15s;margin-bottom:4px;border:none;background:transparent;width:100%;text-align:left}
+.sb-link:hover{background:var(--navy2);color:#fff}
+.sb-link.active{background:rgba(232,25,44,.2);color:#fff}
+.sb-link .sb-icon{font-size:16px;width:20px;text-align:center}
+.sb-bottom{padding:12px 12px 0;border-top:1px solid var(--navy3);margin-top:auto}
+.sb-site-btn{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:var(--ra);color:rgba(255,255,255,.55);font-size:12px;font-weight:600;background:transparent;border:none;cursor:pointer;width:100%;transition:.15s}
+.sb-site-btn:hover{color:#fff;background:var(--navy2)}
+
+/* MAIN */
+.main{flex:1;overflow-y:auto;min-height:100vh}
+.topbar{background:var(--wh);border-bottom:1px solid var(--line);padding:16px 28px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:100}
+.topbar-title{font-size:18px;font-weight:800;flex:1}
+.topbar-badge{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:4px 12px;font-size:12px;color:var(--ink2);font-weight:600}
+.btn{padding:9px 18px;border:none;border-radius:var(--ra);font-size:13px;font-weight:700;cursor:pointer;transition:.15s;white-space:nowrap}
+.btn-red{background:var(--r);color:#fff}
+.btn-red:hover{background:var(--rd)}
+.btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink2)}
+.btn-danger{background:#fef2f2;color:#dc2626;border:1.5px solid #fecaca}
+.btn-danger:hover{background:#fee2e2}
+.btn-sm{padding:5px 12px;font-size:12px}
+
+/* CONTENT */
+.content{padding:28px}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}
+.stat-card{background:var(--wh);border:1px solid var(--line);border-radius:var(--rb);padding:20px;box-shadow:var(--shadow)}
+.stat-num{font-size:28px;font-weight:800;line-height:1}
+.stat-lbl{font-size:12px;color:var(--ink2);margin-top:4px}
+.stat-elder{color:var(--r)}.stat-clean{color:var(--ink)}.stat-baby{color:#9333ea}.stat-factory{color:var(--g)}
+
+/* TABLE */
+.table-card{background:var(--wh);border:1px solid var(--line);border-radius:var(--rb);box-shadow:var(--shadow);overflow:hidden}
+.table-header{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
+.table-search{flex:1;max-width:280px;padding:8px 12px;border:1.5px solid var(--line);border-radius:var(--ra);font-size:13px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse}
+th{background:var(--bg);padding:10px 16px;text-align:left;font-size:11px;font-weight:700;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:12px 16px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg)}
+.badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700}
+.badge-elder{background:#fff0f1;color:#c0101f}.badge-clean{background:#eef3ff;color:#1a56db}
+.badge-baby{background:#f3e8ff;color:#7c3aed}.badge-factory{background:#e6f8f2;color:#047857}
+.badge-new{background:#dcfce7;color:#166534}.badge-urgent{background:#fef2f2;color:#dc2626}
+.badge-featured{background:#fef9c3;color:#854d0e}.badge-perm{background:#e0f2fe;color:#075985}
+.td-title{font-weight:600;max-width:200px}
+.td-sin{font-size:11px;color:var(--ink3);font-family:'Noto Sans Sinhala',sans-serif;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.td-actions{display:flex;gap:6px;white-space:nowrap}
+.empty-state{text-align:center;padding:60px 20px;color:var(--ink3)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:500;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:.2s}
+.modal-overlay.show{opacity:1;pointer-events:all}
+.modal{background:var(--wh);border-radius:var(--rc);width:100%;max-width:620px;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg)}
+.modal-head{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--wh);z-index:10}
+.modal-title{font-size:16px;font-weight:800}
+.modal-close{background:transparent;border:none;font-size:20px;cursor:pointer;color:var(--ink2);padding:4px;border-radius:var(--ra)}
+.modal-close:hover{background:var(--bg);color:var(--ink)}
+.modal-body{padding:24px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-full{grid-column:1/-1}
+.form-group{margin-bottom:0}
+.checks-row{display:flex;gap:20px;flex-wrap:wrap}
+.check-item{display:flex;align-items:center;gap:8px;cursor:pointer}
+.check-item input[type=checkbox]{width:16px;height:16px;accent-color:var(--r);cursor:pointer}
+.check-item span{font-size:13px;color:var(--ink);font-weight:500}
+.ico-picker{display:flex;gap:6px;flex-wrap:wrap}
+.ico-btn{width:38px;height:38px;border:2px solid var(--line);border-radius:var(--ra);background:var(--bg);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s}
+.ico-btn.active,.ico-btn:hover{border-color:var(--r);background:#fff0f1}
+.modal-foot{padding:16px 24px;border-top:1px solid var(--line);display:flex;gap:10px;justify-content:flex-end;position:sticky;bottom:0;background:var(--wh)}
+
+/* TOAST */
+.toast-wrap{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;flex-direction:column;gap:8px}
+.toast{background:var(--navy);color:#fff;padding:12px 18px;border-radius:var(--rb);font-size:13px;font-weight:600;box-shadow:var(--shadow-md);display:flex;align-items:center;gap:10px;animation:toastIn .3s ease;max-width:320px}
+.toast.success{background:var(--g)}.toast.error{background:#dc2626}
+@keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* SPINNER */
+.spin{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:768px){
+  .sidebar{width:60px}
+  .sb-logo-text,.sb-logo-sub,.sb-link span,.sb-site-btn span{display:none}
+  .sb-logo{padding:0 12px 20px;justify-content:center}
+  .sb-logo-icon{margin:0}
+  .sb-link{justify-content:center;padding:10px}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .form-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- LOCK SCREEN -->
+<div id="lock">
+  <div class="lock-card">
+    <div class="lock-logo">🏝️</div>
+    <div class="lock-title">Lanka Job Italy</div>
+    <div class="lock-sub">Admin Panel · lankajobitaly.com</div>
+    <input type="password" id="pwd" placeholder="Admin password" onkeydown="if(event.key==='Enter')doLogin()"/>
+    <input type="password" id="token" placeholder="GitHub token (ghp_…)" onkeydown="if(event.key==='Enter')doLogin()" style="margin-top:-4px"/>
+    <button class="btn-login" onclick="doLogin()">Sign In →</button>
+    <div style="font-size:11px;color:rgba(255,255,255,.25);margin-top:10px">Token is stored in memory only — never saved to disk</div>
+    <div class="lock-err" id="lock-err"></div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <aside class="sidebar">
+    <div class="sb-logo">
+      <div class="sb-logo-icon">🏝️</div>
+      <div><div class="sb-logo-text">LankaJob</div><div class="sb-logo-sub">Admin Panel</div></div>
+    </div>
+    <nav class="sb-nav">
+      <button class="sb-link active" id="nav-jobs" onclick="showSection('jobs')">
+        <span class="sb-icon">💼</span><span>Jobs</span>
+      </button>
+      <button class="sb-link" id="nav-guide" onclick="showSection('guide')">
+        <span class="sb-icon">📖</span><span>How To Use</span>
+      </button>
+    </nav>
+    <div class="sb-bottom">
+      <button class="sb-site-btn" onclick="window.open('https://lankajobitaly.com','_blank')">
+        <span>🌐</span><span>View Site</span>
+      </button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title" id="topbar-title">Job Listings</div>
+      <span class="topbar-badge" id="job-count-badge">Loading…</span>
+      <button class="btn btn-ghost btn-sm" onclick="loadJobs()">🔄 Refresh</button>
+      <button class="btn btn-red" onclick="openAddModal()">+ Add New Job</button>
+    </div>
+
+    <div class="content">
+      <!-- JOBS SECTION -->
+      <div id="section-jobs">
+        <div class="stats-row" id="stats-row">
+          <div class="stat-card"><div class="stat-num stat-elder" id="st-elder">0</div><div class="stat-lbl">Elder Care</div></div>
+          <div class="stat-card"><div class="stat-num stat-clean" id="st-clean">0</div><div class="stat-lbl">Cleaning</div></div>
+          <div class="stat-card"><div class="stat-num stat-baby" id="st-baby">0</div><div class="stat-lbl">Baby Sitting</div></div>
+          <div class="stat-card"><div class="stat-num stat-factory" id="st-factory">0</div><div class="stat-lbl">Factory</div></div>
+        </div>
+        <div class="table-card">
+          <div class="table-header">
+            <input type="text" class="table-search" placeholder="Search jobs…" id="search-input" oninput="filterTable()"/>
+            <div id="table-status" style="font-size:12px;color:var(--ink2)"></div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Job Title</th><th>Category</th><th>City</th><th>Salary</th><th>Flags</th><th>Actions</th></tr></thead>
+              <tbody id="jobs-tbody">
+                <tr><td colspan="6" style="text-align:center;padding:40px;color:var(--ink3)"><div class="spin" style="border-top-color:var(--r);border-color:rgba(232,25,44,.2);margin:0 auto 10px"></div>Loading jobs…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div style="margin-top:12px;font-size:12px;color:var(--ink3)">Jobs saved here appear live on the site within ~60 seconds.</div>
+      </div>
+
+      <!-- GUIDE SECTION -->
+      <div id="section-guide" style="display:none">
+        <div style="max-width:640px">
+          <div style="background:var(--wh);border:1px solid var(--line);border-radius:var(--rb);padding:28px;box-shadow:var(--shadow)">
+            <h2 style="font-size:18px;font-weight:800;margin-bottom:20px">How to Use the Admin Panel</h2>
+            <div style="display:flex;flex-direction:column;gap:20px">
+              <div style="display:flex;gap:14px">
+                <div style="width:32px;height:32px;background:var(--r);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;flex-shrink:0">0</div>
+                <div><b>Login: password + GitHub token</b><br/><span style="color:var(--ink2)">Password: <code style="background:var(--bg);padding:2px 6px;border-radius:4px">SriLanka2025!</code> · Token: go to <b>github.com → Settings → Developer Settings → Personal Access Tokens → Tokens (classic)</b> and generate one with <b>repo</b> permission. Paste it in the token field.</span></div>
+              </div>
+              <div style="display:flex;gap:14px">
+                <div style="width:32px;height:32px;background:var(--r);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;flex-shrink:0">1</div>
+                <div><b>Add a new job</b><br/><span style="color:var(--ink2)">Click "+ Add New Job". Fill in the details and click Save.</span></div>
+              </div>
+              <div style="display:flex;gap:14px">
+                <div style="width:32px;height:32px;background:var(--r);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;flex-shrink:0">2</div>
+                <div><b>Edit a job</b><br/><span style="color:var(--ink2)">Click the ✏️ Edit button, make your changes, then click Save.</span></div>
+              </div>
+              <div style="display:flex;gap:14px">
+                <div style="width:32px;height:32px;background:var(--r);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;flex-shrink:0">3</div>
+                <div><b>Delete a job</b><br/><span style="color:var(--ink2)">Click 🗑️ Delete and confirm. The job is removed from the site.</span></div>
+              </div>
+              <div style="display:flex;gap:14px">
+                <div style="width:32px;height:32px;background:var(--g);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;flex-shrink:0">✓</div>
+                <div><b>Changes go live automatically</b><br/><span style="color:var(--ink2)">After saving, the site updates within about 60 seconds. No other steps needed!</span></div>
+              </div>
+            </div>
+            <div style="margin-top:24px;background:#fff8e6;border:1px solid #fde68a;border-radius:var(--ra);padding:14px;font-size:13px">
+              <b>Tip:</b> Use <b>Featured</b> for important jobs that appear highlighted. Use <b>Urgent</b> for time-sensitive listings. Tick <b>Permesso Required</b> if a work permit is needed.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADD / EDIT MODAL -->
+<div class="modal-overlay" id="job-modal">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title" id="modal-title">Add New Job</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <input type="hidden" id="f-id"/>
+        <div class="form-group form-full">
+          <label>Job Title (English) *</label>
+          <input id="f-title" placeholder="e.g. Live-in Carer for Elderly Lady"/>
+        </div>
+        <div class="form-group form-full">
+          <label>Job Title (Sinhala) — optional</label>
+          <input id="f-sin" placeholder="e.g. වැඩිහිටි රැකවරණය" style="font-family:'Noto Sans Sinhala',sans-serif"/>
+        </div>
+        <div class="form-group form-full">
+          <label>Company / Employer *</label>
+          <input id="f-company" placeholder="e.g. Private Family – Verona"/>
+        </div>
+        <div class="form-group">
+          <label>City *</label>
+          <select id="f-city">
+            <option value="">Select city…</option>
+            <option>Verona</option><option>Milan</option><option>Rome</option>
+            <option>Turin</option><option>Bologna</option><option>Florence</option>
+            <option>Naples</option><option>Genoa</option><option>Venice</option>
+            <option>Bergamo</option><option>Brescia</option><option>Padua</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Salary / Pay *</label>
+          <input id="f-salary" placeholder="e.g. €1,100/mo or €11/hr"/>
+        </div>
+        <div class="form-group">
+          <label>Category *</label>
+          <select id="f-type" onchange="syncTypeKey()">
+            <option value="">Select category…</option>
+            <option value="Elder Care">🧓 Elder Care</option>
+            <option value="Cleaning">🧹 Cleaning</option>
+            <option value="Baby Sitting">👶 Baby Sitting</option>
+            <option value="Factory">🏭 Factory / Logistics</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Icon</label>
+          <div class="ico-picker" id="ico-picker">
+            <button type="button" class="ico-btn active" data-ico="🧓" onclick="pickIco(this)">🧓</button>
+            <button type="button" class="ico-btn" data-ico="🧹" onclick="pickIco(this)">🧹</button>
+            <button type="button" class="ico-btn" data-ico="👶" onclick="pickIco(this)">👶</button>
+            <button type="button" class="ico-btn" data-ico="🏭" onclick="pickIco(this)">🏭</button>
+            <button type="button" class="ico-btn" data-ico="🏠" onclick="pickIco(this)">🏠</button>
+            <button type="button" class="ico-btn" data-ico="🍽️" onclick="pickIco(this)">🍽️</button>
+            <button type="button" class="ico-btn" data-ico="🚗" onclick="pickIco(this)">🚗</button>
+            <button type="button" class="ico-btn" data-ico="💊" onclick="pickIco(this)">💊</button>
+          </div>
+        </div>
+        <div class="form-group form-full">
+          <label>Job Description *</label>
+          <textarea id="f-desc" placeholder="Describe the job — hours, duties, requirements, start date…"></textarea>
+        </div>
+        <div class="form-group form-full">
+          <label>Job Flags</label>
+          <div class="checks-row">
+            <label class="check-item"><input type="checkbox" id="f-perm"/><span>Permesso Required ✓</span></label>
+            <label class="check-item"><input type="checkbox" id="f-new"/><span>Mark as New</span></label>
+            <label class="check-item"><input type="checkbox" id="f-urgent"/><span>Urgent!</span></label>
+            <label class="check-item"><input type="checkbox" id="f-featured"/><span>⭐ Featured</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-red" id="save-btn" onclick="saveJob()">Save Job</button>
+    </div>
+  </div>
+</div>
+
+<!-- DELETE CONFIRM -->
+<div class="modal-overlay" id="del-modal">
+  <div class="modal" style="max-width:420px">
+    <div class="modal-head">
+      <div class="modal-title">Delete Job?</div>
+      <button class="modal-close" onclick="closeDelModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:14px;color:var(--ink2);line-height:1.6">Are you sure you want to delete <b id="del-job-title"></b>? This cannot be undone.</p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" onclick="closeDelModal()">Cancel</button>
+      <button class="btn btn-danger" id="del-confirm-btn" onclick="confirmDelete()">Yes, Delete</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toast-wrap"></div>
+
+<script>
+let GH_TOKEN='';
+const REPO='Roshenz1/lankajobitaly';
+const FILE='jobs.json';
+const PASS='SriLanka2025!';
+
+let JOBS=[];
+let deleteTargetId=null;
+let selectedIco='🧓';
+
+function doLogin(){
+  const pwd=document.getElementById('pwd').value;
+  const tok=document.getElementById('token').value.trim();
+  if(pwd!==PASS){document.getElementById('lock-err').textContent='Incorrect password.';document.getElementById('pwd').value='';return;}
+  if(!tok.startsWith('ghp_')&&!tok.startsWith('github_pat_')){document.getElementById('lock-err').textContent='Please enter your GitHub token (starts with ghp_…).';return;}
+  GH_TOKEN=tok;
+  document.getElementById('lock').classList.add('hidden');
+  document.getElementById('app').classList.add('show');
+  loadJobs();
+}
+
+function showSection(name){
+  ['jobs','guide'].forEach(s=>{document.getElementById('section-'+s).style.display='none'});
+  document.getElementById('section-'+name).style.display='';
+  document.querySelectorAll('.sb-link').forEach(el=>el.classList.remove('active'));
+  document.getElementById('nav-'+name).classList.add('active');
+  const titles={jobs:'Job Listings',guide:'How To Use'};
+  document.getElementById('topbar-title').textContent=titles[name]||name;
+  const isJobs=name==='jobs';
+  document.querySelector('.btn-red').style.display=isJobs?'':'none';
+  document.querySelector('.btn-ghost.btn-sm').style.display=isJobs?'':'none';
+  document.getElementById('job-count-badge').style.display=isJobs?'':'none';
+}
+
+async function loadJobs(){
+  setTableLoading(true);
+  try{
+    const res=await fetch('https://api.github.com/repos/'+REPO+'/contents/'+FILE,{
+      headers:{'Authorization':'token '+GH_TOKEN,'Accept':'application/vnd.github.v3+json'}
+    });
+    if(!res.ok)throw new Error('GitHub error: '+res.status);
+    const data=await res.json();
+    JOBS=JSON.parse(atob(data.content.replace(/\n/g,'')));
+    renderTable(JOBS);
+    updateStats();
+  }catch(e){toast('Load failed: '+e.message,'error');setTableLoading(false)}
+}
+
+async function pushJobs(msg){
+  const getRes=await fetch('https://api.github.com/repos/'+REPO+'/contents/'+FILE,{
+    headers:{'Authorization':'token '+GH_TOKEN,'Accept':'application/vnd.github.v3+json'}
+  });
+  if(!getRes.ok)throw new Error('Could not fetch file SHA');
+  const current=await getRes.json();
+  const content=btoa(unescape(encodeURIComponent(JSON.stringify(JOBS,null,2))));
+  const putRes=await fetch('https://api.github.com/repos/'+REPO+'/contents/'+FILE,{
+    method:'PUT',
+    headers:{'Authorization':'token '+GH_TOKEN,'Content-Type':'application/json'},
+    body:JSON.stringify({message:msg,content,sha:current.sha,branch:'main'})
+  });
+  if(!putRes.ok){const err=await putRes.json();throw new Error(err.message||'Push failed')}
+}
+
+function renderTable(list){
+  document.getElementById('job-count-badge').textContent=list.length+' jobs';
+  document.getElementById('table-status').textContent=list.length+' of '+JOBS.length+' jobs';
+  const tbody=document.getElementById('jobs-tbody');
+  if(!list.length){
+    tbody.innerHTML='<tr><td colspan="6"><div class="empty-state"><div style="font-size:32px;margin-bottom:12px">📋</div>No jobs yet. Click "+ Add New Job" to get started.</div></td></tr>';
+    return;
+  }
+  tbody.innerHTML=list.map(j=>`
+    <tr>
+      <td><div class="td-title">${j.ico} ${escH(j.title)}</div><div class="td-sin">${escH(j.sin||'')}</div><div style="font-size:11px;color:var(--ink3);margin-top:2px">${escH(j.company)}</div></td>
+      <td><span class="badge badge-${j.typeKey}">${j.type}</span></td>
+      <td>📍 ${escH(j.city)}</td>
+      <td><b>${escH(j.salary)}</b></td>
+      <td style="min-width:130px">
+        ${j.featured?'<span class="badge badge-featured">⭐ Featured</span> ':''}
+        ${j.isNew?'<span class="badge badge-new">New</span> ':''}
+        ${j.urgent?'<span class="badge badge-urgent">Urgent</span> ':''}
+        ${j.perm?'<span class="badge badge-perm">Permesso</span>':''}
+      </td>
+      <td><div class="td-actions">
+        <button class="btn btn-ghost btn-sm" onclick="openEditModal(${j.id})">✏️ Edit</button>
+        <button class="btn btn-danger btn-sm" onclick="openDelModal(${j.id})">🗑️</button>
+      </div></td>
+    </tr>`).join('');
+}
+
+function setTableLoading(on){
+  if(on)document.getElementById('jobs-tbody').innerHTML='<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--ink3)"><div class="spin" style="border-top-color:var(--r);border-color:rgba(232,25,44,.2);margin:0 auto 10px"></div>Loading…</td></tr>';
+}
+
+function filterTable(){
+  const q=document.getElementById('search-input').value.toLowerCase();
+  renderTable(q?JOBS.filter(j=>j.title.toLowerCase().includes(q)||j.company.toLowerCase().includes(q)||j.city.toLowerCase().includes(q)):JOBS);
+}
+
+function updateStats(){
+  document.getElementById('st-elder').textContent=JOBS.filter(j=>j.typeKey==='elder').length;
+  document.getElementById('st-clean').textContent=JOBS.filter(j=>j.typeKey==='clean').length;
+  document.getElementById('st-baby').textContent=JOBS.filter(j=>j.typeKey==='baby').length;
+  document.getElementById('st-factory').textContent=JOBS.filter(j=>j.typeKey==='factory').length;
+}
+
+function openAddModal(){
+  clearForm();
+  document.getElementById('modal-title').textContent='Add New Job';
+  document.getElementById('f-id').value='';
+  showModal('job-modal');
+}
+
+function openEditModal(id){
+  const j=JOBS.find(x=>x.id===id);if(!j)return;
+  clearForm();
+  document.getElementById('modal-title').textContent='Edit Job';
+  document.getElementById('f-id').value=j.id;
+  document.getElementById('f-title').value=j.title;
+  document.getElementById('f-sin').value=j.sin||'';
+  document.getElementById('f-company').value=j.company;
+  document.getElementById('f-city').value=j.city;
+  document.getElementById('f-salary').value=j.salary;
+  document.getElementById('f-type').value=j.type;
+  document.getElementById('f-desc').value=j.desc;
+  document.getElementById('f-perm').checked=j.perm;
+  document.getElementById('f-new').checked=j.isNew;
+  document.getElementById('f-urgent').checked=j.urgent;
+  document.getElementById('f-featured').checked=j.featured;
+  selectedIco=j.ico;
+  document.querySelectorAll('.ico-btn').forEach(b=>b.classList.toggle('active',b.dataset.ico===j.ico));
+  showModal('job-modal');
+}
+
+function clearForm(){
+  ['f-title','f-sin','f-company','f-salary','f-desc'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('f-city').value='';
+  document.getElementById('f-type').value='';
+  document.getElementById('f-perm').checked=false;
+  document.getElementById('f-new').checked=true;
+  document.getElementById('f-urgent').checked=false;
+  document.getElementById('f-featured').checked=false;
+  selectedIco='🧓';
+  document.querySelectorAll('.ico-btn').forEach(b=>b.classList.toggle('active',b.dataset.ico==='🧓'));
+}
+
+async function saveJob(){
+  const title=document.getElementById('f-title').value.trim();
+  const city=document.getElementById('f-city').value;
+  const type=document.getElementById('f-type').value;
+  const salary=document.getElementById('f-salary').value.trim();
+  const desc=document.getElementById('f-desc').value.trim();
+  if(!title||!city||!type||!salary||!desc){toast('Please fill in all required fields.','error');return;}
+  const TYPE_KEY={'Elder Care':'elder','Cleaning':'clean','Baby Sitting':'baby','Factory':'factory'};
+  const BG_MAP={elder:'#fff0f1',clean:'#eef3ff',baby:'#f3e8ff',factory:'#e6f8f2'};
+  const typeKey=TYPE_KEY[type]||'elder';
+  const editId=document.getElementById('f-id').value;
+  const isEdit=!!editId;
+  const job={
+    id:isEdit?parseInt(editId):(JOBS.length?Math.max(...JOBS.map(j=>j.id))+1:1),
+    title,sin:document.getElementById('f-sin').value.trim(),
+    company:document.getElementById('f-company').value.trim(),
+    city,type,typeKey,salary,
+    perm:document.getElementById('f-perm').checked,
+    isNew:document.getElementById('f-new').checked,
+    urgent:document.getElementById('f-urgent').checked,
+    featured:document.getElementById('f-featured').checked,
+    ico:selectedIco,bg:BG_MAP[typeKey],desc
+  };
+  const btn=document.getElementById('save-btn');
+  btn.innerHTML='<span class="spin"></span> Saving…';btn.disabled=true;
+  try{
+    if(isEdit){const idx=JOBS.findIndex(j=>j.id===job.id);if(idx>=0)JOBS[idx]=job;else JOBS.push(job);}
+    else JOBS.push(job);
+    await pushJobs((isEdit?'Update':'Add')+' job: '+title);
+    closeModal();renderTable(JOBS);updateStats();
+    toast((isEdit?'Job updated':'New job added')+' — site updates in ~60s ✓','success');
+  }catch(e){
+    toast('Save failed: '+e.message,'error');
+    if(!isEdit)JOBS.pop();
+  }finally{btn.innerHTML='Save Job';btn.disabled=false}
+}
+
+function syncTypeKey(){
+  const m={'Elder Care':'🧓','Cleaning':'🧹','Baby Sitting':'👶','Factory':'🏭'};
+  const t=document.getElementById('f-type').value;
+  if(m[t]){selectedIco=m[t];document.querySelectorAll('.ico-btn').forEach(b=>b.classList.toggle('active',b.dataset.ico===m[t]))}
+}
+
+function pickIco(el){document.querySelectorAll('.ico-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');selectedIco=el.dataset.ico}
+
+function openDelModal(id){
+  const j=JOBS.find(x=>x.id===id);if(!j)return;
+  deleteTargetId=id;
+  document.getElementById('del-job-title').textContent='"'+j.title+'"';
+  showModal('del-modal');
+}
+
+async function confirmDelete(){
+  const btn=document.getElementById('del-confirm-btn');
+  btn.innerHTML='<span class="spin"></span> Deleting…';btn.disabled=true;
+  try{
+    JOBS=JOBS.filter(j=>j.id!==deleteTargetId);
+    await pushJobs('Delete job #'+deleteTargetId);
+    closeDelModal();renderTable(JOBS);updateStats();
+    toast('Job deleted — site updates in ~60s ✓','success');
+  }catch(e){toast('Delete failed: '+e.message,'error')}
+  finally{btn.innerHTML='Yes, Delete';btn.disabled=false}
+}
+function closeDelModal(){showModal('del-modal',false)}
+
+function showModal(id,show=true){document.getElementById(id).classList.toggle('show',show)}
+function closeModal(){showModal('job-modal',false)}
+
+function toast(msg,type=''){
+  const wrap=document.getElementById('toast-wrap');
+  const el=document.createElement('div');
+  el.className='toast'+(type?' '+type:'');
+  el.innerHTML=(type==='success'?'✅ ':type==='error'?'❌ ':'ℹ️ ')+escH(msg);
+  wrap.appendChild(el);setTimeout(()=>el.remove(),4000);
+}
+
+function escH(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeDelModal()}});
+document.querySelectorAll('.modal-overlay').forEach(el=>{
+  el.addEventListener('click',function(e){if(e.target===this){closeModal();closeDelModal()}});
+});
+</script>
+</body>
+</html>
