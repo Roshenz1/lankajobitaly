@@ -2994,14 +2994,46 @@ renderJobs(JOBS);
   if(ADZUNA_APP_ID === 'YOUR_APP_ID') return;
   document.getElementById('job-list').innerHTML='<div style="text-align:center;padding:40px"><div style="font-size:24px;margin-bottom:8px">⏳</div><div style="color:var(--ink3);font-size:13px">Loading real jobs from Italy...</div></div>';
 
-  /* ── Featured "New This Week" — targeted searches ── */
+  /* ── Helper: fetch with simple keyword (for NTW targeted searches) ── */
+  async function ntwFetch(keyword, city, catLabel){
+    const params = new URLSearchParams({
+      app_id: ADZUNA_APP_ID, app_key: ADZUNA_APP_KEY,
+      results_per_page: 5, what: keyword, where: city,
+      content_type: 'application/json', sort_by: 'date'
+    });
+    try {
+      const res = await fetch(`${ADZUNA_BASE}/1?${params}`);
+      if(!res.ok) return [];
+      const data = await res.json();
+      return (data.results || []).map((j,i) => {
+        const style = CAT_STYLE[catLabel] || CAT_STYLE['default'];
+        const cityName = detectCity(j.location?.display_name);
+        const daysAgo = Math.floor((Date.now() - new Date(j.created).getTime()) / 86400000);
+        return {
+          id: 9000 + Math.random()*1000|0, title: j.title, sin:'',
+          company: (j.company?.display_name||'Company') + ' – ' + cityName,
+          city: cityName, type: catLabel, typeKey: style.typeKey,
+          salary: j.salary_min ? ('€'+Math.round(j.salary_min).toLocaleString()+(j.salary_max&&j.salary_max!==j.salary_min?'–'+Math.round(j.salary_max).toLocaleString():'')+'/yr') : 'Salary not listed',
+          perm:false, isNew: daysAgo<=3, urgent:false, featured:false,
+          ico: style.ico, bg: style.bg,
+          desc: (j.description||'').replace(/<[^>]*>/g,'').substring(0,200)+'...',
+          applyUrl: j.redirect_url||j.url||'#', source: j.source||'Adzuna',
+          postedAgo: daysAgo<=0?'Today':daysAgo===1?'1 day ago':daysAgo+' days ago'
+        };
+      });
+    } catch(e){ return []; }
+  }
+
+  /* ── Featured "New This Week" — targeted searches with simple keywords ── */
   const ntwFetches = [
-    fetchAdzunaJobs('Elder Care', 'verona'),
-    fetchAdzunaJobs('Elder Care', 'milano'),
-    fetchAdzunaJobs('Elder Care', 'roma'),
-    fetchAdzunaJobs('Cleaning', 'verona'),
-    fetchAdzunaJobs('Cleaning', 'milano'),
-    fetchAdzunaJobs('Cleaning', 'roma'),
+    ntwFetch('badante', 'verona', 'Elder Care'),
+    ntwFetch('badante', 'milano', 'Elder Care'),
+    ntwFetch('assistenza domiciliare', 'roma', 'Elder Care'),
+    ntwFetch('pulizie', 'verona', 'Cleaning'),
+    ntwFetch('pulizie', 'milano', 'Cleaning'),
+    ntwFetch('pulizie', 'roma', 'Cleaning'),
+    ntwFetch('aeroporto', 'roma', 'Driving'),
+    ntwFetch('operaio', 'verona', 'Factory'),
   ];
 
   /* ── Main job feed — broader search ── */
