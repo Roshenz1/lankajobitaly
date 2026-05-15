@@ -125,6 +125,9 @@ img{max-width:100%;display:block}
 .ntab-drama{background:linear-gradient(135deg,#d97706,#dc2626)!important;color:#fff!important;font-weight:700!important}
 .ntab-drama:hover{opacity:.9;transform:translateY(-1px)}
 .ntab-drama.on{background:linear-gradient(135deg,#b45309,#b91c1c)!important}
+.ntab-resto{background:linear-gradient(135deg,#059669,#0d9488)!important;color:#fff!important;font-weight:700!important}
+.ntab-resto:hover{opacity:.9;transform:translateY(-1px)}
+.ntab-resto.on{background:linear-gradient(135deg,#047857,#0f766e)!important}
 .nav-lang{display:flex;gap:4px;padding-left:var(--s1);border-left:1px solid var(--line)}
 .lb{
   padding:5px 10px;border-radius:var(--ra);
@@ -377,6 +380,55 @@ img{max-width:100%;display:block}
 .jsite-btn{display:inline-block;background:#1a56db;color:#fff;font-size:11px;font-weight:700;padding:6px 16px;border-radius:20px;text-decoration:none;transition:var(--ease)}
 .jsite-btn:hover{background:#1e40af}
 .jsite-free{display:inline-block;background:#dcfce7;color:#166534;font-size:9px;font-weight:800;padding:2px 8px;border-radius:4px;margin-left:8px}
+
+/* ══════ SRI LANKAN RESTAURANTS TAB ══════ */
+.resto-hero{text-align:center;padding:var(--s4) var(--s3) 30px;background:linear-gradient(135deg,#064e3b 0%,#065f46 30%,#047857 60%,#059669 100%);color:#fff;border-radius:0 0 24px 24px;position:relative;overflow:hidden}
+.resto-hero::before{content:'';position:absolute;top:-40%;right:-20%;width:60%;height:180%;background:radial-gradient(ellipse,rgba(255,255,255,.06),transparent 70%);pointer-events:none}
+.resto-hero-logo{font-size:48px;margin-bottom:8px}
+.resto-hero h2{font-size:26px;font-weight:800;margin-bottom:4px}
+.resto-hero .sin-title{font-family:var(--sin);font-size:16px;color:#a7f3d0;margin-bottom:6px}
+.resto-hero p{font-size:13px;color:#d1fae5;max-width:500px;margin:0 auto}
+
+.resto-section{padding:20px var(--s3)}
+.resto-section-hd{font-size:18px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.resto-section-sin{font-family:var(--sin);font-size:12px;color:var(--ink3);margin-bottom:16px;display:block}
+
+.resto-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.resto-card{background:var(--wh);border:1.5px solid var(--line);border-radius:var(--rb);overflow:hidden;transition:var(--ease)}
+.resto-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.resto-card-img{width:100%;height:200px;object-fit:cover;background:#e2e8f0}
+.resto-card-body{padding:16px}
+.resto-card-name{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:2px}
+.resto-card-sin-name{font-family:var(--sin);font-size:12px;color:var(--ink3);margin-bottom:8px}
+.resto-card-info{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.resto-tag{display:inline-flex;align-items:center;gap:4px;font-size:11px;padding:3px 10px;border-radius:20px;background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;font-weight:600}
+.resto-tag.loc{background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe}
+.resto-tag.phone{background:#fef3c7;color:#92400e;border-color:#fde68a}
+.resto-tag.hours{background:#fce7f3;color:#9d174d;border-color:#fbcfe8}
+.resto-card-desc{font-size:13px;color:var(--ink2);line-height:1.6;margin-bottom:12px}
+.resto-card-actions{display:flex;gap:8px;flex-wrap:wrap}
+.resto-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:20px;font-size:12px;font-weight:700;border:none;cursor:pointer;transition:var(--ease);text-decoration:none}
+.resto-btn-map{background:#059669;color:#fff}.resto-btn-map:hover{background:#047857}
+.resto-btn-call{background:#1a56db;color:#fff}.resto-btn-call:hover{background:#1e40af}
+.resto-btn-review{background:var(--bg);color:var(--ink);border:1.5px solid var(--line)}.resto-btn-review:hover{border-color:var(--ink)}
+
+/* Reviews */
+.resto-reviews{margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
+.resto-reviews-hd{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.resto-review{background:var(--bg);border-radius:var(--ra);padding:10px 12px;margin-bottom:6px;position:relative}
+.resto-review-stars{color:#f59e0b;font-size:12px;margin-bottom:2px}
+.resto-review-text{font-size:12px;color:var(--ink2);line-height:1.5}
+.resto-review-meta{font-size:10px;color:var(--ink3);margin-top:4px}
+.resto-review-form{margin-top:10px;background:var(--bg);border-radius:var(--rb);padding:12px;display:none}
+.resto-review-form.open{display:block}
+.resto-review-form textarea{width:100%;border:1.5px solid var(--line);border-radius:var(--ra);padding:8px 10px;font-size:12px;font-family:var(--body);resize:vertical;min-height:60px;outline:none}
+.resto-review-form textarea:focus{border-color:var(--B)}
+.resto-star-pick{display:flex;gap:4px;margin:8px 0}
+.resto-star-pick span{font-size:22px;cursor:pointer;color:#d1d5db;transition:.15s}
+.resto-star-pick span.lit{color:#f59e0b}
+.resto-star-pick span:hover{transform:scale(1.2)}
+.resto-submit-btn{background:#059669;color:#fff;border:none;border-radius:20px;padding:8px 20px;font-size:12px;font-weight:700;cursor:pointer;margin-top:6px}
+.resto-submit-btn:hover{background:#047857}
 
 /* JOB CARD */
 .jcard{
@@ -962,6 +1014,7 @@ img{max-width:100%;display:block}
     <button class="ntab ntab-karaoke" onclick="showTab('karaoke',this)">🎤 Karaoke</button>
     <button class="ntab" onclick="showTab('music',this)">🎵 Music</button>
     <button class="ntab ntab-drama" onclick="showTab('dramas',this)">🎬 Dramas</button>
+    <button class="ntab ntab-resto" onclick="showTab('resto',this)">🍛 Restaurants</button>
   </div>
   <div class="nav-lang">
     <button class="lb on" onclick="setLang('en',this)">EN</button>
@@ -2388,6 +2441,31 @@ document.getElementById('drama-updated-date').textContent='Last updated: '+new D
 </script>
 </div>
 
+<!-- ════════════ SRI LANKAN RESTAURANTS ════════════ -->
+<div id="tab-resto" style="display:none">
+
+<!-- HERO -->
+<div class="resto-hero">
+  <div class="resto-hero-logo">🍛🍽️</div>
+  <h2>Sri Lankan Restaurants</h2>
+  <div class="sin-title">ලන්කාවේ අපේ රසට කන්න තැනක්</div>
+  <p>Find authentic Sri Lankan & South Asian restaurants across Italy — rated by our community</p>
+</div>
+
+<!-- RESTAURANT CARDS -->
+<div class="resto-section">
+  <div class="resto-section-hd">🇱🇰 Our Community Favourites</div>
+  <span class="resto-section-sin">අපේ ප්‍රජාවේ ප්‍රියතම ආපනශාලා</span>
+
+  <div class="resto-grid" id="resto-grid">
+    <!-- Restaurants will be populated by JS -->
+  </div>
+</div>
+
+</div>
+
+
+
 <!-- ════════════ FOOTER ════════════ -->
 <footer class="footer">
   <div class="footer-grid">
@@ -2841,7 +2919,7 @@ async function doSearch(){
 }
 
 function showTab(name,el){
-  ['jobs','seekers','cv','services','radio','tv','karaoke','music','dramas'].forEach(t=>document.getElementById('tab-'+t).style.display='none');
+  ['jobs','seekers','cv','services','radio','tv','karaoke','music','dramas','resto'].forEach(t=>document.getElementById('tab-'+t).style.display='none');
   document.getElementById('tab-'+name).style.display='block';
   document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('on'));
   if(el)el.classList.add('on');
@@ -3206,6 +3284,144 @@ renderJobs(JOBS);
   renderJobs(JOBS);
   document.getElementById('res-count').innerHTML='<b>'+JOBS.length+'</b> real jobs found <span>• from Verona, Milan, Rome & all Italy</span>';
 })();
+/* ══════ RESTAURANT DATA ══════ */
+const RESTAURANTS = [
+  /* Placeholder — user will provide full details. Structure: */
+  /*
+  {
+    name: 'Restaurant Name',
+    sinName: 'සිංහල නම',
+    img: 'https://lh5.googleusercontent.com/p/...',
+    city: 'Verona',
+    address: 'Via Example 123, 37100 Verona VR',
+    phone: '+39 045 000 0000',
+    hours: 'Mon-Sat 11:00–22:00',
+    mapUrl: 'https://maps.google.com/...',
+    cuisine: ['Sri Lankan','South Indian'],
+    desc: 'Description of the restaurant.',
+    sinDesc: 'සිංහල විස්තරය',
+    reviews: [
+      {stars:5, text:'Best rice and curry in Italy!', date:'2026-05'},
+      {stars:4, text:'Good kottu, friendly staff', date:'2026-04'},
+    ]
+  }
+  */
+];
+
+/* ══════ RENDER RESTAURANTS ══════ */
+function renderRestos(){
+  const grid = document.getElementById('resto-grid');
+  if(!RESTAURANTS.length){
+    grid.innerHTML = '<div style="text-align:center;padding:40px;color:var(--ink3)"><div style="font-size:40px;margin-bottom:10px">🍛</div><div style="font-size:14px;font-weight:600">Restaurants coming soon!</div><div style="font-size:12px;margin-top:4px;font-family:var(--sin)">ඉක්මනින් ආපනශාලා එකතු කරනු ඇත</div></div>';
+    return;
+  }
+  grid.innerHTML = RESTAURANTS.map((r, idx) => {
+    const stars = r.reviews && r.reviews.length ? (r.reviews.reduce((s,rv)=>s+rv.stars,0)/r.reviews.length) : 0;
+    const starStr = stars ? '⭐'.repeat(Math.round(stars)) + ' ' + stars.toFixed(1) : 'No ratings yet';
+    const cuisineTags = (r.cuisine||[]).map(c=>'<span class="resto-tag">'+c+'</span>').join('');
+    const reviewsHtml = (r.reviews||[]).map(rv =>
+      '<div class="resto-review"><div class="resto-review-stars">'+'★'.repeat(rv.stars)+'☆'.repeat(5-rv.stars)+'</div><div class="resto-review-text">'+rv.text+'</div><div class="resto-review-meta">Anonymous · '+rv.date+'</div></div>'
+    ).join('');
+
+    return '<div class="resto-card" id="resto-'+idx+'">'
+      + (r.img ? '<img class="resto-card-img" src="'+r.img+'" alt="'+r.name+'" loading="lazy" onerror="this.style.display=\'none\'"/>' : '')
+      + '<div class="resto-card-body">'
+      + '<div class="resto-card-name">'+r.name+'</div>'
+      + (r.sinName ? '<div class="resto-card-sin-name">'+r.sinName+'</div>' : '')
+      + '<div class="resto-card-info">'
+      + cuisineTags
+      + '<span class="resto-tag loc">📍 '+r.city+'</span>'
+      + (r.phone ? '<span class="resto-tag phone">📞 '+r.phone+'</span>' : '')
+      + (r.hours ? '<span class="resto-tag hours">🕐 '+r.hours+'</span>' : '')
+      + '<span class="resto-tag">'+starStr+'</span>'
+      + '</div>'
+      + (r.address ? '<div class="resto-card-desc">📍 '+r.address+'</div>' : '')
+      + (r.desc ? '<div class="resto-card-desc">'+r.desc+'</div>' : '')
+      + (r.sinDesc ? '<div class="resto-card-desc" style="font-family:var(--sin);font-size:12px;color:#475569">'+r.sinDesc+'</div>' : '')
+      + '<div class="resto-card-actions">'
+      + (r.mapUrl ? '<a class="resto-btn resto-btn-map" href="'+r.mapUrl+'" target="_blank" rel="noopener">📍 Google Maps</a>' : '')
+      + (r.phone ? '<a class="resto-btn resto-btn-call" href="tel:'+r.phone.replace(/\s/g,'')+'">📞 Call</a>' : '')
+      + '<button class="resto-btn resto-btn-review" onclick="toggleReviewForm('+idx+')">💬 Write Review</button>'
+      + '</div>'
+      /* Reviews section */
+      + '<div class="resto-reviews">'
+      + '<div class="resto-reviews-hd">💬 Community Reviews <span style="font-weight:400;color:var(--ink3)">(anonymous)</span></div>'
+      + (reviewsHtml || '<div style="font-size:12px;color:var(--ink3);padding:8px 0">No reviews yet — be the first!</div>')
+      + '<div class="resto-review-form" id="review-form-'+idx+'">'
+      + '<div style="font-size:12px;font-weight:600;margin-bottom:6px">Rate & Review <span style="font-family:var(--sin);color:var(--ink3)">ඔබේ අත්දැකීම බෙදා ගන්න</span></div>'
+      + '<div class="resto-star-pick" id="star-pick-'+idx+'">'
+      + '<span onclick="pickStar('+idx+',1)">☆</span>'
+      + '<span onclick="pickStar('+idx+',2)">☆</span>'
+      + '<span onclick="pickStar('+idx+',3)">☆</span>'
+      + '<span onclick="pickStar('+idx+',4)">☆</span>'
+      + '<span onclick="pickStar('+idx+',5)">☆</span>'
+      + '</div>'
+      + '<textarea id="review-text-'+idx+'" placeholder="Write your review here... / ඔබේ අදහස ලියන්න..."></textarea>'
+      + '<button class="resto-submit-btn" onclick="submitReview('+idx+')">✅ Submit Review</button>'
+      + '</div>'
+      + '</div>'
+      + '</div></div>';
+  }).join('');
+}
+
+/* ══════ REVIEW FUNCTIONS ══════ */
+let selectedStars = {};
+
+function toggleReviewForm(idx){
+  const form = document.getElementById('review-form-'+idx);
+  form.classList.toggle('open');
+  if(form.classList.contains('open')) form.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function pickStar(idx, n){
+  selectedStars[idx] = n;
+  const picks = document.getElementById('star-pick-'+idx).children;
+  for(let i=0; i<5; i++){
+    picks[i].textContent = i < n ? '★' : '☆';
+    picks[i].classList.toggle('lit', i < n);
+  }
+}
+
+function submitReview(idx){
+  const text = document.getElementById('review-text-'+idx).value.trim();
+  const stars = selectedStars[idx] || 0;
+  if(!stars){ alert('Please select a star rating / තරු ශ්‍රේණිගත කිරීමක් තෝරන්න'); return; }
+  if(!text){ alert('Please write a review / ඔබේ අදහස ලියන්න'); return; }
+
+  /* Save to localStorage */
+  const key = 'resto_reviews_'+idx;
+  const saved = JSON.parse(localStorage.getItem(key)||'[]');
+  const now = new Date();
+  saved.push({stars:stars, text:text, date: now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')});
+  localStorage.setItem(key, JSON.stringify(saved));
+
+  /* Add review to RESTAURANTS data & re-render */
+  if(RESTAURANTS[idx]){
+    if(!RESTAURANTS[idx].reviews) RESTAURANTS[idx].reviews=[];
+    RESTAURANTS[idx].reviews.push({stars:stars, text:text, date: now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')});
+  }
+  renderRestos();
+  alert('✅ Review posted anonymously!\nස්තුතියි! ඔබේ review එක ප්‍රකාශ විය.');
+}
+
+/* Load saved reviews from localStorage */
+function loadSavedReviews(){
+  RESTAURANTS.forEach(function(r, idx){
+    const saved = JSON.parse(localStorage.getItem('resto_reviews_'+idx)||'[]');
+    if(saved.length){
+      if(!r.reviews) r.reviews=[];
+      saved.forEach(function(sv){
+        /* Avoid duplicates */
+        const exists = r.reviews.some(function(rv){ return rv.text===sv.text && rv.date===sv.date; });
+        if(!exists) r.reviews.push(sv);
+      });
+    }
+  });
+}
+
+loadSavedReviews();
+renderRestos();
+
 buildProg(1);
 </script>
 </body>
