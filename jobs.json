@@ -19,19 +19,19 @@
   {
     "id": 2,
     "title": "Office & Apartment Cleaning",
-    "sin": "à¶à·à¶»à·à¶ºà·à¶½ à·à· à¶±à·à·à·à· à¶´à·à¶»à·à·à·à¶¯à· à¶à·à¶»à·à¶¸",
+    "sin": "",
     "company": "CleanPro Cooperativa â Milan",
     "city": "Milan",
     "type": "Cleaning",
     "typeKey": "clean",
-    "salary": "â¬11/hr",
+    "salary": "11/hr",
     "perm": false,
     "isNew": true,
     "urgent": false,
     "featured": false,
     "ico": "ð§¹",
     "bg": "#eef3ff",
-    "desc": "Experienced cleaner needed for offices and apartments in Milan zona 9. 25â30 hrs/week. Flexible hours. Reliable team environment."
+    "desc": "Experienced cleaner needed for offices and apartments in Milan zona 9. 25a30 hrs/week. Flexible hours. Reliable team environment."
   },
   {
     "id": 3,
