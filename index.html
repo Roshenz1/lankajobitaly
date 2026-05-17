@@ -157,8 +157,8 @@ footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top
       <a href="#help">Help</a>
     </nav>
     <div class="nav-lang">
-      <button class="lang-btn active" data-lang="en">EN</button>
-      <button class="lang-btn" data-lang="si">SI</button>
+      <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
+      <button class="lang-btn" onclick="changeLanguage('si')">SI</button>
     </div>
     <button class="auth-btn" onclick="showLoginModal()">Sign In</button>
   </div>
@@ -319,14 +319,41 @@ async function loadJobs() {
     JOBS = await res.json();
     renderJobs(JOBS);
     updateCounts();
+    populateCategories();
   } catch (e) {
     console.error('Failed to load jobs:', e);
+    document.getElementById('jobs-list').innerHTML = '<div style="padding:40px;text-align:center;color:var(--text-tertiary)">Error loading jobs</div>';
   }
+}
+
+function populateCategories() {
+  const categories = [
+    { name: 'Elder Care', key: 'elder' },
+    { name: 'Cleaning', key: 'clean' },
+    { name: 'Babysitting', key: 'baby' },
+    { name: 'Factory', key: 'factory' }
+  ];
+
+  const container = document.getElementById('categories');
+  container.innerHTML = categories.map(cat =>
+    `<div class="cat-chip" onclick="filterByCategory('${cat.key}')">${cat.name}</div>`
+  ).join('');
+}
+
+function filterByCategory(key) {
+  const input = document.querySelector(`input[value="${key}"]`);
+  if (input) input.checked = true;
+  filterJobs();
 }
 
 function renderJobs(jobs) {
   const container = document.getElementById('jobs-list');
-  if (!jobs.length) {
+  if (!container) {
+    console.error('Container #jobs-list not found');
+    return;
+  }
+
+  if (!jobs || !jobs.length) {
     container.innerHTML = '<div style="padding:40px;text-align:center;color:var(--text-tertiary)">No jobs found</div>';
     return;
   }
@@ -388,8 +415,14 @@ function updateCounts() {
 
 function changeLanguage(lang) {
   currentLang = lang;
-  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
+  const buttons = document.querySelectorAll('.lang-btn');
+  buttons.forEach((btn, idx) => {
+    if (idx === (lang === 'en' ? 0 : 1)) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
 
   const trans = translations[lang];
   if (trans) {
@@ -398,10 +431,6 @@ function changeLanguage(lang) {
     document.getElementById('search-input').placeholder = trans.searchPlaceholder;
   }
 }
-
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', (e) => changeLanguage(e.target.dataset.lang));
-});
 
 document.querySelectorAll('input[name="category"]').forEach(input => {
   input.addEventListener('change', filterJobs);
