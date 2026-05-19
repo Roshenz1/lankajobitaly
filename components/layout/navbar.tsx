@@ -19,6 +19,9 @@ export function Navbar() {
           <Link href="/jobs" className="text-ink-2 hover:text-ink transition">
             Jobs
           </Link>
+          <Link href="/restaurants" className="text-ink-2 hover:text-ink transition">
+            Restaurants
+          </Link>
           <Link href="/forum" className="text-ink-2 hover:text-ink transition">
             Forum
           </Link>
@@ -44,6 +47,9 @@ export function Navbar() {
           <div className="container-gutter py-4 flex flex-col gap-4">
             <Link href="/jobs" className="text-ink hover:text-ink-2">
               Jobs
+            </Link>
+            <Link href="/restaurants" className="text-ink hover:text-ink-2">
+              Restaurants
             </Link>
             <Link href="/forum" className="text-ink hover:text-ink-2">
               Forum
