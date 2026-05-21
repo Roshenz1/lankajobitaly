@@ -309,30 +309,26 @@ footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top
   <section class="section">
     <h2 class="section-title">
       <span class="section-icon">📰</span>
-      <span>ලිපි සහ උපදෙස් (ප්‍රකාශිතයි)</span>
+      <span>ලිපි සහ උපදෙස්</span>
     </h2>
-    <div id="articles-list">
-      <div class="list-item">
-        <div>
-          <strong style="font-family:'Noto Sans Sinhala'">ඉතාලියේ ප්‍රවාහකයකු සිටින විට සිටින සිතු</strong><br/>
-          <small style="color:var(--text-tertiary);font-family:'Noto Sans Sinhala'">ගිණුම් කිරීම, අවසාධාරණ, සහ නිරපේක්ෂතා.</small>
-        </div>
-        <button onclick="deleteArticle(this)" style="background:#dc2626;color:white;padding:4px 12px;border-radius:4px;font-size:12px">Delete</button>
+    <div id="articles-list" style="margin-bottom:24px">
+      <div class="list-item" style="padding:24px;text-align:center;color:var(--text-tertiary)">
+        ⏳ ලිපි පූරණය වෙමින...
       </div>
     </div>
 
-    <div style="margin-top:32px;padding:24px;background:var(--blue-light);border-radius:var(--radius)">
-      <h3 style="margin-bottom:16px;font-family:'Noto Sans Sinhala'">📝 ඔබේ ලිපිය ලිවීම (ඉතිරිකිරීම)</h3>
+    <div style="padding:24px;background:var(--blue-light);border-radius:var(--radius)">
+      <h3 style="margin-bottom:16px;font-family:'Noto Sans Sinhala'">📝 ඔබේ ලිපිය පෙළකරන්න</h3>
       <form onsubmit="addArticle(event)">
         <div class="form-group">
-          <label>ලිපියේ මාතෘකා</label>
+          <label style="font-family:'Noto Sans Sinhala'">ලිපියේ මාතෘකා</label>
           <input type="text" id="article-title" placeholder="ඔබේ ලිපියේ මාතෘකා..." required>
         </div>
         <div class="form-group">
-          <label>ලිපි සාරාංශ</label>
-          <textarea id="article-content" placeholder="ඔබේ ලිපිය කෙටි සාරාංශ..." required></textarea>
+          <label style="font-family:'Noto Sans Sinhala'">ලිපි සිටුවුම</label>
+          <textarea id="article-content" placeholder="ඔබේ ලිපිය..." required></textarea>
         </div>
-        <button type="submit" class="submit-btn">ලිපිය ඉතිරිකරන්න</button>
+        <button type="submit" class="submit-btn">ලිපිය අඩවි කරන්න</button>
       </form>
     </div>
   </section>
@@ -398,25 +394,54 @@ footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top
 </footer>
 
 <script>
-// Load articles from localStorage
+// Load articles from articles.json and localStorage
 function loadArticles() {
-  const articles = JSON.parse(localStorage.getItem('driverArticles') || '[]');
   const container = document.getElementById('articles-list');
+  let articles = [];
 
-  if (articles.length === 0) {
-    container.innerHTML = '<div style="padding:16px;color:var(--text-tertiary);font-family:Noto Sans Sinhala">තවම කිසිම ලිපි නොමැත. පළමු ලිපිය ලිවීම ඉඩ දෙන්න!</div>';
-    return;
-  }
+  // Load from articles.json (server articles)
+  fetch('./articles.json')
+    .then(r => r.json())
+    .then(data => {
+      articles = data || [];
 
-  container.innerHTML = articles.map((article, idx) => `
-    <div class="list-item">
-      <div>
-        <strong style="font-family:'Noto Sans Sinhala'">${article.title}</strong><br/>
-        <small style="color:var(--text-tertiary);font-family:'Noto Sans Sinhala'">${article.content}</small>
-      </div>
-      <button onclick="deleteArticle(this, ${idx})" style="background:#dc2626;color:white;padding:4px 12px;border-radius:4px;font-size:12px">Delete</button>
-    </div>
-  `).join('');
+      // Add user articles from localStorage
+      const userArticles = JSON.parse(localStorage.getItem('driverArticles') || '[]');
+      articles = [...articles, ...userArticles];
+
+      if (articles.length === 0) {
+        container.innerHTML = '<div style="padding:16px;color:var(--text-tertiary);font-family:Noto Sans Sinhala">තවම කිසිම ලිපි නොමැත. පළමු ලිපිය ලිවීම ඉඩ දෙන්න!</div>';
+        return;
+      }
+
+      container.innerHTML = articles.map((article, idx) => `
+        <div class="list-item">
+          <div>
+            <strong style="font-family:'Noto Sans Sinhala'">${article.title}</strong><br/>
+            <small style="color:var(--text-tertiary);font-family:'Noto Sans Sinhala'">${article.content}</small><br/>
+            <small style="color:var(--text-tertiary);font-size:11px">📅 ${article.date || 'නව'}</small>
+          </div>
+          <button onclick="deleteArticle(this, ${idx})" style="background:#dc2626;color:white;padding:4px 12px;border-radius:4px;font-size:12px">Delete</button>
+        </div>
+      `).join('');
+    })
+    .catch(e => {
+      // If articles.json doesn't exist, just use localStorage
+      const userArticles = JSON.parse(localStorage.getItem('driverArticles') || '[]');
+      if (userArticles.length === 0) {
+        container.innerHTML = '<div style="padding:16px;color:var(--text-tertiary);font-family:Noto Sans Sinhala">තවම කිසිම ලිපි නොමැත. පළමු ලිපිය ලිවීම ඉඩ දෙන්න!</div>';
+        return;
+      }
+      container.innerHTML = userArticles.map((article, idx) => `
+        <div class="list-item">
+          <div>
+            <strong style="font-family:'Noto Sans Sinhala'">${article.title}</strong><br/>
+            <small style="color:var(--text-tertiary);font-family:'Noto Sans Sinhala'">${article.content}</small>
+          </div>
+          <button onclick="deleteArticle(this, ${idx})" style="background:#dc2626;color:white;padding:4px 12px;border-radius:4px;font-size:12px">Delete</button>
+        </div>
+      `).join('');
+    });
 }
 
 function addArticle(e) {

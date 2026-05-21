@@ -1,0 +1,100 @@
+name: Add Article Every 3 Days
+
+on:
+  schedule:
+    # Runs every 3 days at 10:00 AM UTC (9:30 PM Sri Lanka time)
+    - cron: '0 10 */3 * *'
+  workflow_dispatch:  # Manual trigger option
+
+jobs:
+  add-article:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Generate article and update files
+        run: |
+          # Create articles data file if it doesn't exist
+          cat > update_articles.py << 'EOF'
+import json
+import datetime
+
+# Article templates
+articles = [
+    {
+        "title": "ඉතාලියේ නිවසක වාසය කරන ශ්‍රී ලාංකිකයන් සඳහා පිරිසිදු කිරීමේ සේවා",
+        "content": "ඉතාලියේ නිවසක ගැණුම් සඳහා අපි සියලු ස්ථාන පිරිසිදු කරන්න. අපේ සේවාව විශ්වාසවන්ත, ඉතා ඉක්මන් සහ සාශ්‍රයී.",
+        "category": "සේවා"
+    },
+    {
+        "title": "Leasing බිම් තෝරාගැනීමේ ඕස්ට්‍රේලියාවේ අත්දැකීම",
+        "content": "පළමු වර ඉතාලියේ ගිණුම් කිරීමට අපි ඔබට ඕස්ට්‍රේලියාවේ Leasing සේවාවෙන් තොරතුරු දෙන්නෙමි. වටිනාකම සහ පහසුවම.",
+        "category": "රැකියා"
+    },
+    {
+        "title": "ඉතාලිය පිහිටු මාර්ගයේ ඉතිරි සිතු - සුරක්ෂිතව ගිම්හරණය",
+        "content": "ඉතාලිය පිහිටු මාර්ගයේ නීතිය හඳුනා ගන්න. වේගයෙන් කඩා වැටුණු සිතු, සිගිරි සිතු සහ තවත් වැදගත් තොරතුරු.",
+        "category": "ගිම්හරණ"
+    },
+    {
+        "title": "ශ්‍රී ලාංකිකයන් සඳහා ඉතාලි කුසින් - නිතර විඳින ආහාර",
+        "content": "ඉතාලි නිවසින්ගේ සිතු කුසින් හඳුනා ගන්න. පිසින ක්‍රම, වටිනා ද්‍රව්‍ය සහ ස්වාදු ආහාර.",
+        "category": "ආහාර"
+    },
+    {
+        "title": "ඉතාලිය පිහිටු බිම්වල වෙඩි සඳහා තිබෙන නිර්දේශ",
+        "content": "නිතර ඉතාලිය පිහිටු සිතු සඳහා බිම්වල වෙඩිය ඇතුළු බිම්වල පිරිසිදුවීම, බිම්වල ඉතිරි සිතු සහ වෙඩි ඇතුළු තොරතුරු.",
+        "category": "නිවස"
+    },
+    {
+        "title": "ශ්‍රී ලාංකිකයන් සඳහා ඉතාලි බිම්වල බිම්වල වෙඩි සඳහා ක්‍රීඩා",
+        "content": "ඉතාලිය පිහිටු ක්‍රීඩා දර්ශන, ඉතාලි ටිම් සහ ශ්‍රී ලාංකිකයන් සඳහා සිතු ක්‍රීඩා තිබෙයි.",
+        "category": "ක්‍රීඩා"
+    }
+]
+
+# Pick a random article from the list
+import random
+article = random.choice(articles)
+
+# Get current date
+today = datetime.date.today().strftime("%Y-%m-%d")
+
+# Create entry
+entry = {
+    "date": today,
+    "title": article["title"],
+    "content": article["content"],
+    "category": article["category"]
+}
+
+# Read existing articles
+try:
+    with open('articles.json', 'r', encoding='utf-8') as f:
+        articles_list = json.load(f)
+except:
+    articles_list = []
+
+# Add new article
+articles_list.insert(0, entry)
+
+# Keep only last 30 articles
+articles_list = articles_list[:30]
+
+# Save updated articles
+with open('articles.json', 'w', encoding='utf-8') as f:
+    json.dump(articles_list, f, ensure_ascii=False, indent=2)
+
+print(f"✅ Added article: {article['title']}")
+EOF
+
+          python3 update_articles.py
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Article Bot"
+          git add articles.json
+          git commit -m "🤖 Auto: Add new article - $(date +%Y-%m-%d)" || echo "No changes to commit"
+          git push origin main
