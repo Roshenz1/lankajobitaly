@@ -29,6 +29,10 @@
     }
 
     html,body{font-family:'Inter','Noto Sans Sinhala',sans-serif;font-size:15px;color:var(--dark);background:var(--white);line-height:1.6}
+    /* Better Sinhala Font Support */
+    *{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    .section-title, h2, h3, h4, .card-title, .notice-title{font-family:'Noto Sans Sinhala','Inter',sans-serif !important}
+    p, .card-text, .card-meta, .notice-text, li, td, th{font-family:'Noto Sans Sinhala','Inter',sans-serif}
     a{color:var(--primary);text-decoration:none}
     button,input,textarea,select{font-family:inherit;font-size:inherit}
     button{cursor:pointer;border:none}
@@ -264,6 +268,7 @@
   <div class="tab-navigation">
     <button class="tab-btn active" onclick="switchTab('tab-license')">📋 License Conversion Guide</button>
     <button class="tab-btn" onclick="switchTab('tab-buying')">🚗 Car Buying Guide</button>
+    <button class="tab-btn" onclick="switchTab('tab-radio')">📻 Radio Stations</button>
   </div>
 
   <!-- TAB 1: LICENSE CONVERSION -->
@@ -1378,6 +1383,156 @@
   </section>
 
   </div><!-- End Tab 2 -->
+
+  <!-- TAB 3: RADIO STATIONS -->
+  <div id="tab-radio" class="tab-content">
+
+  <!-- SINHALA RADIO STATIONS -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">📻</span>
+      <span>ශ්‍රී ලංකා ගුණ රේඩියෝ (Sri Lankan Radio Stations)</span>
+    </h2>
+    <p style="font-size:14px;color:var(--gray);margin-bottom:24px">
+      Listen to your favorite Sri Lankan radio stations online from Italy. Enjoy music, news, and programs in Sinhala, Tamil, and English.
+    </p>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-title">🎙️ Sri Lanka Rupavahini (SLRC)</div>
+        <div class="card-text">
+          ශ්‍රී ලංකා ගුණ සේවාව - National radio station with music, news, and programs.
+        </div>
+        <div class="card-meta">📡 Online Stream Available<br/>🗣️ Sinhala & Tamil<br/>📍 Sri Lanka (Online)</div>
+        <a href="https://www.slrc.lk" target="_blank" class="card-link">Listen Online</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎙️ ITN - Ivu Telikom</div>
+        <div class="card-text">
+          Popular news and entertainment channel with live streaming. Current affairs and breaking news in Sinhala.
+        </div>
+        <div class="card-meta">📡 24/7 Streaming<br/>🗣️ Sinhala<br/>🔴 Live News</div>
+        <a href="https://www.itn.lk" target="_blank" class="card-link">Watch Live</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎙️ Shaa FM - සාකි එෆ්එම්</div>
+        <div class="card-text">
+          Popular music and entertainment radio station. Great selection of Sinhala and international hits.
+        </div>
+        <div class="card-meta">📡 Online Stream<br/>🗣️ Sinhala<br/>🎵 Music & Entertainment</div>
+        <a href="https://www.shaafm.lk" target="_blank" class="card-link">Listen Online</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎙️ Sirasa FM - සිරස එෆ්එම්</div>
+        <div class="card-text">
+          Sinhala music and entertainment radio. Wide variety of songs and talk shows.
+        </div>
+        <div class="card-meta">📡 Online Stream<br/>🗣️ Sinhala<br/>🎶 Music Radio</div>
+        <a href="https://www.sirasafm.lk" target="_blank" class="card-link">Listen Online</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎙️ Yes FM - ඉස් එෆ්එම්</div>
+        <div class="card-text">
+          Younger audience focused radio with Sinhala and English music. Interactive programs and contests.
+        </div>
+        <div class="card-meta">📡 Streaming Available<br/>🗣️ Sinhala & English<br/>🎧 Youth Radio</div>
+        <a href="https://www.yesfm.lk" target="_blank" class="card-link">Listen Online</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎙️ Hiru FM - හිරු එෆ්එම්</div>
+        <div class="card-text">
+          Popular entertainment radio with music, comedy, and talk shows. Very popular among Sri Lankan diaspora.
+        </div>
+        <div class="card-meta">📡 Live Streaming<br/>🗣️ Sinhala<br/>🎤 Entertainment</div>
+        <a href="https://www.hirufm.lk" target="_blank" class="card-link">Listen Online</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITALIAN RADIO STATIONS (FOR LEARNING) -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">🇮🇹</span>
+      <span>Italian Radio Stations (Learning & Entertainment)</span>
+    </h2>
+    <p style="font-size:14px;color:var(--gray);margin-bottom:24px">
+      Popular Italian radio stations to improve your Italian language skills and stay updated with local news.
+    </p>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-title">🎙️ RAI Radio 1 - රාජ්‍ය අධිකාරිය</div>
+        <div class="card-text">
+          Italy's national radio station. News, current affairs, and cultural programs. Excellent for improving Italian.
+        </div>
+        <div class="card-meta">📡 FM 89.7 - 90.4<br/>🗣️ Italian<br/>📰 News & Culture</div>
+        <a href="https://www.raiplayradio.it/radio1" target="_blank" class="card-link">Listen Online</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎙️ RAI Radio 2 - ජනප්‍රිය සඟීම</div>
+        <div class="card-text">
+          Italian music radio with pop, rock, and contemporary hits. Great for learning colloquial Italian.
+        </div>
+        <div class="card-meta">📡 FM 91.3 - 92.0<br/>🗣️ Italian<br/>🎵 Music</div>
+        <a href="https://www.raiplayradio.it/radio2" target="_blank" class="card-link">Listen Online</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎙️ RAI Radio 3 - සংස්කෘතික</div>
+        <div class="card-text">
+          Classical music, jazz, and cultural programming. Good for mature listeners and Italian learners.
+        </div>
+        <div class="card-meta">📡 FM 93.7 - 94.4<br/>🗣️ Italian<br/>🎭 Culture & Arts</div>
+        <a href="https://www.raiplayradio.it/radio3" target="_blank" class="card-link">Listen Online</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎙️ Deejay FM</div>
+        <div class="card-text">
+          Popular Italian music and entertainment radio. Dance, pop, and contemporary hits. Very popular with younger audiences.
+        </div>
+        <div class="card-meta">📡 FM 105.3 - 106.6<br/>🗣️ Italian<br/>🎧 Music & Fun</div>
+        <a href="https://www.deejay.it" target="_blank" class="card-link">Listen Online</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎙️ Capital FM - කැපිටල්</div>
+        <div class="card-text">
+          English and international music radio available in Italy. Good for listening to English songs and podcasts.
+        </div>
+        <div class="card-meta">📡 Online Streaming<br/>🗣️ English<br/>🎵 International</div>
+        <a href="https://www.capital.it" target="_blank" class="card-link">Listen Online</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎙️ Virgin Radio - වර්ජින්</div>
+        <div class="card-text">
+          International music and entertainment. Available in Italy with mix of English and Italian content.
+        </div>
+        <div class="card-meta">📡 FM 104.4<br/>🗣️ English & Italian<br/>🎵 Music</div>
+        <a href="https://www.virginradio.it" target="_blank" class="card-link">Listen Online</a>
+      </div>
+    </div>
+
+    <div style="background:var(--dark-light);padding:24px;border-radius:var(--radius);margin-top:24px">
+      <h4 style="color:var(--primary);margin-bottom:12px">💡 Radio Tips for Expats</h4>
+      <ul style="margin-left:20px;font-size:14px;color:var(--dark);line-height:1.8">
+        <li><strong>Improve Your Italian:</strong> Listen to RAI Radio 1 or 3 for news and cultural programs - great for language learning</li>
+        <li><strong>Stay Connected:</strong> Keep listening to Sri Lankan radio to feel connected to home</li>
+        <li><strong>Learn Local Culture:</strong> Italian music and talk shows help you understand Italian culture and daily life</li>
+        <li><strong>Mobile Apps:</strong> Most stations have free apps - download for easy listening on the go</li>
+        <li><strong>Schedule:</strong> Tune in during commute times to maximize learning and entertainment</li>
+      </ul>
+    </div>
+  </section>
+
+  </div><!-- End Tab 3 -->
 
 </main>
 
