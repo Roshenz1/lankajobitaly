@@ -307,6 +307,49 @@ input,select,textarea{font-family:inherit;font-size:inherit;outline:none}
 .footer-links a:hover{color:#fff}
 .footer-copy{font-size:.75rem;text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid #1e293b}
 
+/* ══ Verona Spotlight ══ */
+.verona-spot{background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%);max-width:1280px;margin:24px auto 0;padding:24px 28px;border-radius:var(--r-lg);border:2px solid var(--accent);position:relative;overflow:hidden}
+.verona-spot::before{content:'';position:absolute;top:-30px;right:-30px;width:160px;height:160px;background:radial-gradient(circle,rgba(217,119,6,.15) 0%,transparent 70%);border-radius:50%}
+.verona-spot-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;position:relative}
+.verona-spot-head .icon{font-size:2rem}
+.verona-spot-head h2{font-size:1.3rem;font-weight:700;color:var(--text);font-family:var(--font-si)}
+.verona-spot-head .badge{background:var(--accent);color:#fff;padding:3px 10px;border-radius:12px;font-size:.7rem;font-weight:700;letter-spacing:.05em}
+.verona-spot-desc{font-family:var(--font-si);font-size:.92rem;color:var(--text);margin-bottom:16px;font-weight:600;line-height:1.5;position:relative}
+.verona-spot-buttons{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;position:relative}
+.verona-spot-btn{background:#fff;border:1.5px solid var(--accent);padding:10px 14px;border-radius:var(--r-sm);font-size:.85rem;font-weight:700;color:var(--text);transition:all .15s;display:flex;align-items:center;gap:6px;text-align:left}
+.verona-spot-btn:hover{background:var(--accent);color:#fff;transform:translateY(-2px);box-shadow:var(--shadow)}
+.verona-spot-btn .arrow{margin-left:auto;font-size:.9rem}
+
+/* ══ Apply Guide Section ══ */
+.apply-guide{background:#fff;max-width:1280px;margin:32px auto;padding:32px 28px;border-radius:var(--r-lg);box-shadow:var(--shadow-sm)}
+.apply-guide-head{text-align:center;margin-bottom:28px}
+.apply-guide-head h2{font-size:1.5rem;font-weight:700;margin-bottom:6px;color:var(--text);font-family:var(--font-si)}
+.apply-guide-head p{color:var(--text2);font-size:.9rem}
+.apply-guide-head .lang-note{display:inline-block;margin-top:10px;padding:5px 14px;background:var(--accent-lt);color:var(--accent);font-weight:600;font-size:.75rem;border-radius:20px}
+.apply-grid-sites{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px;margin-bottom:32px}
+.apply-site{background:#f8fafc;border:1.5px solid var(--border);border-radius:var(--r);padding:18px;transition:all .2s}
+.apply-site:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:var(--shadow)}
+.apply-site-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.apply-site-num{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-dk));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0}
+.apply-site-link{font-size:1.05rem;font-weight:700;color:var(--primary)}
+.apply-site-link:hover{text-decoration:underline}
+.apply-site-desc{font-family:var(--font-si);font-size:.85rem;color:var(--text);margin-bottom:12px;font-weight:700;line-height:1.5}
+.apply-steps{background:#fff;padding:14px;border-radius:var(--r-sm);border-left:3px solid var(--accent)}
+.apply-steps-title{font-family:var(--font-si);font-size:.85rem;font-weight:700;color:var(--accent);margin-bottom:10px}
+.apply-steps ol{padding-left:22px;margin:0}
+.apply-steps li{font-family:var(--font-si);font-size:.84rem;margin-bottom:7px;color:var(--text);font-weight:700;line-height:1.6}
+.apply-steps li:last-child{margin-bottom:0}
+.apply-steps code{background:var(--primary-lt);color:var(--primary-dk);padding:1px 6px;border-radius:4px;font-size:.85em;font-family:'Courier New',monospace;font-weight:600}
+.apply-cta{background:linear-gradient(135deg,#dbeafe 0%,#fef3c7 100%);border-radius:var(--r-lg);padding:28px;text-align:center;border:1.5px solid #fbbf24}
+.apply-cta h3{font-family:var(--font-si);font-size:1.25rem;font-weight:700;margin-bottom:8px}
+.apply-cta p{font-family:var(--font-si);font-size:.92rem;color:var(--text);margin-bottom:18px;font-weight:600;line-height:1.6}
+.apply-cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.apply-cta-btn{padding:12px 24px;border-radius:var(--r-sm);font-family:var(--font-si);font-size:.9rem;font-weight:700;transition:all .15s;display:flex;align-items:center;gap:6px}
+.apply-cta-btn.primary{background:var(--primary);color:#fff}
+.apply-cta-btn.primary:hover{background:var(--primary-dk);transform:translateY(-2px);box-shadow:var(--shadow)}
+.apply-cta-btn.accent{background:var(--accent);color:#fff}
+.apply-cta-btn.accent:hover{background:#b45309;transform:translateY(-2px);box-shadow:var(--shadow)}
+
 /* ══ Loading ══ */
 .spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin .7s linear infinite;margin:24px auto}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -354,6 +397,9 @@ input,select,textarea{font-family:inherit;font-size:inherit;outline:none}
   .apply-grid{grid-template-columns:1fr}
   .account-cards{grid-template-columns:1fr 1fr}
   .footer-inner{flex-direction:column;text-align:center}
+  .apply-grid-sites{grid-template-columns:1fr}
+  .apply-guide{padding:24px 18px;margin:20px 12px}
+  .apply-guide-head h2{font-size:1.2rem}
 }
 @media(max-width:480px){
   .hero{padding:28px 14px 28px}
@@ -442,6 +488,10 @@ input,select,textarea{font-family:inherit;font-size:inherit;outline:none}
             <option value="Firenze">Firenze</option>
             <option value="Bergamo">Bergamo</option>
             <option value="Brescia">Brescia</option>
+            <option value="Verona">Verona</option>
+            <option value="Padova">Padova</option>
+            <option value="Venezia">Venezia</option>
+            <option value="Genova">Genova</option>
           </select>
           <button onclick="doSearch()" data-i18n="search.btn">Search Jobs</button>
         </div>
@@ -567,6 +617,213 @@ input,select,textarea{font-family:inherit;font-size:inherit;outline:none}
       <h3 data-i18n="sites.title">Italian Job Sites</h3>
       <div id="sites-list"></div>
     </aside>
+  </div>
+
+  <!-- ══ Verona Spotlight ══ -->
+  <div class="verona-spot">
+    <div class="verona-spot-head">
+      <span class="icon">🎯</span>
+      <h2>Verona රැකියා — ඔබට ආසන්නම</h2>
+      <span class="badge">NEW</span>
+    </div>
+    <div class="verona-spot-desc">
+      <strong>Verona සහ Veneto ප්‍රදේශයේ සැබෑ රැකියා සොයන්න. පහත site එක ක්ලික් කර Verona search results කෙළින්ම බලන්න:</strong>
+    </div>
+    <div class="verona-spot-buttons">
+      <a class="verona-spot-btn" href="https://it.indeed.com/jobs?l=Verona" target="_blank" rel="noopener">💼 Indeed Verona <span class="arrow">→</span></a>
+      <a class="verona-spot-btn" href="https://www.infojobs.it/jobsearch/search-results/list.xhtml?provinceIds=29" target="_blank" rel="noopener">📋 InfoJobs Verona <span class="arrow">→</span></a>
+      <a class="verona-spot-btn" href="https://www.linkedin.com/jobs/search/?location=Verona%2C%20Veneto%2C%20Italy" target="_blank" rel="noopener">🔗 LinkedIn Verona <span class="arrow">→</span></a>
+      <a class="verona-spot-btn" href="https://www.subito.it/annunci-veneto/vendita/offerte-lavoro/verona/" target="_blank" rel="noopener">📰 Subito Verona <span class="arrow">→</span></a>
+      <a class="verona-spot-btn" href="https://www.monster.it/lavoro/cerca/?where=verona" target="_blank" rel="noopener">👹 Monster Verona <span class="arrow">→</span></a>
+      <a class="verona-spot-btn" href="https://www.randstad.it/offerte-lavoro/?city=verona" target="_blank" rel="noopener">🏢 Randstad Verona <span class="arrow">→</span></a>
+      <a class="verona-spot-btn" href="https://www.adecco.it/cerca-lavoro?location=Verona" target="_blank" rel="noopener">🏪 Adecco Verona <span class="arrow">→</span></a>
+      <a class="verona-spot-btn" href="https://it.jooble.org/SearchResult?p=verona" target="_blank" rel="noopener">🌐 Jooble Verona <span class="arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- ══ How to Apply Guide (Sinhala step-by-step) ══ -->
+  <div class="apply-guide">
+    <div class="apply-guide-head">
+      <h2>🇮🇹 ඉතාලි රැකියා වෙබ් අඩවි — අයදුම් කරන ආකාරය</h2>
+      <p>How to Apply on Italian Job Sites — Step-by-Step Guide</p>
+      <span class="lang-note">සිංහල මඟ පෙන්වීම</span>
+    </div>
+
+    <div class="apply-grid-sites">
+
+      <!-- 1. Indeed -->
+      <div class="apply-site">
+        <div class="apply-site-head">
+          <span class="apply-site-num">1</span>
+          <a href="https://it.indeed.com" target="_blank" rel="noopener" class="apply-site-link">Indeed Italia</a>
+        </div>
+        <div class="apply-site-desc">ඉතාලියේ විශාලතම රැකියා වෙබ් අඩවිය</div>
+        <div class="apply-steps">
+          <div class="apply-steps-title">📋 අයදුම් කරන පියවර:</div>
+          <ol>
+            <li><strong>වෙබ් අඩවියට පිවිසෙන්න: <code>it.indeed.com</code></strong></li>
+            <li><strong>"Cosa" කොටුවේ රැකියාව type කරන්න (උදා: <code>badante</code>, <code>pulizie</code>)</strong></li>
+            <li><strong>"Dove" කොටුවේ ඉතාලි නගරය type කරන්න (උදා: Milano)</strong></li>
+            <li><strong>"Trova lavoro" button එක click කරන්න</strong></li>
+            <li><strong>රැකියාවක් තෝරා "Candidati ora" click කරන්න</strong></li>
+            <li><strong>අපගේ CV Builder භාවිතා කර PDF එක upload කරන්න</strong></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- 2. InfoJobs -->
+      <div class="apply-site">
+        <div class="apply-site-head">
+          <span class="apply-site-num">2</span>
+          <a href="https://www.infojobs.it" target="_blank" rel="noopener" class="apply-site-link">InfoJobs</a>
+        </div>
+        <div class="apply-site-desc">ජනප්‍රිය ඉතාලි රැකියා වෙබ් අඩවිය</div>
+        <div class="apply-steps">
+          <div class="apply-steps-title">📋 අයදුම් කරන පියවර:</div>
+          <ol>
+            <li><strong><code>infojobs.it</code> වෙබ් අඩවියට යන්න</strong></li>
+            <li><strong>ඉහළ දකුණේ "Registrati" click කරන්න</strong></li>
+            <li><strong>ඔබේ email සහ password ලබා දී account එකක් සාදන්න</strong></li>
+            <li><strong>Profile එක සම්පූර්ණයෙන් පුරවන්න (මෙය ඉතා වැදගත්!)</strong></li>
+            <li><strong>"Cerca lavoro" click කර රැකියා සොයන්න</strong></li>
+            <li><strong>අවශ්‍ය රැකියාව තෝරා "Candidati" click කරන්න</strong></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- 3. LinkedIn -->
+      <div class="apply-site">
+        <div class="apply-site-head">
+          <span class="apply-site-num">3</span>
+          <a href="https://www.linkedin.com/jobs" target="_blank" rel="noopener" class="apply-site-link">LinkedIn Jobs</a>
+        </div>
+        <div class="apply-site-desc">වෘත්තීය ජාල සහ රැකියා ද්වාරය</div>
+        <div class="apply-steps">
+          <div class="apply-steps-title">📋 අයදුම් කරන පියවර:</div>
+          <ol>
+            <li><strong><code>linkedin.com</code> හි account එකක් සාදන්න</strong></li>
+            <li><strong>Profile photo එකක් සහ විස්තර professional ලෙස upload කරන්න</strong></li>
+            <li><strong>ඉහළ menu එකේ "Jobs" tab එක click කරන්න</strong></li>
+            <li><strong>Location කොටුවේ <code>Italy</code> සහ රැකියා නාමය type කරන්න</strong></li>
+            <li><strong>"Easy Apply" tag ඇති රැකියා තෝරා ගන්න (පහසුම ක්‍රමයයි)</strong></li>
+            <li><strong>CV upload කර "Submit Application" click කරන්න</strong></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- 4. Subito -->
+      <div class="apply-site">
+        <div class="apply-site-head">
+          <span class="apply-site-num">4</span>
+          <a href="https://www.subito.it/offerte-lavoro" target="_blank" rel="noopener" class="apply-site-link">Subito Lavoro</a>
+        </div>
+        <div class="apply-site-desc">දේශීය රැකියා දැන්වීම් (සෘජුව අයිතිකරුට)</div>
+        <div class="apply-steps">
+          <div class="apply-steps-title">📋 අයදුම් කරන පියවර:</div>
+          <ol>
+            <li><strong><code>subito.it/offerte-lavoro</code> වෙත යන්න</strong></li>
+            <li><strong>ඔබේ නගරය (Regione) තෝරන්න</strong></li>
+            <li><strong>රැකියා වර්ගය filter කරන්න (Categoria)</strong></li>
+            <li><strong>දැන්වීම් කියවන්න සහ ඔබට ගැලපෙන එක තෝරන්න</strong></li>
+            <li><strong>දැන්වීමේ phone number / WhatsApp number එකට කතා කරන්න</strong></li>
+            <li><strong>ඉතාලි බසින් කෙටියෙන් කතා කරන්න (අවශ්‍ය නම් Italian Course එකක්)</strong></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- 5. Monster -->
+      <div class="apply-site">
+        <div class="apply-site-head">
+          <span class="apply-site-num">5</span>
+          <a href="https://www.monster.it" target="_blank" rel="noopener" class="apply-site-link">Monster Italia</a>
+        </div>
+        <div class="apply-site-desc">ජාත්‍යන්තර රැකියා සෙවුම් වෙබ් අඩවිය</div>
+        <div class="apply-steps">
+          <div class="apply-steps-title">📋 අයදුම් කරන පියවර:</div>
+          <ol>
+            <li><strong><code>monster.it</code> වෙබ් අඩවියට යන්න</strong></li>
+            <li><strong>"Accedi" → "Registrati" click කර නොමිලේ account එකක් සාදන්න</strong></li>
+            <li><strong>CV එක (PDF format) upload කරන්න</strong></li>
+            <li><strong>"Job Alert" set කරන්න — රැකියා email එකට එනු ඇත</strong></li>
+            <li><strong>අවශ්‍ය රැකියාව තෝරා "Candidati" click කරන්න</strong></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- 6. Randstad -->
+      <div class="apply-site">
+        <div class="apply-site-head">
+          <span class="apply-site-num">6</span>
+          <a href="https://www.randstad.it" target="_blank" rel="noopener" class="apply-site-link">Randstad</a>
+        </div>
+        <div class="apply-site-desc">තාවකාලික රැකියා නියෝජිත ආයතනය</div>
+        <div class="apply-steps">
+          <div class="apply-steps-title">📋 අයදුම් කරන පියවර:</div>
+          <ol>
+            <li><strong><code>randstad.it</code> වෙත යන්න</strong></li>
+            <li><strong>"Registrati" click කර නොමිලේ register වන්න</strong></li>
+            <li><strong>ඔබට ආසන්නම ශාඛාව සොයන්න ("Filiali" → නගරය)</strong></li>
+            <li><strong>CV එක සමඟ ශාඛාවට කෙළින්ම visit කරන්න (වඩාත්ම effective ක්‍රමය!)</strong></li>
+            <li><strong>Recruiter සමඟ interview එකකට සහභාගී වන්න</strong></li>
+            <li><strong>ඔවුන් ඔබට ගැලපෙන රැකියා ලබා දෙනු ඇත</strong></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- 7. Adecco -->
+      <div class="apply-site">
+        <div class="apply-site-head">
+          <span class="apply-site-num">7</span>
+          <a href="https://www.adecco.it" target="_blank" rel="noopener" class="apply-site-link">Adecco</a>
+        </div>
+        <div class="apply-site-desc">තාවකාලික සහ ස්ථිර රැකියා සැපයුම්කරු</div>
+        <div class="apply-steps">
+          <div class="apply-steps-title">📋 අයදුම් කරන පියවර:</div>
+          <ol>
+            <li><strong><code>adecco.it</code> වෙබ් අඩවියට යන්න</strong></li>
+            <li><strong>"Candidati" / "Registrati" click කරන්න</strong></li>
+            <li><strong>නොමිලේ profile එකක් සාදන්න</strong></li>
+            <li><strong>CV upload කර කුසලතා (skills) ලකුණු කරන්න</strong></li>
+            <li><strong>ඔබට ආසන්න Adecco office එක සොයා visit කරන්න</strong></li>
+            <li><strong>"Trova Filiale" → ඔබේ නගරය type කරන්න</strong></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- 8. Jooble -->
+      <div class="apply-site">
+        <div class="apply-site-head">
+          <span class="apply-site-num">8</span>
+          <a href="https://it.jooble.org" target="_blank" rel="noopener" class="apply-site-link">Jooble</a>
+        </div>
+        <div class="apply-site-desc">රැකියා සෙවුම් එකතුකරන්නා (Aggregator)</div>
+        <div class="apply-steps">
+          <div class="apply-steps-title">📋 අයදුම් කරන පියවර:</div>
+          <ol>
+            <li><strong><code>it.jooble.org</code> වෙත යන්න</strong></li>
+            <li><strong>Search box එකේ රැකියාව type කරන්න</strong></li>
+            <li><strong>ඉතාලි නගරයක් (Citta) ඇතුළත් කරන්න</strong></li>
+            <li><strong>"Cerca" click කරන්න</strong></li>
+            <li><strong>"Vai al sito" click කර අදාළ සැබෑ වෙබ් අඩවියට යන්න</strong></li>
+            <li><strong>එහි ඇති උපදෙස් අනුව අයදුම් කරන්න</strong></li>
+          </ol>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA: Link to CV Builder + Services -->
+    <div class="apply-cta">
+      <h3>🇱🇰 අපගේ සහාය ලබා ගන්න</h3>
+      <p>
+        <strong>CV එක තවම නැතිද? නොමිලේ CV Builder භාවිතා කරන්න.</strong><br/>
+        <strong>ඉතාලි භාෂාව හෝ අයදුම්පත් සඳහා සහාය අවශ්‍යයිද? වෘත්තීය සේවා බලන්න.</strong>
+      </p>
+      <div class="apply-cta-row">
+        <button class="apply-cta-btn primary" onclick="showTab('cv')">📄 නොමිලේ CV එක සාදන්න</button>
+        <button class="apply-cta-btn accent" onclick="showTab('services')">⚙️ වෘත්තීය සහාය</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -936,7 +1193,7 @@ const CAT_STYLE = {
 
 const CATEGORIES = ['Elder Care','Cleaning','Baby Sitting','Factory','Warehouse','Restaurant','Driving'];
 
-const CITIES = ['Milano','Roma','Napoli','Torino','Bologna','Firenze','Bergamo','Brescia'];
+const CITIES = ['Milano','Roma','Napoli','Torino','Bologna','Firenze','Bergamo','Brescia','Verona','Padova','Venezia','Genova'];
 
 /* ══════════════════════════════════════════════════════════
    DEMO DATA
@@ -960,7 +1217,16 @@ let JOBS = [
     descSi:'විශාල සැපයුම් සමාගමකට ගබඩා සේවකයින් අවශ්‍යයි. ෆෝක්ලිෆ්ට් අත්දැකීම් වාසිදායක නමුත් අවශ්‍ය නොවේ. අමතර වැටුප් සහිත රාත්‍රී මුරපෙළ ලබා ගත හැකිය. වහාම ආරම්භ කරන්න.'},
   {id:'d6',title:'Cameriere/a – Restaurant Server',titleSi:'අවන්හල් සේවකයා',company:'Trattoria Napoli',city:'Napoli',type:'Restaurant',perm:false,sal:'€1,000–1,200/mo',
     desc:'Traditional trattoria in Napoli looking for a server. Must have basic Italian. Lunch and dinner service, tips included. Weekends required.',
-    descSi:'නාපෝලි හි සාම්ප්‍රදායික ට්‍රැටෝරියා සේවකයෙකු සොයයි. මූලික ඉතාලි භාෂාව තිබිය යුතුය. දිවා ආහාරය සහ රාත්‍රී ආහාර සේවාව, ටිප්ස් ඇතුළත් වේ. සති අන්ත අවශ්‍යයි.'}
+    descSi:'නාපෝලි හි සාම්ප්‍රදායික ට්‍රැටෝරියා සේවකයෙකු සොයයි. මූලික ඉතාලි භාෂාව තිබිය යුතුය. දිවා ආහාරය සහ රාත්‍රී ආහාර සේවාව, ටිප්ස් ඇතුළත් වේ. සති අන්ත අවශ්‍යයි.'},
+  {id:'d7',title:'Operaio Agricolo – Vineyard Worker',titleSi:'මිදිවතු වගා සේවකයා (Verona)',company:'Cantine Valpolicella',city:'Verona',type:'Factory',perm:true,sal:'€1,200–1,400/mo',
+    desc:'Famous Verona winery in Valpolicella region hiring seasonal and full-time vineyard and bottling workers. Training provided. Good for Sri Lankan workers with farming background.',
+    descSi:'Verona අසල Valpolicella ප්‍රදේශයේ ප්‍රසිද්ධ වයින් සමාගමක් සඳහා මිදිවතු සහ බෝතල්කරණ සේවකයින් අවශ්‍යයි. පුහුණුව සපයයි. කෘෂිකාර්මික පසුබිමක් ඇති ශ්‍රී ලාංකිකයන්ට හොඳයි.',featured:true},
+  {id:'d8',title:'Badante – Elder Care (Verona)',titleSi:'වැඩිහිටි සත්කාර (Verona)',company:'Famiglia Verona',city:'Verona',type:'Elder Care',perm:true,sal:'€1,300–1,500/mo',
+    desc:'Family in Verona looking for experienced live-in caregiver for elderly mother. Italian language required (A2 minimum). 6 days a week, Sundays off.',
+    descSi:'Verona හි පවුලක් වැඩිහිටි මවට පළපුරුදු නේවාසික රැකවරණ සේවිකාවක් සොයයි. ඉතාලි භාෂාව (A2 අවම) අවශ්‍යයි. සතියට දින 6, ඉරිදා නිවාඩු.'},
+  {id:'d9',title:'Magazziniere – Logistics Worker (Verona)',titleSi:'ගබඩා සේවකයා (Verona)',company:'Verona Logistica SpA',city:'Verona',type:'Warehouse',perm:false,sal:'€1,200–1,400/mo',
+    desc:'Major Verona logistics hub needs warehouse workers for picking, packing and shipping. Day and night shifts. Forklift license a plus. Immediate hire available.',
+    descSi:'Verona හි ප්‍රධාන සැපයුම් මධ්‍යස්ථානයක් picking, packing, shipping සඳහා ගබඩා සේවකයින් අවශ්‍යයි. දිවා රාත්‍රී මුරපෙළ. ෆෝක්ලිෆ්ට් බලපත්‍රය වාසිදායක. වහාම බඳවා ගැනීම.',featured:true}
 ];
 
 const SEEKERS = [
