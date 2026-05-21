@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>ඉතාලියේ රිය පැවැත්වීම - Lanka Driver's Guide</title>
+<meta name="description" content="ඉතාලියේ රිය පැවැත්වීම සඳහා සම්පූර්ණ ගයිඩ්. Leasing, ගමන් දඩ, පාඩම්, ලිපි."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1f2937;--blue-light:#f3f4f6;--blue-border:#e5e7eb;
+  --red:#dc2626;--red-light:#fee2e2;--red-border:#fecaca;
+  --green:#10b981;--green-light:#ecfdf5;--green-border:#a7f3d0;
+  --text-primary:#111827;--text-secondary:#6b7280;--text-tertiary:#9ca3af;
+  --white:#ffffff;--spacing:16px;--radius:8px;--shadow:0 1px 3px 0 rgba(0,0,0,.1);
+}
+html,body{font-family:'Inter','Noto Sans Sinhala',sans-serif;font-size:14px;color:var(--text-primary);background:var(--white)}
+a{color:#2563eb;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none}
+
+/* Header */
+header{background:var(--white);border-bottom:1px solid var(--blue-border);padding:12px var(--spacing);position:sticky;top:0;z-index:100}
+.header-wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:var(--spacing)}
+.logo{font-size:18px;font-weight:800;color:var(--text-primary);display:flex;align-items:center;gap:8px}
+.logo-icon{width:32px;height:32px;background:#2563eb;color:white;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--text-secondary);font-weight:500;font-size:14px}
+.nav-links a:hover{color:var(--text-primary)}
+.back-btn{padding:8px 16px;background:#2563eb;color:white;border-radius:var(--radius);font-weight:600;font-size:14px}
+@media(max-width:768px){.nav-links{display:none}.header-wrap{flex-wrap:wrap}.logo{flex:1}}
+
+/* Notice Board */
+.notice-board{background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%);border-left:4px solid #f59e0b;padding:16px var(--spacing);margin-bottom:24px}
+.notice-wrap{max-width:1200px;margin:0 auto}
+.notice-title{font-weight:700;color:#92400e;font-size:14px;margin-bottom:6px;font-family:'Noto Sans Sinhala'}
+.notice-text{color:#78350f;font-size:13px;line-height:1.6;font-family:'Noto Sans Sinhala'}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#f3f4f6 0%,#e5e7eb 100%);padding:48px var(--spacing);text-align:center}
+.hero-inner{max-width:640px;margin:0 auto}
+.hero h1{font-size:clamp(28px,5vw,44px);font-weight:800;margin-bottom:12px;color:var(--text-primary);font-family:'Noto Sans Sinhala'}
+.hero p{font-size:16px;color:var(--text-secondary);margin-bottom:24px;line-height:1.5;font-family:'Noto Sans Sinhala'}
+
+/* Main */
+.main{max-width:1200px;margin:0 auto;padding:32px var(--spacing)}
+
+/* Section */
+.section{margin-bottom:48px}
+.section-title{font-size:24px;font-weight:800;margin-bottom:24px;color:var(--text-primary);font-family:'Noto Sans Sinhala';display:flex;align-items:center;gap:8px}
+.section-icon{font-size:28px}
+
+/* Cards Grid */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{background:var(--white);border:1px solid var(--blue-border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);transition:all .2s}
+.card:hover{border-color:#2563eb;box-shadow:0 4px 12px rgba(0,0,0,.1);transform:translateY(-2px)}
+.card-title{font-weight:700;margin-bottom:8px;font-size:15px;color:var(--text-primary);font-family:'Noto Sans Sinhala'}
+.card-text{font-size:13px;color:var(--text-secondary);margin-bottom:12px;line-height:1.5;font-family:'Noto Sans Sinhala'}
+.card-meta{font-size:12px;color:var(--text-tertiary);margin-bottom:12px;font-family:'Noto Sans Sinhala'}
+.card-link{display:inline-block;padding:8px 16px;background:#2563eb;color:white;border-radius:var(--radius);font-weight:600;font-size:12px}
+
+/* Table */
+.table-wrap{overflow-x:auto;margin-bottom:16px}
+table{width:100%;border-collapse:collapse;font-size:13px;font-family:'Noto Sans Sinhala'}
+th,td{padding:10px 12px;border-bottom:1px solid var(--blue-border);text-align:left}
+th{background:var(--blue-light);font-weight:700;color:var(--text-primary)}
+tr:hover{background:var(--blue-light)}
+
+/* Input Form */
+.form-group{margin-bottom:16px}
+.form-group label{display:block;margin-bottom:6px;font-weight:600;font-size:13px;color:var(--text-primary);font-family:'Noto Sans Sinhala'}
+.form-group input,.form-group textarea{width:100%;padding:10px 12px;border:1px solid var(--blue-border);border-radius:var(--radius);font-family:'Noto Sans Sinhala';font-size:13px}
+.form-group input:focus,.form-group textarea:focus{border-color:#2563eb;outline:none;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.form-group textarea{resize:vertical;min-height:80px}
+.submit-btn{padding:12px 24px;background:#2563eb;color:white;border-radius:var(--radius);font-weight:600;font-size:14px;cursor:pointer;font-family:'Noto Sans Sinhala'}
+.submit-btn:hover{background:#1d4ed8}
+
+/* List */
+.list-item{padding:12px;border-bottom:1px solid var(--blue-border);display:flex;justify-content:space-between;align-items:center;font-family:'Noto Sans Sinhala'}
+.list-item:last-child{border-bottom:none}
+
+/* Footer */
+footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top:48px}
+.footer-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-section h4{margin-bottom:12px;font-size:14px;font-weight:600;font-family:'Noto Sans Sinhala'}
+.footer-section a{color:#e5e7eb;font-size:13px;display:block;margin-bottom:6px;font-family:'Noto Sans Sinhala'}
+.footer-section a:hover{color:white}
+.footer-bottom{text-align:center;margin-top:24px;font-size:12px;color:#d1d5db;font-family:'Noto Sans Sinhala'}
+
+@media(max-width:768px){
+  .hero{padding:32px var(--spacing)}.hero h1{font-size:28px}.cards-grid{grid-template-columns:1fr}
+  table{font-size:12px}th,td{padding:8px 10px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-wrap">
+    <div class="logo">
+      <div class="logo-icon">🚗</div>
+      <span>ඉතාලිය運転 ගයිඩ්</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">← රැකියා</a>
+    </nav>
+    <a href="index.html" class="back-btn">← ගෙන එන්න</a>
+  </div>
+</header>
+
+<!-- NOTICE BOARD -->
+<div class="notice-board">
+  <div class="notice-wrap">
+    <div class="notice-title">📢 ප්‍රවාහකයන්ට වැදගත් දැන්වීම</div>
+    <div class="notice-text">
+      🚗 ඉතාලියේ රිය පැවැත්වීම සඳහා සම්පූර්ණ සහාය. Leasing, ගමන් දඩ, පාඩම්, සහ ශ්‍රී ලාංකිక ප්‍රවාහකයන් සඳහා වැදගත් තොරතුරු.
+    </div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>🚗 ඉතාලියේ රිය පැවැත්වීම - සම්පූර්ණ ගයිඩ්</h1>
+    <p>ඉතාලියේ ශ්‍රී ලාංකිකයන් සඳහා රිය පැවැත්වීම, Leasing, ගමන් දඩ, පාඩම්, සහ අනෙකුත් තොරතුරු.</p>
+  </div>
+</section>
+
+<main class="main">
+
+  <!-- LEASING COMPANIES -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">🏦</span>
+      <span>Leasing සහ Finance සමාගම්</span>
+    </h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-title">Europcar</div>
+        <div class="card-meta">ඉතාලි පුරා ශාඛා</div>
+        <div class="card-text">දිගු සහ කෙටි කාලීන Leasing. නිවැරදි ගිණුම් සහ බීමා විකල්ප.</div>
+        <div class="card-meta">📞 +39 06 6501 0391<br/>🌐 www.europcar.it</div>
+        <a href="https://www.europcar.it" target="_blank" class="card-link">වෙබ්සයිට එ යන්න</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Hertz</div>
+        <div class="card-meta">ලස්සන වාහන</div>
+        <div class="card-text">සියලු වර්ගයේ වාහන Lease කිරීම. වියතනා සඳහා සුවිශේෂ ගිණුම්.</div>
+        <div class="card-meta">📞 +39 06 5694 5643<br/>🌐 www.hertz.it</div>
+        <a href="https://www.hertz.it" target="_blank" class="card-link">වෙබ්සයිට එ යන්න</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Avis</div>
+        <div class="card-meta">ඉතාසි වාහන නෙවාසි</div>
+        <div class="card-text">දීර්ඝ කාලීන Leasing සඳහා හොඳ බිම්. ශ්‍රී ලාංකිකයන් සඳහා විශේෂ දර.</div>
+        <div class="card-meta">📞 +39 06 9944 7777<br/>🌐 www.avis.it</div>
+        <a href="https://www.avis.it" target="_blank" class="card-link">වෙබ්සයිට එ යන්න</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Budget</div>
+        <div class="card-meta">සාশ්‍රයී දර</div>
+        <div class="card-text">අඩු බිමින් වාහන Leasing. ගිණුම් ඉතා පහසු.</div>
+        <div class="card-meta">📞 +39 06 5559 0550<br/>🌐 www.budget.it</div>
+        <a href="https://www.budget.it" target="_blank" class="card-link">වෙබ්සයිට එ යන්න</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VEHICLES & PRICES -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">🚙</span>
+      <span>ජනප්‍රිය වාහන සහ මිල</span>
+    </h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>වාහනයේ නම</th>
+            <th>වර්ගය</th>
+            <th>මාසික දර (€)</th>
+            <th>ඉන්ධන පිරිවැය (€/100km)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fiat Panda</td>
+            <td>කුඩා/ශ්‍රේණි</td>
+            <td>€250-350</td>
+            <td>€6-8</td>
+          </tr>
+          <tr>
+            <td>Volkswagen Golf</td>
+            <td>මධ්‍ය ශ්‍රේණි</td>
+            <td>€400-500</td>
+            <td>€7-9</td>
+          </tr>
+          <tr>
+            <td>Hyundai i30</td>
+            <td>මධ්‍ය ශ්‍රේණි</td>
+            <td>€350-450</td>
+            <td>€6-8</td>
+          </tr>
+          <tr>
+            <td>Renault Scenic</td>
+            <td>කුટුම්බ</td>
+            <td>€450-600</td>
+            <td>€8-10</td>
+          </tr>
+          <tr>
+            <td>Mercedes-Benz A-Class</td>
+            <td>ඉහල ශ්‍රේණි</td>
+            <td>€600-800</td>
+            <td>€9-12</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TRAFFIC FINES -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">⚠️</span>
+      <span>ගමන් දඩ සහ ඉකමනින් ගිම්හරණ</span>
+    </h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>උකසු / නිරනයාකරණ</th>
+            <th>දඩ ප්‍රමාණය (€)</th>
+            <th>ස්වරූපය</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>වේගය අතිරේක (20-40 km/h)</td>
+            <td>€170-680</td>
+            <td>අඟවාගත් අවිධිතාව</td>
+          </tr>
+          <tr>
+            <td>වේගය අතිරේක (>40 km/h)</td>
+            <td>€500-2,000</td>
+            <td>බරම අවිධිතාව</td>
+          </tr>
+          <tr>
+            <td>දුබඩු පටිබදුම ඇඳිමු නොවීම</td>
+            <td>€80-320</td>
+            <td>අඟවාගත් අවිධිතාව</td>
+          </tr>
+          <tr>
+            <td>ජංගම ජංගම කර්ෂණ</td>
+            <td>€160-640</td>
+            <td>අඟවාගත් අවිධිතාව</td>
+          </tr>
+          <tr>
+            <td>ලාල් සිටුවුම කිරීමට අනිමැතිවම</td>
+            <td>€80-800</td>
+            <td>අඩවයින් කිසිම</td>
+          </tr>
+          <tr>
+            <td>ප්‍රවාහන බීමා නොවීම</td>
+            <td>€500-2,000 + ව්‍යතිරේක</td>
+            <td>බරම අවිධිතාව</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- WEEKLY LESSONS -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">📚</span>
+      <span>සතිපතක පාඩම් සහ උපදෙස්</span>
+    </h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-title">සතිපතක #1: ඉතාලිය පිහිටු නීති</div>
+        <div class="card-text">ඉතාලිය පිහිටු නීති, සිතු සඳහා වැදගත් උපයුතු, සහ පාලිතු උපයුතු.</div>
+        <div class="card-meta">📅 සෑම සඳුදා</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">සතිපතක #2: පිටිසිටුවී ගිම්හරණ</div>
+        <div class="card-text">පිටිසිටුවී ගිම්හරණයේ නිබන්ධන, පිටිසිටුවීමේ උපයුතු, සහ නිරපේක්ෂතා.</div>
+        <div class="card-meta">📅 සෑම බදාදා</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">සතිපතක #3: අවසාධාරණ පරිස්ථිතිය ඒකනුවලට ඉතිරිවැඩ</div>
+        <div class="card-text">බිම්ගත අවසාධාරණ පිටිසිටුවී, සිතුවීමේ ක්‍රිස්තුවු, සහ ඉතිරිවැඩ නිරපේක්ෂතා.</div>
+        <div class="card-meta">📅 සෑම බ්‍රහස්පතින්දා</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">සතිපතක #4: ඉතාලි පෙරෙහෙහුමු සිතු</div>
+        <div class="card-text">ඉතාලි පෙරෙහෙහුමු සිතු, පිටිසිටුවී නිබන්ධන, සහ බිම්ගත නිරපේක්ෂතා.</div>
+        <div class="card-meta">📅 සෑම සිකුරාදා</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLES & TIPS -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">📰</span>
+      <span>ලිපි සහ උපදෙස් (ප්‍රකාශිතයි)</span>
+    </h2>
+    <div id="articles-list">
+      <div class="list-item">
+        <div>
+          <strong style="font-family:'Noto Sans Sinhala'">ඉතාලියේ ප්‍රවාහකයකු සිටින විට සිටින සිතු</strong><br/>
+          <small style="color:var(--text-tertiary);font-family:'Noto Sans Sinhala'">ගිණුම් කිරීම, අවසාධාරණ, සහ නිරපේක්ෂතා.</small>
+        </div>
+        <button onclick="deleteArticle(this)" style="background:#dc2626;color:white;padding:4px 12px;border-radius:4px;font-size:12px">Delete</button>
+      </div>
+    </div>
+
+    <div style="margin-top:32px;padding:24px;background:var(--blue-light);border-radius:var(--radius)">
+      <h3 style="margin-bottom:16px;font-family:'Noto Sans Sinhala'">📝 ඔබේ ලිපිය ලිවීම (ඉතිරිකිරීම)</h3>
+      <form onsubmit="addArticle(event)">
+        <div class="form-group">
+          <label>ලිපියේ මාතෘකා</label>
+          <input type="text" id="article-title" placeholder="ඔබේ ලිපියේ මාතෘකා..." required>
+        </div>
+        <div class="form-group">
+          <label>ලිපි සාරාංශ</label>
+          <textarea id="article-content" placeholder="ඔබේ ලිපිය කෙටි සාරාංශ..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">ලිපිය ඉතිරිකරන්න</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- USEFUL LINKS -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">🔗</span>
+      <span>ප්‍රයෝජනවත් සබඳතා</span>
+    </h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-title">ඉතාලි මාර්ගමාර්ගී සභාව</div>
+        <div class="card-text">ඉතාලි මාර්ගමාර්ගී සභා - සිතු, පිටිසිටුවී, සහ ඉතිරිවැඩ තොරතුරු.</div>
+        <a href="https://www.aci.it" target="_blank" class="card-link">ACI.it</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">ඉතාලි රිය බීමා</div>
+        <div class="card-text">ඉතාලිය පිහිටු රිය බීමා සහ ගිණුම් තොරතුරු.</div>
+        <a href="https://www.ivass.it" target="_blank" class="card-link">IVASS.it</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">ඉතාලි ගමන් දඩ</div>
+        <div class="card-text">ඉතාලි ගමන් දඩ සිතු සහ අවිධිතා තොරතුරු.</div>
+        <a href="https://www.poliziadisstato.it" target="_blank" class="card-link">Polizia di Stato</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">ඉතාලි වාහන බිම්</div>
+        <div class="card-text">නව සහ භාවිත වාහන සඳහා ඉතාලි වාහන බිම්.</div>
+        <a href="https://www.quattroruote.it" target="_blank" class="card-link">Quattroruote</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-section">
+      <h4>ඉතාලිය ගයිඩ්</h4>
+      <a href="#leasing">Leasing සමාගම්</a>
+      <a href="#vehicles">වාහන සහ මිල</a>
+      <a href="#fines">ගමන් දඩ</a>
+      <a href="#lessons">පාඩම්</a>
+    </div>
+    <div class="footer-section">
+      <h4>වැඩිතර</h4>
+      <a href="index.html">රැකියා ඉස්සර යන්න</a>
+      <a href="entertainment.html">ගිණුම්</a>
+      <a href="#">අපිට සම්බන්ධ වන්න</a>
+    </div>
+    <div class="footer-section">
+      <h4>නීතිමය</h4>
+      <a href="#">රහස්‍යතා ප්‍රතිපත්තිය</a>
+      <a href="#">සේවා නියම</a>
+      <a href="#">සම්බන්ධතා තොරතුරු</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 Lanka Driver's Guide. ඉතාලිය සඳහා ශ්‍රී ලාංකිකයන්ගේ ගයිඩ්.</div>
+</footer>
+
+<script>
+// Load articles from localStorage
+function loadArticles() {
+  const articles = JSON.parse(localStorage.getItem('driverArticles') || '[]');
+  const container = document.getElementById('articles-list');
+
+  if (articles.length === 0) {
+    container.innerHTML = '<div style="padding:16px;color:var(--text-tertiary);font-family:Noto Sans Sinhala">තවම කිසිම ලිපි නොමැත. පළමු ලිපිය ලිවීම ඉඩ දෙන්න!</div>';
+    return;
+  }
+
+  container.innerHTML = articles.map((article, idx) => `
+    <div class="list-item">
+      <div>
+        <strong style="font-family:'Noto Sans Sinhala'">${article.title}</strong><br/>
+        <small style="color:var(--text-tertiary);font-family:'Noto Sans Sinhala'">${article.content}</small>
+      </div>
+      <button onclick="deleteArticle(this, ${idx})" style="background:#dc2626;color:white;padding:4px 12px;border-radius:4px;font-size:12px">Delete</button>
+    </div>
+  `).join('');
+}
+
+function addArticle(e) {
+  e.preventDefault();
+  const title = document.getElementById('article-title').value;
+  const content = document.getElementById('article-content').value;
+
+  let articles = JSON.parse(localStorage.getItem('driverArticles') || '[]');
+  articles.unshift({ title, content, date: new Date().toLocaleDateString('si-LK') });
+  localStorage.setItem('driverArticles', JSON.stringify(articles));
+
+  document.getElementById('article-title').value = '';
+  document.getElementById('article-content').value = '';
+
+  loadArticles();
+  alert('ලිපිය සාර්ථකව ඉතිරිකිරිණි!');
+}
+
+function deleteArticle(btn, idx) {
+  let articles = JSON.parse(localStorage.getItem('driverArticles') || '[]');
+  articles.splice(idx, 1);
+  localStorage.setItem('driverArticles', JSON.stringify(articles));
+  loadArticles();
+}
+
+loadArticles();
+</script>
+
+</body>
+</html>
