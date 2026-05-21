@@ -3,2322 +3,512 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Lanka Job Italy – Find Jobs for Sri Lankans in Italy</title>
-<meta name="description" content="Sri Lankan community job portal in Italy. Find Elder Care, Cleaning, Babysitting, Factory and Warehouse jobs. Free Europass CV generator."/>
-<meta property="og:title" content="Lanka Job Italy – Jobs for Sri Lankans in Italy"/>
-<meta property="og:description" content="ඉතාලියේ ශ්‍රී ලාංකිකයන් සඳහා රැකියා | Lavori per Sri Lankesi in Italia"/>
-<meta property="og:url" content="https://lankajobitaly.com"/>
-<meta property="og:type" content="website"/>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇱🇰</text></svg>"/>
+<title>Lanka Job Italy – Find Jobs Now</title>
+<meta name="description" content="Find jobs in Italy: Elder Care, Cleaning, Factory. Free job listings for Sri Lankans in Italy."/>
+<meta property="og:title" content="Lanka Job Italy"/>
+<meta property="og:description" content="ඉතාලියේ ශ්‍රී ලාංකිකයන් සඳහා රැකියා සෙවීමේ ද්වාරය"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:#f8fafc;color:#0f172a;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
 :root{
-  --primary:#2563eb;--primary-dk:#1d4ed8;--primary-lt:#dbeafe;
-  --accent:#d97706;--accent-lt:#fef3c7;
-  --bg:#f8fafc;--surface:#fff;
-  --text:#0f172a;--text2:#475569;--text3:#94a3b8;
-  --border:#e2e8f0;
-  --success:#059669;--success-lt:#d1fae5;
-  --shadow-sm:0 1px 2px rgba(0,0,0,.05);
-  --shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
-  --shadow-lg:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);
-  --r-sm:6px;--r:12px;--r-lg:16px;--r-xl:24px;
-  --font-si:'Noto Sans Sinhala',sans-serif;
+  --blue:#1f2937;--blue-light:#f3f4f6;--blue-border:#e5e7eb;
+  --text-primary:#111827;--text-secondary:#6b7280;--text-tertiary:#9ca3af;
+  --white:#ffffff;--gray:#f9fafb;
+  --accent-blue:#2563eb;--accent-blue-hover:#1d4ed8;
+  --green:#10b981;--green-bg:#ecfdf5;--green-text:#047857;
+  --orange:#f59e0b;--orange-bg:#fffbeb;--orange-text:#92400e;
+  --spacing:16px;--radius:8px;--shadow:0 1px 3px 0 rgba(0,0,0,.1);
 }
-.si-text{font-family:var(--font-si)!important}
-img{max-width:100%;display:block}
-a{text-decoration:none;color:inherit}
-button{cursor:pointer;font-family:inherit;border:none;background:none}
-input,select,textarea{font-family:inherit;font-size:inherit;outline:none}
-.container{max-width:1280px;margin:0 auto;padding:0 24px}
-.hide{display:none!important}
+html,body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;color:var(--text-primary);background:var(--white)}
+a{color:var(--accent-blue);text-decoration:none}
+a:hover{color:var(--accent-blue-hover)}
+button{font-family:inherit;cursor:pointer;border:none}
+input,select,textarea{font-family:inherit;font-size:inherit;padding:8px 12px;border:1px solid var(--blue-border);border-radius:var(--radius);outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--accent-blue);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
 
-/* ══ Top Bar ══ */
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 24px;background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(8px)}
-.logo{font-size:1.3rem;font-weight:700;color:var(--primary);letter-spacing:-.02em}
-.logo span{color:var(--accent)}
-.topbar-right{display:flex;align-items:center;gap:10px}
-.lang-tog{display:flex;background:#f1f5f9;border-radius:20px;padding:2px}
-.lang-btn{padding:4px 14px;border-radius:18px;font-size:.75rem;font-weight:600;transition:all .2s;color:var(--text2);background:transparent}
-.lang-btn.on{background:var(--primary);color:#fff}
-.auth-btn{padding:7px 18px;border-radius:20px;font-size:.8rem;font-weight:600;background:var(--primary);color:#fff;transition:all .15s}
-.auth-btn:hover{background:var(--primary-dk);transform:translateY(-1px)}
-.user-pill{display:flex;align-items:center;gap:8px;padding:5px 14px 5px 5px;border-radius:20px;background:#f1f5f9;font-size:.8rem;font-weight:500;cursor:pointer}
-.user-pill .avatar{width:26px;height:26px;border-radius:50%;background:var(--primary-lt);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:var(--primary)}
-
-/* ══ Navigation ══ */
-.nav{display:flex;gap:0;background:#fff;border-bottom:1px solid var(--border);padding:0 24px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.nav::-webkit-scrollbar{display:none}
-.ntab{flex-shrink:0;padding:12px 18px;font-size:.82rem;font-weight:500;color:var(--text2);border-bottom:2.5px solid transparent;transition:all .15s;display:flex;align-items:center;gap:6px;white-space:nowrap}
-.ntab:hover{color:var(--primary);background:#f8fafc}
-.ntab.on{color:var(--primary);border-bottom-color:var(--primary);font-weight:600}
-
-/* ══ Auth Modal ══ */
-.auth-overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,.5);z-index:200;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
-.auth-overlay.show{display:flex}
-.auth-card{background:#fff;border-radius:var(--r-lg);padding:32px;width:min(420px,92vw);box-shadow:var(--shadow-lg);position:relative;animation:slideUp .25s ease}
-.auth-card h2{font-size:1.4rem;font-weight:700;margin-bottom:4px}
-.auth-card .sub{color:var(--text2);font-size:.85rem;margin-bottom:20px}
-.auth-close{position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--text3);transition:all .15s}
-.auth-close:hover{background:#f1f5f9;color:var(--text)}
-.auth-tabs{display:flex;gap:0;margin-bottom:20px;border-bottom:1px solid var(--border)}
-.auth-tab{padding:8px 0;margin-right:24px;font-size:.85rem;font-weight:500;color:var(--text3);border-bottom:2px solid transparent;transition:all .15s}
-.auth-tab.on{color:var(--primary);border-bottom-color:var(--primary)}
-.auth-input{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:.9rem;margin-bottom:12px;transition:border-color .15s}
-.auth-input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
-.auth-submit{width:100%;padding:11px;border-radius:var(--r-sm);background:var(--primary);color:#fff;font-size:.9rem;font-weight:600;transition:all .15s;margin-top:4px}
-.auth-submit:hover{background:var(--primary-dk)}
-.auth-divider{display:flex;align-items:center;gap:12px;margin:16px 0;color:var(--text3);font-size:.8rem}
-.auth-divider::before,.auth-divider::after{content:'';flex:1;height:1px;background:var(--border)}
-.google-btn{width:100%;padding:10px;border-radius:var(--r-sm);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;gap:10px;font-size:.9rem;font-weight:500;transition:all .15s}
-.google-btn:hover{background:#f8fafc;border-color:#cbd5e1}
-.google-btn svg{width:18px;height:18px}
-.auth-error{color:#dc2626;font-size:.8rem;margin-bottom:8px;display:none}
-
-/* ══ Hero ══ */
-.hero{background:linear-gradient(135deg,#1e3a8a 0%,#2563eb 55%,#60a5fa 100%);padding:56px 24px 48px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-30%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(251,191,36,.18) 0%,transparent 70%);border-radius:50%;pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:-40%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%);border-radius:50%;pointer-events:none}
-.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;position:relative;z-index:2}
-.hero-text{text-align:left}
-.hero h1{font-size:2.5rem;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.1;letter-spacing:-.02em}
-.hero .tagline{color:rgba(255,255,255,.88);font-size:1.02rem;margin-bottom:26px;line-height:1.5}
-.hero-illustration{position:relative;display:flex;justify-content:center;align-items:center}
-.hero-illu-wrap{position:relative;width:100%;max-width:460px}
-.hero-illu-wrap svg{width:100%;height:auto;display:block;filter:drop-shadow(0 12px 24px rgba(0,0,0,.18))}
-.hero-photo{position:absolute;top:50%;left:50%;transform:translate(-50%,-42%);width:42%;aspect-ratio:1;border-radius:50%;border:5px solid #fff;box-shadow:0 10px 28px rgba(0,0,0,.3);object-fit:cover;z-index:2;background:#f1f5f9}
-.hero-photo-credit{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-size:.6rem;color:rgba(255,255,255,.55);white-space:nowrap;z-index:3}
-.hero-photo-credit a{color:rgba(255,255,255,.75);text-decoration:underline}
-.flag-badge{position:absolute;background:rgba(255,255,255,.96);padding:5px 12px;border-radius:20px;font-size:.72rem;font-weight:700;color:var(--primary);box-shadow:var(--shadow);display:flex;align-items:center;gap:5px;z-index:3}
-.flag-badge.lk{top:6%;left:-2%;animation:floatA 4s ease-in-out infinite}
-.flag-badge.it{bottom:18%;right:-2%;animation:floatB 4s ease-in-out infinite .8s}
-@keyframes floatA{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-@keyframes floatB{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.search-box{display:flex;gap:8px;max-width:540px;margin:0;position:relative}
-.search-box input{flex:1;padding:13px 16px;border-radius:var(--r);border:none;font-size:.9rem;background:#fff;box-shadow:var(--shadow)}
-.search-box select{padding:13px 12px;border-radius:var(--r);border:none;font-size:.85rem;background:#fff;min-width:140px;box-shadow:var(--shadow);color:var(--text2)}
-.search-box button{padding:13px 24px;border-radius:var(--r);background:var(--accent);color:#fff;font-weight:600;font-size:.9rem;box-shadow:var(--shadow);transition:all .15s;white-space:nowrap}
-.search-box button:hover{background:#b45309;transform:translateY(-1px)}
-
-/* ══ Categories ══ */
-.cat-strip{display:flex;gap:10px;padding:20px 24px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;background:#fff;border-bottom:1px solid var(--border)}
-.cat-strip::-webkit-scrollbar{display:none}
-.cat-tile{flex-shrink:0;display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:20px;font-size:.82rem;font-weight:500;cursor:pointer;transition:all .15s;border:1.5px solid var(--border);background:#fff;color:var(--text2)}
-.cat-tile:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-lt)}
-.cat-tile.on{border-color:var(--primary);color:#fff;background:var(--primary)}
-.cat-tile .ico{font-size:1rem}
-
-/* ══ Stats ══ */
-.stats-bar{display:flex;justify-content:center;gap:32px;padding:14px 24px;background:#fff;border-bottom:1px solid var(--border);font-size:.8rem;color:var(--text2);flex-wrap:wrap}
-.stats-bar strong{color:var(--primary);font-weight:700}
-
-/* ══ Content Layout ══ */
-.content{display:grid;grid-template-columns:220px 1fr 260px;gap:24px;padding:24px;max-width:1280px;margin:0 auto}
-.content-full{max-width:1280px;margin:0 auto;padding:24px}
-
-/* ══ Filter Sidebar ══ */
-.filters{background:#fff;border-radius:var(--r);padding:20px;box-shadow:var(--shadow-sm);height:fit-content;position:sticky;top:100px}
-.filters h3{font-size:.85rem;font-weight:600;margin-bottom:12px;color:var(--text)}
-.filter-group{margin-bottom:20px}
-.filter-group label{font-size:.8rem;font-weight:600;color:var(--text2);display:block;margin-bottom:8px}
-.filter-opt{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:.82rem;color:var(--text2);cursor:pointer}
-.filter-opt input[type=radio]{accent-color:var(--primary)}
-
-/* ══ Job Cards ══ */
-.job-grid{display:grid;gap:16px}
-.job-card{background:#fff;border-radius:var(--r);padding:20px;box-shadow:var(--shadow-sm);transition:all .2s;cursor:pointer;border:1.5px solid transparent;position:relative}
-.job-card:hover{box-shadow:var(--shadow);border-color:var(--primary-lt);transform:translateY(-2px)}
-.job-card.featured{border-color:var(--accent-lt);background:linear-gradient(135deg,#fffbeb 0%,#fff 40%)}
-.job-card.featured::before{content:'⭐ Featured';position:absolute;top:12px;right:12px;background:var(--accent);color:#fff;font-size:.65rem;font-weight:700;padding:3px 8px;border-radius:10px}
-.job-card .cat-badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:12px;font-size:.72rem;font-weight:600;margin-bottom:10px}
-.job-card h3{font-size:1rem;font-weight:600;margin-bottom:4px;color:var(--text)}
-.job-card .company{font-size:.82rem;color:var(--text2);margin-bottom:8px}
-.job-card .meta{display:flex;flex-wrap:wrap;gap:10px;font-size:.78rem;color:var(--text3);margin-bottom:12px}
-.job-card .meta span{display:flex;align-items:center;gap:4px}
-.job-card .salary{color:var(--accent);font-weight:600}
-.job-card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
-.job-card .tag{padding:3px 10px;border-radius:10px;font-size:.7rem;font-weight:500;background:#f1f5f9;color:var(--text2)}
-.job-card .tag.perm-yes{background:var(--success-lt);color:var(--success)}
-.job-card .tag.perm-no{background:#fef3c7;color:var(--accent)}
-.job-card .view-btn{display:inline-flex;align-items:center;gap:4px;padding:8px 16px;border-radius:var(--r-sm);background:var(--primary);color:#fff;font-size:.8rem;font-weight:600;transition:all .15s}
-.job-card .view-btn:hover{background:var(--primary-dk)}
-.no-jobs{text-align:center;padding:48px 24px;color:var(--text3)}
-.no-jobs .ico{font-size:2.5rem;margin-bottom:8px}
-
-/* ══ Right Sidebar — Italian Sites ══ */
-.right-sidebar{background:#fff;border-radius:var(--r);padding:20px;box-shadow:var(--shadow-sm);height:fit-content;position:sticky;top:100px}
-.right-sidebar h3{font-size:.85rem;font-weight:600;margin-bottom:14px}
-.site-link{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #f1f5f9;font-size:.82rem;transition:all .15s}
-.site-link:last-child{border-bottom:none}
-.site-link:hover{color:var(--primary)}
-.site-link .num{width:22px;height:22px;border-radius:50%;background:var(--primary-lt);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0}
-.site-link .desc-si{font-size:.72rem;color:var(--text3);font-family:var(--font-si)}
-
-/* ══ Seekers ══ */
-.seeker-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px}
-.post-btn{padding:10px 20px;border-radius:var(--r-sm);background:var(--primary);color:#fff;font-size:.85rem;font-weight:600;transition:all .15s}
-.post-btn:hover{background:var(--primary-dk)}
-.seeker-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
-.seeker-card{background:#fff;border-radius:var(--r);padding:20px;box-shadow:var(--shadow-sm);transition:all .2s}
-.seeker-card:hover{box-shadow:var(--shadow)}
-.seeker-card .top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.seeker-card .avatar{width:44px;height:44px;border-radius:50%;background:var(--primary-lt);display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;color:var(--primary)}
-.seeker-card .name{font-size:.95rem;font-weight:600}
-.seeker-card .skill{font-size:.8rem;color:var(--text2)}
-.seeker-card .info{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
-.seeker-card .info-tag{padding:3px 10px;border-radius:10px;font-size:.72rem;font-weight:500;background:#f1f5f9;color:var(--text2)}
-.seeker-card .contact-btn{padding:7px 14px;border-radius:var(--r-sm);border:1.5px solid var(--primary);color:var(--primary);font-size:.8rem;font-weight:600;transition:all .15s}
-.seeker-card .contact-btn:hover{background:var(--primary);color:#fff}
-
-/* ══ CV Generator ══ */
-.cv-wrap{max-width:720px;margin:0 auto}
-.cv-header{text-align:center;margin-bottom:24px}
-.cv-header h2{font-size:1.5rem;font-weight:700;margin-bottom:4px}
-.cv-header p{color:var(--text2);font-size:.9rem}
-.prog-bar{display:flex;justify-content:center;gap:0;margin-bottom:28px;position:relative}
-.prog-item{flex:1;text-align:center;position:relative;cursor:pointer}
-.prog-dot{width:32px;height:32px;border-radius:50%;background:#f1f5f9;color:var(--text3);display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-size:.75rem;font-weight:700;transition:all .2s;position:relative;z-index:1}
-.prog-item.active .prog-dot{background:var(--primary);color:#fff}
-.prog-item.done .prog-dot{background:var(--success);color:#fff}
-.prog-lbl{font-size:.7rem;color:var(--text3);font-weight:500}
-.prog-lbl-si{font-size:.65rem;color:var(--text3);font-family:var(--font-si)}
-.prog-item.active .prog-lbl{color:var(--primary);font-weight:600}
-.prog-line{position:absolute;top:16px;left:50%;width:100%;height:2px;background:var(--border);z-index:0}
-.prog-item.done .prog-line{background:var(--success)}
-.step-pane{display:none}
-.step-pane.on{display:block}
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:.82rem;font-weight:600;color:var(--text2);margin-bottom:6px}
-.form-input{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:.88rem;transition:border-color .15s}
-.form-input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
-.tile-row{display:flex;flex-wrap:wrap;gap:8px}
-.opt-tile{padding:10px 16px;border-radius:var(--r-sm);border:1.5px solid var(--border);cursor:pointer;transition:all .15s;text-align:center;font-size:.82rem}
-.opt-tile:hover{border-color:var(--primary)}
-.opt-tile.sel{border-color:var(--primary);background:var(--primary-lt);color:var(--primary);font-weight:600}
-.opt-tile .lbl-it{font-size:.7rem;color:var(--text3)}
-.skill-chips{display:flex;flex-wrap:wrap;gap:8px}
-.spick{padding:6px 14px;border-radius:16px;border:1.5px solid var(--border);font-size:.8rem;cursor:pointer;transition:all .15s}
-.spick:hover{border-color:var(--primary)}
-.spick.on{background:var(--primary);color:#fff;border-color:var(--primary)}
-.step-actions{display:flex;justify-content:space-between;margin-top:24px;gap:12px}
-.btn-prev{padding:10px 20px;border-radius:var(--r-sm);border:1.5px solid var(--border);font-size:.85rem;font-weight:600;color:var(--text2);transition:all .15s}
-.btn-prev:hover{background:#f1f5f9}
-.btn-next{padding:10px 24px;border-radius:var(--r-sm);background:var(--primary);color:#fff;font-size:.85rem;font-weight:600;transition:all .15s}
-.btn-next:hover{background:var(--primary-dk)}
-.cv-dl-btn{padding:14px 32px;border-radius:var(--r-sm);background:var(--success);color:#fff;font-size:1rem;font-weight:700;transition:all .15s;display:flex;align-items:center;gap:8px;margin:16px auto 0}
-.cv-dl-btn:hover{background:#047857}
-.gdpr-row{display:flex;align-items:flex-start;gap:8px;padding:12px;background:#f8fafc;border-radius:var(--r-sm);margin-top:16px;font-size:.78rem;color:var(--text2)}
-
-/* ══ Services ══ */
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.svc-card{background:#fff;border-radius:var(--r);padding:24px;box-shadow:var(--shadow-sm);transition:all .2s;text-align:center}
-.svc-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-.svc-card .ico{font-size:2rem;margin-bottom:10px}
-.svc-card h3{font-size:1rem;font-weight:600;margin-bottom:4px}
-.svc-card .desc{font-size:.82rem;color:var(--text2);margin-bottom:12px}
-.svc-card .price{font-size:.85rem;font-weight:700;color:var(--accent)}
-.svc-card .contact-svc{display:inline-flex;align-items:center;gap:4px;padding:8px 16px;border-radius:var(--r-sm);border:1.5px solid var(--primary);color:var(--primary);font-size:.8rem;font-weight:600;margin-top:10px;transition:all .15s}
-.svc-card .contact-svc:hover{background:var(--primary);color:#fff}
-
-/* ══ Restaurants ══ */
-.resto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
-.resto-card{background:#fff;border-radius:var(--r);padding:20px;box-shadow:var(--shadow-sm);transition:all .2s}
-.resto-card:hover{box-shadow:var(--shadow)}
-.resto-card h3{font-size:1.05rem;font-weight:600;margin-bottom:4px}
-.resto-card .cuisine{font-size:.8rem;color:var(--accent);font-weight:500;margin-bottom:8px}
-.resto-card .info-row{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--text2);margin-bottom:4px}
-.resto-card .rating{display:flex;align-items:center;gap:4px;font-size:.85rem;font-weight:600;color:var(--accent);margin-top:8px}
-
-/* ══ My Account ══ */
-.account-wrap{max-width:800px;margin:0 auto}
-.account-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding:20px;background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm)}
-.account-header .avatar-lg{width:56px;height:56px;border-radius:50%;background:var(--primary-lt);display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:700;color:var(--primary)}
-.account-header .info h2{font-size:1.1rem;font-weight:600}
-.account-header .info p{font-size:.82rem;color:var(--text2)}
-.account-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:24px}
-.account-card{background:#fff;border-radius:var(--r);padding:20px;box-shadow:var(--shadow-sm);text-align:center;cursor:pointer;transition:all .15s}
-.account-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-.account-card .ico{font-size:1.5rem;margin-bottom:8px}
-.account-card .count{font-size:1.5rem;font-weight:700;color:var(--primary)}
-.account-card .lbl{font-size:.8rem;color:var(--text2);font-weight:500}
-.logout-btn{padding:10px 20px;border-radius:var(--r-sm);border:1.5px solid #dc2626;color:#dc2626;font-size:.85rem;font-weight:600;transition:all .15s}
-.logout-btn:hover{background:#dc2626;color:#fff}
-.login-prompt{text-align:center;padding:64px 24px}
-.login-prompt .ico{font-size:3rem;margin-bottom:12px}
-.login-prompt h2{font-size:1.3rem;font-weight:600;margin-bottom:8px}
-.login-prompt p{color:var(--text2);font-size:.9rem;margin-bottom:20px}
-
-/* ══ Job Detail Modal ══ */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,.5);z-index:150;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(4px)}
-.modal-overlay.show{display:flex}
-.modal-card{background:#fff;border-radius:var(--r-lg);width:min(680px,96vw);max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg);animation:slideUp .25s ease}
-.modal-header{padding:24px 24px 0;position:relative}
-.modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--text3);transition:all .15s}
-.modal-close:hover{background:#f1f5f9;color:var(--text)}
-.modal-body{padding:20px 24px 24px}
-.jd-title{font-size:1.3rem;font-weight:700;margin-bottom:4px}
-.jd-company{font-size:.9rem;color:var(--text2);margin-bottom:12px}
-.jd-meta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px;font-size:.82rem;color:var(--text2)}
-.jd-meta span{display:flex;align-items:center;gap:4px}
-.jd-section{margin-bottom:16px}
-.jd-section h4{font-size:.9rem;font-weight:600;margin-bottom:6px;color:var(--text)}
-.jd-section p{font-size:.85rem;color:var(--text2);line-height:1.7}
-.apply-row{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
-.wa-btn{padding:10px 20px;border-radius:var(--r-sm);background:#25d366;color:#fff;font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:6px;transition:all .15s}
-.wa-btn:hover{background:#1da851}
-.email-btn{padding:10px 20px;border-radius:var(--r-sm);background:var(--primary);color:#fff;font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:6px;transition:all .15s}
-.email-btn:hover{background:var(--primary-dk)}
-
-/* ══ Apply Form ══ */
-.apply-wrap{padding:0 24px 24px}
-.apply-wrap h3{font-size:1.05rem;font-weight:600;margin-bottom:16px}
-.apply-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.apply-full{grid-column:1/-1}
-.apply-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
-
-/* ══ Post Profile Overlay ══ */
-.post-overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,.5);z-index:160;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(4px)}
-.post-overlay.show{display:flex}
-.post-card{background:#fff;border-radius:var(--r-lg);padding:28px;width:min(520px,96vw);max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg);animation:slideUp .25s ease}
-
-/* ══ AI Writer FAB ══ */
-.ai-fab{position:fixed;bottom:24px;right:24px;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 12px rgba(37,99,235,.35);cursor:pointer;z-index:90;transition:all .2s}
-.ai-fab:hover{transform:scale(1.08);box-shadow:0 6px 16px rgba(37,99,235,.45)}
-.ai-modal{display:none;position:fixed;bottom:88px;right:24px;width:min(400px,90vw);background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow-lg);z-index:95;animation:slideUp .25s ease}
-.ai-modal.show{display:block}
-.ai-modal-head{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-.ai-modal-head h3{font-size:.95rem;font-weight:600}
-.ai-modal-body{padding:16px 20px}
-.ai-modal-body textarea{width:100%;padding:10px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:.85rem;resize:vertical;min-height:80px}
-.ai-modal-body .gen-btn{width:100%;padding:10px;border-radius:var(--r-sm);background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;font-weight:600;font-size:.85rem;margin-top:10px;transition:all .15s}
-.ai-modal-body .gen-btn:hover{opacity:.9}
-.ai-result{margin-top:12px;padding:12px;background:#f8fafc;border-radius:var(--r-sm);font-size:.82rem;line-height:1.6;white-space:pre-wrap;max-height:200px;overflow-y:auto;display:none}
-
-/* ══ Footer ══ */
-.footer{background:#0f172a;color:#94a3b8;padding:32px 24px;margin-top:48px}
-.footer-inner{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.footer-brand{font-size:1.1rem;font-weight:700;color:#fff}
-.footer-brand span{color:var(--accent)}
-.footer-links{display:flex;gap:20px;font-size:.82rem}
-.footer-links a:hover{color:#fff}
-.footer-copy{font-size:.75rem;text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid #1e293b}
-
-/* ══ Verona Spotlight ══ */
-.verona-spot{background:linear-gradient(135deg,#7c2d12 0%,#c2410c 25%,#ea580c 50%,#f59e0b 75%,#fbbf24 100%);max-width:1280px;margin:-32px auto 0;padding:44px 36px;border-radius:var(--r-xl);position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(124,45,18,.4),0 8px 20px rgba(0,0,0,.15);z-index:5}
-.verona-spot::before{content:'';position:absolute;top:-40px;right:-40px;width:280px;height:280px;background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 70%);border-radius:50%;pointer-events:none}
-.verona-spot::after{content:'';position:absolute;bottom:-60px;left:-40px;width:240px;height:240px;background:radial-gradient(circle,rgba(254,243,199,.3) 0%,transparent 70%);border-radius:50%;pointer-events:none}
-.verona-arena{position:absolute;right:0;bottom:0;width:280px;height:140px;opacity:.18;pointer-events:none;z-index:1}
-.verona-spot-head{display:flex;align-items:center;gap:14px;margin-bottom:10px;position:relative;z-index:2;flex-wrap:wrap}
-.verona-spot-head .icon{font-size:2.4rem;filter:drop-shadow(0 2px 4px rgba(0,0,0,.2));animation:vpulse 2s ease-in-out infinite}
-@keyframes vpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
-.verona-spot-head h2{font-size:1.7rem;font-weight:800;color:#fff;font-family:var(--font-si);text-shadow:0 2px 8px rgba(0,0,0,.25);line-height:1.2}
-.verona-spot-head .badge{background:#fff;color:#c2410c;padding:5px 14px;border-radius:14px;font-size:.72rem;font-weight:800;letter-spacing:.08em;box-shadow:0 4px 12px rgba(0,0,0,.2);animation:vbobble 2.4s ease-in-out infinite}
-@keyframes vbobble{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-4px) rotate(3deg)}}
-.verona-spot-desc{font-family:var(--font-si);font-size:1rem;color:#fff;margin-bottom:24px;font-weight:700;line-height:1.6;position:relative;z-index:2;text-shadow:0 1px 4px rgba(0,0,0,.2);max-width:820px}
-.verona-spot-buttons{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;position:relative;z-index:2}
-.verona-spot-btn{background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border:none;padding:14px 18px;border-radius:var(--r);font-size:.9rem;font-weight:700;color:var(--text);transition:all .25s cubic-bezier(.4,0,.2,1);display:flex;align-items:center;gap:8px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,.15)}
-.verona-spot-btn:hover{background:#fff;transform:translateY(-4px) scale(1.02);box-shadow:0 12px 24px rgba(0,0,0,.3);color:#c2410c}
-.verona-spot-btn .arrow{margin-left:auto;font-size:1.1rem;transition:transform .2s}
-.verona-spot-btn:hover .arrow{transform:translateX(4px)}
-
-/* ══ Apply Guide Section ══ */
-.apply-guide{background:linear-gradient(180deg,#fff 0%,#f8fafc 100%);max-width:1280px;margin:32px auto;padding:40px 32px;border-radius:var(--r-xl);box-shadow:0 12px 40px rgba(15,23,42,.08),0 4px 12px rgba(15,23,42,.04);position:relative;overflow:hidden}
-.apply-guide::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#2563eb 0%,#7c3aed 25%,#d97706 50%,#ea580c 75%,#dc2626 100%)}
-.apply-guide-head{text-align:center;margin-bottom:32px}
-.apply-guide-head h2{font-size:1.7rem;font-weight:800;margin-bottom:8px;color:var(--text);font-family:var(--font-si);background:linear-gradient(135deg,#1e3a8a 0%,#c2410c 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.apply-guide-head p{color:var(--text2);font-size:.95rem}
-.apply-guide-head .lang-note{display:inline-block;margin-top:12px;padding:6px 16px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;font-weight:700;font-size:.78rem;border-radius:20px;box-shadow:0 2px 8px rgba(217,119,6,.2)}
-.apply-grid-sites{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px;margin-bottom:32px}
-.apply-site{background:#fff;border:1.5px solid var(--border);border-radius:var(--r-lg);padding:20px;transition:all .25s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
-.apply-site::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--accent));opacity:0;transition:opacity .25s}
-.apply-site:hover{border-color:var(--primary);transform:translateY(-4px);box-shadow:0 12px 28px rgba(37,99,235,.18)}
-.apply-site:hover::before{opacity:1}
-.apply-site-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.apply-site-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-dk));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;flex-shrink:0;box-shadow:0 4px 12px rgba(37,99,235,.3)}
-.apply-site-link{font-size:1.05rem;font-weight:700;color:var(--primary)}
-.apply-site-link:hover{text-decoration:underline}
-.apply-site-desc{font-family:var(--font-si);font-size:.85rem;color:var(--text);margin-bottom:12px;font-weight:700;line-height:1.5}
-.apply-steps{background:#fff;padding:14px;border-radius:var(--r-sm);border-left:3px solid var(--accent)}
-.apply-steps-title{font-family:var(--font-si);font-size:.85rem;font-weight:700;color:var(--accent);margin-bottom:10px}
-.apply-steps ol{padding-left:22px;margin:0}
-.apply-steps li{font-family:var(--font-si);font-size:.84rem;margin-bottom:7px;color:var(--text);font-weight:700;line-height:1.6}
-.apply-steps li:last-child{margin-bottom:0}
-.apply-steps code{background:var(--primary-lt);color:var(--primary-dk);padding:1px 6px;border-radius:4px;font-size:.85em;font-family:'Courier New',monospace;font-weight:600}
-.apply-cta{background:linear-gradient(135deg,#dbeafe 0%,#fef3c7 100%);border-radius:var(--r-lg);padding:28px;text-align:center;border:1.5px solid #fbbf24}
-.apply-cta h3{font-family:var(--font-si);font-size:1.25rem;font-weight:700;margin-bottom:8px}
-.apply-cta p{font-family:var(--font-si);font-size:.92rem;color:var(--text);margin-bottom:18px;font-weight:600;line-height:1.6}
-.apply-cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.apply-cta-btn{padding:12px 24px;border-radius:var(--r-sm);font-family:var(--font-si);font-size:.9rem;font-weight:700;transition:all .15s;display:flex;align-items:center;gap:6px}
-.apply-cta-btn.primary{background:var(--primary);color:#fff}
-.apply-cta-btn.primary:hover{background:var(--primary-dk);transform:translateY(-2px);box-shadow:var(--shadow)}
-.apply-cta-btn.accent{background:var(--accent);color:#fff}
-.apply-cta-btn.accent:hover{background:#b45309;transform:translateY(-2px);box-shadow:var(--shadow)}
-
-/* ══ Loading ══ */
-.spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin .7s linear infinite;margin:24px auto}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-/* ══ Animations ══ */
-@keyframes slideUp{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.tab-section{display:none;animation:fadeIn .25s ease}
-.tab-section.on{display:block}
-
-/* ══ Success Message ══ */
-.success-msg{display:none;text-align:center;padding:32px}
-.success-msg.show{display:block}
-.success-msg .ico{font-size:2.5rem;margin-bottom:8px}
-.success-msg h3{font-size:1.1rem;font-weight:600;margin-bottom:4px;color:var(--success)}
-
-/* ══ Responsive ══ */
-@media(max-width:1024px){
-  .content{grid-template-columns:1fr;gap:16px}
-  .filters,.right-sidebar{display:none}
-  .hero-inner{grid-template-columns:1fr;gap:24px;text-align:center}
-  .hero-text{text-align:center}
-  .hero-illustration{order:-1}
-  .hero-illustration svg{max-width:320px}
-  .hero h1{font-size:1.9rem}
-  .search-box{margin:0 auto;flex-direction:column}
-  .search-box input,.search-box select,.search-box button{width:100%}
-  .flag-badge.lk{top:0;left:8%}
-  .flag-badge.it{bottom:8%;right:8%}
+/* Header */
+header{
+  background:var(--white);border-bottom:1px solid var(--blue-border);
+  padding:12px var(--spacing);position:sticky;top:0;z-index:100;
 }
+.header-wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:var(--spacing)}
+.logo{font-size:20px;font-weight:800;color:var(--text-primary);display:flex;align-items:center;gap:8px}
+.logo-icon{width:32px;height:32px;background:var(--accent-blue);color:white;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--text-secondary);font-size:14px;font-weight:500}
+.nav-links a:hover{color:var(--text-primary)}
+.nav-lang{display:flex;gap:8px}
+.lang-btn{padding:6px 12px;border:1px solid var(--blue-border);border-radius:var(--radius);font-size:12px;font-weight:600;background:transparent;cursor:pointer;color:var(--text-secondary)}
+.lang-btn.active{background:var(--accent-blue);color:white;border-color:var(--accent-blue)}
+.auth-btn{padding:8px 16px;background:var(--accent-blue);color:white;border-radius:var(--radius);font-weight:600;font-size:14px}
+.auth-btn:hover{background:var(--accent-blue-hover)}
 @media(max-width:768px){
-  .topbar{padding:8px 16px}
-  .nav{padding:0 12px}
-  .ntab{padding:10px 14px;font-size:.78rem}
-  .hero{padding:36px 16px 32px}
-  .hero h1{font-size:1.55rem}
-  .hero .tagline{font-size:.9rem}
-  .hero-illustration svg{max-width:260px}
-  .flag-badge{font-size:.65rem;padding:4px 10px}
-  .content-full{padding:16px}
-  .cat-strip{padding:12px 16px}
-  .seeker-grid{grid-template-columns:1fr}
-  .svc-grid{grid-template-columns:1fr}
-  .resto-grid{grid-template-columns:1fr}
-  .apply-grid{grid-template-columns:1fr}
-  .account-cards{grid-template-columns:1fr 1fr}
-  .footer-inner{flex-direction:column;text-align:center}
-  .apply-grid-sites{grid-template-columns:1fr}
-  .apply-guide{padding:28px 18px;margin:20px 12px}
-  .apply-guide-head h2{font-size:1.3rem}
-  .verona-spot{padding:28px 20px;margin:-16px 12px 0;border-radius:var(--r-lg)}
-  .verona-spot-head h2{font-size:1.25rem}
-  .verona-spot-head .icon{font-size:1.8rem}
-  .verona-spot-desc{font-size:.9rem}
-  .verona-spot-buttons{grid-template-columns:1fr 1fr;gap:8px}
-  .verona-spot-btn{padding:10px 12px;font-size:.78rem}
-  .verona-arena{width:160px;height:80px;opacity:.12}
+  .nav-links{display:none}
+  .header-wrap{flex-wrap:wrap}
+  .logo{flex:1}
 }
-@media(max-width:480px){
-  .hero{padding:28px 14px 28px}
-  .hero h1{font-size:1.3rem}
-  .hero .tagline{font-size:.82rem}
-  .hero-illustration svg{max-width:220px}
-  .ntab{padding:8px 10px;font-size:.72rem;gap:4px}
-  .job-card{padding:16px}
-  .modal-card{border-radius:var(--r);margin:8px}
-  .auth-card{padding:24px;border-radius:var(--r)}
-  .ai-fab{width:46px;height:46px;font-size:1.1rem;bottom:16px;right:16px}
-  .ai-modal{bottom:72px;right:16px}
-  .flag-badge{font-size:.6rem;padding:3px 8px}
+
+/* Notice Board */
+.notice-board{background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%);border-bottom:4px solid #f59e0b;padding:16px var(--spacing);text-align:center}
+.notice-wrap{max-width:1200px;margin:0 auto}
+.notice-title{font-weight:700;color:#92400e;margin-bottom:6px;font-size:16px}
+.notice-text{color:#78350f;font-size:14px;margin-bottom:12px}
+.notice-btn{display:inline-block;padding:10px 24px;background:#f59e0b;color:#78350f;border-radius:6px;font-weight:700;text-decoration:none;font-size:14px}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#f3f4f6 0%,#e5e7eb 100%);padding:48px var(--spacing);text-align:center}
+.hero-inner{max-width:640px;margin:0 auto}
+.hero h1{font-size:clamp(28px,5vw,44px);font-weight:800;margin-bottom:12px;color:var(--text-primary)}
+.hero p{font-size:16px;color:var(--text-secondary);margin-bottom:24px;line-height:1.5}
+.hero-sin{font-family:'Noto Sans Sinhala';font-size:14px;color:var(--text-secondary);margin-bottom:24px}
+.search-box{display:flex;gap:8px;max-width:500px;margin:0 auto 24px}
+.search-box input{flex:1;padding:12px 14px;font-size:14px}
+.search-box button{padding:12px 24px;background:var(--accent-blue);color:white;border-radius:var(--radius);font-weight:600;white-space:nowrap}
+.search-box button:hover{background:var(--accent-blue-hover)}
+.categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;max-width:500px;margin:0 auto}
+.cat-chip{padding:10px 16px;background:white;border:1px solid var(--blue-border);border-radius:var(--radius);text-align:center;cursor:pointer;transition:all .2s;font-weight:500;font-size:13px}
+.cat-chip:hover{border-color:var(--accent-blue);background:var(--blue-light)}
+
+/* Main Layout */
+.main{max-width:1200px;margin:0 auto;padding:32px var(--spacing);display:grid;grid-template-columns:1fr;gap:32px}
+@media(min-width:900px){
+  .main{grid-template-columns:260px 1fr}
+}
+
+/* Sidebar */
+.sidebar{display:flex;flex-direction:column;gap:20px}
+.panel{background:var(--white);border:1px solid var(--blue-border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+.panel-title{font-weight:700;margin-bottom:12px;font-size:14px;color:var(--text-primary)}
+.filter-item{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:13px}
+.filter-item input[type="radio"]{accent-color:var(--accent-blue)}
+.filter-item label{margin:0;cursor:pointer;flex:1}
+.filter-count{color:var(--text-tertiary);font-size:12px;margin-left:auto}
+
+/* Jobs List */
+.jobs-container{display:flex;flex-direction:column;gap:12px}
+.job-card{background:var(--white);border:1px solid var(--blue-border);border-radius:var(--radius);padding:16px;cursor:pointer;transition:all .2s;box-shadow:var(--shadow)}
+.job-card:hover{border-color:var(--accent-blue);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.job-header{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+.job-icon{width:40px;height:40px;background:var(--blue-light);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.job-info{flex:1}
+.job-title{font-weight:700;color:var(--text-primary);font-size:15px;margin-bottom:4px}
+.job-sin{font-family:'Noto Sans Sinhala';font-size:12px;color:var(--text-secondary);margin-bottom:4px}
+.job-company{font-size:12px;color:var(--text-tertiary)}
+.job-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;font-size:12px}
+.meta-tag{background:var(--blue-light);padding:4px 8px;border-radius:4px;color:var(--text-secondary)}
+.job-desc{font-size:13px;color:var(--text-secondary);line-height:1.5;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.job-footer{display:flex;justify-content:space-between;align-items:center}
+.salary{font-weight:700;color:var(--text-primary);font-size:14px}
+.job-actions{display:flex;gap:8px}
+.icon-btn{width:32px;height:32px;border-radius:50%;background:var(--blue-light);display:flex;align-items:center;justify-content:center;font-size:16px;border:1px solid var(--blue-border);transition:all .2s}
+.icon-btn:hover{background:var(--orange-bg);border-color:var(--orange)}
+.apply-btn{padding:8px 16px;background:var(--accent-blue);color:white;border-radius:var(--radius);font-weight:600;font-size:12px;white-space:nowrap;transition:all .2s}
+.apply-btn:hover{background:var(--accent-blue-hover)}
+
+/* Badges */
+.badge{display:inline-block;padding:4px 8px;border-radius:4px;font-size:11px;font-weight:600}
+.badge-new{background:var(--green-bg);color:var(--green-text)}
+.badge-urgent{background:#fef2f2;color:#dc2626}
+.badge-featured{background:var(--orange-bg);color:var(--orange-text)}
+
+/* Modal */
+.modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);display:none;z-index:1000;align-items:center;justify-content:center}
+.modal.show{display:flex}
+.modal-content{background:var(--white);border-radius:var(--radius);padding:32px;max-width:400px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.modal-close{position:absolute;top:12px;right:12px;width:32px;height:32px;background:transparent;font-size:24px;cursor:pointer;color:var(--text-tertiary)}
+.modal h2{margin-bottom:20px;color:var(--text-primary)}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;margin-bottom:6px;font-weight:500;font-size:13px;color:var(--text-primary)}
+.form-group input{width:100%;padding:10px 12px}
+.submit-btn{width:100%;padding:12px;background:var(--accent-blue);color:white;border-radius:var(--radius);font-weight:600;font-size:14px}
+.submit-btn:hover{background:var(--accent-blue-hover)}
+.toggle-form{text-align:center;margin-top:16px;font-size:13px;color:var(--text-secondary)}
+.toggle-form a{cursor:pointer;color:var(--accent-blue);font-weight:600}
+
+/* Footer */
+footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top:48px}
+.footer-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-section h4{margin-bottom:12px;font-size:14px;font-weight:600}
+.footer-section a{color:#e5e7eb;font-size:13px;display:block;margin-bottom:6px}
+.footer-section a:hover{color:white}
+.footer-bottom{text-align:center;margin-top:24px;font-size:12px;color:#d1d5db}
+
+@media(max-width:768px){
+  .main{grid-template-columns:1fr}
+  .hero{padding:32px var(--spacing)}
+  .hero h1{font-size:28px}
+  .search-box{flex-direction:column}
+  .categories{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- ══ Auth Modal ══ -->
-<div class="auth-overlay" id="auth-overlay">
-  <div class="auth-card">
-    <button class="auth-close" onclick="closeAuth()">&times;</button>
-    <h2 data-i18n="auth.welcome">Welcome</h2>
-    <p class="sub" data-i18n="auth.sub">Sign in to track applications and save jobs</p>
-    <div class="auth-tabs">
-      <button class="auth-tab on" onclick="authMode('login',this)" data-i18n="auth.login">Log In</button>
-      <button class="auth-tab" onclick="authMode('signup',this)" data-i18n="auth.signup">Sign Up</button>
+<header>
+  <div class="header-wrap">
+    <div class="logo">
+      <div class="logo-icon">🏝️</div>
+      <span>Lanka Job Italy</span>
     </div>
-    <div class="auth-error" id="auth-error"></div>
-    <div id="auth-form">
-      <input class="auth-input" type="email" id="auth-email" placeholder="Email"/>
-      <input class="auth-input" type="password" id="auth-pass" placeholder="Password"/>
-      <input class="auth-input hide" type="text" id="auth-name" placeholder="Full Name"/>
-      <button class="auth-submit" id="auth-submit-btn" onclick="doAuth()" data-i18n="auth.login">Log In</button>
+    <nav class="nav-links">
+      <a href="#jobs">Browse Jobs</a>
+      <a href="drivers.html">🚗 Driver's Guide</a>
+      <a href="#help">Help</a>
+    </nav>
+    <div class="nav-lang">
+      <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
+      <button class="lang-btn" onclick="changeLanguage('si')">SI</button>
     </div>
-    <div class="auth-divider" data-i18n="auth.or">or</div>
-    <button class="google-btn" onclick="googleSignIn()">
-      <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-      <span data-i18n="auth.google">Continue with Google</span>
-    </button>
-  </div>
-</div>
-
-<!-- ══ Top Bar ══ -->
-<header class="topbar">
-  <div class="logo">Lanka Job <span>Italy</span></div>
-  <div class="topbar-right">
-    <div class="lang-tog">
-      <button class="lang-btn on" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('si')">සි</button>
-    </div>
-    <button class="auth-btn" id="login-btn" onclick="openAuth()" data-i18n="auth.login">Log In</button>
-    <div class="user-pill hide" id="user-pill" onclick="showTab('account')">
-      <div class="avatar" id="user-initial">U</div>
-      <span id="user-name-short">User</span>
-    </div>
+    <button class="auth-btn" onclick="showLoginModal()">Sign In</button>
   </div>
 </header>
 
-<!-- ══ Navigation ══ -->
-<nav class="nav" id="main-nav">
-  <button class="ntab on" onclick="showTab('jobs',this)"><span class="ico">💼</span> <span data-i18n="nav.jobs">Jobs</span></button>
-  <button class="ntab" onclick="showTab('seekers',this)"><span class="ico">👥</span> <span data-i18n="nav.seekers">Seekers</span></button>
-  <button class="ntab" onclick="showTab('cv',this)"><span class="ico">📄</span> <span data-i18n="nav.cv">Free CV</span></button>
-  <button class="ntab" onclick="showTab('services',this)"><span class="ico">⚙️</span> <span data-i18n="nav.services">Services</span></button>
-  <button class="ntab" onclick="showTab('resto',this)"><span class="ico">🍽️</span> <span data-i18n="nav.resto">Restaurants</span></button>
-  <button class="ntab" onclick="showTab('account',this)"><span class="ico">👤</span> <span data-i18n="nav.account">My Account</span></button>
-</nav>
-
-<!-- ══ JOBS TAB ══ -->
-<section class="tab-section on" id="tab-jobs">
-  <div class="hero">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <h1 data-i18n="hero.title">Find Your Perfect Job in Italy</h1>
-        <p class="tagline" data-i18n="hero.tagline">Sri Lankan Community Job Portal — ශ්‍රී ලාංකික ප්‍රජාව සඳහා රැකියා පෝර්ටලය</p>
-        <div class="search-box">
-          <input type="text" id="search-kw" data-i18n-ph="search.keyword" placeholder="Job title, keyword, or company..."/>
-          <select id="search-city">
-            <option value="" data-i18n="search.allCities">All Cities</option>
-            <option value="Milano">Milano</option>
-            <option value="Roma">Roma</option>
-            <option value="Napoli">Napoli</option>
-            <option value="Torino">Torino</option>
-            <option value="Bologna">Bologna</option>
-            <option value="Firenze">Firenze</option>
-            <option value="Bergamo">Bergamo</option>
-            <option value="Brescia">Brescia</option>
-            <option value="Verona">Verona</option>
-            <option value="Padova">Padova</option>
-            <option value="Venezia">Venezia</option>
-            <option value="Genova">Genova</option>
-          </select>
-          <button onclick="doSearch()" data-i18n="search.btn">Search Jobs</button>
-        </div>
-      </div>
-      <div class="hero-illustration">
-        <div class="hero-illu-wrap">
-        <div class="flag-badge lk">🇱🇰 Sri Lanka</div>
-        <div class="flag-badge it">🇮🇹 Italia</div>
-        <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" aria-label="Sri Lankan worker in Italy illustration">
-          <defs>
-            <radialGradient id="halo" cx="50%" cy="45%" r="55%"><stop offset="0%" stop-color="#fef3c7" stop-opacity=".55"/><stop offset="100%" stop-color="#fef3c7" stop-opacity="0"/></radialGradient>
-            <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#1d4ed8"/></linearGradient>
-            <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(217,119,6,.3)"/><stop offset="100%" stop-color="rgba(120,53,15,.1)"/></linearGradient>
-          </defs>
-          <!-- Halo glow -->
-          <circle cx="250" cy="190" r="200" fill="url(#halo)"/>
-          <!-- Sun -->
-          <circle cx="250" cy="68" r="34" fill="#fbbf24"/>
-          <circle cx="250" cy="68" r="24" fill="#fef3c7"/>
-          <!-- Sun rays -->
-          <g stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" opacity=".6">
-            <line x1="250" y1="20" x2="250" y2="28"/>
-            <line x1="195" y1="68" x2="203" y2="68"/>
-            <line x1="297" y1="68" x2="305" y2="68"/>
-            <line x1="213" y1="32" x2="218" y2="38"/>
-            <line x1="282" y1="38" x2="287" y2="32"/>
-          </g>
-          <!-- Distant hills -->
-          <path d="M0 295 Q70 245 140 275 Q210 225 280 255 Q360 215 430 245 L500 275 L500 365 L0 365 Z" fill="rgba(255,255,255,.1)"/>
-          <!-- Ground -->
-          <rect y="328" width="500" height="42" fill="url(#ground)"/>
-          <!-- Sri Lanka palm tree (left) -->
-          <g transform="translate(75, 328)">
-            <path d="M0 0 Q-4 -85 8 -150" stroke="#78350f" stroke-width="6" fill="none" stroke-linecap="round"/>
-            <path d="M8 -150 Q-30 -158 -55 -132 Q-25 -152 8 -150 Z" fill="#0d9488"/>
-            <path d="M8 -150 Q46 -158 70 -132 Q40 -152 8 -150 Z" fill="#0d9488"/>
-            <path d="M8 -150 Q-30 -180 -45 -202 Q-15 -180 8 -150 Z" fill="#10b981"/>
-            <path d="M8 -150 Q44 -180 60 -202 Q30 -180 8 -150 Z" fill="#10b981"/>
-            <path d="M8 -150 Q0 -190 -12 -210 Q4 -185 8 -150 Z" fill="#0d9488"/>
-            <path d="M8 -150 Q16 -190 28 -210 Q12 -185 8 -150 Z" fill="#0d9488"/>
-            <circle cx="0" cy="-144" r="5" fill="#92400e"/>
-            <circle cx="13" cy="-144" r="5" fill="#92400e"/>
-            <circle cx="6" cy="-136" r="5" fill="#92400e"/>
-          </g>
-          <!-- Lotus flower (Sri Lankan symbol) -->
-          <g transform="translate(42, 340)">
-            <g fill="#fbbf24" opacity=".95">
-              <ellipse cx="0" cy="-4" rx="5" ry="11"/>
-              <ellipse cx="0" cy="-4" rx="5" ry="11" transform="rotate(72 0 -4)"/>
-              <ellipse cx="0" cy="-4" rx="5" ry="11" transform="rotate(144 0 -4)"/>
-              <ellipse cx="0" cy="-4" rx="5" ry="11" transform="rotate(216 0 -4)"/>
-              <ellipse cx="0" cy="-4" rx="5" ry="11" transform="rotate(288 0 -4)"/>
-            </g>
-            <circle cx="0" cy="-4" r="4" fill="#d97706"/>
-          </g>
-          <!-- Italian Colosseum-style arches (right) -->
-          <g transform="translate(415, 328)">
-            <rect x="-32" y="-12" width="64" height="12" fill="#fafaf9"/>
-            <rect x="-28" y="-100" width="56" height="88" fill="#fefce8"/>
-            <path d="M-22 -12 L-22 -55 Q-22 -70 -10 -70 Q2 -70 2 -55 L2 -12 Z" fill="#451a03"/>
-            <path d="M5 -12 L5 -55 Q5 -70 17 -70 Q29 -70 29 -55 L29 -12 Z" fill="#451a03"/>
-            <rect x="-35" y="-115" width="70" height="15" fill="#fafaf9"/>
-            <rect x="-32" y="-100" width="64" height="5" fill="#e7e5e4"/>
-            <rect x="-28" y="-115" width="3" height="15" fill="#fbbf24"/>
-            <rect x="-3" y="-115" width="3" height="15" fill="#fbbf24"/>
-            <rect x="25" y="-115" width="3" height="15" fill="#fbbf24"/>
-            <polygon points="-35,-115 0,-130 35,-115" fill="#fafaf9"/>
-          </g>
-          <!-- Italian cypress tree -->
-          <g transform="translate(465, 328)">
-            <ellipse cx="0" cy="-50" rx="12" ry="50" fill="#15803d"/>
-            <rect x="-2" y="-3" width="4" height="8" fill="#78350f"/>
-          </g>
-          <!-- Photo placeholder background circle -->
-          <circle cx="250" cy="210" r="92" fill="rgba(255,255,255,.18)"/>
-          <circle cx="250" cy="210" r="78" fill="rgba(255,255,255,.12)"/>
-          <!-- Birds -->
-          <path d="M148 88 Q153 83 158 88 Q163 83 168 88" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" opacity=".85"/>
-          <path d="M335 108 Q340 103 345 108 Q350 103 355 108" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" opacity=".85"/>
-          <!-- Decorative dots -->
-          <circle cx="130" cy="48" r="3" fill="#fbbf24" opacity=".85"/>
-          <circle cx="378" cy="58" r="3" fill="#fbbf24" opacity=".85"/>
-          <circle cx="90" cy="200" r="2" fill="#fff" opacity=".7"/>
-          <circle cx="410" cy="220" r="2" fill="#fff" opacity=".7"/>
-          <circle cx="200" cy="105" r="1.5" fill="#fff" opacity=".6"/>
-          <circle cx="305" cy="120" r="1.5" fill="#fff" opacity=".6"/>
-        </svg>
-        <img class="hero-photo" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format&fit=crop" alt="Professional worker portrait" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format&fit=crop'"/>
-        <div class="hero-photo-credit">Photo: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> (free license)</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ Verona Spotlight ══ -->
-  <div class="verona-spot">
-    <!-- Verona Arena (Roman Amphitheatre) silhouette decoration -->
-    <svg class="verona-arena" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMax meet">
-      <ellipse cx="200" cy="180" rx="195" ry="20" fill="#fff"/>
-      <path d="M5 180 L5 80 Q5 70 15 70 L385 70 Q395 70 395 80 L395 180 Z" fill="#fff"/>
-      <path d="M15 70 Q15 30 60 30 L340 30 Q385 30 385 70 Z" fill="none" stroke="#fff" stroke-width="3"/>
-      <g fill="#7c2d12">
-        <rect x="20" y="80" width="22" height="60" rx="2"/>
-        <rect x="52" y="80" width="22" height="60" rx="2"/>
-        <rect x="84" y="80" width="22" height="60" rx="2"/>
-        <rect x="116" y="80" width="22" height="60" rx="2"/>
-        <rect x="148" y="80" width="22" height="60" rx="2"/>
-        <rect x="180" y="80" width="22" height="60" rx="2"/>
-        <rect x="212" y="80" width="22" height="60" rx="2"/>
-        <rect x="244" y="80" width="22" height="60" rx="2"/>
-        <rect x="276" y="80" width="22" height="60" rx="2"/>
-        <rect x="308" y="80" width="22" height="60" rx="2"/>
-        <rect x="340" y="80" width="22" height="60" rx="2"/>
-      </g>
-      <g fill="#fff">
-        <path d="M28 140 L28 100 Q28 90 36 90 Q44 90 44 100 L44 140 Z"/>
-        <path d="M60 140 L60 100 Q60 90 68 90 Q76 90 76 100 L76 140 Z"/>
-        <path d="M92 140 L92 100 Q92 90 100 90 Q108 90 108 100 L108 140 Z"/>
-        <path d="M124 140 L124 100 Q124 90 132 90 Q140 90 140 100 L140 140 Z"/>
-        <path d="M156 140 L156 100 Q156 90 164 90 Q172 90 172 100 L172 140 Z"/>
-        <path d="M188 140 L188 100 Q188 90 196 90 Q204 90 204 100 L204 140 Z"/>
-        <path d="M220 140 L220 100 Q220 90 228 90 Q236 90 236 100 L236 140 Z"/>
-        <path d="M252 140 L252 100 Q252 90 260 90 Q268 90 268 100 L268 140 Z"/>
-        <path d="M284 140 L284 100 Q284 90 292 90 Q300 90 300 100 L300 140 Z"/>
-        <path d="M316 140 L316 100 Q316 90 324 90 Q332 90 332 100 L332 140 Z"/>
-        <path d="M348 140 L348 100 Q348 90 356 90 Q364 90 364 100 L364 140 Z"/>
-      </g>
-    </svg>
-    <div class="verona-spot-head">
-      <span class="icon">🎯</span>
-      <h2>Verona රැකියා — ඔබට ආසන්නම</h2>
-      <span class="badge">NEW</span>
-    </div>
-    <div class="verona-spot-desc">
-      <strong>Verona සහ Veneto ප්‍රදේශයේ සැබෑ රැකියා සොයන්න. පහත site එක ක්ලික් කර Verona search results කෙළින්ම බලන්න:</strong>
-    </div>
-    <div class="verona-spot-buttons">
-      <a class="verona-spot-btn" href="https://it.indeed.com/jobs?l=Verona" target="_blank" rel="noopener">💼 Indeed Verona <span class="arrow">→</span></a>
-      <a class="verona-spot-btn" href="https://www.infojobs.it/jobsearch/search-results/list.xhtml?provinceIds=29" target="_blank" rel="noopener">📋 InfoJobs Verona <span class="arrow">→</span></a>
-      <a class="verona-spot-btn" href="https://www.linkedin.com/jobs/search/?location=Verona%2C%20Veneto%2C%20Italy" target="_blank" rel="noopener">🔗 LinkedIn Verona <span class="arrow">→</span></a>
-      <a class="verona-spot-btn" href="https://www.subito.it/annunci-veneto/vendita/offerte-lavoro/verona/" target="_blank" rel="noopener">📰 Subito Verona <span class="arrow">→</span></a>
-      <a class="verona-spot-btn" href="https://www.monster.it/lavoro/cerca/?where=verona" target="_blank" rel="noopener">👹 Monster Verona <span class="arrow">→</span></a>
-      <a class="verona-spot-btn" href="https://www.randstad.it/offerte-lavoro/?city=verona" target="_blank" rel="noopener">🏢 Randstad Verona <span class="arrow">→</span></a>
-      <a class="verona-spot-btn" href="https://www.adecco.it/cerca-lavoro?location=Verona" target="_blank" rel="noopener">🏪 Adecco Verona <span class="arrow">→</span></a>
-      <a class="verona-spot-btn" href="https://it.jooble.org/SearchResult?p=verona" target="_blank" rel="noopener">🌐 Jooble Verona <span class="arrow">→</span></a>
-    </div>
-  </div>
-
-  <!-- ══ How to Apply Guide (Sinhala step-by-step) ══ -->
-  <div class="apply-guide">
-    <div class="apply-guide-head">
-      <h2>🇮🇹 ඉතාලි රැකියා වෙබ් අඩවි — අයදුම් කරන ආකාරය</h2>
-      <p>How to Apply on Italian Job Sites — Step-by-Step Guide</p>
-      <span class="lang-note">සිංහල මඟ පෙන්වීම</span>
-    </div>
-
-    <div class="apply-grid-sites">
-
-      <!-- 1. Indeed -->
-      <div class="apply-site">
-        <div class="apply-site-head">
-          <span class="apply-site-num">1</span>
-          <a href="https://it.indeed.com" target="_blank" rel="noopener" class="apply-site-link">Indeed Italia</a>
-        </div>
-        <div class="apply-site-desc">ඉතාලියේ විශාලතම රැකියා වෙබ් අඩවිය</div>
-        <div class="apply-steps">
-          <div class="apply-steps-title">📋 අයදුම් කරන පියවර:</div>
-          <ol>
-            <li><strong>වෙබ් අඩවියට පිවිසෙන්න: <code>it.indeed.com</code></strong></li>
-            <li><strong>"Cosa" කොටුවේ රැකියාව type කරන්න (උදා: <code>badante</code>, <code>pulizie</code>)</strong></li>
-            <li><strong>"Dove" කොටුවේ ඉතාලි නගරය type කරන්න (උදා: Milano)</strong></li>
-            <li><strong>"Trova lavoro" button එක click කරන්න</strong></li>
-            <li><strong>රැකියාවක් තෝරා "Candidati ora" click කරන්න</strong></li>
-            <li><strong>අපගේ CV Builder භාවිතා කර PDF එක upload කරන්න</strong></li>
-          </ol>
-        </div>
-      </div>
-
-      <!-- 2. InfoJobs -->
-      <div class="apply-site">
-        <div class="apply-site-head">
-          <span class="apply-site-num">2</span>
-          <a href="https://www.infojobs.it" target="_blank" rel="noopener" class="apply-site-link">InfoJobs</a>
-        </div>
-        <div class="apply-site-desc">ජනප්‍රිය ඉතාලි රැකියා වෙබ් අඩවිය</div>
-        <div class="apply-steps">
-          <div class="apply-steps-title">📋 අයදුම් කරන පියවර:</div>
-          <ol>
-            <li><strong><code>infojobs.it</code> වෙබ් අඩවියට යන්න</strong></li>
-            <li><strong>ඉහළ දකුණේ "Registrati" click කරන්න</strong></li>
-            <li><strong>ඔබේ email සහ password ලබා දී account එකක් සාදන්න</strong></li>
-            <li><strong>Profile එක සම්පූර්ණයෙන් පුරවන්න (මෙය ඉතා වැදගත්!)</strong></li>
-            <li><strong>"Cerca lavoro" click කර රැකියා සොයන්න</strong></li>
-            <li><strong>අවශ්‍ය රැකියාව තෝරා "Candidati" click කරන්න</strong></li>
-          </ol>
-        </div>
-      </div>
-
-      <!-- 3. LinkedIn -->
-      <div class="apply-site">
-        <div class="apply-site-head">
-          <span class="apply-site-num">3</span>
-          <a href="https://www.linkedin.com/jobs" target="_blank" rel="noopener" class="apply-site-link">LinkedIn Jobs</a>
-        </div>
-        <div class="apply-site-desc">වෘත්තීය ජාල සහ රැකියා ද්වාරය</div>
-        <div class="apply-steps">
-          <div class="apply-steps-title">📋 අයදුම් කරන පියවර:</div>
-          <ol>
-            <li><strong><code>linkedin.com</code> හි account එකක් සාදන්න</strong></li>
-            <li><strong>Profile photo එකක් සහ විස්තර professional ලෙස upload කරන්න</strong></li>
-            <li><strong>ඉහළ menu එකේ "Jobs" tab එක click කරන්න</strong></li>
-            <li><strong>Location කොටුවේ <code>Italy</code> සහ රැකියා නාමය type කරන්න</strong></li>
-            <li><strong>"Easy Apply" tag ඇති රැකියා තෝරා ගන්න (පහසුම ක්‍රමයයි)</strong></li>
-            <li><strong>CV upload කර "Submit Application" click කරන්න</strong></li>
-          </ol>
-        </div>
-      </div>
-
-      <!-- 4. Subito -->
-      <div class="apply-site">
-        <div class="apply-site-head">
-          <span class="apply-site-num">4</span>
-          <a href="https://www.subito.it/offerte-lavoro" target="_blank" rel="noopener" class="apply-site-link">Subito Lavoro</a>
-        </div>
-        <div class="apply-site-desc">දේශීය රැකියා දැන්වීම් (සෘජුව අයිතිකරුට)</div>
-        <div class="apply-steps">
-          <div class="apply-steps-title">📋 අයදුම් කරන පියවර:</div>
-          <ol>
-            <li><strong><code>subito.it/offerte-lavoro</code> වෙත යන්න</strong></li>
-            <li><strong>ඔබේ නගරය (Regione) තෝරන්න</strong></li>
-            <li><strong>රැකියා වර්ගය filter කරන්න (Categoria)</strong></li>
-            <li><strong>දැන්වීම් කියවන්න සහ ඔබට ගැලපෙන එක තෝරන්න</strong></li>
-            <li><strong>දැන්වීමේ phone number / WhatsApp number එකට කතා කරන්න</strong></li>
-            <li><strong>ඉතාලි බසින් කෙටියෙන් කතා කරන්න (අවශ්‍ය නම් Italian Course එකක්)</strong></li>
-          </ol>
-        </div>
-      </div>
-
-      <!-- 5. Monster -->
-      <div class="apply-site">
-        <div class="apply-site-head">
-          <span class="apply-site-num">5</span>
-          <a href="https://www.monster.it" target="_blank" rel="noopener" class="apply-site-link">Monster Italia</a>
-        </div>
-        <div class="apply-site-desc">ජාත්‍යන්තර රැකියා සෙවුම් වෙබ් අඩවිය</div>
-        <div class="apply-steps">
-          <div class="apply-steps-title">📋 අයදුම් කරන පියවර:</div>
-          <ol>
-            <li><strong><code>monster.it</code> වෙබ් අඩවියට යන්න</strong></li>
-            <li><strong>"Accedi" → "Registrati" click කර නොමිලේ account එකක් සාදන්න</strong></li>
-            <li><strong>CV එක (PDF format) upload කරන්න</strong></li>
-            <li><strong>"Job Alert" set කරන්න — රැකියා email එකට එනු ඇත</strong></li>
-            <li><strong>අවශ්‍ය රැකියාව තෝරා "Candidati" click කරන්න</strong></li>
-          </ol>
-        </div>
-      </div>
-
-      <!-- 6. Randstad -->
-      <div class="apply-site">
-        <div class="apply-site-head">
-          <span class="apply-site-num">6</span>
-          <a href="https://www.randstad.it" target="_blank" rel="noopener" class="apply-site-link">Randstad</a>
-        </div>
-        <div class="apply-site-desc">තාවකාලික රැකියා නියෝජිත ආයතනය</div>
-        <div class="apply-steps">
-          <div class="apply-steps-title">📋 අයදුම් කරන පියවර:</div>
-          <ol>
-            <li><strong><code>randstad.it</code> වෙත යන්න</strong></li>
-            <li><strong>"Registrati" click කර නොමිලේ register වන්න</strong></li>
-            <li><strong>ඔබට ආසන්නම ශාඛාව සොයන්න ("Filiali" → නගරය)</strong></li>
-            <li><strong>CV එක සමඟ ශාඛාවට කෙළින්ම visit කරන්න (වඩාත්ම effective ක්‍රමය!)</strong></li>
-            <li><strong>Recruiter සමඟ interview එකකට සහභාගී වන්න</strong></li>
-            <li><strong>ඔවුන් ඔබට ගැලපෙන රැකියා ලබා දෙනු ඇත</strong></li>
-          </ol>
-        </div>
-      </div>
-
-      <!-- 7. Adecco -->
-      <div class="apply-site">
-        <div class="apply-site-head">
-          <span class="apply-site-num">7</span>
-          <a href="https://www.adecco.it" target="_blank" rel="noopener" class="apply-site-link">Adecco</a>
-        </div>
-        <div class="apply-site-desc">තාවකාලික සහ ස්ථිර රැකියා සැපයුම්කරු</div>
-        <div class="apply-steps">
-          <div class="apply-steps-title">📋 අයදුම් කරන පියවර:</div>
-          <ol>
-            <li><strong><code>adecco.it</code> වෙබ් අඩවියට යන්න</strong></li>
-            <li><strong>"Candidati" / "Registrati" click කරන්න</strong></li>
-            <li><strong>නොමිලේ profile එකක් සාදන්න</strong></li>
-            <li><strong>CV upload කර කුසලතා (skills) ලකුණු කරන්න</strong></li>
-            <li><strong>ඔබට ආසන්න Adecco office එක සොයා visit කරන්න</strong></li>
-            <li><strong>"Trova Filiale" → ඔබේ නගරය type කරන්න</strong></li>
-          </ol>
-        </div>
-      </div>
-
-      <!-- 8. Jooble -->
-      <div class="apply-site">
-        <div class="apply-site-head">
-          <span class="apply-site-num">8</span>
-          <a href="https://it.jooble.org" target="_blank" rel="noopener" class="apply-site-link">Jooble</a>
-        </div>
-        <div class="apply-site-desc">රැකියා සෙවුම් එකතුකරන්නා (Aggregator)</div>
-        <div class="apply-steps">
-          <div class="apply-steps-title">📋 අයදුම් කරන පියවර:</div>
-          <ol>
-            <li><strong><code>it.jooble.org</code> වෙත යන්න</strong></li>
-            <li><strong>Search box එකේ රැකියාව type කරන්න</strong></li>
-            <li><strong>ඉතාලි නගරයක් (Citta) ඇතුළත් කරන්න</strong></li>
-            <li><strong>"Cerca" click කරන්න</strong></li>
-            <li><strong>"Vai al sito" click කර අදාළ සැබෑ වෙබ් අඩවියට යන්න</strong></li>
-            <li><strong>එහි ඇති උපදෙස් අනුව අයදුම් කරන්න</strong></li>
-          </ol>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- CTA: Link to CV Builder + Services -->
-    <div class="apply-cta">
-      <h3>🇱🇰 අපගේ සහාය ලබා ගන්න</h3>
-      <p>
-        <strong>CV එක තවම නැතිද? නොමිලේ CV Builder භාවිතා කරන්න.</strong><br/>
-        <strong>ඉතාලි භාෂාව හෝ අයදුම්පත් සඳහා සහාය අවශ්‍යයිද? වෘත්තීය සේවා බලන්න.</strong>
-      </p>
-      <div class="apply-cta-row">
-        <button class="apply-cta-btn primary" onclick="showTab('cv')">📄 නොමිලේ CV එක සාදන්න</button>
-        <button class="apply-cta-btn accent" onclick="showTab('services')">⚙️ වෘත්තීය සහාය</button>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="cat-strip" id="cat-strip"></div>
-
-  <div class="stats-bar">
-    <span><strong id="stat-jobs">0</strong> <span data-i18n="stats.jobs">jobs available</span></span>
-    <span><strong>6</strong> <span data-i18n="stats.seekers">active seekers</span></span>
-    <span><strong>7</strong> <span data-i18n="stats.categories">job categories</span></span>
-  </div>
-
-  <div class="content">
-    <aside class="filters">
-      <h3 data-i18n="filter.title">Filters</h3>
-      <div class="filter-group">
-        <label data-i18n="filter.category">Category</label>
-        <div id="filter-cats"></div>
-      </div>
-      <div class="filter-group">
-        <label data-i18n="filter.permit">Permesso di Soggiorno</label>
-        <div class="filter-opt"><input type="radio" name="perm" value="" checked onchange="applyFilters()"/> <span data-i18n="filter.all">All</span></div>
-        <div class="filter-opt"><input type="radio" name="perm" value="yes" onchange="applyFilters()"/> <span data-i18n="filter.required">Required</span></div>
-        <div class="filter-opt"><input type="radio" name="perm" value="no" onchange="applyFilters()"/> <span data-i18n="filter.notRequired">Not Required</span></div>
-      </div>
-    </aside>
-
-    <main>
-      <div class="job-grid" id="job-list"></div>
-    </main>
-
-    <aside class="right-sidebar">
-      <h3 data-i18n="sites.title">Italian Job Sites</h3>
-      <div id="sites-list"></div>
-    </aside>
-  </div>
-
-</section>
-
-<!-- ══ SEEKERS TAB ══ -->
-<section class="tab-section" id="tab-seekers">
-  <div class="content-full">
-    <div class="seeker-top">
-      <div>
-        <h2 data-i18n="seekers.title" style="font-size:1.3rem;font-weight:700;margin-bottom:2px">Job Seekers</h2>
-        <p style="color:var(--text2);font-size:.85rem" data-i18n="seekers.sub">Browse profiles of Sri Lankan workers in Italy</p>
-      </div>
-      <button class="post-btn" onclick="showPostForm()" data-i18n="seekers.post">Post Your Profile</button>
-    </div>
-    <div class="seeker-grid" id="seeker-list"></div>
-  </div>
-</section>
-
-<!-- ══ CV GENERATOR TAB ══ -->
-<section class="tab-section" id="tab-cv">
-  <div class="content-full">
-    <div class="cv-wrap">
-      <div class="cv-header">
-        <h2 data-i18n="cv.title">Free Europass CV Generator</h2>
-        <p data-i18n="cv.sub">Create a professional Italian-format CV in minutes</p>
-      </div>
-      <div class="prog-bar" id="cv-prog"></div>
-
-      <!-- Step 1: Personal Info -->
-      <div class="step-pane on" id="cvs1">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <div class="form-group"><label data-i18n="cv.fname">First Name</label><input class="form-input" id="cv-fname" placeholder="Mario"/></div>
-          <div class="form-group"><label data-i18n="cv.lname">Last Name</label><input class="form-input" id="cv-lname" placeholder="Rossi"/></div>
-          <div class="form-group"><label>Email</label><input class="form-input" id="cv-email" type="email" placeholder="you@email.com"/></div>
-          <div class="form-group"><label data-i18n="cv.phone">Phone</label><input class="form-input" id="cv-phone" type="tel" placeholder="+39 ..."/></div>
-          <div class="form-group"><label data-i18n="cv.city">City</label><input class="form-input" id="cv-city" placeholder="Milano"/></div>
-          <div class="form-group"><label>Codice Fiscale</label><input class="form-input" id="cv-fiscal" placeholder="RSSMRA..." maxlength="16" style="text-transform:uppercase"/></div>
-        </div>
-        <div class="step-actions"><div></div><button class="btn-next" onclick="cvGo(2)" data-i18n="cv.next">Next →</button></div>
-      </div>
-
-      <!-- Step 2: Permit & Language -->
-      <div class="step-pane" id="cvs2">
-        <div class="form-group">
-          <label data-i18n="cv.permit">Permesso di Soggiorno Type</label>
-          <div class="tile-row" id="perm-tiles">
-            <div class="opt-tile" onclick="selTile(this,'perm-tiles')"><div class="ot-en">Attesa Occupazione</div><div class="lbl-it">රැකියා බලාපොරොත්තු</div></div>
-            <div class="opt-tile" onclick="selTile(this,'perm-tiles')"><div class="ot-en">Lavoro Subordinato</div><div class="lbl-it">යටත් රැකියා</div></div>
-            <div class="opt-tile" onclick="selTile(this,'perm-tiles')"><div class="ot-en">Motivi Familiari</div><div class="lbl-it">පවුල් හේතු</div></div>
-            <div class="opt-tile" onclick="selTile(this,'perm-tiles')"><div class="ot-en">Lungo Soggiorno</div><div class="lbl-it">දිගු කාලීන</div></div>
-            <div class="opt-tile" onclick="selTile(this,'perm-tiles')"><div class="ot-en">None / Pending</div><div class="lbl-it">නැත / බලා සිටී</div></div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label data-i18n="cv.permitExp">Permit Expiry Date</label>
-          <input class="form-input" id="cv-permit-exp" type="date"/>
-        </div>
-        <div class="form-group">
-          <label data-i18n="cv.italian">Italian Language Level</label>
-          <div class="tile-row" id="lang-tiles">
-            <div class="opt-tile" onclick="selTile(this,'lang-tiles')"><div class="ot-en">A1</div><div class="lbl-it">ආරම්භක</div></div>
-            <div class="opt-tile sel" onclick="selTile(this,'lang-tiles')"><div class="ot-en">A2</div><div class="lbl-it">මූලික</div></div>
-            <div class="opt-tile" onclick="selTile(this,'lang-tiles')"><div class="ot-en">B1</div><div class="lbl-it">අතරමැදි</div></div>
-            <div class="opt-tile" onclick="selTile(this,'lang-tiles')"><div class="ot-en">B2</div><div class="lbl-it">ඉහළ අතරමැදි</div></div>
-            <div class="opt-tile" onclick="selTile(this,'lang-tiles')"><div class="ot-en">C1+</div><div class="lbl-it">උසස්</div></div>
-          </div>
-        </div>
-        <div class="step-actions">
-          <button class="btn-prev" onclick="cvGo(1)" data-i18n="cv.prev">← Back</button>
-          <button class="btn-next" onclick="cvGo(3)" data-i18n="cv.next">Next →</button>
-        </div>
-      </div>
-
-      <!-- Step 3: Work Experience -->
-      <div class="step-pane" id="cvs3">
-        <div class="form-group">
-          <label data-i18n="cv.workType">Desired Work Type</label>
-          <div class="tile-row" id="work-tiles">
-            <div class="opt-tile" onclick="selTile(this,'work-tiles')"><div class="ot-en">Elder Care</div><div class="lbl-it">වැඩිහිටි සත්කාර</div></div>
-            <div class="opt-tile" onclick="selTile(this,'work-tiles')"><div class="ot-en">Cleaning</div><div class="lbl-it">පිරිසිදු කිරීම</div></div>
-            <div class="opt-tile" onclick="selTile(this,'work-tiles')"><div class="ot-en">Baby Sitting</div><div class="lbl-it">ළදරු රැකවරණය</div></div>
-            <div class="opt-tile" onclick="selTile(this,'work-tiles')"><div class="ot-en">Factory</div><div class="lbl-it">කර්මාන්තශාලා</div></div>
-            <div class="opt-tile" onclick="selTile(this,'work-tiles')"><div class="ot-en">Warehouse</div><div class="lbl-it">ගබඩාව</div></div>
-            <div class="opt-tile" onclick="selTile(this,'work-tiles')"><div class="ot-en">Restaurant</div><div class="lbl-it">අවන්හල</div></div>
-            <div class="opt-tile" onclick="selTile(this,'work-tiles')"><div class="ot-en">Driving</div><div class="lbl-it">රියදුරු</div></div>
-          </div>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <div class="form-group"><label data-i18n="cv.employer">Previous Employer</label><input class="form-input" id="cv-employer" placeholder="Company name"/></div>
-          <div class="form-group"><label data-i18n="cv.years">Years of Experience</label><input class="form-input" id="cv-years" type="number" min="0" max="40" placeholder="3"/></div>
-        </div>
-        <div class="form-group"><label data-i18n="cv.duties">Main Duties</label><textarea class="form-input" id="cv-duties" rows="3" placeholder="Describe your main responsibilities..."></textarea></div>
-        <div class="step-actions">
-          <button class="btn-prev" onclick="cvGo(2)" data-i18n="cv.prev">← Back</button>
-          <button class="btn-next" onclick="cvGo(4)" data-i18n="cv.next">Next →</button>
-        </div>
-      </div>
-
-      <!-- Step 4: Skills -->
-      <div class="step-pane" id="cvs4">
-        <div class="form-group">
-          <label data-i18n="cv.skills">Select Your Skills</label>
-          <div class="skill-chips" id="skill-chips">
-            <button class="spick" onclick="this.classList.toggle('on')">Cooking / ආහාර පිසීම</button>
-            <button class="spick" onclick="this.classList.toggle('on')">Cleaning / පිරිසිදු කිරීම</button>
-            <button class="spick" onclick="this.classList.toggle('on')">Elder Care / වැඩිහිටි සත්කාර</button>
-            <button class="spick" onclick="this.classList.toggle('on')">Child Care / ළමා රැකවරණ</button>
-            <button class="spick" onclick="this.classList.toggle('on')">Driving / රියදුරු</button>
-            <button class="spick" onclick="this.classList.toggle('on')">Forklift / ෆෝක්ලිෆ්ට්</button>
-            <button class="spick" onclick="this.classList.toggle('on')">Ironing / ඉස්ත්‍රි කිරීම</button>
-            <button class="spick" onclick="this.classList.toggle('on')">Packaging / ඇසුරුම්</button>
-            <button class="spick" onclick="this.classList.toggle('on')">Machine Operation / යන්ත්‍ර ක්‍රියාකරණය</button>
-            <button class="spick" onclick="this.classList.toggle('on')">First Aid / ප්‍රථමාධාර</button>
-            <button class="spick" onclick="this.classList.toggle('on')">Italian Language / ඉතාලි භාෂාව</button>
-            <button class="spick" onclick="this.classList.toggle('on')">English Language / ඉංග්‍රීසි භාෂාව</button>
-          </div>
-        </div>
-        <div class="gdpr-row">
-          <input type="checkbox" id="gdpr-chk"/>
-          <label for="gdpr-chk" data-i18n="cv.gdpr">I consent to the processing of my personal data in accordance with GDPR (EU 2016/679) for the purpose of creating this CV.</label>
-        </div>
-        <div class="step-actions">
-          <button class="btn-prev" onclick="cvGo(3)" data-i18n="cv.prev">← Back</button>
-          <button class="btn-next" onclick="cvDone()" data-i18n="cv.generate">Generate CV</button>
-        </div>
-      </div>
-
-      <!-- Step 5: Done -->
-      <div class="step-pane" id="cvs5">
-        <div style="text-align:center;padding:24px 0">
-          <div style="font-size:3rem;margin-bottom:12px">🎉</div>
-          <h3 data-i18n="cv.ready" style="font-size:1.2rem;font-weight:700;margin-bottom:4px">Your CV is Ready!</h3>
-          <p style="color:var(--text2);font-size:.9rem;margin-bottom:20px" data-i18n="cv.readySub">Download your Europass-format PDF below</p>
-          <button class="cv-dl-btn" onclick="downloadCV()">📥 <span data-i18n="cv.download">Download Europass CV (PDF)</span></button>
-          <button class="btn-prev" onclick="cvGo(1)" style="margin-top:12px" data-i18n="cv.startOver">← Start Over</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ SERVICES TAB ══ -->
-<section class="tab-section" id="tab-services">
-  <div class="content-full">
-    <h2 style="font-size:1.3rem;font-weight:700;margin-bottom:4px" data-i18n="svc.title">Professional Services</h2>
-    <p style="color:var(--text2);font-size:.85rem;margin-bottom:20px" data-i18n="svc.sub">Expert help for Sri Lankans living in Italy</p>
-    <div class="svc-grid" id="svc-list"></div>
-  </div>
-</section>
-
-<!-- ══ RESTAURANTS TAB ══ -->
-<section class="tab-section" id="tab-resto">
-  <div class="content-full">
-    <h2 style="font-size:1.3rem;font-weight:700;margin-bottom:4px" data-i18n="resto.title">Sri Lankan Restaurants in Italy</h2>
-    <p style="color:var(--text2);font-size:.85rem;margin-bottom:20px" data-i18n="resto.sub">Find authentic Sri Lankan food near you</p>
-    <div class="resto-grid" id="resto-list"></div>
-  </div>
-</section>
-
-<!-- ══ MY ACCOUNT TAB ══ -->
-<section class="tab-section" id="tab-account">
-  <div class="content-full">
-    <div class="account-wrap">
-      <!-- Not logged in -->
-      <div id="account-guest">
-        <div class="login-prompt">
-          <div class="ico">👤</div>
-          <h2 data-i18n="account.loginTitle">Sign in to Your Account</h2>
-          <p data-i18n="account.loginSub">Track your job applications, save favourite jobs, and manage your profile</p>
-          <button class="auth-btn" onclick="openAuth()" style="font-size:1rem;padding:12px 28px" data-i18n="auth.login">Log In</button>
-        </div>
-      </div>
-      <!-- Logged in -->
-      <div id="account-user" class="hide">
-        <div class="account-header">
-          <div class="avatar-lg" id="account-avatar">U</div>
-          <div class="info">
-            <h2 id="account-name">User</h2>
-            <p id="account-email">user@email.com</p>
-          </div>
-        </div>
-        <div class="account-cards">
-          <div class="account-card"><div class="ico">📋</div><div class="count" id="app-count">0</div><div class="lbl" data-i18n="account.applications">Applications Sent</div></div>
-          <div class="account-card"><div class="ico">⭐</div><div class="count" id="saved-count">0</div><div class="lbl" data-i18n="account.saved">Saved Jobs</div></div>
-          <div class="account-card"><div class="ico">👁️</div><div class="count" id="view-count">0</div><div class="lbl" data-i18n="account.viewed">Jobs Viewed</div></div>
-          <div class="account-card" onclick="openAuth()"><div class="ico">⚙️</div><div class="count">—</div><div class="lbl" data-i18n="account.settings">Profile Settings</div></div>
-        </div>
-        <div style="text-align:center;margin-top:16px">
-          <button class="logout-btn" onclick="doLogout()" data-i18n="account.logout">Log Out</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ Job Detail Modal ══ -->
-<div class="modal-overlay" id="job-modal">
-  <div class="modal-card">
-    <div class="modal-header">
-      <button class="modal-close" onclick="closeJobModal()">&times;</button>
-      <div class="cat-badge" id="jd-cat-badge"></div>
-      <h2 class="jd-title" id="jd-title"></h2>
-      <p class="jd-company" id="jd-company"></p>
-      <div class="jd-meta" id="jd-meta"></div>
-    </div>
-    <div class="modal-body">
-      <div class="jd-section" id="jd-desc-section">
-        <h4 data-i18n="jd.desc">Job Description</h4>
-        <p id="jd-desc"></p>
-      </div>
-      <div class="jd-section" id="jd-req-section">
-        <h4 data-i18n="jd.req">Requirements</h4>
-        <p id="jd-req"></p>
-      </div>
-      <div id="apply-form-wrap">
-        <hr style="border:none;border-top:1px solid var(--border);margin:16px 0"/>
-        <h3 data-i18n="apply.title" style="font-size:1rem;font-weight:600;margin-bottom:14px">Apply for this Job</h3>
-        <div class="apply-grid">
-          <div class="form-group"><label data-i18n="apply.name">Full Name *</label><input class="form-input" id="ap-name" required/></div>
-          <div class="form-group"><label data-i18n="apply.phone">Phone</label><input class="form-input" id="ap-phone" type="tel"/></div>
-          <div class="form-group"><label>Email</label><input class="form-input" id="ap-email" type="email"/></div>
-          <div class="form-group"><label data-i18n="apply.city">City in Italy</label><input class="form-input" id="ap-city"/></div>
-          <div class="form-group"><label>Permesso</label>
-            <select class="form-input" id="ap-perm"><option value="">Select...</option><option value="Attesa Occupazione">Attesa Occupazione</option><option value="Lavoro Subordinato">Lavoro Subordinato</option><option value="Motivi Familiari">Motivi Familiari</option><option value="Lungo Soggiorno">Lungo Soggiorno</option><option value="None">None</option></select>
-          </div>
-          <div class="form-group"><label data-i18n="apply.exp">Experience</label>
-            <select class="form-input" id="ap-exp"><option value="">Select...</option><option value="< 1 year">&lt; 1 year</option><option value="1-3 years">1-3 years</option><option value="3-5 years">3-5 years</option><option value="5+ years">5+ years</option></select>
-          </div>
-          <div class="form-group apply-full"><label data-i18n="apply.msg">Message to Employer</label><textarea class="form-input" id="ap-msg" rows="3" placeholder="Tell the employer why you're a great fit..."></textarea></div>
-          <div class="form-group apply-full"><label data-i18n="apply.cv">Attach CV (optional)</label><input class="form-input" type="file" id="ap-cv" accept=".pdf,.doc,.docx"/></div>
-          <div class="apply-full gdpr-row"><input type="checkbox" id="ap-gdpr"/><label for="ap-gdpr" data-i18n="apply.gdpr">I consent to my data being shared with the employer per GDPR (EU 2016/679)</label></div>
-        </div>
-        <div class="apply-actions">
-          <button class="wa-btn" onclick="submitViaWhatsApp()">📱 <span data-i18n="apply.wa">Send via WhatsApp</span></button>
-          <button class="email-btn" onclick="submitViaEmail()">📧 <span data-i18n="apply.email">Send via Email</span></button>
-        </div>
-      </div>
-      <div class="success-msg" id="apply-success">
-        <div class="ico">✅</div>
-        <h3 data-i18n="apply.sent">Application Sent!</h3>
-        <p id="as-next-steps" style="color:var(--text2);font-size:.85rem;margin-top:8px"></p>
-        <button class="btn-prev" onclick="closeJobModal()" style="margin-top:16px" data-i18n="apply.close">Close</button>
-      </div>
-    </div>
+<!-- NOTICE BOARD - EVERYONE CAN SEE -->
+<div class="notice-board">
+  <div class="notice-wrap">
+    <div class="notice-title">📢 ඉතාලිය රිය පැවැත්වීම සඳහා සම්පූර්ණ ගයිඩ්!</div>
+    <div class="notice-text">ගිණුම්, Leasing, ගමන් දඩ, පාඩම්, සහ ශ්‍රී ලාංකිකයන් සඳහා වැදගත් තොරතුරු</div>
+    <a href="drivers.html" class="notice-btn">🚗 Driver's Guide එ යන්න →</a>
   </div>
 </div>
 
-<!-- ══ Post Profile Overlay ══ -->
-<div class="post-overlay" id="post-overlay">
-  <div class="post-card">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
-      <h2 style="font-size:1.2rem;font-weight:700" data-i18n="post.title">Post Your Profile</h2>
-      <button class="modal-close" onclick="closePostForm()" style="position:static">&times;</button>
+<section class="hero">
+  <div class="hero-inner">
+    <h1 id="hero-title">Find Your Next Job in Italy</h1>
+    <p id="hero-desc">Browse trusted job listings. Connect with employers. Start your career.</p>
+    <p class="hero-sin" id="hero-sin">ඉතාලියේ ශ්‍රී ලාංකිකයන් සඳහා විශ්වාසවන්ත රැකියා ද්වාරය</p>
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="Job title or location...">
+      <button onclick="filterJobs()">Search</button>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <div class="form-group"><label data-i18n="post.name">Full Name *</label><input class="form-input" id="pf-name"/></div>
-      <div class="form-group"><label data-i18n="post.phone">Phone / WhatsApp</label><input class="form-input" id="pf-phone" type="tel"/></div>
-      <div class="form-group"><label>Email</label><input class="form-input" id="pf-email" type="email"/></div>
-      <div class="form-group"><label data-i18n="post.city">City</label><input class="form-input" id="pf-city"/></div>
-    </div>
-    <div class="form-group"><label data-i18n="post.skills">Skills / Job Type</label><input class="form-input" id="pf-skills" placeholder="e.g., Elder Care, Cleaning, Factory"/></div>
-    <div class="form-group"><label data-i18n="post.exp">Experience</label><input class="form-input" id="pf-exp" placeholder="e.g., 3 years in elder care"/></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <div class="form-group"><label data-i18n="post.italian">Italian Level</label>
-        <select class="form-input" id="pf-lang"><option value="A1">A1</option><option value="A2" selected>A2</option><option value="B1">B1</option><option value="B2">B2</option><option value="C1+">C1+</option></select>
+    <div class="categories" id="categories"></div>
+  </div>
+</section>
+
+<main class="main">
+  <aside class="sidebar">
+    <div class="panel">
+      <div class="panel-title">Category</div>
+      <div class="filter-item">
+        <input type="radio" id="cat-all" name="category" value="all" checked>
+        <label for="cat-all">All Jobs</label>
+        <span class="filter-count" id="count-all">0</span>
       </div>
-      <div class="form-group"><label>Permesso</label>
-        <select class="form-input" id="pf-perm"><option value="yes" data-i18n="post.permYes">Yes</option><option value="no" data-i18n="post.permNo">No / Pending</option></select>
+      <div class="filter-item">
+        <input type="radio" id="cat-elder" name="category" value="elder">
+        <label for="cat-elder">Elder Care</label>
+        <span class="filter-count" id="count-elder">0</span>
+      </div>
+      <div class="filter-item">
+        <input type="radio" id="cat-clean" name="category" value="clean">
+        <label for="cat-clean">Cleaning</label>
+        <span class="filter-count" id="count-clean">0</span>
+      </div>
+      <div class="filter-item">
+        <input type="radio" id="cat-baby" name="category" value="baby">
+        <label for="cat-baby">Babysitting</label>
+        <span class="filter-count" id="count-baby">0</span>
+      </div>
+      <div class="filter-item">
+        <input type="radio" id="cat-factory" name="category" value="factory">
+        <label for="cat-factory">Factory</label>
+        <span class="filter-count" id="count-factory">0</span>
       </div>
     </div>
-    <div class="form-group"><label data-i18n="post.about">About You</label><textarea class="form-input" id="pf-about" rows="3" placeholder="Brief intro about yourself..."></textarea></div>
-    <div class="gdpr-row"><input type="checkbox" id="pf-gdpr"/><label for="pf-gdpr" data-i18n="post.gdpr">I consent to my profile being visible to employers on this site per GDPR (EU 2016/679)</label></div>
-    <div class="step-actions" style="margin-top:16px">
-      <button class="btn-prev" onclick="closePostForm()" data-i18n="post.cancel">Cancel</button>
-      <button class="btn-next" onclick="submitProfile()" data-i18n="post.submit">Post Profile</button>
+
+    <div class="panel">
+      <div class="panel-title">Premium</div>
+      <p style="font-size:13px;color:var(--text-secondary);margin-bottom:12px">Post your job for visibility</p>
+      <button class="apply-btn" style="width:100%;background:var(--orange);margin-bottom:8px" onclick="showPostJobModal()">Post a Job</button>
+      <button class="apply-btn" style="width:100%;background:var(--green)" onclick="showPremiumModal()">Go Premium</button>
     </div>
+
+    <div class="panel">
+      <div class="panel-title">Your Account</div>
+      <p style="font-size:13px;color:var(--text-secondary)" id="account-status">Sign in to save jobs and track applications</p>
+    </div>
+  </aside>
+
+  <div class="jobs-container" id="jobs-list"></div>
+</main>
+
+<div class="modal" id="loginModal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="hideLoginModal()">✕</span>
+    <h2>Welcome Back</h2>
+    <form onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" required>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" required>
+      </div>
+      <button type="submit" class="submit-btn">Sign In</button>
+    </form>
+    <div class="toggle-form">Don't have an account? <a onclick="toggleForms()">Sign up</a></div>
   </div>
 </div>
 
-<!-- ══ AI Writer FAB ══ -->
-<div class="ai-fab" onclick="toggleAI()" title="AI Job Description Writer">🤖</div>
-<div class="ai-modal" id="ai-modal">
-  <div class="ai-modal-head">
-    <h3 data-i18n="ai.title">AI Job Description Writer</h3>
-    <button onclick="toggleAI()" style="font-size:1.2rem;color:var(--text3)">&times;</button>
-  </div>
-  <div class="ai-modal-body">
-    <label style="font-size:.82rem;font-weight:600;color:var(--text2);display:block;margin-bottom:6px" data-i18n="ai.prompt">Describe the job you want to write about:</label>
-    <textarea id="ai-input" placeholder="e.g., Elder care worker in Milano, 3 years experience needed, live-in position..."></textarea>
-    <button class="gen-btn" onclick="generateAI()" data-i18n="ai.generate">✨ Generate Description</button>
-    <div class="ai-result" id="ai-result"></div>
-    <button class="btn-prev hide" id="ai-copy" onclick="copyAI()" style="margin-top:8px;width:100%;text-align:center" data-i18n="ai.copy">📋 Copy to Clipboard</button>
+<div class="modal" id="registerModal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="hideLoginModal()">✕</span>
+    <h2>Create Account</h2>
+    <form onsubmit="handleRegister(event)">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" required>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" required>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" required>
+      </div>
+      <button type="submit" class="submit-btn">Create Account</button>
+    </form>
+    <div class="toggle-form">Already have an account? <a onclick="toggleForms()">Sign in</a></div>
   </div>
 </div>
 
-<!-- ══ Footer ══ -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">Lanka Job <span>Italy</span></div>
-    <div class="footer-links">
-      <a href="#" onclick="showTab('jobs');return false" data-i18n="nav.jobs">Jobs</a>
-      <a href="#" onclick="showTab('seekers');return false" data-i18n="nav.seekers">Seekers</a>
-      <a href="#" onclick="showTab('cv');return false" data-i18n="nav.cv">Free CV</a>
-      <a href="#" onclick="showTab('services');return false" data-i18n="nav.services">Services</a>
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-section">
+      <h4>About</h4>
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+      <a href="drivers.html">🚗 Driver's Guide</a>
+      <a href="entertainment.html">🎭 Entertainment</a>
+    </div>
+    <div class="footer-section">
+      <h4>For Employers</h4>
+      <a href="#">Post a Job</a>
+      <a href="#">Pricing</a>
+      <a href="#">FAQ</a>
+    </div>
+    <div class="footer-section">
+      <h4>For Workers</h4>
+      <a href="#">Browse Jobs</a>
+      <a href="#">My Applications</a>
+      <a href="#">Help Center</a>
+    </div>
+    <div class="footer-section">
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
     </div>
   </div>
-  <div class="footer-copy">© 2025 Lanka Job Italy. All rights reserved. | <span data-i18n="footer.made">Made with ❤️ for the Sri Lankan community in Italy</span></div>
+  <div class="footer-bottom">© 2025 Lanka Job Italy. All rights reserved.</div>
 </footer>
 
-<!-- ══ Firebase SDKs ══ -->
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
-
 <script>
-/* ══════════════════════════════════════════════════════════
-   CONFIGURATION
-   ══════════════════════════════════════════════════════════ */
-
-const ADZUNA_APP_ID = 'f0f9a33b';
-const ADZUNA_APP_KEY = '82f5c76c870615906362a15da663c939';
-const ADZUNA_BASE = 'https://api.adzuna.com/v1/api/jobs/it/search';
-
-// ── Firebase Config ──
-// TODO: Create a Firebase project at https://console.firebase.google.com
-// Enable Authentication (Email/Password + Google) and Firestore
-const FIREBASE_CONFIG = {
-  apiKey: "YOUR_FIREBASE_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
-
-// ── Gemini AI Config ──
-// TODO: Get a free API key at https://ai.google.dev (1,500 req/day free)
-const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY';
-
-const ADMIN_EMAIL = 'costa.roshen@mail.com';
-// UPDATE with your Iliad number:
-const ADMIN_WHATSAPP = '+393330000000';
-
-/* ══════════════════════════════════════════════════════════
-   CATEGORY DATA
-   ══════════════════════════════════════════════════════════ */
-
-const CAT_KEYWORDS = {
-  'Elder Care':'assistenza anziani badante colf',
-  'Cleaning':'pulizie pulizia addetto pulizie',
-  'Baby Sitting':'babysitter baby sitter tata',
-  'Factory':'operaio produzione fabbrica confezionamento imballaggio',
-  'Warehouse':'magazziniere scaffalista carrellista muletto logistica facchino',
-  'Restaurant':'cuoco cameriere lavapiatti aiuto cucina pizzaiolo',
-  'Driving':'autista corriere rider consegne patente'
-};
-
-const CAT_STYLE = {
-  'Elder Care':{ico:'🧓',bg:'#dbeafe'},
-  'Cleaning':{ico:'🧹',bg:'#e0e7ff'},
-  'Baby Sitting':{ico:'👶',bg:'#ede9fe'},
-  'Factory':{ico:'🏭',bg:'#d1fae5'},
-  'Warehouse':{ico:'📦',bg:'#fef3c7'},
-  'Restaurant':{ico:'🍽️',bg:'#fce7f3'},
-  'Driving':{ico:'🚗',bg:'#e0f2fe'},
-  'default':{ico:'💼',bg:'#f0f4ff'}
-};
-
-const CATEGORIES = ['Elder Care','Cleaning','Baby Sitting','Factory','Warehouse','Restaurant','Driving'];
-
-const CITIES = ['Milano','Roma','Napoli','Torino','Bologna','Firenze','Bergamo','Brescia','Verona','Padova','Venezia','Genova'];
-
-/* ══════════════════════════════════════════════════════════
-   DEMO DATA
-   ══════════════════════════════════════════════════════════ */
-
-let JOBS = [
-  {id:'d1',title:'Badante – Elder Care Assistant',titleSi:'වැඩිහිටි සත්කාර සහකාරිනී',company:'Famiglia Rossi',city:'Milano',type:'Elder Care',perm:true,sal:'€1,200–1,400/mo',
-    desc:'Looking for an experienced caregiver to assist an elderly person with daily activities. Live-in position in central Milano. Duties include personal care, meal preparation, light housekeeping, and companionship.',
-    descSi:'දෛනික ක්‍රියාකාරකම් සඳහා වැඩිහිටි පුද්ගලයෙකුට සහාය වීමට පළපුරුදු රැකවරණ සේවකයෙකු අවශ්‍යයි. මිලානෝ මධ්‍යයේ නේවාසික තනතුර. පෞද්ගලික සත්කාර, ආහාර සකස් කිරීම, සැහැල්ලු ගෘහ කටයුතු සහ සහචර්යය ඇතුළත් වේ.',featured:true},
-  {id:'d2',title:'Addetto/a Pulizie – Office Cleaner',titleSi:'කාර්යාල පිරිසිදු කරන්නා',company:'CleanPro Italia',city:'Roma',type:'Cleaning',perm:true,sal:'€1,000–1,100/mo',
-    desc:'Professional cleaning service company seeking a reliable cleaner for office buildings. Monday to Friday, 6 AM – 2 PM. Must have experience with professional cleaning equipment.',
-    descSi:'කාර්යාල ගොඩනැගිලි සඳහා විශ්වාසදායක පිරිසිදු කරන්නෙකු සොයන වෘත්තීය පිරිසිදු කිරීමේ සේවා සමාගම. සඳුදා සිට සිකුරාදා, පෙ.ව. 6 – ප.ව. 2. වෘත්තීය පිරිසිදු කිරීමේ උපකරණ පිළිබඳ අත්දැකීම් තිබිය යුතුය.'},
-  {id:'d3',title:'Baby Sitter – Tata Affidabile',titleSi:'ළදරු රැකවරණ (බේබි සිටර්)',company:'Famiglia Bianchi',city:'Firenze',type:'Baby Sitting',perm:true,sal:'€900–1,100/mo',
-    desc:'Italian family looking for a caring babysitter for two children (ages 3 and 6). Part-time, afternoons. Must speak basic Italian. Experience with young children required.',
-    descSi:'ළමයින් දෙදෙනෙකු (වයස අවුරුදු 3 සහ 6) සඳහා සැලකිලිමත් ළදරු රැකවරණ සේවකයෙකු සොයන ඉතාලි පවුලක්. අර්ධ කාලීන, සවස් වරුවේ. මූලික ඉතාලි භාෂාව කතා කළ හැකි විය යුතුය.'},
-  {id:'d4',title:'Operaio di Produzione – Factory Worker',titleSi:'කර්මාන්තශාලා සේවකයා',company:'MetalTech S.r.l.',city:'Torino',type:'Factory',perm:true,sal:'€1,300–1,500/mo',
-    desc:'Metal parts manufacturing company hiring production workers. Full-time, shift work available. Training provided. Must be able to lift 25kg and stand for long periods.',
-    descSi:'නිෂ්පාදන සේවකයින් බඳවා ගන්නා ලෝහ කොටස් නිෂ්පාදන සමාගම. පූර්ණ කාලීන, මුරපෙළ වැඩ ලබා ගත හැකිය. පුහුණුව සපයනු ලැබේ. කි.ග්‍රෑ. 25 ඔසවා දිගු කාලයක් සිටිය හැකි විය යුතුය.',featured:true},
-  {id:'d5',title:'Magazziniere – Warehouse Worker',titleSi:'ගබඩා සේවකයා',company:'LogiStore Italia',city:'Bologna',type:'Warehouse',perm:false,sal:'€1,100–1,300/mo',
-    desc:'Large logistics company needs warehouse workers. Forklift experience preferred but not required. Night shifts available with extra pay. Immediate start.',
-    descSi:'විශාල සැපයුම් සමාගමකට ගබඩා සේවකයින් අවශ්‍යයි. ෆෝක්ලිෆ්ට් අත්දැකීම් වාසිදායක නමුත් අවශ්‍ය නොවේ. අමතර වැටුප් සහිත රාත්‍රී මුරපෙළ ලබා ගත හැකිය. වහාම ආරම්භ කරන්න.'},
-  {id:'d6',title:'Cameriere/a – Restaurant Server',titleSi:'අවන්හල් සේවකයා',company:'Trattoria Napoli',city:'Napoli',type:'Restaurant',perm:false,sal:'€1,000–1,200/mo',
-    desc:'Traditional trattoria in Napoli looking for a server. Must have basic Italian. Lunch and dinner service, tips included. Weekends required.',
-    descSi:'නාපෝලි හි සාම්ප්‍රදායික ට්‍රැටෝරියා සේවකයෙකු සොයයි. මූලික ඉතාලි භාෂාව තිබිය යුතුය. දිවා ආහාරය සහ රාත්‍රී ආහාර සේවාව, ටිප්ස් ඇතුළත් වේ. සති අන්ත අවශ්‍යයි.'},
-  {id:'d7',title:'Operaio Agricolo – Vineyard Worker',titleSi:'මිදිවතු වගා සේවකයා (Verona)',company:'Cantine Valpolicella',city:'Verona',type:'Factory',perm:true,sal:'€1,200–1,400/mo',
-    desc:'Famous Verona winery in Valpolicella region hiring seasonal and full-time vineyard and bottling workers. Training provided. Good for Sri Lankan workers with farming background.',
-    descSi:'Verona අසල Valpolicella ප්‍රදේශයේ ප්‍රසිද්ධ වයින් සමාගමක් සඳහා මිදිවතු සහ බෝතල්කරණ සේවකයින් අවශ්‍යයි. පුහුණුව සපයයි. කෘෂිකාර්මික පසුබිමක් ඇති ශ්‍රී ලාංකිකයන්ට හොඳයි.',featured:true},
-  {id:'d8',title:'Badante – Elder Care (Verona)',titleSi:'වැඩිහිටි සත්කාර (Verona)',company:'Famiglia Verona',city:'Verona',type:'Elder Care',perm:true,sal:'€1,300–1,500/mo',
-    desc:'Family in Verona looking for experienced live-in caregiver for elderly mother. Italian language required (A2 minimum). 6 days a week, Sundays off.',
-    descSi:'Verona හි පවුලක් වැඩිහිටි මවට පළපුරුදු නේවාසික රැකවරණ සේවිකාවක් සොයයි. ඉතාලි භාෂාව (A2 අවම) අවශ්‍යයි. සතියට දින 6, ඉරිදා නිවාඩු.'},
-  {id:'d9',title:'Magazziniere – Logistics Worker (Verona)',titleSi:'ගබඩා සේවකයා (Verona)',company:'Verona Logistica SpA',city:'Verona',type:'Warehouse',perm:false,sal:'€1,200–1,400/mo',
-    desc:'Major Verona logistics hub needs warehouse workers for picking, packing and shipping. Day and night shifts. Forklift license a plus. Immediate hire available.',
-    descSi:'Verona හි ප්‍රධාන සැපයුම් මධ්‍යස්ථානයක් picking, packing, shipping සඳහා ගබඩා සේවකයින් අවශ්‍යයි. දිවා රාත්‍රී මුරපෙළ. ෆෝක්ලිෆ්ට් බලපත්‍රය වාසිදායක. වහාම බඳවා ගැනීම.',featured:true}
-];
-
-const SEEKERS = [
-  {name:'Amali Perera',skill:'Elder Care',skillSi:'වැඩිහිටි සත්කාර',city:'Milano',exp:'3 years',lang:'B1',perm:true,contact:'amali@email.com'},
-  {name:'Kasun Fernando',skill:'Factory Worker',skillSi:'කර්මාන්තශාලා සේවකයා',city:'Roma',exp:'5 years',lang:'A2',perm:true,contact:'kasun@email.com'},
-  {name:'Nimali Silva',skill:'Babysitter / Cleaning',skillSi:'ළදරු රැකවරණ / පිරිසිදු කිරීම',city:'Firenze',exp:'2 years',lang:'B2',perm:true,contact:'nimali@email.com'},
-  {name:'Dinesh Rajapaksa',skill:'Warehouse / Driving',skillSi:'ගබඩා / රියදුරු',city:'Bologna',exp:'4 years',lang:'A2',perm:true,contact:'dinesh@email.com'},
-  {name:'Sanduni Wickramasinghe',skill:'Restaurant',skillSi:'අවන්හල',city:'Napoli',exp:'1 year',lang:'A1',perm:false,contact:'sanduni@email.com'},
-  {name:'Rohan Jayawardena',skill:'Factory / Warehouse',skillSi:'කර්මාන්තශාලා / ගබඩා',city:'Torino',exp:'6 years',lang:'B1',perm:true,contact:'rohan@email.com'}
-];
-
-const RESTAURANTS = [
-  {name:'Ceylon Spice',city:'Milano',cuisine:'Sri Lankan / Indian',cuisineSi:'ශ්‍රී ලාංකික / ඉන්දියානු',rating:4.5,address:'Via Paolo Sarpi 42',phone:'+39 02 1234567',desc:'Authentic Sri Lankan cuisine in the heart of Milano',descSi:'මිලානෝ හදවතේ සත්‍ය ශ්‍රී ලාංකික ආහාර'},
-  {name:'Colombo Kitchen',city:'Roma',cuisine:'Sri Lankan',cuisineSi:'ශ්‍රී ලාංකික',rating:4.2,address:'Via Tuscolana 185',phone:'+39 06 7654321',desc:'Traditional Sri Lankan rice and curry',descSi:'සාම්ප්‍රදායික ශ්‍රී ලාංකික බත් සහ කරි'},
-  {name:'Lanka Sapori',city:'Napoli',cuisine:'Sri Lankan / Italian Fusion',cuisineSi:'ශ්‍රී ලාංකික / ඉතාලි ෆියුෂන්',rating:4.7,address:'Via Toledo 280',phone:'+39 081 9876543',desc:'Fusion flavors combining Sri Lankan spices with Italian tradition',descSi:'ශ්‍රී ලාංකික කුළුබඩු සහ ඉතාලි සම්ප්‍රදාය එකට මිශ්‍ර කරන ෆියුෂන් රසයන්'}
-];
-
-const SERVICES = [
-  {icon:'📝',title:'Document Translation',titleSi:'ලේඛන පරිවර්තනය',desc:'Official document translation (Italian ↔ Sinhala/English)',descSi:'නිල ලේඛන පරිවර්තනය (ඉතාලි ↔ සිංහල/ඉංග්‍රීසි)',price:'From €30'},
-  {icon:'⚖️',title:'Legal Assistance',titleSi:'නීතිමය සහාය',desc:'Immigration law, work contracts, tenant rights',descSi:'සංක්‍රමණ නීතිය, වැඩ ගිවිසුම්, කුලී බදු අයිතිවාසිකම්',price:'From €50'},
-  {icon:'📋',title:'Permesso di Soggiorno',titleSi:'පදිංචි බලපත්‍ර සහාය',desc:'Application assistance, renewals, document preparation',descSi:'අයදුම්පත් සහාය, අලුත් කිරීම්, ලේඛන සකස් කිරීම',price:'From €40'},
-  {icon:'🏦',title:'Tax & Fiscal Code',titleSi:'බදු සහ Codice Fiscale',desc:'Codice Fiscale, tax returns, INPS registration',descSi:'Codice Fiscale, බදු ප්‍රතිලාභ, INPS ලියාපදිංචිය',price:'From €25'},
-  {icon:'🗣️',title:'Italian Language Courses',titleSi:'ඉතාලි භාෂා පාඨමාලා',desc:'A1–B2 courses, exam preparation, conversation practice',descSi:'A1–B2 පාඨමාලා, විභාග සූදානම, සංවාද පුහුණුව',price:'From €15/hr'},
-  {icon:'💼',title:'Job Coaching',titleSi:'රැකියා උපදේශනය',desc:'Interview prep, CV review, career guidance for Italy job market',descSi:'සම්මුඛ පරීක්ෂණ සූදානම, CV සමාලෝචනය, ඉතාලි රැකියා වෙළඳපොළ මාර්ගෝපදේශනය',price:'From €35'}
-];
-
-const ITALIAN_SITES = [
-  {name:'Indeed Italia',url:'https://it.indeed.com',descSi:'ඉතාලියේ විශාලතම රැකියා සෙවුම'},
-  {name:'InfoJobs',url:'https://www.infojobs.it',descSi:'ජනප්‍රිය ඉතාලි රැකියා වෙබ් අඩවිය'},
-  {name:'LinkedIn Jobs',url:'https://www.linkedin.com/jobs',descSi:'වෘත්තීය ජාල සහ රැකියා'},
-  {name:'Subito Lavoro',url:'https://www.subito.it/offerte-lavoro',descSi:'දේශීය රැකියා දැන්වීම්'},
-  {name:'Monster Italia',url:'https://www.monster.it',descSi:'ජාත්‍යන්තර රැකියා සෙවුම'},
-  {name:'Randstad',url:'https://www.randstad.it',descSi:'රැකියා නියෝජිත ආයතනය'},
-  {name:'Adecco',url:'https://www.adecco.it',descSi:'තාවකාලික සහ ස්ථිර රැකියා'},
-  {name:'Jooble',url:'https://it.jooble.org',descSi:'රැකියා සෙවුම් එකතුකරන්නා'}
-];
-
-/* ══════════════════════════════════════════════════════════
-   TRANSLATIONS
-   ══════════════════════════════════════════════════════════ */
-
-let LANG = 'en';
-
-const T = {
-  'auth.welcome':{en:'Welcome',si:'සාදරයෙන් පිළිගනිමු'},
-  'auth.sub':{en:'Sign in to track applications and save jobs',si:'අයදුම්පත් නිරීක්ෂණය කිරීමට සහ රැකියා සුරැකීමට පිවිසෙන්න'},
-  'auth.login':{en:'Log In',si:'පිවිසෙන්න'},
-  'auth.signup':{en:'Sign Up',si:'ලියාපදිංචි වන්න'},
-  'auth.or':{en:'or',si:'හෝ'},
-  'auth.google':{en:'Continue with Google',si:'Google සමඟ ඉදිරියට'},
-  'nav.jobs':{en:'Jobs',si:'රැකියා'},
-  'nav.seekers':{en:'Seekers',si:'සොයන්නන්'},
-  'nav.cv':{en:'Free CV',si:'නොමිලේ CV'},
-  'nav.services':{en:'Services',si:'සේවා'},
-  'nav.resto':{en:'Restaurants',si:'අවන්හල්'},
-  'nav.account':{en:'My Account',si:'මගේ ගිණුම'},
-  'hero.title':{en:'Find Your Perfect Job in Italy',si:'ඉතාලියේ ඔබට සුදුසු රැකියාව සොයන්න'},
-  'hero.tagline':{en:'Sri Lankan Community Job Portal — ශ්‍රී ලාංකික ප්‍රජාව සඳහා රැකියා පෝර්ටලය',si:'ශ්‍රී ලාංකික ප්‍රජාව සඳහා ඉතාලියේ රැකියා පෝර්ටලය'},
-  'search.keyword':{en:'Job title, keyword, or company...',si:'රැකියා මාතෘකාව, මූල පදය, හෝ සමාගම...'},
-  'search.allCities':{en:'All Cities',si:'සියලු නගර'},
-  'search.btn':{en:'Search Jobs',si:'රැකියා සොයන්න'},
-  'stats.jobs':{en:'jobs available',si:'රැකියා ඇත'},
-  'stats.seekers':{en:'active seekers',si:'සක්‍රිය සොයන්නන්'},
-  'stats.categories':{en:'job categories',si:'රැකියා කාණ්ඩ'},
-  'filter.title':{en:'Filters',si:'පෙරහන්'},
-  'filter.category':{en:'Category',si:'කාණ්ඩය'},
-  'filter.permit':{en:'Permesso di Soggiorno',si:'පදිංචි බලපත්‍රය'},
-  'filter.all':{en:'All',si:'සියල්ල'},
-  'filter.required':{en:'Required',si:'අවශ්‍යයි'},
-  'filter.notRequired':{en:'Not Required',si:'අවශ්‍ය නැත'},
-  'sites.title':{en:'Italian Job Sites',si:'ඉතාලි රැකියා වෙබ් අඩවි'},
-  'seekers.title':{en:'Job Seekers',si:'රැකියා සොයන්නන්'},
-  'seekers.sub':{en:'Browse profiles of Sri Lankan workers in Italy',si:'ඉතාලියේ ශ්‍රී ලාංකික සේවකයින්ගේ පැතිකඩ බලන්න'},
-  'seekers.post':{en:'Post Your Profile',si:'ඔබේ පැතිකඩ පළ කරන්න'},
-  'cv.title':{en:'Free Europass CV Generator',si:'නොමිලේ Europass CV සාදනය'},
-  'cv.sub':{en:'Create a professional Italian-format CV in minutes',si:'මිනිත්තු කිහිපයකින් වෘත්තීය ඉතාලි ආකෘති CV එකක් සාදන්න'},
-  'cv.fname':{en:'First Name',si:'මුල් නම'},
-  'cv.lname':{en:'Last Name',si:'අවසාන නම'},
-  'cv.phone':{en:'Phone',si:'දුරකථනය'},
-  'cv.city':{en:'City',si:'නගරය'},
-  'cv.next':{en:'Next →',si:'ඊළඟ →'},
-  'cv.prev':{en:'← Back',si:'← ආපසු'},
-  'cv.permit':{en:'Permesso di Soggiorno Type',si:'පදිංචි බලපත්‍ර වර්ගය'},
-  'cv.permitExp':{en:'Permit Expiry Date',si:'බලපත්‍ර කල් ඉකුත්වන දිනය'},
-  'cv.italian':{en:'Italian Language Level',si:'ඉතාලි භාෂා මට්ටම'},
-  'cv.workType':{en:'Desired Work Type',si:'කැමති රැකියා වර්ගය'},
-  'cv.employer':{en:'Previous Employer',si:'පෙර සේවා යෝජකයා'},
-  'cv.years':{en:'Years of Experience',si:'අත්දැකීම් වසර'},
-  'cv.duties':{en:'Main Duties',si:'ප්‍රධාන රාජකාරි'},
-  'cv.skills':{en:'Select Your Skills',si:'ඔබේ කුසලතා තෝරන්න'},
-  'cv.gdpr':{en:'I consent to the processing of my personal data in accordance with GDPR (EU 2016/679) for the purpose of creating this CV.',si:'මෙම CV නිර්මාණය සඳහා GDPR (EU 2016/679) අනුව මගේ පෞද්ගලික දත්ත සැකසීමට මම කැමැත්ත දෙමි.'},
-  'cv.generate':{en:'Generate CV',si:'CV සාදන්න'},
-  'cv.ready':{en:'Your CV is Ready!',si:'ඔබේ CV සූදානම්!'},
-  'cv.readySub':{en:'Download your Europass-format PDF below',si:'ඔබේ Europass ආකෘති PDF පහතින් බාගත කරන්න'},
-  'cv.download':{en:'Download Europass CV (PDF)',si:'Europass CV බාගත කරන්න (PDF)'},
-  'cv.startOver':{en:'← Start Over',si:'← නැවත ආරම්භ කරන්න'},
-  'svc.title':{en:'Professional Services',si:'වෘත්තීය සේවා'},
-  'svc.sub':{en:'Expert help for Sri Lankans living in Italy',si:'ඉතාලියේ ජීවත් වන ශ්‍රී ලාංකිකයන් සඳහා විශේෂඥ සහාය'},
-  'resto.title':{en:'Sri Lankan Restaurants in Italy',si:'ඉතාලියේ ශ්‍රී ලාංකික අවන්හල්'},
-  'resto.sub':{en:'Find authentic Sri Lankan food near you',si:'ඔබ අසල සත්‍ය ශ්‍රී ලාංකික ආහාර සොයන්න'},
-  'account.loginTitle':{en:'Sign in to Your Account',si:'ඔබේ ගිණුමට පිවිසෙන්න'},
-  'account.loginSub':{en:'Track your job applications, save favourite jobs, and manage your profile',si:'ඔබේ රැකියා අයදුම්පත් නිරීක්ෂණය කරන්න, ප්‍රිය රැකියා සුරකින්න, සහ ඔබේ පැතිකඩ කළමනාකරණය කරන්න'},
-  'account.applications':{en:'Applications Sent',si:'යැවූ අයදුම්පත්'},
-  'account.saved':{en:'Saved Jobs',si:'සුරැකි රැකියා'},
-  'account.viewed':{en:'Jobs Viewed',si:'බැලූ රැකියා'},
-  'account.settings':{en:'Profile Settings',si:'පැතිකඩ සැකසුම්'},
-  'account.logout':{en:'Log Out',si:'ඉවත් වන්න'},
-  'jd.desc':{en:'Job Description',si:'රැකියා විස්තරය'},
-  'jd.req':{en:'Requirements',si:'අවශ්‍යතා'},
-  'apply.title':{en:'Apply for this Job',si:'මෙම රැකියාවට අයදුම් කරන්න'},
-  'apply.name':{en:'Full Name *',si:'සම්පූර්ණ නම *'},
-  'apply.phone':{en:'Phone',si:'දුරකථනය'},
-  'apply.city':{en:'City in Italy',si:'ඉතාලියේ නගරය'},
-  'apply.exp':{en:'Experience',si:'අත්දැකීම්'},
-  'apply.msg':{en:'Message to Employer',si:'සේවා යෝජකයාට පණිවිඩය'},
-  'apply.cv':{en:'Attach CV (optional)',si:'CV අමුණන්න (විකල්ප)'},
-  'apply.gdpr':{en:'I consent to my data being shared with the employer per GDPR (EU 2016/679)',si:'GDPR (EU 2016/679) අනුව මගේ දත්ත සේවා යෝජකයා සමඟ බෙදා ගැනීමට මම කැමැත්ත දෙමි'},
-  'apply.wa':{en:'Send via WhatsApp',si:'WhatsApp හරහා යවන්න'},
-  'apply.email':{en:'Send via Email',si:'ඊමේල් හරහා යවන්න'},
-  'apply.sent':{en:'Application Sent!',si:'අයදුම්පත යවා ඇත!'},
-  'apply.close':{en:'Close',si:'වසන්න'},
-  'post.title':{en:'Post Your Profile',si:'ඔබේ පැතිකඩ පළ කරන්න'},
-  'post.name':{en:'Full Name *',si:'සම්පූර්ණ නම *'},
-  'post.phone':{en:'Phone / WhatsApp',si:'දුරකථනය / WhatsApp'},
-  'post.city':{en:'City',si:'නගරය'},
-  'post.skills':{en:'Skills / Job Type',si:'කුසලතා / රැකියා වර්ගය'},
-  'post.exp':{en:'Experience',si:'අත්දැකීම්'},
-  'post.italian':{en:'Italian Level',si:'ඉතාලි මට්ටම'},
-  'post.permYes':{en:'Yes',si:'ඔව්'},
-  'post.permNo':{en:'No / Pending',si:'නැත / බලා සිටී'},
-  'post.about':{en:'About You',si:'ඔබ ගැන'},
-  'post.gdpr':{en:'I consent to my profile being visible to employers on this site per GDPR (EU 2016/679)',si:'GDPR (EU 2016/679) අනුව මෙම වෙබ් අඩවියේ සේවා යෝජකයින්ට මගේ පැතිකඩ දෘශ්‍යමාන වීමට මම කැමැත්ත දෙමි'},
-  'post.cancel':{en:'Cancel',si:'අවලංගු කරන්න'},
-  'post.submit':{en:'Post Profile',si:'පැතිකඩ පළ කරන්න'},
-  'ai.title':{en:'AI Job Description Writer',si:'AI රැකියා විස්තර ලේඛකයා'},
-  'ai.prompt':{en:'Describe the job you want to write about:',si:'ඔබට ලිවීමට අවශ්‍ය රැකියාව විස්තර කරන්න:'},
-  'ai.generate':{en:'✨ Generate Description',si:'✨ විස්තරය සාදන්න'},
-  'ai.copy':{en:'📋 Copy to Clipboard',si:'📋 පිටපත් කරන්න'},
-  'footer.made':{en:'Made with ❤️ for the Sri Lankan community in Italy',si:'ඉතාලියේ ශ්‍රී ලාංකික ප්‍රජාව සඳහා ❤️ සමඟ සාදන ලදී'},
-  'cat.Elder Care':{en:'Elder Care',si:'වැඩිහිටි සත්කාර'},
-  'cat.Cleaning':{en:'Cleaning',si:'පිරිසිදු කිරීම'},
-  'cat.Baby Sitting':{en:'Baby Sitting',si:'ළදරු රැකවරණය'},
-  'cat.Factory':{en:'Factory',si:'කර්මාන්තශාලා'},
-  'cat.Warehouse':{en:'Warehouse',si:'ගබඩාව'},
-  'cat.Restaurant':{en:'Restaurant',si:'අවන්හල'},
-  'cat.Driving':{en:'Driving',si:'රියදුරු'},
-  'job.viewDetails':{en:'View Details',si:'විස්තර බලන්න'},
-  'job.permYes':{en:'Permesso ✓',si:'බලපත්‍ර ✓'},
-  'job.permNo':{en:'No Permesso Needed',si:'බලපත්‍ර අවශ්‍ය නැත'},
-  'seeker.contact':{en:'Contact',si:'සම්බන්ධ වන්න'},
-  'seeker.exp':{en:'exp',si:'අත්දැකීම්'},
-  'svc.contact':{en:'Contact',si:'සම්බන්ධ වන්න'}
-};
-
-/* ══════════════════════════════════════════════════════════
-   FIREBASE INIT
-   ══════════════════════════════════════════════════════════ */
-
-let firebaseApp = null;
-let auth = null;
-let db = null;
+let JOBS = [];
 let currentUser = null;
+let currentLang = 'en';
 
-function initFirebase() {
+const translations = {
+  en: {
+    heroTitle: 'Find Your Next Job in Italy',
+    heroDesc: 'Browse trusted job listings. Connect with employers. Start your career.',
+    searchPlaceholder: 'Job title or location...',
+  },
+  si: {
+    heroTitle: 'ඉතාලියේ ඔබේ අනතුරු ඉතිරිකිරීම සොයන්න',
+    heroDesc: 'විශ්වාසවන්ත රැකියා ලැයිස්තු දෙස බලන්න. තුටුකරුවරුන් සමඟ සම්බන්ධ වන්න. ඔබේ වෘත්තිය ආරම්භ කරන්න.',
+    searchPlaceholder: 'රැකියා මාතෘකා හෝ ස්ථානය...',
+  }
+};
+
+async function loadJobs() {
   try {
-    if (FIREBASE_CONFIG.apiKey === 'YOUR_FIREBASE_API_KEY') return;
-    firebaseApp = firebase.initializeApp(FIREBASE_CONFIG);
-    auth = firebase.auth();
-    db = firebase.firestore();
-    auth.onAuthStateChanged(user => {
-      currentUser = user;
-      updateAuthUI();
-    });
-  } catch(e) { console.log('Firebase not configured yet'); }
-}
-
-function updateAuthUI() {
-  const loginBtn = document.getElementById('login-btn');
-  const userPill = document.getElementById('user-pill');
-  const guestView = document.getElementById('account-guest');
-  const userView = document.getElementById('account-user');
-
-  if (currentUser) {
-    loginBtn.classList.add('hide');
-    userPill.classList.remove('hide');
-    const name = currentUser.displayName || currentUser.email.split('@')[0];
-    document.getElementById('user-initial').textContent = name[0].toUpperCase();
-    document.getElementById('user-name-short').textContent = name.split(' ')[0];
-    document.getElementById('account-name').textContent = name;
-    document.getElementById('account-email').textContent = currentUser.email;
-    document.getElementById('account-avatar').textContent = name[0].toUpperCase();
-    guestView.classList.add('hide');
-    userView.classList.remove('hide');
-  } else {
-    loginBtn.classList.remove('hide');
-    userPill.classList.add('hide');
-    guestView.classList.remove('hide');
-    userView.classList.add('hide');
+    const res = await fetch('./jobs.json');
+    JOBS = await res.json();
+    renderJobs(JOBS);
+    updateCounts();
+    populateCategories();
+  } catch (e) {
+    console.error('Failed to load jobs:', e);
+    document.getElementById('jobs-list').innerHTML = '<div style="padding:40px;text-align:center;color:var(--text-tertiary)">Error loading jobs</div>';
   }
 }
 
-/* ══════════════════════════════════════════════════════════
-   AUTH FUNCTIONS
-   ══════════════════════════════════════════════════════════ */
-
-let authModeVal = 'login';
-
-function openAuth() {
-  document.getElementById('auth-overlay').classList.add('show');
-}
-
-function closeAuth() {
-  document.getElementById('auth-overlay').classList.remove('show');
-  document.getElementById('auth-error').style.display = 'none';
-}
-
-function authMode(mode, btn) {
-  authModeVal = mode;
-  document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('on'));
-  btn.classList.add('on');
-  const nameField = document.getElementById('auth-name');
-  const submitBtn = document.getElementById('auth-submit-btn');
-  if (mode === 'signup') {
-    nameField.classList.remove('hide');
-    submitBtn.textContent = t('auth.signup');
-  } else {
-    nameField.classList.add('hide');
-    submitBtn.textContent = t('auth.login');
-  }
-}
-
-async function doAuth() {
-  if (!auth) {
-    showAuthError('Firebase not configured. Please set up your Firebase project first.');
-    return;
-  }
-  const email = document.getElementById('auth-email').value.trim();
-  const pass = document.getElementById('auth-pass').value;
-  if (!email || !pass) { showAuthError('Please enter email and password.'); return; }
-
-  try {
-    if (authModeVal === 'signup') {
-      const cred = await auth.createUserWithEmailAndPassword(email, pass);
-      const name = document.getElementById('auth-name').value.trim();
-      if (name) await cred.user.updateProfile({ displayName: name });
-    } else {
-      await auth.signInWithEmailAndPassword(email, pass);
-    }
-    closeAuth();
-  } catch(e) {
-    showAuthError(e.message);
-  }
-}
-
-async function googleSignIn() {
-  if (!auth) {
-    showAuthError('Firebase not configured. Please set up your Firebase project first.');
-    return;
-  }
-  try {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    await auth.signInWithPopup(provider);
-    closeAuth();
-  } catch(e) {
-    showAuthError(e.message);
-  }
-}
-
-function doLogout() {
-  if (auth) auth.signOut();
-  currentUser = null;
-  updateAuthUI();
-  showTab('jobs');
-}
-
-function showAuthError(msg) {
-  const el = document.getElementById('auth-error');
-  el.textContent = msg;
-  el.style.display = 'block';
-}
-
-/* ══════════════════════════════════════════════════════════
-   LANGUAGE
-   ══════════════════════════════════════════════════════════ */
-
-function t(key) {
-  const entry = T[key];
-  if (!entry) return key;
-  return entry[LANG] || entry.en || key;
-}
-
-function setLang(lang) {
-  LANG = lang;
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('on'));
-  document.querySelectorAll('.lang-btn').forEach(b => {
-    if ((lang === 'en' && b.textContent === 'EN') || (lang === 'si' && b.textContent === 'සි')) b.classList.add('on');
-  });
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    el.textContent = t(key);
-  });
-  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
-    const key = el.getAttribute('data-i18n-ph');
-    const entry = T[key];
-    if (entry) el.placeholder = entry[LANG] || entry.en;
-  });
-
-  if (LANG === 'si') document.body.style.fontFamily = "'Noto Sans Sinhala', 'Inter', sans-serif";
-  else document.body.style.fontFamily = "'Inter', sans-serif";
-
-  renderJobs(JOBS);
-  renderSeekers();
-  renderServices();
-  renderRestaurants();
-  buildCatStrip();
-  buildFilterCats();
-}
-
-/* ══════════════════════════════════════════════════════════
-   NAVIGATION
-   ══════════════════════════════════════════════════════════ */
-
-const TABS = ['jobs','seekers','cv','services','resto','account'];
-
-function showTab(name, btn) {
-  TABS.forEach(t => {
-    const el = document.getElementById('tab-' + t);
-    if (el) { el.classList.remove('on'); el.style.display = 'none'; }
-  });
-  const target = document.getElementById('tab-' + name);
-  if (target) { target.style.display = 'block'; target.classList.add('on'); }
-
-  document.querySelectorAll('.ntab').forEach(t => t.classList.remove('on'));
-  if (btn) btn.classList.add('on');
-  else {
-    const tabs = document.querySelectorAll('.ntab');
-    const idx = TABS.indexOf(name);
-    if (idx >= 0 && tabs[idx]) tabs[idx].classList.add('on');
-  }
-
-  if (name === 'seekers') renderSeekers();
-  if (name === 'cv') buildCVProg(1);
-  window.scrollTo({top: 0, behavior: 'smooth'});
-}
-
-/* ══════════════════════════════════════════════════════════
-   ADZUNA API
-   ══════════════════════════════════════════════════════════ */
-
-function detectCategory(text) {
-  if (!text) return '';
-  const low = text.toLowerCase();
-  for (const [cat, kw] of Object.entries(CAT_KEYWORDS)) {
-    if (kw.split(' ').some(w => low.includes(w)) || low.includes(cat.toLowerCase())) return cat;
-  }
-  return '';
-}
-
-function detectCity(text) {
-  if (!text) return '';
-  for (const c of CITIES) {
-    if (text.toLowerCase().includes(c.toLowerCase())) return c;
-  }
-  return '';
-}
-
-async function fetchAdzunaJobs(category, city) {
-  const keywords = category ? (CAT_KEYWORDS[category] || category) : '';
-  const where = city || 'Italia';
-  const url = `${ADZUNA_BASE}/1?app_id=${ADZUNA_APP_ID}&app_key=${ADZUNA_APP_KEY}&results_per_page=20&what=${encodeURIComponent(keywords)}&where=${encodeURIComponent(where)}&content-type=application/json`;
-
-  try {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error('API error');
-    const data = await res.json();
-    return (data.results || []).map(r => ({
-      id: 'az_' + r.id,
-      title: r.title || 'Untitled',
-      titleSi: r.title || '',
-      company: r.company?.display_name || 'Company',
-      city: detectCity(r.location?.display_name || '') || (r.location?.display_name || 'Italy'),
-      type: detectCategory(r.title + ' ' + r.description) || 'default',
-      perm: Math.random() > 0.4,
-      sal: r.salary_min ? `€${Math.round(r.salary_min/12).toLocaleString()}/mo` : '',
-      desc: (r.description || '').replace(/<[^>]*>/g, '').substring(0, 400),
-      descSi: '',
-      url: r.redirect_url || '',
-      source: 'adzuna'
-    }));
-  } catch(e) {
-    console.log('Adzuna fetch failed:', e);
-    return [];
-  }
-}
-
-async function loadJobs(category, city) {
-  document.getElementById('job-list').innerHTML = '<div class="spinner"></div>';
-  const apiJobs = await fetchAdzunaJobs(category, city);
-  const demoFiltered = JOBS.filter(j => j.id.startsWith('d'));
-  if (category) {
-    const filtered = demoFiltered.filter(j => j.type === category);
-    JOBS = [...filtered, ...apiJobs];
-  } else {
-    JOBS = [...demoFiltered, ...apiJobs];
-  }
-  renderJobs(JOBS);
-}
-
-/* ══════════════════════════════════════════════════════════
-   JOB RENDERING
-   ══════════════════════════════════════════════════════════ */
-
-function renderJobs(list) {
-  const el = document.getElementById('job-list');
-  document.getElementById('stat-jobs').textContent = list.length;
-
-  if (!list.length) {
-    el.innerHTML = '<div class="no-jobs"><div class="ico">🔍</div><p>' + (LANG === 'si' ? 'රැකියා හමු නොවීය. වෙනත් සෙවීමක් උත්සාහ කරන්න.' : 'No jobs found. Try a different search.') + '</p></div>';
-    return;
-  }
-
-  el.innerHTML = list.map(j => {
-    const cs = CAT_STYLE[j.type] || CAT_STYLE['default'];
-    const title = LANG === 'si' && j.titleSi ? j.titleSi : j.title;
-    const catLabel = LANG === 'si' ? t('cat.' + j.type) : j.type;
-    return `<div class="job-card${j.featured ? ' featured' : ''}" onclick="openJobModal('${j.id}')">
-      <div class="cat-badge" style="background:${cs.bg};color:var(--text)">${cs.ico} ${catLabel}</div>
-      <h3>${title}</h3>
-      <div class="company">${j.company}</div>
-      <div class="meta">
-        <span>📍 ${j.city}</span>
-        ${j.sal ? `<span class="salary">${j.sal}</span>` : ''}
-        ${j.source === 'adzuna' ? '<span>🌐 Adzuna</span>' : ''}
-      </div>
-      <div class="tags">
-        <span class="tag">${catLabel}</span>
-        <span class="tag ${j.perm ? 'perm-yes' : 'perm-no'}">${j.perm ? t('job.permYes') : t('job.permNo')}</span>
-      </div>
-      <button class="view-btn" onclick="event.stopPropagation();openJobModal('${j.id}')">${t('job.viewDetails')}</button>
-    </div>`;
-  }).join('');
-}
-
-function openJobModal(id) {
-  const j = JOBS.find(x => x.id === id);
-  if (!j) return;
-
-  const cs = CAT_STYLE[j.type] || CAT_STYLE['default'];
-  const title = LANG === 'si' && j.titleSi ? j.titleSi : j.title;
-  const desc = LANG === 'si' && j.descSi ? j.descSi : j.desc;
-  const catLabel = LANG === 'si' ? t('cat.' + j.type) : j.type;
-
-  document.getElementById('jd-cat-badge').innerHTML = `${cs.ico} ${catLabel}`;
-  document.getElementById('jd-cat-badge').style.background = cs.bg;
-  document.getElementById('jd-title').textContent = title;
-  document.getElementById('jd-company').textContent = j.company;
-  document.getElementById('jd-meta').innerHTML = `
-    <span>📍 ${j.city}</span>
-    ${j.sal ? `<span style="color:var(--accent);font-weight:600">${j.sal}</span>` : ''}
-    <span>${j.perm ? '✅ Permesso Required' : '📋 No Permesso Needed'}</span>
-  `;
-  document.getElementById('jd-desc').textContent = desc || 'No description available.';
-
-  if (j.source === 'adzuna' && j.url) {
-    document.getElementById('jd-req-section').innerHTML = `<h4>${t('jd.req')}</h4><p><a href="${j.url}" target="_blank" style="color:var(--primary);text-decoration:underline">View full listing on Adzuna →</a></p>`;
-  } else {
-    document.getElementById('jd-req-section').innerHTML = `<h4>${t('jd.req')}</h4><p>${LANG === 'si' ? 'නිවැරදි ලේඛන, මූලික ඉතාලි භාෂා දැනුම, අදාළ අත්දැකීම්' : 'Valid documents, basic Italian language, relevant experience'}</p>`;
-  }
-
-  document.getElementById('apply-form-wrap').style.display = 'block';
-  document.getElementById('apply-success').classList.remove('show');
-  document.getElementById('job-modal').classList.add('show');
-  document.body.style.overflow = 'hidden';
-
-  trackView(id);
-}
-
-function closeJobModal() {
-  document.getElementById('job-modal').classList.remove('show');
-  document.body.style.overflow = '';
-}
-
-function trackView(jobId) {
-  let views = JSON.parse(localStorage.getItem('lji_views') || '[]');
-  if (!views.includes(jobId)) views.push(jobId);
-  localStorage.setItem('lji_views', JSON.stringify(views));
-  document.getElementById('view-count').textContent = views.length;
-}
-
-/* ══════════════════════════════════════════════════════════
-   SEARCH & FILTERS
-   ══════════════════════════════════════════════════════════ */
-
-let activeCat = '';
-
-function buildCatStrip() {
-  const el = document.getElementById('cat-strip');
-  const allLabel = LANG === 'si' ? 'සියල්ල' : 'All';
-  el.innerHTML = `<button class="cat-tile${!activeCat ? ' on' : ''}" onclick="filterByCat('',this)">${allLabel}</button>` +
-    CATEGORIES.map(c => {
-      const cs = CAT_STYLE[c];
-      const label = LANG === 'si' ? t('cat.' + c) : c;
-      return `<button class="cat-tile${activeCat === c ? ' on' : ''}" onclick="filterByCat('${c}',this)"><span class="ico">${cs.ico}</span> ${label}</button>`;
-    }).join('');
-}
-
-function buildFilterCats() {
-  const el = document.getElementById('filter-cats');
-  const allLabel = LANG === 'si' ? 'සියල්ල' : 'All';
-  el.innerHTML = `<div class="filter-opt"><input type="radio" name="cat" value="" ${!activeCat ? 'checked' : ''} onchange="applyFilters()"/> ${allLabel}</div>` +
-    CATEGORIES.map(c => {
-      const label = LANG === 'si' ? t('cat.' + c) : c;
-      return `<div class="filter-opt"><input type="radio" name="cat" value="${c}" ${activeCat === c ? 'checked' : ''} onchange="applyFilters()"/> ${label}</div>`;
-    }).join('');
-}
-
-function filterByCat(cat, btn) {
-  activeCat = cat;
-  document.querySelectorAll('.cat-tile').forEach(t => t.classList.remove('on'));
-  if (btn) btn.classList.add('on');
-  buildFilterCats();
-
-  const demoJobs = JOBS.filter(j => j.id.startsWith('d'));
-  if (cat) {
-    const filtered = demoJobs.filter(j => j.type === cat);
-    renderJobs(filtered);
-    loadJobs(cat, '');
-  } else {
-    renderJobs(demoJobs);
-    loadJobs('', '');
-  }
-}
-
-async function applyFilters() {
-  const cat = document.querySelector('input[name="cat"]:checked')?.value || '';
-  const perm = document.querySelector('input[name="perm"]:checked')?.value || '';
-
-  activeCat = cat;
-  buildCatStrip();
-
-  let list = JOBS;
-  if (cat) list = list.filter(j => j.type === cat);
-  if (perm === 'yes') list = list.filter(j => j.perm);
-  if (perm === 'no') list = list.filter(j => !j.perm);
-  renderJobs(list);
-
-  if (cat) loadJobs(cat, '');
-}
-
-async function doSearch() {
-  const kw = document.getElementById('search-kw').value.toLowerCase().trim();
-  const city = document.getElementById('search-city').value;
-
-  showTab('jobs');
-
-  document.getElementById('job-list').innerHTML = '<div class="spinner"></div>';
-
-  const cat = detectCategory(kw);
-  const apiJobs = await fetchAdzunaJobs(cat || kw, city);
-  const demoJobs = JOBS.filter(j => j.id.startsWith('d'));
-
-  let combined = [...demoJobs, ...apiJobs];
-  if (kw) {
-    combined = combined.filter(j =>
-      j.title.toLowerCase().includes(kw) ||
-      (j.titleSi && j.titleSi.includes(kw)) ||
-      j.type.toLowerCase().includes(kw) ||
-      j.company.toLowerCase().includes(kw)
-    );
-  }
-  if (city) combined = combined.filter(j => j.city === city);
-
-  JOBS = combined.length ? combined : demoJobs;
-  renderJobs(JOBS);
-}
-
-/* ══════════════════════════════════════════════════════════
-   SEEKERS
-   ══════════════════════════════════════════════════════════ */
-
-function renderSeekers() {
-  const el = document.getElementById('seeker-list');
-  el.innerHTML = SEEKERS.map(s => {
-    const skill = LANG === 'si' && s.skillSi ? s.skillSi : s.skill;
-    const initials = s.name.split(' ').map(n => n[0]).join('');
-    return `<div class="seeker-card">
-      <div class="top">
-        <div class="avatar">${initials}</div>
-        <div><div class="name">${s.name}</div><div class="skill">${skill}</div></div>
-      </div>
-      <div class="info">
-        <span class="info-tag">📍 ${s.city}</span>
-        <span class="info-tag">${s.exp} ${LANG === 'si' ? t('seeker.exp') : 'exp'}</span>
-        <span class="info-tag">🗣️ ${s.lang}</span>
-        <span class="info-tag" style="${s.perm ? 'background:var(--success-lt);color:var(--success)' : 'background:var(--accent-lt);color:var(--accent)'}">
-          ${s.perm ? '✅ Permesso' : '⏳ Pending'}
-        </span>
-      </div>
-      <button class="contact-btn" onclick="window.location.href='mailto:${s.contact}'">${t('seeker.contact')} →</button>
-    </div>`;
-  }).join('');
-}
-
-/* ══════════════════════════════════════════════════════════
-   POST PROFILE
-   ══════════════════════════════════════════════════════════ */
-
-function showPostForm() {
-  document.getElementById('post-overlay').classList.add('show');
-  document.body.style.overflow = 'hidden';
-}
-
-function closePostForm() {
-  document.getElementById('post-overlay').classList.remove('show');
-  document.body.style.overflow = '';
-}
-
-function submitProfile() {
-  if (!document.getElementById('pf-gdpr').checked) {
-    alert(LANG === 'si' ? 'කරුණාකර GDPR සම්මතය ටික් කරන්න.' : 'Please accept the data consent.');
-    return;
-  }
-  const name = document.getElementById('pf-name').value.trim();
-  if (!name) { alert(LANG === 'si' ? 'කරුණාකර ඔබේ නම ඇතුළත් කරන්න.' : 'Please enter your name.'); return; }
-
-  SEEKERS.unshift({
-    name: name,
-    skill: document.getElementById('pf-skills').value || 'General',
-    skillSi: document.getElementById('pf-skills').value || 'සාමාන්‍ය',
-    city: document.getElementById('pf-city').value || 'Italy',
-    exp: document.getElementById('pf-exp').value || 'New',
-    lang: document.getElementById('pf-lang').value,
-    perm: document.getElementById('pf-perm').value === 'yes',
-    contact: document.getElementById('pf-email').value || ''
-  });
-
-  closePostForm();
-  showTab('seekers');
-  alert(LANG === 'si' ? '✅ පැතිකඩ පළ කරන ලදී!\n\n"' + name + '" දැන් සේවා යෝජකයින්ට දෘශ්‍යමානයි.' : '✅ Profile posted!\n\n"' + name + '" is now visible to employers.');
-}
-
-/* ══════════════════════════════════════════════════════════
-   CV GENERATOR
-   ══════════════════════════════════════════════════════════ */
-
-let cvStep = 1;
-
-function buildCVProg(step) {
-  cvStep = step;
-  const steps = [
-    {en:'Info',si:'තොරතුරු'},
-    {en:'Permit',si:'බලපත්‍ර'},
-    {en:'Work',si:'රැකියා'},
-    {en:'Skills',si:'කුසලතා'},
-    {en:'Done',si:'සූදානම්'}
+function populateCategories() {
+  const categories = [
+    { name: 'Elder Care', key: 'elder' },
+    { name: 'Cleaning', key: 'clean' },
+    { name: 'Babysitting', key: 'baby' },
+    { name: 'Factory', key: 'factory' }
   ];
-  const el = document.getElementById('cv-prog');
-  el.innerHTML = steps.map((s, i) => {
-    const n = i + 1;
-    const done = n < step;
-    const active = n === step;
-    return `<div class="prog-item${done ? ' done' : active ? ' active' : ''}" onclick="cvGo(${n})">
-      ${i < steps.length - 1 ? `<div class="prog-line" style="${done ? 'background:var(--success)' : ''}"></div>` : ''}
-      <div class="prog-dot">${done ? '✓' : n}</div>
-      <div class="prog-lbl">${LANG === 'si' ? s.si : s.en}</div>
-    </div>`;
-  }).join('');
+
+  const container = document.getElementById('categories');
+  container.innerHTML = categories.map(cat =>
+    `<div class="cat-chip" onclick="filterByCategory('${cat.key}')">${cat.name}</div>`
+  ).join('');
 }
 
-function cvGo(n) {
-  for (let i = 1; i <= 5; i++) {
-    const pane = document.getElementById('cvs' + i);
-    if (pane) pane.className = 'step-pane' + (i === n ? ' on' : '');
-  }
-  buildCVProg(n);
+function filterByCategory(key) {
+  const input = document.querySelector(`input[value="${key}"]`);
+  if (input) input.checked = true;
+  filterJobs();
 }
 
-function selTile(el, groupId) {
-  document.querySelectorAll('#' + groupId + ' .opt-tile').forEach(t => t.classList.remove('sel'));
-  el.classList.add('sel');
-}
-
-function cvDone() {
-  if (!document.getElementById('gdpr-chk').checked) {
-    alert(LANG === 'si' ? 'කරුණාකර GDPR සම්මතය ටික් කරන්න.' : 'Please accept the data consent.');
+function renderJobs(jobs) {
+  const container = document.getElementById('jobs-list');
+  if (!container) {
+    console.error('Container #jobs-list not found');
     return;
   }
-  cvGo(5);
-}
 
-function downloadCV() {
-  const btn = document.querySelector('.cv-dl-btn');
-  if (btn) { btn.querySelector('span').textContent = LANG === 'si' ? '⏳ PDF සාදමින්...' : '⏳ Generating PDF...'; btn.disabled = true; }
+  if (!jobs || !jobs.length) {
+    container.innerHTML = '<div style="padding:40px;text-align:center;color:var(--text-tertiary)">No jobs found</div>';
+    return;
+  }
 
-  const fname = document.getElementById('cv-fname')?.value || '';
-  const lname = document.getElementById('cv-lname')?.value || '';
-  const name = `${fname} ${lname}`.trim() || 'Nome Cognome';
-  const email = document.getElementById('cv-email')?.value || '';
-  const phone = document.getElementById('cv-phone')?.value || '';
-  const city = document.getElementById('cv-city')?.value || '';
-  const fiscal = document.getElementById('cv-fiscal')?.value || '';
-  const permitExp = document.getElementById('cv-permit-exp')?.value || '';
-  const permesso = document.querySelector('#perm-tiles .opt-tile.sel .ot-en')?.textContent || 'Non specificato';
-  const italianLevel = document.querySelector('#lang-tiles .opt-tile.sel .ot-en')?.textContent || 'A1';
-  const workType = document.querySelector('#work-tiles .opt-tile.sel .ot-en')?.textContent || '';
-  const employer = document.getElementById('cv-employer')?.value || '';
-  const years = document.getElementById('cv-years')?.value || '';
-  const duties = document.getElementById('cv-duties')?.value || '';
-  const skills = Array.from(document.querySelectorAll('.spick.on')).map(el => el.textContent.trim().split('/')[0].trim()).join(', ') || '';
-
-  loadJsPDF().then(() => {
-    try {
-      const {jsPDF} = window.jspdf;
-      const doc = new jsPDF();
-      let y = 20;
-
-      doc.setFillColor(37, 99, 235);
-      doc.rect(0, 0, 210, 40, 'F');
-      doc.setTextColor(255, 255, 255);
-      doc.setFontSize(22);
-      doc.text(name, 15, 20);
-      doc.setFontSize(10);
-      doc.text('EUROPASS CURRICULUM VITAE', 15, 28);
-      doc.setFontSize(9);
-      if (email || phone) doc.text([email, phone].filter(Boolean).join(' | '), 15, 35);
-      y = 50;
-
-      doc.setTextColor(0, 0, 0);
-
-      function section(title) {
-        doc.setFillColor(37, 99, 235);
-        doc.rect(15, y - 4, 180, 7, 'F');
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(11);
-        doc.text(title, 17, y + 1);
-        doc.setTextColor(0, 0, 0);
-        y += 10;
-      }
-
-      function row(label, value) {
-        if (!value) return;
-        doc.setFontSize(9);
-        doc.setFont(undefined, 'bold');
-        doc.text(label + ':', 17, y);
-        doc.setFont(undefined, 'normal');
-        const lines = doc.splitTextToSize(value, 130);
-        doc.text(lines, 60, y);
-        y += lines.length * 5 + 2;
-      }
-
-      section('PERSONAL INFORMATION / DATI PERSONALI');
-      row('Full Name / Nome', name);
-      row('City / Città', city);
-      row('Phone / Telefono', phone);
-      row('Email', email);
-      row('Codice Fiscale', fiscal);
-
-      y += 5;
-      section('PERMIT STATUS / PERMESSO DI SOGGIORNO');
-      row('Type / Tipo', permesso);
-      row('Expiry / Scadenza', permitExp);
-      row('Italian Level / Livello Italiano', italianLevel);
-
-      y += 5;
-      section('WORK EXPERIENCE / ESPERIENZA LAVORATIVA');
-      row('Desired Role / Ruolo', workType);
-      row('Previous Employer / Datore', employer);
-      row('Years / Anni', years ? years + ' years' : '');
-      if (duties) {
-        row('Main Duties / Mansioni', duties);
-      }
-
-      y += 5;
-      section('SKILLS / COMPETENZE');
-      if (skills) row('Skills / Abilità', skills);
-
-      y += 10;
-      doc.setFontSize(7);
-      doc.setTextColor(150, 150, 150);
-      doc.text('Generated by lankajobitaly.com — Europass CV Format', 15, y);
-      doc.text('GDPR consent confirmed by user', 15, y + 4);
-
-      doc.save(`CV_${name.replace(/\s+/g, '_')}_Europass.pdf`);
-
-      if (btn) { btn.querySelector('span').textContent = t('cv.download'); btn.disabled = false; }
-    } catch(e) {
-      console.error('PDF generation error:', e);
-      alert('Error generating PDF. Please try again.');
-      if (btn) { btn.querySelector('span').textContent = t('cv.download'); btn.disabled = false; }
-    }
-  });
-}
-
-function loadJsPDF() {
-  return new Promise(resolve => {
-    if (window.jspdf) { resolve(); return; }
-    const s = document.createElement('script');
-    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
-    s.onload = resolve;
-    s.onerror = () => { alert('Failed to load PDF library.'); resolve(); };
-    document.head.appendChild(s);
-  });
-}
-
-/* ══════════════════════════════════════════════════════════
-   SERVICES
-   ══════════════════════════════════════════════════════════ */
-
-function renderServices() {
-  const el = document.getElementById('svc-list');
-  el.innerHTML = SERVICES.map(s => {
-    const title = LANG === 'si' ? s.titleSi : s.title;
-    const desc = LANG === 'si' ? s.descSi : s.desc;
-    return `<div class="svc-card">
-      <div class="ico">${s.icon}</div>
-      <h3>${title}</h3>
-      <div class="desc">${desc}</div>
-      <div class="price">${s.price}</div>
-      <button class="contact-svc" onclick="window.location.href='mailto:${ADMIN_EMAIL}?subject=${encodeURIComponent(s.title + ' Inquiry')}'">📧 ${t('svc.contact')}</button>
-    </div>`;
-  }).join('');
-}
-
-/* ══════════════════════════════════════════════════════════
-   RESTAURANTS
-   ══════════════════════════════════════════════════════════ */
-
-function renderRestaurants() {
-  const el = document.getElementById('resto-list');
-  el.innerHTML = RESTAURANTS.map(r => {
-    const desc = LANG === 'si' ? r.descSi : r.desc;
-    const cuisine = LANG === 'si' ? r.cuisineSi : r.cuisine;
-    const stars = '⭐'.repeat(Math.floor(r.rating));
-    return `<div class="resto-card">
-      <h3>${r.name}</h3>
-      <div class="cuisine">${cuisine}</div>
-      <div class="info-row">📍 ${r.address}, ${r.city}</div>
-      <div class="info-row">📞 ${r.phone}</div>
-      <p style="font-size:.85rem;color:var(--text2);margin-top:8px">${desc}</p>
-      <div class="rating">${stars} ${r.rating}</div>
-    </div>`;
-  }).join('');
-}
-
-/* ══════════════════════════════════════════════════════════
-   ITALIAN SITES
-   ══════════════════════════════════════════════════════════ */
-
-function renderSites() {
-  const el = document.getElementById('sites-list');
-  el.innerHTML = ITALIAN_SITES.map((s, i) => `
-    <a class="site-link" href="${s.url}" target="_blank" rel="noopener">
-      <span class="num">${i + 1}</span>
-      <div>
-        <div style="font-weight:600">${s.name}</div>
-        <div class="desc-si">${s.descSi}</div>
+  container.innerHTML = jobs.map(job => `
+    <div class="job-card">
+      <div class="job-header">
+        <div class="job-icon">${job.ico || '💼'}</div>
+        <div class="job-info">
+          <div class="job-title">${job.title}</div>
+          ${job.sin ? `<div class="job-sin">${job.sin}</div>` : ''}
+          <div class="job-company">${job.company} · ${job.city}</div>
+        </div>
       </div>
-    </a>
+      <div class="job-meta">
+        <span class="meta-tag">${job.type}</span>
+        ${job.isNew ? '<span class="badge badge-new">New</span>' : ''}
+        ${job.urgent ? '<span class="badge badge-urgent">Urgent</span>' : ''}
+        ${job.featured ? '<span class="badge badge-featured">Featured</span>' : ''}
+      </div>
+      <div class="job-desc">${job.desc}</div>
+      <div class="job-footer">
+        <span class="salary">${job.salary}</span>
+        <div class="job-actions">
+          <button class="icon-btn" onclick="saveJob(${job.id})" title="Save">♡</button>
+          <button class="apply-btn" onclick="applyJob(${job.id})">Apply Now</button>
+        </div>
+      </div>
+    </div>
   `).join('');
 }
 
-/* ══════════════════════════════════════════════════════════
-   APPLY
-   ══════════════════════════════════════════════════════════ */
+function filterJobs() {
+  const search = document.getElementById('search-input').value.toLowerCase();
+  const category = document.querySelector('input[name="category"]:checked').value;
 
-let uploadedCVFile = null;
-
-document.addEventListener('change', function(e) {
-  if (e.target.id === 'ap-cv') uploadedCVFile = e.target.files[0] || null;
-});
-
-function validateApplyForm() {
-  const name = document.getElementById('ap-name').value.trim();
-  const phone = document.getElementById('ap-phone').value.trim();
-  const email = document.getElementById('ap-email').value.trim();
-  const gdpr = document.getElementById('ap-gdpr').checked;
-
-  if (!name) {
-    alert(LANG === 'si' ? 'කරුණාකර ඔබේ නම ඇතුළත් කරන්න.' : 'Please enter your name.');
-    return false;
+  let filtered = JOBS;
+  if (search) {
+    filtered = filtered.filter(j =>
+      j.title.toLowerCase().includes(search) ||
+      j.company.toLowerCase().includes(search) ||
+      j.city.toLowerCase().includes(search)
+    );
   }
-  if (!phone && !email) {
-    alert(LANG === 'si' ? 'කරුණාකර දුරකථනය හෝ ඊමේල් එක ඇතුළත් කරන්න.' : 'Please enter at least your phone OR email.');
-    return false;
-  }
-  if (!gdpr) {
-    alert(LANG === 'si' ? 'කරුණාකර GDPR සම්මතය ටික් කරන්න.' : 'Please accept the data consent checkbox.');
-    return false;
-  }
-  return true;
-}
-
-function submitViaWhatsApp() {
-  if (!validateApplyForm()) return;
-
-  const name = document.getElementById('ap-name').value.trim();
-  const phone = document.getElementById('ap-phone').value.trim();
-  const email = document.getElementById('ap-email').value.trim();
-  const city = document.getElementById('ap-city').value.trim();
-  const perm = document.getElementById('ap-perm').value;
-  const exp = document.getElementById('ap-exp').value;
-  const msg = document.getElementById('ap-msg').value.trim();
-  const cvName = uploadedCVFile ? uploadedCVFile.name : 'No CV attached';
-
-  const jobTitle = document.getElementById('jd-title').textContent;
-
-  const whatsappMsg = `🇱🇰 *JOB APPLICATION via LankaJobItaly.com*\n\n*Job:* ${jobTitle}\n\n*Applicant Details:*\n━━━━━━━━━━━━━━━━\n*Name:* ${name}\n*Phone:* ${phone || 'Not provided'}\n*Email:* ${email || 'Not provided'}\n*City:* ${city || 'Not provided'}\n*Permesso:* ${perm || 'Not provided'}\n*Experience:* ${exp || 'Not provided'}\n\n*Message:*\n${msg || '(No message)'}\n\n*CV:* ${cvName}\n━━━━━━━━━━━━━━━━\nGDPR consent: ✓ Confirmed`;
-
-  const url = `https://wa.me/${ADMIN_WHATSAPP.replace(/\D/g, '')}?text=${encodeURIComponent(whatsappMsg)}`;
-  window.open(url, '_blank');
-  showApplySuccess('whatsapp');
-  trackApplication(jobTitle);
-}
-
-function submitViaEmail() {
-  if (!validateApplyForm()) return;
-
-  const name = document.getElementById('ap-name').value.trim();
-  const phone = document.getElementById('ap-phone').value.trim();
-  const email = document.getElementById('ap-email').value.trim();
-  const city = document.getElementById('ap-city').value.trim();
-  const perm = document.getElementById('ap-perm').value;
-  const exp = document.getElementById('ap-exp').value;
-  const msg = document.getElementById('ap-msg').value.trim();
-
-  const jobTitle = document.getElementById('jd-title').textContent;
-  const subject = `Job Application: ${jobTitle} - ${name}`;
-  const body = `JOB APPLICATION via LankaJobItaly.com\n\nJob: ${jobTitle}\n\nAPPLICANT DETAILS:\n━━━━━━━━━━━━━━━━\nName: ${name}\nPhone: ${phone || 'Not provided'}\nEmail: ${email || 'Not provided'}\nCity: ${city || 'Not provided'}\nPermesso: ${perm || 'Not provided'}\nExperience: ${exp || 'Not provided'}\n\nMESSAGE:\n${msg || '(No message)'}\n\n━━━━━━━━━━━━━━━━\nGDPR consent: Confirmed\nSent via lankajobitaly.com`;
-
-  window.location.href = `mailto:${ADMIN_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  showApplySuccess('email');
-  trackApplication(jobTitle);
-}
-
-function showApplySuccess(method) {
-  document.getElementById('apply-form-wrap').style.display = 'none';
-  document.getElementById('apply-success').classList.add('show');
-  const nextSteps = method === 'whatsapp'
-    ? (LANG === 'si' ? 'WhatsApp විවෘත වී ඇත. ඔබේ අයදුම්පත යැවීමට පණිවිඩය යවන්න.' : 'WhatsApp has opened. Send the message to submit your application.')
-    : (LANG === 'si' ? 'ඔබේ ඊමේල් යෙදුම විවෘත වී ඇත. අයදුම්පත යැවීමට ඊමේල් එක යවන්න.' : 'Your email app has opened. Send the email to submit your application.');
-  document.getElementById('as-next-steps').textContent = nextSteps;
-}
-
-function trackApplication(jobTitle) {
-  let apps = JSON.parse(localStorage.getItem('lji_apps') || '[]');
-  apps.push({ title: jobTitle, date: new Date().toISOString().split('T')[0] });
-  localStorage.setItem('lji_apps', JSON.stringify(apps));
-  document.getElementById('app-count').textContent = apps.length;
-}
-
-/* ══════════════════════════════════════════════════════════
-   AI WRITER (GEMINI)
-   ══════════════════════════════════════════════════════════ */
-
-function toggleAI() {
-  document.getElementById('ai-modal').classList.toggle('show');
-}
-
-async function generateAI() {
-  const input = document.getElementById('ai-input').value.trim();
-  if (!input) { alert(LANG === 'si' ? 'කරුණාකර රැකියාව විස්තර කරන්න.' : 'Please describe the job first.'); return; }
-
-  if (GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY') {
-    const el = document.getElementById('ai-result');
-    el.style.display = 'block';
-    el.textContent = LANG === 'si'
-      ? '⚠️ Gemini API යතුර තවම වින්‍යාස කර නැත. https://ai.google.dev වෙතින් නොමිලේ API යතුරක් ලබා ගන්න.'
-      : '⚠️ Gemini API key not configured yet. Get a free API key at https://ai.google.dev and update GEMINI_API_KEY in the code.';
-    return;
+  if (category !== 'all') {
+    filtered = filtered.filter(j => j.typeKey === category);
   }
 
-  const btn = document.querySelector('.gen-btn');
-  btn.textContent = LANG === 'si' ? '⏳ සාදමින්...' : '⏳ Generating...';
-  btn.disabled = true;
-
-  try {
-    const prompt = `Write a professional job description for a job posting in Italy. The job is: ${input}. Include: Job Title, Company overview (make one up if needed), Responsibilities (5 bullet points), Requirements (4 bullet points), What We Offer (3 bullet points). Keep it professional and concise. Write in English.`;
-
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        contents: [{parts: [{text: prompt}]}]
-      })
-    });
-
-    const data = await res.json();
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || 'No response generated.';
-
-    const el = document.getElementById('ai-result');
-    el.textContent = text;
-    el.style.display = 'block';
-    document.getElementById('ai-copy').classList.remove('hide');
-  } catch(e) {
-    document.getElementById('ai-result').textContent = 'Error: ' + e.message;
-    document.getElementById('ai-result').style.display = 'block';
-  }
-
-  btn.textContent = t('ai.generate');
-  btn.disabled = false;
+  renderJobs(filtered);
 }
 
-function copyAI() {
-  const text = document.getElementById('ai-result').textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById('ai-copy');
-    btn.textContent = LANG === 'si' ? '✅ පිටපත් කරන ලදී!' : '✅ Copied!';
-    setTimeout(() => btn.textContent = t('ai.copy'), 2000);
-  });
+function updateCounts() {
+  document.getElementById('count-all').textContent = JOBS.length;
+  document.getElementById('count-elder').textContent = JOBS.filter(j => j.typeKey === 'elder').length;
+  document.getElementById('count-clean').textContent = JOBS.filter(j => j.typeKey === 'clean').length;
+  document.getElementById('count-baby').textContent = JOBS.filter(j => j.typeKey === 'baby').length;
+  document.getElementById('count-factory').textContent = JOBS.filter(j => j.typeKey === 'factory').length;
 }
 
-/* ══════════════════════════════════════════════════════════
-   INIT
-   ══════════════════════════════════════════════════════════ */
-
-function init() {
-  initFirebase();
-  buildCatStrip();
-  buildFilterCats();
-  renderSites();
-  renderServices();
-  renderRestaurants();
-  buildCVProg(1);
-
-  const views = JSON.parse(localStorage.getItem('lji_views') || '[]');
-  const apps = JSON.parse(localStorage.getItem('lji_apps') || '[]');
-  document.getElementById('view-count').textContent = views.length;
-  document.getElementById('app-count').textContent = apps.length;
-
-  loadJobs('', '');
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      closeJobModal();
-      closeAuth();
-      closePostForm();
-      document.getElementById('ai-modal').classList.remove('show');
+function changeLanguage(lang) {
+  currentLang = lang;
+  const buttons = document.querySelectorAll('.lang-btn');
+  buttons.forEach((btn, idx) => {
+    if (idx === (lang === 'en' ? 0 : 1)) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
     }
   });
+
+  const trans = translations[lang];
+  if (trans) {
+    document.getElementById('hero-title').textContent = trans.heroTitle;
+    document.getElementById('hero-desc').textContent = trans.heroDesc;
+    document.getElementById('search-input').placeholder = trans.searchPlaceholder;
+  }
 }
 
-init();
+document.querySelectorAll('input[name="category"]').forEach(input => {
+  input.addEventListener('change', filterJobs);
+});
+
+function showLoginModal() {
+  if (currentUser) {
+    currentUser = null;
+    document.getElementById('account-status').textContent = 'Sign in to save jobs and track applications';
+  } else {
+    document.getElementById('loginModal').classList.add('show');
+  }
+}
+
+function hideLoginModal() {
+  document.getElementById('loginModal').classList.remove('show');
+  document.getElementById('registerModal').classList.remove('show');
+}
+
+function toggleForms() {
+  document.getElementById('loginModal').classList.toggle('show');
+  document.getElementById('registerModal').classList.toggle('show');
+}
+
+function handleLogin(e) {
+  e.preventDefault();
+  const email = e.target.elements[0].value;
+  currentUser = { email, name: email.split('@')[0] };
+  hideLoginModal();
+  document.getElementById('account-status').textContent = `Signed in as ${currentUser.name}`;
+}
+
+function handleRegister(e) {
+  e.preventDefault();
+  const name = e.target.elements[0].value;
+  const email = e.target.elements[1].value;
+  currentUser = { email, name };
+  hideLoginModal();
+  document.getElementById('account-status').textContent = `Welcome, ${name}!`;
+}
+
+function applyJob(jobId) {
+  if (!currentUser) {
+    alert('Please sign in to apply');
+    showLoginModal();
+    return;
+  }
+  alert(`Applied to job #${jobId}. Check your email for next steps.`);
+}
+
+function saveJob(jobId) {
+  if (!currentUser) {
+    alert('Please sign in to save jobs');
+    showLoginModal();
+    return;
+  }
+  alert(`Job #${jobId} saved to your list`);
+}
+
+function showPostJobModal() {
+  alert('Post a job feature - contact admin@lankajobitaly.com');
+}
+
+function showPremiumModal() {
+  alert('Premium features:\n- Featured job listing\n- Urgent job badge\n- Direct messaging with workers\n\nContact for pricing: admin@lankajobitaly.com');
+}
+
+loadJobs();
 </script>
 </body>
 </html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Lanka Entertainment Italy – Karaoke, Drama & Restaurants</title>
+<meta name="description" content="Sri Lankan entertainment in Italy: Karaoke nights, drama shows, and authentic restaurants."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --purple:#7c3aed;--purple-light:#f3e8ff;--purple-border:#e9d5ff;
+  --orange:#d97706;--orange-light:#fef3c7;--orange-border:#fde68a;
+  --teal:#059669;--teal-light:#ecfdf5;--teal-border:#a7f3d0;
+  --text-primary:#111827;--text-secondary:#6b7280;--text-tertiary:#9ca3af;
+  --white:#ffffff;--gray:#f9fafb;--spacing:16px;--radius:8px;
+  --shadow:0 1px 3px 0 rgba(0,0,0,.1);
+}
+html,body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;color:var(--text-primary);background:var(--white)}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none}
+
+/* Header */
+header{background:var(--white);border-bottom:1px solid #e5e7eb;padding:12px var(--spacing);position:sticky;top:0;z-index:100}
+.header-wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:var(--spacing)}
+.logo{font-size:20px;font-weight:800;color:var(--text-primary);display:flex;align-items:center;gap:8px}
+.logo-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--purple),var(--orange));color:white;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--text-secondary);font-weight:500;font-size:14px}
+.nav-links a:hover{color:var(--text-primary)}
+.back-to-jobs{padding:8px 16px;background:var(--purple);color:white;border-radius:var(--radius);font-weight:600;font-size:14px}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--purple-light),var(--orange-light));padding:48px var(--spacing);text-align:center}
+.hero-inner{max-width:640px;margin:0 auto}
+.hero h1{font-size:clamp(28px,5vw,44px);font-weight:800;margin-bottom:12px;color:var(--text-primary)}
+.hero p{font-size:16px;color:var(--text-secondary);margin-bottom:24px;line-height:1.5}
+
+/* Main */
+.main{max-width:1200px;margin:0 auto;padding:32px var(--spacing)}
+
+/* Section */
+.section{margin-bottom:48px}
+.section-title{font-size:28px;font-weight:800;margin-bottom:24px;color:var(--text-primary)}
+.section.karaoke .section-title{color:var(--purple)}
+.section.drama .section-title{color:var(--orange)}
+.section.restaurants .section-title{color:var(--teal)}
+
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+
+.card{background:var(--white);border:1px solid #e5e7eb;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:all .2s}
+.card:hover{border-color:var(--text-primary);box-shadow:0 4px 12px rgba(0,0,0,.1);transform:translateY(-2px)}
+
+.card-image{width:100%;height:200px;background:linear-gradient(135deg,#f0f0f0,#e0e0e0);display:flex;align-items:center;justify-content:center;font-size:48px}
+.section.karaoke .card-image{background:linear-gradient(135deg,var(--purple-light),#e9d5ff)}
+.section.drama .card-image{background:linear-gradient(135deg,var(--orange-light),#fed7aa)}
+.section.restaurants .card-image{background:linear-gradient(135deg,var(--teal-light),#a7f3d0)}
+
+.card-body{padding:16px}
+.card-title{font-weight:700;margin-bottom:6px;font-size:15px;color:var(--text-primary)}
+.card-location{font-size:12px;color:var(--text-secondary);margin-bottom:12px;display:flex;align-items:center;gap:4px}
+.card-desc{font-size:13px;color:var(--text-secondary);line-height:1.5;margin-bottom:12px}
+.card-info{font-size:12px;color:var(--text-tertiary);margin-bottom:12px}
+.card-button{display:inline-block;padding:8px 16px;background:var(--purple);color:white;border-radius:var(--radius);font-weight:600;font-size:12px}
+.section.drama .card-button{background:var(--orange)}
+.section.restaurants .card-button{background:var(--teal)}
+.card-button:hover{opacity:.9}
+
+/* Footer */
+footer{background:var(--text-primary);color:white;padding:32px var(--spacing);margin-top:48px}
+.footer-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-section h4{margin-bottom:12px;font-size:14px;font-weight:600}
+.footer-section a{color:#e5e7eb;font-size:13px;display:block;margin-bottom:6px}
+.footer-section a:hover{color:white}
+.footer-bottom{text-align:center;margin-top:24px;font-size:12px;color:#d1d5db}
+
+@media(max-width:768px){
+  .header-wrap{flex-wrap:wrap}.logo{flex:1}
+  .nav-links{display:none}
+  .hero{padding:32px var(--spacing)}
+  .cards-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-wrap">
+    <div class="logo">
+      <div class="logo-icon">🎭</div>
+      <span>Lanka Entertainment</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#karaoke">Karaoke</a>
+      <a href="#drama">Drama</a>
+      <a href="#restaurants">Restaurants</a>
+    </nav>
+    <a href="https://lankajobitaly.com" class="back-to-jobs">← Back to Jobs</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>🎭 Sri Lankan Entertainment in Italy</h1>
+    <p>Discover authentic karaoke nights, drama shows, and restaurants featuring Sri Lankan culture</p>
+  </div>
+</section>
+
+<main class="main">
+
+  <!-- KARAOKE SECTION -->
+  <section class="section karaoke" id="karaoke">
+    <h2 class="section-title">🎤 Karaoke Nights</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-image">🎤</div>
+        <div class="card-body">
+          <div class="card-title">Sri Lanka Sounds Karaoke</div>
+          <div class="card-location">📍 Milan</div>
+          <div class="card-desc">Every Friday & Saturday night. Sri Lankan, Tamil, and English songs. Great food & drinks.</div>
+          <div class="card-info">📞 +39 02 1234 5678</div>
+          <a href="#" class="card-button">Book Now</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">🎤</div>
+        <div class="card-body">
+          <div class="card-title">Lanka Vibes Karaoke Bar</div>
+          <div class="card-location">📍 Verona</div>
+          <div class="card-desc">Wednesday to Sunday. Sing your favorite Sri Lankan hits with friends.</div>
+          <div class="card-info">📞 +39 045 8765 432</div>
+          <a href="#" class="card-button">Book Now</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">🎤</div>
+        <div class="card-body">
+          <div class="card-title">Colombo Karaoke Nights</div>
+          <div class="card-location">📍 Rome</div>
+          <div class="card-desc">Premium karaoke experience with professional sound system. Private rooms available.</div>
+          <div class="card-info">📞 +39 06 9876 5432</div>
+          <a href="#" class="card-button">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRAMA SECTION -->
+  <section class="section drama" id="drama">
+    <h2 class="section-title">🎭 Drama Shows & Events</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-image">🎭</div>
+        <div class="card-body">
+          <div class="card-title">Sri Lankan Drama Theater</div>
+          <div class="card-location">📍 Milan</div>
+          <div class="card-desc">Monthly drama performances featuring classic and contemporary Sri Lankan plays.</div>
+          <div class="card-info">Next show: June 15</div>
+          <a href="#" class="card-button">Get Tickets</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">🎭</div>
+        <div class="card-body">
+          <div class="card-title">Lanka Cultural Nights</div>
+          <div class="card-location">📍 Turin</div>
+          <div class="card-desc">Live performances, music, and dance celebrating Sri Lankan heritage.</div>
+          <div class="card-info">Every 2nd Saturday</div>
+          <a href="#" class="card-button">Join Us</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">🎭</div>
+        <div class="card-body">
+          <div class="card-title">Tamil Theatre Collective</div>
+          <div class="card-location">📍 Bologna</div>
+          <div class="card-desc">Tamil language drama productions and cultural performances for the community.</div>
+          <div class="card-info">📞 +39 051 1234 567</div>
+          <a href="#" class="card-button">Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESTAURANTS SECTION -->
+  <section class="section restaurants" id="restaurants">
+    <h2 class="section-title">🍽️ Authentic Sri Lankan Restaurants</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-image">🍛</div>
+        <div class="card-body">
+          <div class="card-title">Colombo Kitchen</div>
+          <div class="card-location">📍 Milan</div>
+          <div class="card-desc">Authentic Sri Lankan cuisine. Curry, rice, kottu, and more. Family-friendly atmosphere.</div>
+          <div class="card-info">📞 +39 02 3456 7890 | Mon-Sun 11AM-11PM</div>
+          <a href="#" class="card-button">Reserve Table</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">🍛</div>
+        <div class="card-body">
+          <div class="card-title">Spice Route Restaurant</div>
+          <div class="card-location">📍 Verona</div>
+          <div class="card-desc">Sri Lankan and South Asian fusion. Traditional recipes with modern presentation.</div>
+          <div class="card-info">📞 +39 045 1234 567 | Closed Mondays</div>
+          <a href="#" class="card-button">Reserve Table</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">🍛</div>
+        <div class="card-body">
+          <div class="card-title">Lanka's Home Cooking</div>
+          <div class="card-location">📍 Rome</div>
+          <div class="card-desc">Home-style Sri Lankan food. Special catering for events. Mother's recipes.</div>
+          <div class="card-info">📞 +39 06 5678 9012</div>
+          <a href="#" class="card-button">Order Now</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">🍛</div>
+        <div class="card-body">
+          <div class="card-title">Kandy Tea House & Restaurant</div>
+          <div class="card-location">📍 Bologna</div>
+          <div class="card-desc">Sri Lankan tea, snacks, and full meals. Beautiful traditional decor.</div>
+          <div class="card-info">📞 +39 051 9876 543 | Daily 9AM-10PM</div>
+          <a href="#" class="card-button">Visit Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-section">
+      <h4>Entertainment</h4>
+      <a href="#karaoke">Karaoke</a>
+      <a href="#drama">Drama Shows</a>
+      <a href="#restaurants">Restaurants</a>
+    </div>
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <a href="https://lankajobitaly.com">Job Portal</a>
+      <a href="#">Contact Us</a>
+      <a href="#">Events Calendar</a>
+    </div>
+    <div class="footer-section">
+      <h4>Community</h4>
+      <a href="#">Sri Lankan Meetups</a>
+      <a href="#">Cultural Events</a>
+      <a href="#">Forum</a>
+    </div>
+    <div class="footer-section">
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 Lanka Entertainment Italy. Celebrating Sri Lankan culture in Italy.</div>
+</footer>
+
+</body>
+</html>
