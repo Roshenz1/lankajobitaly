@@ -195,6 +195,14 @@
     .text-warning{color:var(--warning)}
     .highlight{background:#fef08a;padding:2px 6px;border-radius:3px}
 
+    /* Tab System */
+    .tab-navigation{display:flex;gap:8px;justify-content:center;margin-bottom:32px;flex-wrap:wrap;border-bottom:2px solid var(--dark-border)}
+    .tab-btn{padding:14px 28px;background:none;color:var(--gray);font-weight:600;font-size:15px;cursor:pointer;border:none;border-bottom:3px solid transparent;transition:all .3s;margin-bottom:-2px}
+    .tab-btn.active{color:var(--primary);border-bottom-color:var(--primary)}
+    .tab-btn:hover{color:var(--primary)}
+    .tab-content{display:none}
+    .tab-content.active{display:block}
+
     @media(max-width:768px){
       .main{padding:24px var(--spacing)}
       .section{margin-bottom:48px}
@@ -205,6 +213,8 @@
       .hero-cta{flex-direction:column}
       .cta-btn{width:100%}
       .process-grid{grid-template-columns:1fr}
+      .tab-navigation{margin-bottom:24px}
+      .tab-btn{padding:12px 16px;font-size:13px}
     }
   </style>
 </head>
@@ -249,6 +259,15 @@
 </section>
 
 <main class="main">
+
+  <!-- TAB NAVIGATION -->
+  <div class="tab-navigation">
+    <button class="tab-btn active" onclick="switchTab('tab-license')">📋 License Conversion Guide</button>
+    <button class="tab-btn" onclick="switchTab('tab-buying')">🚗 Car Buying Guide</button>
+  </div>
+
+  <!-- TAB 1: LICENSE CONVERSION -->
+  <div id="tab-license" class="tab-content active">
 
   <!-- ELIGIBILITY CHECKER -->
   <section class="section">
@@ -923,6 +942,443 @@
     </div>
   </section>
 
+  </div><!-- End Tab 1 -->
+
+  <!-- TAB 2: CAR BUYING GUIDE -->
+  <div id="tab-buying" class="tab-content">
+
+  <!-- CAR BUYING WEBSITES & FILTERS (MOVED UP) -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">🌐</span>
+      <span>BUY USED AND NEW VEHICLES | ඉතාලි වාහන ගිණුම් වෙබ්සයිටු | Siti di Compravendita Auto</span>
+    </h2>
+
+    <div style="margin-bottom:24px;padding:16px;background:var(--dark-light);border-radius:var(--radius)">
+      <h4 style="margin-bottom:12px">🔍 SEARCH VEHICLES | වාහන සොයන්න | <strong>Cerca Auto</strong></h4>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px">
+        <a href="https://www.subito.it/auto/" target="_blank" style="display:inline-block;padding:10px 16px;background:white;border:1px solid var(--dark-border);border-radius:var(--radius);text-align:center;font-weight:600;color:var(--primary)">🏷️ Subito.it</a>
+        <a href="https://www.auto.it" target="_blank" style="display:inline-block;padding:10px 16px;background:white;border:1px solid var(--dark-border);border-radius:var(--radius);text-align:center;font-weight:600;color:var(--primary)">🚙 Auto.it</a>
+        <a href="https://www.immobiliare.it/ricerca/auto/" target="_blank" style="display:inline-block;padding:10px 16px;background:white;border:1px solid var(--dark-border);border-radius:var(--radius);text-align:center;font-weight:600;color:var(--primary)">🏠 Immobiliare</a>
+        <a href="https://auto.virgilio.it" target="_blank" style="display:inline-block;padding:10px 16px;background:white;border:1px solid var(--dark-border);border-radius:var(--radius);text-align:center;font-weight:600;color:var(--primary)">💻 Virgilio Auto</a>
+        <a href="https://www.trovaprezzi.it/prezzi_auto.aspx" target="_blank" style="display:inline-block;padding:10px 16px;background:white;border:1px solid var(--dark-border);border-radius:var(--radius);text-align:center;font-weight:600;color:var(--primary)">💰 Trovaprezzi</a>
+        <a href="https://www.automobile.it" target="_blank" style="display:inline-block;padding:10px 16px;background:white;border:1px solid var(--dark-border);border-radius:var(--radius);text-align:center;font-weight:600;color:var(--primary)">🎯 Automobile.it</a>
+      </div>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-title">🏷️ Subito.it - Classifieds Platform</div>
+        <div class="card-text">
+          <strong>Most Popular Classifieds | ඉතාලියේ වඩාත්ම ජනප්‍රිය ශ්‍රේණිගතකරණ</strong><br/>
+          <strong>Marketplace online più popolare</strong>. New, used, private sellers, and dealers.
+        </div>
+        <div class="card-meta">✅ New & Used Cars | නව සහ භාවිත | <strong>Nuove e Usate</strong><br/>✅ Best Prices | නිවසේ මිල | <strong>Prezzi Migliori</strong><br/>✅ Easy Filters | පහසු ෆිල්ටර | <strong>Filtri Facili</strong></div>
+        <a href="https://www.subito.it/auto/" target="_blank" class="card-link">VISIT | බලන්න | Visita</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🚙 Auto.it - Dealer Platform</div>
+        <div class="card-text">
+          <strong>Specialized Car Buying | විශේෂිත වාහන ගිණුම් වෙබ්සයිටුව</strong><br/>
+          <strong>Piattaforma specializzata</strong> with verified <strong>concessionari</strong> (dealers).
+        </div>
+        <div class="card-meta">✅ Official Dealers | නිල වඩාකරුවින් | <strong>Concessionari</strong><br/>✅ Certified Prices | නිරුපිතව | <strong>Prezzi Certificati</strong><br/>✅ Full History | සම්පූර්ණ ඉතිහාසය | <strong>Storico Incluso</strong></div>
+        <a href="https://www.auto.it" target="_blank" class="card-link">VISIT | බලන්න | Visita</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🏠 Immobiliare.it - Large Portal</div>
+        <div class="card-text">
+          <strong>Real Estate & Vehicles | නිවස සහ වාහන සඳහා විශාල වෙබ්සයිටුව</strong><br/>
+          <strong>Portale immobiliare</strong> with complete vehicle section.
+        </div>
+        <div class="card-meta">✅ Wide Selection | පුළුල් තේරීම | <strong>Ampia Scelta</strong><br/>✅ Private Listings | පුද්ගලිකයින්ගෙන් | <strong>Annunci Privati</strong><br/>✅ Good Prices | නිකුත් දර | <strong>Prezzi Buoni</strong></div>
+        <a href="https://www.immobiliare.it/ricerca/auto/" target="_blank" class="card-link">VISIT | බලන්න | Visita</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💻 Virgilio Auto - Search Engine</div>
+        <div class="card-text">
+          <strong>Search Multiple Platforms | Virgilio සෙවුම් එන්ජිනයෙන් වාහන සොයා ගන්න</strong><br/>
+          <strong>Motore di ricerca</strong> with offers from multiple platforms.
+        </div>
+        <div class="card-meta">✅ Multiple Platforms | බහු තහඩුවලි | <strong>Multi Piattaforme</strong><br/>✅ Comparable Prices | සිතුවුවු | <strong>Prezzi Comparabili</strong><br/>✅ Automatic Search | සෙවුම | <strong>Ricerca Automatica</strong></div>
+        <a href="https://auto.virgilio.it" target="_blank" class="card-link">VISIT | බලන්න | Visita</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💰 Trovaprezzi - Price Comparison</div>
+        <div class="card-text">
+          <strong>Compare Vehicle Prices | වාහන මිල සැසඳුම් වෙබ්සයිටුව</strong><br/>
+          <strong>Comparatore prezzi</strong> specialized for vehicles.
+        </div>
+        <div class="card-meta">✅ Price Comparison | මිල සිතුවුවු | <strong>Confronto Prezzi</strong><br/>✅ By Model | ශ්‍රේණි අනුව | <strong>Per Modello</strong><br/>✅ Find Best Deals | හොඳම දර | <strong>Miglior Offerta</strong></div>
+        <a href="https://www.trovaprezzi.it/prezzi_auto.aspx" target="_blank" class="card-link">VISIT | බලන්න | Visita</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎯 Automobile.it - Official Dealers</div>
+        <div class="card-text">
+          <strong>Official Car Sales Portal | ඉතාලි නිල වාහන විකිණීමේ වෙබ්සයිටුව</strong><br/>
+          <strong>Portale ufficiale</strong> with major Italian <strong>concessionari</strong>.
+        </div>
+        <div class="card-meta">✅ Official Dealers | නිල වඩාකරුවින් | <strong>Concessionari Ufficiali</strong><br/>✅ Complete History | සම්පූර්ණ ඉතිහාසය | <strong>Storico Completo</strong><br/>✅ With Warranties | ඉතිරි සහිත | <strong>Con Garanzie</strong></div>
+        <a href="https://www.automobile.it" target="_blank" class="card-link">VISIT | බලන්න | Visita</a>
+      </div>
+    </div>
+
+    <div style="padding:24px;background:var(--dark-light);border-radius:var(--radius);margin-top:24px">
+      <h3 style="margin-bottom:12px">💡 CAR BUYING TIPS | වාහන මිලදීගැනීමටේ ඉඟි | <strong>Consigli per l'Acquisto</strong></h3>
+      <ul style="font-size:13px;line-height:1.8;margin-left:20px">
+        <li><strong>CHECK PRICE | Prezzo (මිල):</strong> සෑම දුරකටම වාහනයේ මිල සැසඳුම් කරන්න. <strong>Confrontare sempre i prezzi</strong> su multiple piattaforme.</li>
+        <li><strong>CHECK MILEAGE | Chilometri (දුර):</strong> දිගු දුර මිලදීගැනීමට ඉතා වැදගත්. <strong>Verificare i km percorsi</strong> - high km = expensive maintenance.</li>
+        <li><strong>GET INSPECTION | Revisione (පරීක්ෂණ):</strong> සෑම විටම නිල යාන්ත්‍රිකයෙන් පරීක්ෂා කරවන්න. <strong>Fare sempre una revisione tecnica</strong> completa.</li>
+        <li><strong>CHECK HISTORY | Storico (ඉතිහාසය):</strong> ඉතාලි වාහනයේ පසුබිම දෙස බලන්න. <strong>Verificare se la macchina</strong> è stata rubata o ha debiti.</li>
+        <li><strong>GET WARRANTY | Garanzia (ඉතිරි):</strong> විකිණුම්කරු ගෙන් ලිඛිත ඉතිරි ඉල්ලා ගන්න. <strong>Chiedere sempre garanzia scritta</strong> sul meccanico.</li>
+        <li><strong>CALCULATE COSTS | Assicurazione (බීමා):</strong> බීමා සහ බිම් වාර්ෂිකව නිකුත් ගිණුම් කරන්න. <strong>Calcolare in anticipo</strong> l'assicurazione e il bollo annuale.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CAR SELLING COMPANIES -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">🏬</span>
+      <span>ITALIAN CAR DEALERS | ඉතාලි වාහන විකිණීමේ සමාගම් | <strong>Concessionari Auto</strong></span>
+    </h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-title">Autounostre - New & Used</div>
+        <div class="card-meta">Branches Nationwide | ඉතාලි පුරා ශාඛා</div>
+        <div class="card-text">New & used vehicles sales. Easy financing & <strong>permuta</strong> (trade-in) options.</div>
+        <div class="card-meta">📞 +39 06 9201 5001<br/>🌐 www.autounostre.it</div>
+        <a href="https://www.autounostre.it" target="_blank" class="card-link">VISIT WEBSITE</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Emmeti - Used Cars Specialists</div>
+        <div class="card-meta">Quality Used Cars | ගුණ සහිත පැරණි වාහන</div>
+        <div class="card-text">Certified quality used vehicles. Fair prices & <strong>garanzia</strong> (warranty) included.</div>
+        <div class="card-meta">📞 +39 02 9200 8101<br/>🌐 www.emmeti.it</div>
+        <a href="https://www.emmeti.it" target="_blank" class="card-link">VISIT WEBSITE</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Bravo Auto - Young Buyers</div>
+        <div class="card-meta">Easy Car Buying | තරුණ ගිණුම්කරුවින්</div>
+        <div class="card-text">Simplified buying process for young drivers. Fair prices & quick <strong>finanziamento</strong> (financing).</div>
+        <div class="card-meta">📞 +39 10 5702 6000<br/>🌐 www.bravoauto.it</div>
+        <a href="https://www.bravoauto.it" target="_blank" class="card-link">VISIT WEBSITE</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Motori Italiani - Italian Specialists</div>
+        <div class="card-meta">Italian Cars Expert | ඉතාලි වාහන විශේෂඥතා</div>
+        <div class="card-text">Expert in Italian vehicles. Complete <strong>tagliando</strong> (service) & <strong>revisione</strong> (inspection) included.</div>
+        <div class="card-meta">📞 +39 055 6530 3000<br/>🌐 www.motoriitaliani.it</div>
+        <a href="https://www.motoriitaliani.it" target="_blank" class="card-link">VISIT WEBSITE</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUYING VS LEASING COMPARISON -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">⚖️</span>
+      <span>මිලදීගැනීමට සහ Leasing සිතුවුවුවු</span>
+    </h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-bottom:32px">
+      <div style="background:white;border:1px solid var(--dark-border);border-radius:var(--radius);padding:20px">
+        <h4>🛒 මිලදීගැනීමට (ඔබේ නිල වාහන)</h4>
+        <div style="color:var(--success);font-size:12px;margin:8px 0">✅ ඉස්සර කිරීම්:</div>
+        <div style="font-size:12px;margin-left:8px;color:var(--gray)">
+          • දිගු කාලීනව ස්වාධීන<br/>
+          • කිසිම නිශ්චිත දර සීමා නැත<br/>
+          • වාහනයට සම්පූර්ණ අයිතිය ඇත<br/>
+          • විකිණුම් සිදු කිරීම පහසු
+        </div>
+        <div style="color:var(--danger);font-size:12px;margin:8px 0">❌ අවාසි:</div>
+        <div style="font-size:12px;margin-left:8px;color:var(--gray)">
+          • විශාල ප්‍රාරම්භක පරිවර<br/>
+          • නිර්වාහන සහ අපිවිතර ගිණුම්<br/>
+          • දිගු අර්ධ විකිණීම අසීම
+        </div>
+      </div>
+
+      <div style="background:white;border:1px solid var(--dark-border);border-radius:var(--radius);padding:20px">
+        <h4>🔄 Leasing (කුරුඹුර වාහන)</h4>
+        <div style="color:var(--success);font-size:12px;margin:8px 0">✅ ඉස්සර කිරීම්:</div>
+        <div style="font-size:12px;margin-left:8px;color:var(--gray)">
+          • අඩු ප්‍රාරම්භක පරිවර<br/>
+          • සරල මාසික ගිණුම්<br/>
+          • නිතර නිල වාහන ඇත<br/>
+          • නිර්වාහන ගිණුම් අවශ්‍ය නැත
+        </div>
+        <div style="color:var(--danger);font-size:12px;margin:8px 0">❌ අවාසි:</div>
+        <div style="font-size:12px;margin-left:8px;color:var(--gray)">
+          • මාසික ගිණුම් එක්තරා විශාල<br/>
+          • දර සීමා ඇත (සාමාන්‍යයෙන් 15,000 km)<br/>
+          • පරිවර අවසරයි<br/>
+          • අවසර නිසැකවම විතරක් වෙයි
+        </div>
+      </div>
+
+      <div style="background:white;border:1px solid var(--dark-border);border-radius:var(--radius);padding:20px">
+        <h4>📊 5- års ගිණුම් තුලනය (2-3 නිල)</h4>
+        <div style="font-size:12px;margin-top:8px">
+          <strong>මිලදීගැනීමට:</strong><br/>
+          සම්පූර්ණ වියදම: €8,000-12,000<br/>
+          <br/>
+          <strong>Leasing:</strong><br/>
+          මාසික දර: €300-450<br/>
+          5-ගේ වියදම: €18,000-27,000
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VEHICLE PRICES & RECOMMENDATIONS -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">🚙</span>
+      <span>වාහන මිල සහ පරිවාර නිර්දේශ</span>
+    </h2>
+    <div style="overflow-x:auto;margin-bottom:16px">
+      <table class="cost-table">
+        <thead>
+          <tr>
+            <th>වාහනයේ නම</th>
+            <th>වර්ගය</th>
+            <th>මිලදීගැනීමට මිල (€)</th>
+            <th>වාර්ෂික වියදම (€)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fiat Panda</td>
+            <td>කුඩා ශ්‍රේණි</td>
+            <td>€6,000-8,000</td>
+            <td>€600-800</td>
+          </tr>
+          <tr>
+            <td>Volkswagen Golf</td>
+            <td>මධ්‍ය ශ්‍රේණි</td>
+            <td>€9,000-12,000</td>
+            <td>€800-1,000</td>
+          </tr>
+          <tr>
+            <td>Hyundai i30</td>
+            <td>මධ්‍ය ශ්‍රේණි</td>
+            <td>€8,000-11,000</td>
+            <td>€700-900</td>
+          </tr>
+          <tr>
+            <td>Renault Scenic</td>
+            <td>පරිවාර</td>
+            <td>€10,000-14,000</td>
+            <td>€900-1,100</td>
+          </tr>
+          <tr>
+            <td>Mercedes-Benz A-Class</td>
+            <td>ඉහල ශ්‍රේණි</td>
+            <td>€12,000-16,000</td>
+            <td>€1,000-1,300</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ANNUAL EXPENSES BREAKDOWN -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">💰</span>
+      <span>වාර්ෂික වියදම් බිම්කරණ</span>
+    </h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-title">🛡️ බීමා (Assicurazione)</div>
+        <div class="card-text">
+          <strong>තරුණ (25-35 වසර):</strong> €400-600 (නිකුත් දර)<br/>
+          <strong>වැඩිහිටි (35+ වසර):</strong> €300-450<br/>
+          <strong>තෙරුවන්:</strong> Responsabilità Civile (අත්‍යාවශ්‍ය)
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🛣️ Bollo (අවසර බදු)</div>
+        <div class="card-text">
+          <strong>පරිවාර වාහන:</strong> €85-150 (ශ්‍රේණි අනුව)<br/>
+          <strong>වසරකට වරක්:</strong> 31 දෙසැම්බර් පෙර<br/>
+          <strong>ගිණුම්:</strong> ඉතාලි ප්‍රශාසනයට
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔧 Revisione (වාහන පරීක්ෂණ)</div>
+        <div class="card-text">
+          <strong>පළමු 4 වසර:</strong> අවශ්‍ය නැත<br/>
+          <strong>පසුව:</strong> €80-150 (නිකුත් ස්ථාන)<br/>
+          <strong>සිතුවුවුවු:</strong> සෑම 2 වසරකට වරක්
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">⛽ ඉතිරි වියදම්</div>
+        <div class="card-text">
+          <strong>ඉන්ධන:</strong> €150-200 (මාසිකව)<br/>
+          <strong>නිර්වාහන:</strong> €200-300 (වසරකට)<br/>
+          <strong>මෝටර් තෙල්:</strong> €100-150 (වසරකට)
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:24px;background:var(--dark-light);border-radius:var(--radius);margin-top:24px">
+      <h3 style="margin-bottom:12px">📝 පරිවාර ප්‍රමාණ අනුව වාර්ෂික වියදම්</h3>
+      <div style="font-size:13px;line-height:1.8">
+        <strong>2 නිල පරිවාරයි:</strong><br/>
+        • සරල වාහන: €1,200-1,600/වසරකට<br/>
+        • විශ්වාසවන්ත වාහන: €1,400-1,800/වසරකට<br/>
+        <br/>
+        <strong>3 නිල පරිවාරයි:</strong><br/>
+        • සරල වාහන: €1,000-1,400/වසරකට<br/>
+        • පරිවාර වාහන (දිගු): €1,500-2,000/වසරකට
+      </div>
+    </div>
+  </section>
+
+  <!-- FAMILY SIZE RECOMMENDATIONS -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">👨‍👩‍👧‍👦</span>
+      <span>පරිවාර ප්‍රමාණ අනුව වාහන නිර්දේශ</span>
+    </h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-title">👫 2 නිල පරිවාරයි</div>
+        <div class="card-text">
+          <strong>නිර්දේශිත:</strong> Fiat Panda, Volkswagen Golf<br/>
+          <strong>ශ්‍රේණි:</strong> කුඩා සිට මධ්‍ය<br/>
+          <strong>මිලදීගැනීමට මිල:</strong> €6,000-10,000<br/>
+          <strong>වාර්ෂික වියදම්:</strong> €1,200-1,600
+        </div>
+        <div style="color:var(--success);font-size:12px;margin:8px 0">✅ ඉස්සර: පිරිසිදු ඉතිරි, අඩු වියදම</div>
+        <div style="color:var(--danger);font-size:12px;margin:8px 0">❌ අවාසි: විතරක් අවකාශ</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">👨‍👩‍👧 3 නිල පරිවාරයි</div>
+        <div class="card-text">
+          <strong>නිර්දේශිත:</strong> Renault Scenic, Hyundai i30<br/>
+          <strong>ශ්‍රේණි:</strong> මධ්‍ය සිට පරිවාර<br/>
+          <strong>මිලදීගැනීමට මිල:</strong> €8,000-12,000<br/>
+          <strong>වාර්ෂික වියදම්:</strong> €1,400-1,900
+        </div>
+        <div style="color:var(--success);font-size:12px;margin:8px 0">✅ ඉස්සර: ප්‍රමාණවත් අවකාශ, දිගු මඟ</div>
+        <div style="color:var(--danger);font-size:12px;margin:8px 0">❌ අවාසි: විශාල ඉතිරි, අධික වියදම</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">👨‍👩‍👧‍👦 4+ නිල පරිවාරයි</div>
+        <div class="card-text">
+          <strong>නිර්දේශිත:</strong> Mercedes-Benz, Audi A4<br/>
+          <strong>ශ්‍රේණි:</strong> පරිවාර ඉහල සරණ<br/>
+          <strong>මිලදීගැනීමට මිල:</strong> €10,000-15,000<br/>
+          <strong>වාර්ෂික වියදම්:</strong> €1,600-2,200
+        </div>
+        <div style="color:var(--success);font-size:12px;margin:8px 0">✅ ඉස්සර: දිගු අවකාශ, විශාල සිතුවුවු</div>
+        <div style="color:var(--danger);font-size:12px;margin:8px 0">❌ අවාසි: විශාල ප්‍රාරම්භක අඩවි, අධික වියදම</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAFFIC FINES -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">⚠️</span>
+      <span>ගිම්හරණ දඩ සහ සිදුවීම්</span>
+    </h2>
+    <div style="overflow-x:auto;margin-bottom:16px">
+      <table class="cost-table">
+        <thead>
+          <tr>
+            <th>උකසු/සිදුවීම</th>
+            <th>දඩ ප්‍රමාණය (€)</th>
+            <th>ස්වරූපය</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>වේගය අතිරේක (20-40 km/h)</td>
+            <td class="amount">€170-680</td>
+            <td>සාමාන්‍ය උකසුවීම</td>
+          </tr>
+          <tr>
+            <td>වේගය අතිරේක (>40 km/h)</td>
+            <td class="amount">€500-2,000</td>
+            <td>බරම උකසුවීම</td>
+          </tr>
+          <tr>
+            <td>ශරීර පටිබදුම පැළඳීම නොවීම</td>
+            <td class="amount">€80-320</td>
+            <td>සාමාන්‍ය උකසුවීම</td>
+          </tr>
+          <tr>
+            <td>ජංගම ඉතිරි කිරීම</td>
+            <td class="amount">€160-640</td>
+            <td>සාමාන්‍ය උකසුවීම</td>
+          </tr>
+          <tr>
+            <td>අනිමැතිවම නෙරපණ කිරීම</td>
+            <td class="amount">€80-800</td>
+            <td>වාහන ස්ථිරතා</td>
+          </tr>
+          <tr>
+            <td>ප්‍රවාහන බීමා නැත</td>
+            <td class="amount">€500-2,000 + ඉතිරි</td>
+            <td>බරම උකසුවීම</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- USEFUL LINKS -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">🔗</span>
+      <span>ප්‍රයෝජනවත් සබඳතා</span>
+    </h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-title">ඉතාලි ගිම්හරණ සභාව</div>
+        <div class="card-text">ඉතාලි ගිම්හරණ සභාව - ගිම්හරණ, නිබන්ධන, සහ තොරතුරු.</div>
+        <a href="https://www.aci.it" target="_blank" class="card-link">ACI.it</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">ඉතාලි වාහන බීමා</div>
+        <div class="card-text">ඉතාලි වාහන බීමා සහ ගිණුම් තොරතුරු සඳහා නිල සභාව.</div>
+        <a href="https://www.ivass.it" target="_blank" class="card-link">IVASS.it</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">ඉතාලි ගිම්හරණ දඩ</div>
+        <div class="card-text">ඉතාලි ගිම්හරණ දඩ සිතු සහ උකසුවීම් තොරතුරු.</div>
+        <a href="https://www.poliziadisstato.it" target="_blank" class="card-link">Polizia di Stato</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">ඉතාලි වාහන තොරතුරු</div>
+        <div class="card-text">නව සහ පැරණි වාහන සඳහා ඉතාලි වාහන තොරතුරු සිතුවුවුවු.</div>
+        <a href="https://www.quattroruote.it" target="_blank" class="card-link">Quattroruote</a>
+      </div>
+    </div>
+  </section>
+
+  </div><!-- End Tab 2 -->
+
 </main>
 
 <!-- FOOTER -->
@@ -966,6 +1422,23 @@
 </footer>
 
 <script>
+  // Tab Switching
+  function switchTab(tabId) {
+    // Hide all tabs
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => tab.classList.remove('active'));
+
+    // Remove active class from all buttons
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    // Show selected tab
+    document.getElementById(tabId).classList.add('active');
+
+    // Add active class to clicked button
+    event.target.classList.add('active');
+  }
+
   // Eligibility Checker
   function checkEligibility() {
     const check1 = document.getElementById('check1').checked;
