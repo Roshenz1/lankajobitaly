@@ -88,7 +88,11 @@ input,select,textarea{font-family:inherit;font-size:inherit;outline:none}
 .hero h1{font-size:2.5rem;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.1;letter-spacing:-.02em}
 .hero .tagline{color:rgba(255,255,255,.88);font-size:1.02rem;margin-bottom:26px;line-height:1.5}
 .hero-illustration{position:relative;display:flex;justify-content:center;align-items:center}
-.hero-illustration svg{width:100%;max-width:460px;height:auto;filter:drop-shadow(0 12px 24px rgba(0,0,0,.18))}
+.hero-illu-wrap{position:relative;width:100%;max-width:460px}
+.hero-illu-wrap svg{width:100%;height:auto;display:block;filter:drop-shadow(0 12px 24px rgba(0,0,0,.18))}
+.hero-photo{position:absolute;top:50%;left:50%;transform:translate(-50%,-42%);width:42%;aspect-ratio:1;border-radius:50%;border:5px solid #fff;box-shadow:0 10px 28px rgba(0,0,0,.3);object-fit:cover;z-index:2;background:#f1f5f9}
+.hero-photo-credit{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-size:.6rem;color:rgba(255,255,255,.55);white-space:nowrap;z-index:3}
+.hero-photo-credit a{color:rgba(255,255,255,.75);text-decoration:underline}
 .flag-badge{position:absolute;background:rgba(255,255,255,.96);padding:5px 12px;border-radius:20px;font-size:.72rem;font-weight:700;color:var(--primary);box-shadow:var(--shadow);display:flex;align-items:center;gap:5px;z-index:3}
 .flag-badge.lk{top:6%;left:-2%;animation:floatA 4s ease-in-out infinite}
 .flag-badge.it{bottom:18%;right:-2%;animation:floatB 4s ease-in-out infinite .8s}
@@ -443,6 +447,7 @@ input,select,textarea{font-family:inherit;font-size:inherit;outline:none}
         </div>
       </div>
       <div class="hero-illustration">
+        <div class="hero-illu-wrap">
         <div class="flag-badge lk">🇱🇰 Sri Lanka</div>
         <div class="flag-badge it">🇮🇹 Italia</div>
         <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" aria-label="Sri Lankan worker in Italy illustration">
@@ -510,41 +515,9 @@ input,select,textarea{font-family:inherit;font-size:inherit;outline:none}
             <ellipse cx="0" cy="-50" rx="12" ry="50" fill="#15803d"/>
             <rect x="-2" y="-3" width="4" height="8" fill="#78350f"/>
           </g>
-          <!-- Person/worker figure -->
-          <g transform="translate(250, 200)">
-            <ellipse cx="0" cy="128" rx="44" ry="6" fill="#000" opacity=".2"/>
-            <!-- Legs -->
-            <rect x="-13" y="64" width="11" height="63" rx="3" fill="#1e293b"/>
-            <rect x="2" y="64" width="11" height="63" rx="3" fill="#1e293b"/>
-            <ellipse cx="-7" cy="128" rx="10" ry="4" fill="#0a0f1e"/>
-            <ellipse cx="8" cy="128" rx="10" ry="4" fill="#0a0f1e"/>
-            <!-- Body / shirt -->
-            <path d="M-25 0 L-25 65 L25 65 L25 0 Q25 -8 17 -8 L-17 -8 Q-25 -8 -25 0 Z" fill="url(#shirt)"/>
-            <!-- Collar V -->
-            <path d="M-8 -8 L0 6 L8 -8" fill="#fff"/>
-            <!-- Tie -->
-            <polygon points="-2,4 -5,13 -3,50 0,55 3,50 5,13 2,4" fill="#d97706"/>
-            <!-- Arms -->
-            <path d="M-25 2 L-35 52 L-29 55 L-19 5 Z" fill="url(#shirt)"/>
-            <path d="M25 2 L35 52 L29 55 L19 5 Z" fill="url(#shirt)"/>
-            <circle cx="-32" cy="56" r="6" fill="#fde68a"/>
-            <circle cx="32" cy="56" r="6" fill="#fde68a"/>
-            <!-- Briefcase -->
-            <rect x="22" y="50" width="30" height="20" rx="2" fill="#78350f"/>
-            <rect x="35" y="45" width="6" height="6" rx="1" fill="#78350f"/>
-            <rect x="22" y="58" width="30" height="1.5" fill="#fbbf24"/>
-            <rect x="35" y="56" width="4" height="4" rx="1" fill="#fbbf24"/>
-            <!-- Head -->
-            <circle cx="0" cy="-21" r="17" fill="#fde68a"/>
-            <path d="M-17 -23 Q-15 -41 0 -41 Q15 -41 17 -23 L17 -19 L-17 -19 Z" fill="#1e293b"/>
-            <circle cx="-6" cy="-22" r="1.8" fill="#1e293b"/>
-            <circle cx="6" cy="-22" r="1.8" fill="#1e293b"/>
-            <path d="M-10 -28 L-3 -28" stroke="#1e293b" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M3 -28 L10 -28" stroke="#1e293b" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M-5 -14 Q0 -10 5 -14" stroke="#1e293b" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <circle cx="-11" cy="-16" r="2.5" fill="#fb923c" opacity=".5"/>
-            <circle cx="11" cy="-16" r="2.5" fill="#fb923c" opacity=".5"/>
-          </g>
+          <!-- Photo placeholder background circle -->
+          <circle cx="250" cy="210" r="92" fill="rgba(255,255,255,.18)"/>
+          <circle cx="250" cy="210" r="78" fill="rgba(255,255,255,.12)"/>
           <!-- Birds -->
           <path d="M148 88 Q153 83 158 88 Q163 83 168 88" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" opacity=".85"/>
           <path d="M335 108 Q340 103 345 108 Q350 103 355 108" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" opacity=".85"/>
@@ -556,6 +529,9 @@ input,select,textarea{font-family:inherit;font-size:inherit;outline:none}
           <circle cx="200" cy="105" r="1.5" fill="#fff" opacity=".6"/>
           <circle cx="305" cy="120" r="1.5" fill="#fff" opacity=".6"/>
         </svg>
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format&fit=crop" alt="Professional worker portrait" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format&fit=crop'"/>
+        <div class="hero-photo-credit">Photo: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> (free license)</div>
+        </div>
       </div>
     </div>
   </div>
