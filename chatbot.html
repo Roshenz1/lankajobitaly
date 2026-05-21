@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Sinhala Chatbot - Lanka Job Italy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans Sinhala', 'Inter', sans-serif;
+      background: #f3f4f6;
+    }
+
+    .chatbot-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 380px;
+      height: 600px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
+      display: flex;
+      flex-direction: column;
+      z-index: 9999;
+      overflow: hidden;
+      animation: slideUp 0.3s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .chatbot-header {
+      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chatbot-header h3 {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .chatbot-header-subtitle {
+      font-size: 12px;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    .close-btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .chatbot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .message {
+      display: flex;
+      margin-bottom: 8px;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .message.user {
+      justify-content: flex-end;
+    }
+
+    .message-bubble {
+      max-width: 70%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      word-wrap: break-word;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .message.user .message-bubble {
+      background: #2563eb;
+      color: white;
+      border-radius: 12px 4px 12px 12px;
+    }
+
+    .message.bot .message-bubble {
+      background: #f3f4f6;
+      color: #1f2937;
+      border-radius: 4px 12px 12px 12px;
+    }
+
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 12px 16px;
+    }
+
+    .typing-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #9ca3af;
+      animation: typing 1.4s infinite;
+    }
+
+    .typing-dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing-dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes typing {
+      0%, 60%, 100% {
+        opacity: 0.5;
+        transform: translateY(0);
+      }
+      30% {
+        opacity: 1;
+        transform: translateY(-10px);
+      }
+    }
+
+    .chatbot-input-area {
+      padding: 16px;
+      border-top: 1px solid #e5e7eb;
+      display: flex;
+      gap: 8px;
+    }
+
+    .chatbot-input {
+      flex: 1;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-family: 'Noto Sans Sinhala', 'Inter', sans-serif;
+      font-size: 14px;
+      resize: none;
+      max-height: 100px;
+    }
+
+    .chatbot-input:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .send-btn {
+      background: #2563eb;
+      color: white;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .send-btn:hover {
+      background: #1e40af;
+    }
+
+    .send-btn:disabled {
+      background: #d1d5db;
+      cursor: not-allowed;
+    }
+
+    /* Chatbot Toggle Button */
+    .chatbot-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      z-index: 9998;
+    }
+
+    .chatbot-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    .chatbot-toggle.hidden {
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      .chatbot-container {
+        width: calc(100% - 20px);
+        height: 70vh;
+        bottom: 10px;
+        right: 10px;
+      }
+
+      .message-bubble {
+        max-width: 85%;
+      }
+    }
+
+    /* Scrollbar Styling */
+    .chatbot-messages::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .chatbot-messages::-webkit-scrollbar-track {
+      background: #f3f4f6;
+    }
+
+    .chatbot-messages::-webkit-scrollbar-thumb {
+      background: #d1d5db;
+      border-radius: 3px;
+    }
+
+    .chatbot-messages::-webkit-scrollbar-thumb:hover {
+      background: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Chatbot Toggle Button -->
+<button class="chatbot-toggle" onclick="toggleChatbot()" id="chatbot-toggle">💬</button>
+
+<!-- Chatbot Container -->
+<div class="chatbot-container" id="chatbot-container" style="display: none;">
+  <div class="chatbot-header">
+    <div>
+      <h3>🤖 සිංහල ඔබේ සहায়ක</h3>
+      <div class="chatbot-header-subtitle">Sinhala Assistant</div>
+    </div>
+    <button class="close-btn" onclick="toggleChatbot()">✕</button>
+  </div>
+
+  <div class="chatbot-messages" id="chatbot-messages">
+    <div class="message bot">
+      <div class="message-bubble">
+        ආයුබෝවන්! 👋 මම ඔබේ සිංහල සහාය ඇසිස්ටන්ටයි. ශ්‍රී ලාංකා රජතුරු බලපත්‍ර ඉතාලිට පරිවර්තනය කිරීම, වාහන මිලදීගැනීම, හෝ වෙනත් කිසිම දෙයක් ගැන ප්‍රශ්න කරන්න!
+      </div>
+    </div>
+  </div>
+
+  <div class="chatbot-input-area">
+    <input
+      type="text"
+      class="chatbot-input"
+      id="chatbot-input"
+      placeholder="ඔබේ ප්‍රශ්නය..."
+      onkeypress="handleKeyPress(event)"
+    />
+    <button class="send-btn" onclick="sendMessage()" id="send-btn">📤</button>
+  </div>
+</div>
+
+<script>
+  const messagesContainer = document.getElementById('chatbot-messages');
+  const inputField = document.getElementById('chatbot-input');
+  const sendBtn = document.getElementById('send-btn');
+  const chatbotContainer = document.getElementById('chatbot-container');
+  const chatbotToggle = document.getElementById('chatbot-toggle');
+
+  // Sample knowledge base in Sinhala
+  const knowledgeBase = {
+    "බලපත්‍ර පරිවර්තනය": {
+      keywords: ["බලපත්‍ර", "පරිවර්තනය", "ශ්‍රී ලාංකා", "ඉතාලි", "ඔබේ බලපත්‍ර"],
+      response: "ශ්‍රී ලාංකා බලපත්‍ර ඉතාලිට පරිවර්තනය කිරීම සරල ක්‍රියාවලියකි!\n\n✅ අවශ්‍ය කරුණු:\n• ශ්‍රී ලාංකා බලපත්‍ර (අවලංගු නොවිය යුතු)\n• ඉතාලි නිවාස ඉඩ (6 සඳහා අඩුවිය යුතු වසර)\n• ගිණුම්කරණ ලිපි\n• ඉතාලි ස්‍වයං හඳුනාගැනීම\n\n💰 පිරිවැය: €130-340\n⏱️ කාලය: 3-6 මාස\n\n📍 ඔබ ගිණුම් වතුර දිස්ත්‍රිකේ තිබේ නම්, නිර්දේශිත දර පිටුවට යන්න!"
+    },
+    "වාහන මිලදීගැනීම": {
+      keywords: ["වාහන", "මිලදීගැනීම", "ඉතාලි", "Subito", "Auto.it"],
+      response: "ඉතාලිය වාහන මිලදීගැනීම සරල! 🚗\n\n📱 නිර්දේශිත වෙබ්සයිටු:\n• Subito.it - Classifieds වඩා සුපිරි\n• Auto.it - නිල වඩාකරුවින්\n• Immobiliare.it - සෙවුම් සහ පෙරහැර\n\n💡 ඉඟි:\n✓ සැමවිටම මිල සිතුවුවු ගිණුම් කරන්න\n✓ වාහනයේ ඉතිහාසය පරීක්ෂා කරන්න\n✓ යාන්ත්‍රිකයෙන් අයිතිකරණය ලබන්න\n\n💰 වාර්ෂික ගිණුම්: €1,200-2,000 (බීමා + බිම්ගත + නිර්වාහන)"
+    },
+    "ගිණුම් කිරීමේ පිරිවැය": {
+      keywords: ["පිරිවැය", "මිල", "ගිණුම්", "කොපමණ"],
+      response: "ඉතාලිය වාර්ෂික වාහන ගිණුම්: 💰\n\n🛡️ බීමා: €300-600\n🛣️ Bollo (බිම්ගත බදු): €85-150\n⛽ ඉන්ධන: €150-250 (මාසිකව)\n🔧 නිර්වාහන: €200-300\n\nසම්පූර්ණ: €1,200-2,000 ප්‍රතිවර්ෂයි\n\nසුපිරි ඉඟිය:\n👉 2-3 සඳහා පරිවාර Fiat Panda හෝ Golf\n👉 4+ සඳහා Renault Scenic හෝ Mercedes A-Class\n\nසැවිසඳුම් දර ගිණුම් කර ගැනීමේ බිම්ගත නිර්දේශ ලබන්න!"
+    },
+    "සිංහල අකුරු": {
+      keywords: ["සිංහල", "අකුරු", "භාෂාව", "ස්‍ථිතිය"],
+      response: "ඔබ සිංහලින් නිවුඩු ගැසුවට සුතුටු වෙනවා! 🇱🇰\n\nමේ සිංහල ඔබේ සහයුक්ත ඔබට උදව් කරනු ඇත:\n\n✅ බලපත්‍ර පරිවර්තනය\n✅ වාහන මිලදීගැනීම සහ පිරිවැය\n✅ නිගමිතයන්ට නිර්දේශ\n✅ ඉතාලි ගිණුම්කරණ තොරතුරු\n\nවඩුතර ප්‍රශ්නයක් ඇත්නම් ඉඩ දෙන්න! 😊"
+    },
+    "සිංහල සහකාරි": {
+      keywords: ["සහකාරි", "සහාය", "උදව්"],
+      response: "හෙලෝ! 👋 මම ඔබේ සිංහල සහකාරි ඇසිස්ටන්ටයි!\n\nමම ඔබට උදව් කරන්න පුළුවන්:\n\n1️⃣ බලපත්‍ර පරිවර්තනය - ශ්‍රී ලාංකා → ඉතාලි\n2️⃣ වාහන මිලදීගැනීම සහ ගිණුම්\n3️⃣ ඉතාලි ජීවනෙ ටිප්පු\n4️⃣ සිංහල/ඉතාලි තොරතුරු\n\nඉහත කිසිම දෙයක් ගැන ප්‍රශ්න කරන්න! 😊"
+    }
+  };
+
+  function toggleChatbot() {
+    chatbotContainer.style.display = chatbotContainer.style.display === 'none' ? 'flex' : 'none';
+    chatbotToggle.classList.toggle('hidden');
+    if (chatbotContainer.style.display === 'flex') {
+      inputField.focus();
+    }
+  }
+
+  function handleKeyPress(event) {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault();
+      sendMessage();
+    }
+  }
+
+  function sendMessage() {
+    const message = inputField.value.trim();
+    if (!message) return;
+
+    // Add user message
+    addMessage(message, 'user');
+    inputField.value = '';
+    sendBtn.disabled = true;
+
+    // Show typing indicator
+    showTypingIndicator();
+
+    // Simulate API call delay
+    setTimeout(() => {
+      removeTypingIndicator();
+      const response = getBotResponse(message);
+      addMessage(response, 'bot');
+      sendBtn.disabled = false;
+      inputField.focus();
+    }, 1000);
+  }
+
+  function getBotResponse(userMessage) {
+    const lowerMessage = userMessage.toLowerCase();
+
+    // Search knowledge base
+    for (const [topic, data] of Object.entries(knowledgeBase)) {
+      for (const keyword of data.keywords) {
+        if (lowerMessage.includes(keyword.toLowerCase())) {
+          return data.response;
+        }
+      }
+    }
+
+    // Default response
+    return "ඉතා සතුටුයි ඔබට ප්‍රශ්නයක් තිබුණු! 🤗\n\nමම එම ප්‍රශ්නය ගැන දැන්වතින්න මට නොහැකි, නමුත් ඇතිදුරක්ම උදව් කිරීමට:\n\n💬 WhatsApp: +39 333 1234567\n📧 Email: info@lankajobitaly.com\n🌐 වෙබ්: lankajobitaly.com\n\nඔබේ ප්‍රශ්නයට විස්තරිත උත්තරයක් ලැබෙනු ඇත!";
+  }
+
+  function addMessage(text, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}`;
+
+    const bubble = document.createElement('div');
+    bubble.className = 'message-bubble';
+    bubble.textContent = text;
+
+    messageDiv.appendChild(bubble);
+    messagesContainer.appendChild(messageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+
+  function showTypingIndicator() {
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'message bot';
+    typingDiv.id = 'typing-indicator';
+
+    const dots = document.createElement('div');
+    dots.className = 'typing-indicator';
+    dots.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+
+    typingDiv.appendChild(dots);
+    messagesContainer.appendChild(typingDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+
+  function removeTypingIndicator() {
+    const typing = document.getElementById('typing-indicator');
+    if (typing) typing.remove();
+  }
+
+  // Allow tab in textarea
+  inputField.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      const start = this.selectionStart;
+      const end = this.selectionEnd;
+      this.value = this.value.substring(0, start) + '\t' + this.value.substring(end);
+      this.selectionStart = this.selectionEnd = start + 1;
+    }
+  });
+</script>
+
+</body>
+</html>
