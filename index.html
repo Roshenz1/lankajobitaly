@@ -49,13 +49,6 @@ header{
   .logo{flex:1}
 }
 
-/* Notice Board */
-.notice-board{background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%);border-bottom:4px solid #f59e0b;padding:16px var(--spacing);text-align:center}
-.notice-wrap{max-width:1200px;margin:0 auto}
-.notice-title{font-weight:700;color:#92400e;margin-bottom:6px;font-size:16px}
-.notice-text{color:#78350f;font-size:14px;margin-bottom:12px}
-.notice-btn{display:inline-block;padding:10px 24px;background:#f59e0b;color:#78350f;border-radius:6px;font-weight:700;text-decoration:none;font-size:14px}
-
 /* Hero */
 .hero{background:linear-gradient(135deg,#f3f4f6 0%,#e5e7eb 100%);padding:48px var(--spacing);text-align:center}
 .hero-inner{max-width:640px;margin:0 auto}
@@ -112,7 +105,7 @@ header{
 .badge-urgent{background:#fef2f2;color:#dc2626}
 .badge-featured{background:var(--orange-bg);color:var(--orange-text)}
 
-/* Modal */
+/* Modal - Login/Register */
 .modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);display:none;z-index:1000;align-items:center;justify-content:center}
 .modal.show{display:flex}
 .modal-content{background:var(--white);border-radius:var(--radius);padding:32px;max-width:400px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.3)}
@@ -126,6 +119,13 @@ header{
 .toggle-form{text-align:center;margin-top:16px;font-size:13px;color:var(--text-secondary)}
 .toggle-form a{cursor:pointer;color:var(--accent-blue);font-weight:600}
 
+/* Monetization Section */
+.monetize-section{background:var(--blue-light);border:1px solid var(--blue-border);border-radius:var(--radius);padding:20px;margin-top:20px}
+.monetize-section h3{margin-bottom:12px;font-weight:700;color:var(--text-primary)}
+.monetize-option{background:var(--white);border:1px solid var(--blue-border);border-radius:var(--radius);padding:14px;margin-bottom:10px}
+.monetize-option strong{display:block;margin-bottom:4px}
+.monetize-option small{color:var(--text-tertiary)}
+
 /* Footer */
 footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top:48px}
 .footer-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.1)}
@@ -134,6 +134,7 @@ footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top
 .footer-section a:hover{color:white}
 .footer-bottom{text-align:center;margin-top:24px;font-size:12px;color:#d1d5db}
 
+/* Responsive */
 @media(max-width:768px){
   .main{grid-template-columns:1fr}
   .hero{padding:32px var(--spacing)}
@@ -164,12 +165,18 @@ footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top
   </div>
 </header>
 
-<!-- NOTICE BOARD - EVERYONE CAN SEE -->
-<div class="notice-board">
-  <div class="notice-wrap">
-    <div class="notice-title">📢 ඉතාලියේ රිය පැවැත්වීම - සම්පූර්ණ ගයිඩ්</div>
-    <div class="notice-text">රිය කිරීමේ නීති, ගිණුම්, Leasing සඳහා පිරිවැය, ගමන් දඩ, සම්පතින් පාඩම් සහ තොරතුරු</div>
-    <a href="drivers.html" class="notice-btn">🚗 තිබෙන ගයිඩ් බලන්න →</a>
+<!-- NOTICE BOARD - Everyone Can See -->
+<div style="background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%);border-bottom:4px solid #f59e0b;padding:16px;text-align:center">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font-weight:700;color:#92400e;margin-bottom:6px;font-size:16px">
+      📢 ඉතාලිය රිය පැවැත්වීම සඳහා සම්පූර්ණ ගයිඩ්!
+    </div>
+    <div style="color:#78350f;font-size:14px;margin-bottom:12px">
+      ගිණුම්, Leasing, ගමන් දඩ, පාඩම්, සහ ශ්‍රී ලාංකිකයන් සඳහා වැදගත් තොරතුරු
+    </div>
+    <a href="drivers.html" style="display:inline-block;padding:10px 24px;background:#f59e0b;color:#78350f;border-radius:6px;font-weight:700;text-decoration:none;font-size:14px">
+      🚗 Driver's Guide එ යන්න →
+    </a>
   </div>
 </div>
 
@@ -317,9 +324,9 @@ const translations = {
     searchPlaceholder: 'Job title or location...',
   },
   si: {
-    heroTitle: 'ඉතාලියේ ඔබේ ඉදිරි රැකියා සොයන්න',
-    heroDesc: 'විශ්වාසවන්ත රැකියා ලැයිස්තු බලන්න. තුටුකරුවරුන් සමඟ සම්බන්ධ වන්න. ඔබේ වෘත්තිය ආරම්භ කරන්න.',
-    searchPlaceholder: 'රැකියා නම හෝ තැනක...',
+    heroTitle: 'ඉතාලියේ ඔබේ අනතුරු ඉතිරිකිරීම සොයන්න',
+    heroDesc: 'විශ්වාසවන්ත රැකියා ලැයිස්තු දෙස බලන්න. තුටුකරුවරුන් සමඟ සම්බන්ධ වන්න. ඔබේ වෘත්තිය ආරම්භ කරන්න.',
+    searchPlaceholder: 'රැකියා මාතෘකා හෝ ස්ථානය...',
   }
 };
 

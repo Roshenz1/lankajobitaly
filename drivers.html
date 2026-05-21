@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>ඉතාලියේ රිය පැවැත්වීම - Lanka Driver's Guide</title>
-<meta name="description" content="ඉතාලියේ රිය පැවැත්වීම සඳහා සම්පූර්ණ ගයිඩ්. Leasing, ගමන් දඩ, පාඩම්, ලිපි."/>
+<title>ඉතාලියේ වාහන ගිණුම් කිරීම - Lanka Driver's Guide</title>
+<meta name="description" content="ඉතාලියේ වාහන ගිණුම් කිරීමේ සම්පූර්ණ ගයිඩ්. ඉතාලි නිවාස සඳහා ශ්‍රී ලාංකිකයන්ගේ වාහන ගිණුම් කිරීම, වියදම්, සහ නිර්දේශ."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet"/>
 <style>
@@ -59,6 +59,8 @@ header{background:var(--white);border-bottom:1px solid var(--blue-border);paddin
 .card-text{font-size:13px;color:var(--text-secondary);margin-bottom:12px;line-height:1.5;font-family:'Noto Sans Sinhala'}
 .card-meta{font-size:12px;color:var(--text-tertiary);margin-bottom:12px;font-family:'Noto Sans Sinhala'}
 .card-link{display:inline-block;padding:8px 16px;background:#2563eb;color:white;border-radius:var(--radius);font-weight:600;font-size:12px}
+.card-pros{color:var(--green);font-size:12px;margin:8px 0}
+.card-cons{color:var(--red);font-size:12px;margin:8px 0}
 
 /* Table */
 .table-wrap{overflow-x:auto;margin-bottom:16px}
@@ -80,6 +82,12 @@ tr:hover{background:var(--blue-light)}
 .list-item{padding:12px;border-bottom:1px solid var(--blue-border);display:flex;justify-content:space-between;align-items:center;font-family:'Noto Sans Sinhala'}
 .list-item:last-child{border-bottom:none}
 
+/* Comparison Grid */
+.comparison-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.comparison-card{border:1px solid var(--blue-border);border-radius:var(--radius);padding:16px;background:var(--white)}
+.comparison-card h4{margin-bottom:12px;color:var(--text-primary);font-family:'Noto Sans Sinhala'}
+.comparison-item{font-size:12px;margin-bottom:8px;display:flex;justify-content:space-between;font-family:'Noto Sans Sinhala'}
+
 /* Footer */
 footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top:48px}
 .footer-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.1)}
@@ -91,6 +99,7 @@ footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top
 @media(max-width:768px){
   .hero{padding:32px var(--spacing)}.hero h1{font-size:28px}.cards-grid{grid-template-columns:1fr}
   table{font-size:12px}th,td{padding:8px 10px}
+  .comparison-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -100,7 +109,7 @@ footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top
   <div class="header-wrap">
     <div class="logo">
       <div class="logo-icon">🚗</div>
-      <span>ඉතාලිය運転 ගයිඩ්</span>
+      <span>ඉතාලිය වාහන ගයිඩ්</span>
     </div>
     <nav class="nav-links">
       <a href="index.html">← රැකියා</a>
@@ -112,68 +121,124 @@ footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top
 <!-- NOTICE BOARD -->
 <div class="notice-board">
   <div class="notice-wrap">
-    <div class="notice-title">📢 ප්‍රවාහකයන්ට වැදගත් දැන්වීම</div>
+    <div class="notice-title">📢 ඉතාලියේ වාහන ගිණුම් කිරීම - ශ්‍රී ලාංකිකයන් සඳහා</div>
     <div class="notice-text">
-      🚗 ඉතාලියේ රිය පැවැත්වීම සඳහා සම්පූර්ණ සහාය. Leasing, ගමන් දඩ, පාඩම්, සහ ශ්‍රී ලාංකිక ප්‍රවාහකයන් සඳහා වැදගත් තොරතුරු.
+      🚗 ඉතාලියේ ඔබේ පරිවාර සඳහා නව වාහන ගිණුම් කිරීම කරන්න. වාහන විකිණීමේ සමාගම්, ඉතිරි වියදම්, සිදුවීම් සහ ශ්‍රී ලාංකිකයන් සඳහා නිර්දේශ.
     </div>
   </div>
 </div>
 
 <section class="hero">
   <div class="hero-inner">
-    <h1>🚗 ඉතාලියේ රිය පැවැත්වීම - සම්පූර්ණ ගයිඩ්</h1>
-    <p>ඉතාලියේ ශ්‍රී ලාංකිකයන් සඳහා රිය පැවැත්වීම, Leasing, ගමන් දඩ, පාඩම්, සහ අනෙකුත් තොරතුරු.</p>
+    <h1>🚗 ඉතාලියේ වාහන ගිණුම් කිරීම - සම්පූර්ණ ගයිඩ්</h1>
+    <p>ඉතාලියේ ශ්‍රී ලාංකිකයන් සඳහා වාහන ගිණුම් කිරීම, විකිණීමේ සමාගම්, වියදම්, සහ පරිවාර ප්‍රමාණ අනුව නිර්දේශ.</p>
   </div>
 </section>
 
 <main class="main">
 
-  <!-- LEASING COMPANIES -->
+  <!-- CAR SELLING COMPANIES -->
   <section class="section">
     <h2 class="section-title">
-      <span class="section-icon">🏦</span>
-      <span>Leasing සහ Finance සමාගම්</span>
+      <span class="section-icon">🏬</span>
+      <span>ඉතාලි වාහන විකිණීමේ සමාගම්</span>
     </h2>
     <div class="cards-grid">
       <div class="card">
-        <div class="card-title">Europcar</div>
+        <div class="card-title">Autounostre (ඇතුතො ස්ටෝර්)</div>
         <div class="card-meta">ඉතාලි පුරා ශාඛා</div>
-        <div class="card-text">දිගු සහ කෙටි කාලීන Leasing. නිවැරදි ගිණුම් සහ බීමා විකල්ප.</div>
-        <div class="card-meta">📞 +39 06 6501 0391<br/>🌐 www.europcar.it</div>
-        <a href="https://www.europcar.it" target="_blank" class="card-link">වෙබ්සයිට එ යන්න</a>
+        <div class="card-text">නව සහ භාවිත වාහන විකිණීම. සරල මූල්‍ය පෙළුම් සහ ඔබේ පුරාතන වාහන ගිණුම් සිදු කිරීම.</div>
+        <div class="card-meta">📞 +39 06 9201 5001<br/>🌐 www.autounostre.it</div>
+        <a href="https://www.autounostre.it" target="_blank" class="card-link">වෙබ්සයිට</a>
       </div>
 
       <div class="card">
-        <div class="card-title">Hertz</div>
-        <div class="card-meta">ලස්සන වාහන</div>
-        <div class="card-text">සියලු වර්ගයේ වාහන Lease කිරීම. වියතනා සඳහා සුවිශේෂ ගිණුම්.</div>
-        <div class="card-meta">📞 +39 06 5694 5643<br/>🌐 www.hertz.it</div>
-        <a href="https://www.hertz.it" target="_blank" class="card-link">වෙබ්සයිට එ යන්න</a>
+        <div class="card-title">Emmeti (එම්මෙටි)</div>
+        <div class="card-meta">පැරණි වාහන විශේෂඥතා</div>
+        <div class="card-text">කිසිම පිටින්න නැති පැරණි වාහන. සිතුවුවුවු මිල සහ හොඳ වාරණ සේවාව.</div>
+        <div class="card-meta">📞 +39 02 9200 8101<br/>🌐 www.emmeti.it</div>
+        <a href="https://www.emmeti.it" target="_blank" class="card-link">වෙබ්සයිට</a>
       </div>
 
       <div class="card">
-        <div class="card-title">Avis</div>
-        <div class="card-meta">ඉතාසි වාහන නෙවාසි</div>
-        <div class="card-text">දීර්ඝ කාලීන Leasing සඳහා හොඳ බිම්. ශ්‍රී ලාංකිකයන් සඳහා විශේෂ දර.</div>
-        <div class="card-meta">📞 +39 06 9944 7777<br/>🌐 www.avis.it</div>
-        <a href="https://www.avis.it" target="_blank" class="card-link">වෙබ්සයිට එ යන්න</a>
+        <div class="card-title">Bravo Auto (බ්‍රාවෝ ඔටෝ)</div>
+        <div class="card-meta">තරුණ සඳහා හොඳ</div>
+        <div class="card-text">හොඳ ඔටෝ ගිණුම් සිදු කිරීම. ඉතා සිතුවුවුවු දර සහ ඉතා නිකුත් සේවාව.</div>
+        <div class="card-meta">📞 +39 10 5702 6000<br/>🌐 www.bravoauto.it</div>
+        <a href="https://www.bravoauto.it" target="_blank" class="card-link">වෙබ්සයිට</a>
       </div>
 
       <div class="card">
-        <div class="card-title">Budget</div>
-        <div class="card-meta">සාশ්‍රයී දර</div>
-        <div class="card-text">අඩු බිමින් වාහන Leasing. ගිණුම් ඉතා පහසු.</div>
-        <div class="card-meta">📞 +39 06 5559 0550<br/>🌐 www.budget.it</div>
-        <a href="https://www.budget.it" target="_blank" class="card-link">වෙබ්සයිට එ යන්න</a>
+        <div class="card-title">Motori Italiani (මෝටෝරි ඉටාලියානි)</div>
+        <div class="card-meta">ඉතාලි සිතු විශේෂඥතා</div>
+        <div class="card-text">ඉතාලි සිතු සඳහා විශේෂ ධාරිතා. බිම්ගත පිරිසිදුවීම් සහ හොඳ සංවර්ධන.</div>
+        <div class="card-meta">📞 +39 055 6530 3000<br/>🌐 www.motoriitaliani.it</div>
+        <a href="https://www.motoriitaliani.it" target="_blank" class="card-link">වෙබ්සයිට</a>
       </div>
     </div>
   </section>
 
-  <!-- VEHICLES & PRICES -->
+  <!-- BUYING VS LEASING COMPARISON -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">⚖️</span>
+      <span>ගිණුම් කිරීම සහ Leasing සැසඳුම්</span>
+    </h2>
+    <div class="comparison-grid">
+      <div class="comparison-card">
+        <h4>🛒 ගිණුම් කිරීම (ඔබේ නිල වාහන)</h4>
+        <div class="card-pros">✅ ඉස්සර කිරීම්:</div>
+        <div style="font-size:12px;margin-left:8px;color:var(--text-secondary)">
+          • දිගු කාලීනව ස්වාධීන<br/>
+          • කිසිම නිශ්චිත දර සීමා නැත<br/>
+          • වාහනයට සිතුවුවු ස්වභාවයක් ඇත<br/>
+          • අවසර දිරාපත් කිරීම සිදු හැකි
+        </div>
+        <div class="card-cons">❌ අවාසි:</div>
+        <div style="font-size:12px;margin-left:8px;color:var(--text-secondary)">
+          • විශාල ප්‍රාරම්භක පරිවර<br/>
+          • නිර්වාහන සහ අගවත් ගිණුම්<br/>
+          • දිගු අර්ධ විකිණීම අසීම
+        </div>
+      </div>
+
+      <div class="comparison-card">
+        <h4>🔄 Leasing (කුරුඹුර වාහන)</h4>
+        <div class="card-pros">✅ ඉස්සර කිරීම්:</div>
+        <div style="font-size:12px;margin-left:8px;color:var(--text-secondary)">
+          • අඩු ප්‍රාරම්භක පරිවර<br/>
+          • සරල දර සහ බීමා<br/>
+          • නිතර නිල වාහන ඇත<br/>
+          • නිර්වාහන ගිණුම් නැත
+        </div>
+        <div class="card-cons">❌ අවාසි:</div>
+        <div style="font-size:12px;margin-left:8px;color:var(--text-secondary)">
+          • මාසික ගිණුම් ඉතා විශාල<br/>
+          • දර සීමා ඇත (සාමාන්‍යයෙන් 15,000 km)<br/>
+          • පරිවර අවසරයි<br/>
+          • අවසර නිසැකවම හිරුවිය
+        </div>
+      </div>
+
+      <div class="comparison-card">
+        <h4>📊 ගිණුම් ගිණුම් හරඹ (2-3 නිල සඳහා)</h4>
+        <div style="font-size:12px;margin-top:8px">
+          <strong>ගිණුම් කිරීම:</strong><br/>
+          සම්පූර්ණ වියදම (5 වසර): €8,000-12,000<br/>
+          <br/>
+          <strong>Leasing:</strong><br/>
+          මාසික දර: €300-450<br/>
+          සම්පූර්ණ වියදම (5 වසර): €18,000-27,000
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VEHICLE PRICES & RECOMMENDATIONS -->
   <section class="section">
     <h2 class="section-title">
       <span class="section-icon">🚙</span>
-      <span>ජනප්‍රිය වාහන සහ මිල</span>
+      <span>වාහන මිල සහ පරිවාර නිර්දේශ</span>
     </h2>
     <div class="table-wrap">
       <table>
@@ -181,43 +246,146 @@ footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top
           <tr>
             <th>වාහනයේ නම</th>
             <th>වර්ගය</th>
-            <th>මාසික දර (€)</th>
-            <th>ඉන්ධන පිරිවැය (€/100km)</th>
+            <th>ගිණුම් කිරීම මිල (€)</th>
+            <th>ඉතිරි වියදම (€/වසර)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Fiat Panda</td>
-            <td>කුඩා/ශ්‍රේණි</td>
-            <td>€250-350</td>
-            <td>€6-8</td>
+            <td>කුඩා ශ්‍රේණි</td>
+            <td>€6,000-8,000</td>
+            <td>€600-800</td>
           </tr>
           <tr>
             <td>Volkswagen Golf</td>
             <td>මධ්‍ය ශ්‍රේණි</td>
-            <td>€400-500</td>
-            <td>€7-9</td>
+            <td>€9,000-12,000</td>
+            <td>€800-1,000</td>
           </tr>
           <tr>
             <td>Hyundai i30</td>
             <td>මධ්‍ය ශ්‍රේණි</td>
-            <td>€350-450</td>
-            <td>€6-8</td>
+            <td>€8,000-11,000</td>
+            <td>€700-900</td>
           </tr>
           <tr>
             <td>Renault Scenic</td>
-            <td>කුટුම්බ</td>
-            <td>€450-600</td>
-            <td>€8-10</td>
+            <td>පරිවාර</td>
+            <td>€10,000-14,000</td>
+            <td>€900-1,100</td>
           </tr>
           <tr>
             <td>Mercedes-Benz A-Class</td>
             <td>ඉහල ශ්‍රේණි</td>
-            <td>€600-800</td>
-            <td>€9-12</td>
+            <td>€12,000-16,000</td>
+            <td>€1,000-1,300</td>
           </tr>
         </tbody>
       </table>
+    </div>
+  </section>
+
+  <!-- ANNUAL EXPENSES BREAKDOWN -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">💰</span>
+      <span>වාර්ෂික වියදම් බිම්කරණ</span>
+    </h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-title">🛡️ බීමා (Assicurazione)</div>
+        <div class="card-text">
+          <strong>තරුණ (25-35 බසරු):</strong> €400-600 (සිතුවුවුවු දර)<br/>
+          <strong>වැඩිහිටි (35+ බසරු):</strong> €300-450<br/>
+          <strong>ස්ෙනහෙහ කිරීම:</strong> Responsabilità Civile (අත්‍යාවශ්‍ය)
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🛣️ Bollo (අවසර බදු)</div>
+        <div class="card-text">
+          <strong>පරිවාර වාහන:</strong> €85-150 (ශ්‍රේණි අනුව)<br/>
+          <strong>වසරකට වරක්:</strong> 31 දෙසැම්බර් වසර නිසර<br/>
+          <strong>බඩු සිටුවුම්:</strong> ඉතාලි ප්‍රශාසනයට සිතුවුවුවු
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔧 Revisione (වාහන පරිලෝකනය)</div>
+        <div class="card-text">
+          <strong>පළමු 4 වසර:</strong> කිසිමක් නැත<br/>
+          <strong>පසුව:</strong> €80-150 (සිතුවුවුවු ස්ථාන)<br/>
+          <strong>සිතුවුවුවු:</strong> ඉතා 2 වසරකට වරක්
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">⛽ ඉතිරි වියදම්</div>
+        <div class="card-text">
+          <strong>ඉන්ධන:</strong> €150-200 (මාසිකව)<br/>
+          <strong>නිර්වාහන:</strong> €200-300 (වසරකට)<br/>
+          <strong>මෝටර් තෙල්:</strong> €100-150 (වසරකට)
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:24px;background:var(--blue-light);border-radius:var(--radius);margin-top:24px">
+      <h3 style="margin-bottom:12px;font-family:'Noto Sans Sinhala'">📝 පරිවාර ප්‍රමාණ අනුව මුළු වාර්ෂික වියදම්</h3>
+      <div style="font-family:'Noto Sans Sinhala';font-size:13px;line-height:1.8">
+        <strong>2 නිල පරිවාරයි:</strong><br/>
+        • සරල වාහන: €1,200-1,600/වසරකට<br/>
+        • විශ්වාසවන්ත වාහන: €1,400-1,800/වසරකට<br/>
+        <br/>
+        <strong>3 නිල පරිවාරයි:</strong><br/>
+        • සරල වාහන: €1,000-1,400/වසරකට<br/>
+        • පරිවාර වාහන (දිගු කරයි): €1,500-2,000/වසරකට
+      </div>
+    </div>
+  </section>
+
+  <!-- FAMILY SIZE RECOMMENDATIONS -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">👨‍👩‍👧‍👦</span>
+      <span>පරිවාර ප්‍රමාණ අනුව වාහන නිර්දේශ</span>
+    </h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-title">👫 2 නිල පරිවාරයි</div>
+        <div class="card-text">
+          <strong>නිර්දේශිත:</strong> Fiat Panda, Volkswagen Golf<br/>
+          <strong>ශ්‍රේණි:</strong> කුඩා සිට මධ්‍ය<br/>
+          <strong>ගිණුම් කිරීම මිල:</strong> €6,000-10,000<br/>
+          <strong>වාර්ෂික වියදම්:</strong> €1,200-1,600
+        </div>
+        <div class="card-pros">✅ ඉස්සර: පිරිසිදු ඉතිරි, අඩු ඉතිරි</div>
+        <div class="card-cons">❌ අවාසි: විතරක් ගිණුම් මහ ගිණුම්</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">👨‍👩‍👧 3 නිල පරිවාරයි</div>
+        <div class="card-text">
+          <strong>නිර්දේශිත:</strong> Renault Scenic, Hyundai i30<br/>
+          <strong>ශ්‍රේණි:</strong> මධ්‍ය සිට පරිවාර<br/>
+          <strong>ගිණුම් කිරීම මිල:</strong> €8,000-12,000<br/>
+          <strong>වාර්ෂික වියදම්:</strong> €1,400-1,900
+        </div>
+        <div class="card-pros">✅ ඉස්සර: පර්යන්ත ඉතිරි, දිගු මඟ</div>
+        <div class="card-cons">❌ අවාසි: ඉතා විශාල ඉතිරි, ඉතිරි අඩු</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">👨‍👩‍👧‍👦 4+ නිල පරිවාරයි</div>
+        <div class="card-text">
+          <strong>නිර්දේශිත:</strong> Mercedes-Benz, Audi A4<br/>
+          <strong>ශ්‍රේණි:</strong> පරිවාර ඉතා ඉහල<br/>
+          <strong>ගිණුම් කිරීම මිල:</strong> €10,000-15,000<br/>
+          <strong>වාර්ෂික වියදම්:</strong> €1,600-2,200
+        </div>
+        <div class="card-pros">✅ ඉස්සර: දිගු ඉතිරි, විශාල භාවිතය</div>
+        <div class="card-cons">❌ අවාසි: විශාල ප්‍රාරම්භක පරිවර, ඉතිරි වියදම්</div>
+      </div>
     </div>
   </section>
 
@@ -225,13 +393,13 @@ footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top
   <section class="section">
     <h2 class="section-title">
       <span class="section-icon">⚠️</span>
-      <span>ගමන් දඩ සහ ඉකමනින් ගිම්හරණ</span>
+      <span>ගිම්හරණ දඩ සහ ඉකමනින් ගිම්හරණ</span>
     </h2>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>උකසු / නිරනයාකරණ</th>
+            <th>උකසු/නිරනයාකරණ</th>
             <th>දඩ ප්‍රමාණය (€)</th>
             <th>ස්වරූපය</th>
           </tr>
@@ -253,14 +421,14 @@ footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top
             <td>අඟවාගත් අවිධිතාව</td>
           </tr>
           <tr>
-            <td>ජංගම ජංගම කර්ෂණ</td>
+            <td>ජංගම ජංගම පතිතව උඩු කිරීම</td>
             <td>€160-640</td>
             <td>අඟවාගත් අවිධිතාව</td>
           </tr>
           <tr>
-            <td>ලාල් සිටුවුම කිරීමට අනිමැතිවම</td>
+            <td>නියමිත ස්ථානයේ අනිමැතිවම නෙරපණ</td>
             <td>€80-800</td>
-            <td>අඩවයින් කිසිම</td>
+            <td>අඩවයින් ගිණුම්</td>
           </tr>
           <tr>
             <td>ප්‍රවාහන බීමා නොවීම</td>
@@ -280,26 +448,26 @@ footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top
     </h2>
     <div class="cards-grid">
       <div class="card">
-        <div class="card-title">සතිපතක #1: ඉතාලිය පිහිටු නීති</div>
-        <div class="card-text">ඉතාලිය පිහිටු නීති, සිතු සඳහා වැදගත් උපයුතු, සහ පාලිතු උපයුතු.</div>
+        <div class="card-title">සතිපතක #1: ඉතාලි ගිම්හරණ නීති</div>
+        <div class="card-text">ඉතාලි ගිම්හරණ නීති, ඉතාලි අවිධිතා සඳහා වැදගත් උපයුතු, සහ නිරාපද ගිම්හරණ ක්‍රම.</div>
         <div class="card-meta">📅 සෑම සඳුදා</div>
       </div>
 
       <div class="card">
-        <div class="card-title">සතිපතක #2: පිටිසිටුවී ගිම්හරණ</div>
-        <div class="card-text">පිටිසිටුවී ගිම්හරණයේ නිබන්ධන, පිටිසිටුවීමේ උපයුතු, සහ නිරපේක්ෂතා.</div>
+        <div class="card-title">සතිපතක #2: ගිම්හරණයේ නිබන්ධන</div>
+        <div class="card-text">ගිම්හරණයේ නිබන්ධන, පිටිසිටුවීමේ උපයුතු, සහ ඉතාලි සිතුවුවු සිතුවුවුවු.</div>
         <div class="card-meta">📅 සෑම බදාදා</div>
       </div>
 
       <div class="card">
-        <div class="card-title">සතිපතක #3: අවසාධාරණ පරිස්ථිතිය ඒකනුවලට ඉතිරිවැඩ</div>
-        <div class="card-text">බිම්ගත අවසාධාරණ පිටිසිටුවී, සිතුවීමේ ක්‍රිස්තුවු, සහ ඉතිරිවැඩ නිරපේක්ෂතා.</div>
+        <div class="card-title">සතිපතක #3: අවසාධාරණ පරිස්ථිතිය ඒකනුවලට</div>
+        <div class="card-text">බිම්ගත අවසාධාරණ ගිම්හරණ, සිතුවුවු ක්‍රිස්තුවු ක්‍රම, සහ ඉතිරිවැඩ සිතුවුවුවු.</div>
         <div class="card-meta">📅 සෑම බ්‍රහස්පතින්දා</div>
       </div>
 
       <div class="card">
         <div class="card-title">සතිපතක #4: ඉතාලි පෙරෙහෙහුමු සිතු</div>
-        <div class="card-text">ඉතාලි පෙරෙහෙහුමු සිතු, පිටිසිටුවී නිබන්ධන, සහ බිම්ගත නිරපේක්ෂතා.</div>
+        <div class="card-text">ඉතාලි පෙරෙහෙහුමු සිතු සිතුවුවුවු, පිටිසිටුවී නිබන්ධන, සහ බිම්ගත සිතුවුවුවු.</div>
         <div class="card-meta">📅 සෑම සිකුරාදා</div>
       </div>
     </div>
@@ -325,10 +493,10 @@ footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top
           <input type="text" id="article-title" placeholder="ඔබේ ලිපියේ මාතෘකා..." required>
         </div>
         <div class="form-group">
-          <label style="font-family:'Noto Sans Sinhala'">ලිපි සිටුවුම</label>
+          <label style="font-family:'Noto Sans Sinhala'">ලිපි පෙළ</label>
           <textarea id="article-content" placeholder="ඔබේ ලිපිය..." required></textarea>
         </div>
-        <button type="submit" class="submit-btn">ලිපිය අඩවි කරන්න</button>
+        <button type="submit" class="submit-btn">ලිපිය යොමු කරන්න</button>
       </form>
     </div>
   </section>
@@ -341,26 +509,26 @@ footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top
     </h2>
     <div class="cards-grid">
       <div class="card">
-        <div class="card-title">ඉතාලි මාර්ගමාර්ගී සභාව</div>
-        <div class="card-text">ඉතාලි මාර්ගමාර්ගී සභා - සිතු, පිටිසිටුවී, සහ ඉතිරිවැඩ තොරතුරු.</div>
+        <div class="card-title">ඉතාලි ගිම්හරණ සභාව</div>
+        <div class="card-text">ඉතාලි ගිම්හරණ සභාව - ගිම්හරණ, පිටිසිටුවීම්, සහ අනෙකුත් තොරතුරු.</div>
         <a href="https://www.aci.it" target="_blank" class="card-link">ACI.it</a>
       </div>
 
       <div class="card">
-        <div class="card-title">ඉතාලි රිය බීමා</div>
-        <div class="card-text">ඉතාලිය පිහිටු රිය බීමා සහ ගිණුම් තොරතුරු.</div>
+        <div class="card-title">ඉතාලි වාහන බීමා</div>
+        <div class="card-text">ඉතාලි වාහන බීමා සහ ගිණුම් තොරතුරු සඳහා නිල සභාව.</div>
         <a href="https://www.ivass.it" target="_blank" class="card-link">IVASS.it</a>
       </div>
 
       <div class="card">
-        <div class="card-title">ඉතාලි ගමන් දඩ</div>
-        <div class="card-text">ඉතාලි ගමන් දඩ සිතු සහ අවිධිතා තොරතුරු.</div>
+        <div class="card-title">ඉතාලි ගිම්හරණ දඩ</div>
+        <div class="card-text">ඉතාලි ගිම්හරණ දඩ සිතු සහ අවිධිතා තොරතුරු.</div>
         <a href="https://www.poliziadisstato.it" target="_blank" class="card-link">Polizia di Stato</a>
       </div>
 
       <div class="card">
-        <div class="card-title">ඉතාලි වාහන බිම්</div>
-        <div class="card-text">නව සහ භාවිත වාහන සඳහා ඉතාලි වාහන බිම්.</div>
+        <div class="card-title">ඉතාලි වාහන විවරණ</div>
+        <div class="card-text">නව සහ පැරණි වාහන සඳහා ඉතාලි විවරණ සිතුවුවුවු.</div>
         <a href="https://www.quattroruote.it" target="_blank" class="card-link">Quattroruote</a>
       </div>
     </div>
@@ -372,15 +540,16 @@ footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top
   <div class="footer-wrap">
     <div class="footer-section">
       <h4>ඉතාලිය ගයිඩ්</h4>
-      <a href="#leasing">Leasing සමාගම්</a>
+      <a href="#companies">විකිණීමේ සමාගම්</a>
+      <a href="#comparison">සැසඳුම්</a>
       <a href="#vehicles">වාහන සහ මිල</a>
-      <a href="#fines">ගමන් දඩ</a>
-      <a href="#lessons">පාඩම්</a>
+      <a href="#expenses">වියදම්</a>
+      <a href="#fines">ගිම්හරණ දඩ</a>
     </div>
     <div class="footer-section">
       <h4>වැඩිතර</h4>
       <a href="index.html">රැකියා ඉස්සර යන්න</a>
-      <a href="entertainment.html">ගිණුම්</a>
+      <a href="entertainment.html">ගිණුම් සහ විනෝදන</a>
       <a href="#">අපිට සම්බන්ධ වන්න</a>
     </div>
     <div class="footer-section">
@@ -390,7 +559,7 @@ footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top
       <a href="#">සම්බන්ධතා තොරතුරු</a>
     </div>
   </div>
-  <div class="footer-bottom">© 2025 Lanka Driver's Guide. ඉතාලිය සඳහා ශ්‍රී ලාංකිකයන්ගේ ගයිඩ්.</div>
+  <div class="footer-bottom">© 2025 Lanka Driver's Guide. ඉතාලිය සඳහා ශ්‍රී ලාංකිකයන්ගේ වාහන ගයිඩ්.</div>
 </footer>
 
 <script>
@@ -457,7 +626,7 @@ function addArticle(e) {
   document.getElementById('article-content').value = '';
 
   loadArticles();
-  alert('ලිපිය සාර්ථකව ඉතිරිකිරිණි!');
+  alert('ලිපිය සාර්ථකව යොමු කරනු ලැබුවා!');
 }
 
 function deleteArticle(btn, idx) {
