@@ -59,6 +59,32 @@
     .notice-btn{display:inline-block;margin-top:8px;padding:8px 16px;background:#f59e0b;color:white;border-radius:var(--radius);font-weight:600;font-size:12px;transition:background .2s}
     .notice-btn:hover{background:#d97706}
 
+    /* Flag Animations */
+    .flags-container{display:flex;justify-content:center;gap:40px;margin-bottom:32px;flex-wrap:wrap}
+    .flag-item{font-size:60px;animation:flagWave 1s ease-in-out infinite;transform-origin:bottom;display:inline-block}
+    .flag-item:nth-child(1){animation-delay:0s}
+    .flag-item:nth-child(2){animation-delay:0.2s}
+    @keyframes flagWave{
+      0%,100%{transform:rotateZ(-5deg)}
+      50%{transform:rotateZ(5deg)}
+    }
+
+    /* Moving Car Animation */
+    .notice-car-container{display:flex;align-items:center;gap:12px;margin-top:12px;overflow:hidden;height:40px;background:rgba(255,255,255,0.3);border-radius:var(--radius);padding:8px}
+    .notice-car{font-size:32px;animation:carMove 4s ease-in-out infinite;flex-shrink:0}
+    @keyframes carMove{
+      0%{transform:translateX(-100px)}
+      50%{transform:translateX(calc(100vw - 200px))}
+      100%{transform:translateX(-100px)}
+    }
+    .notice-car-text{font-size:13px;color:#78350f;font-weight:600;white-space:nowrap;animation:fadeInOut 4s ease-in-out infinite}
+    @keyframes fadeInOut{
+      0%{opacity:0}
+      20%{opacity:1}
+      80%{opacity:1}
+      100%{opacity:0}
+    }
+
     /* Hero Section */
     .hero{background:linear-gradient(135deg,#1f2937 0%,#111827 100%);color:white;padding:64px var(--spacing);text-align:center}
     .hero-inner{max-width:800px;margin:0 auto}
@@ -244,6 +270,10 @@
     <div class="notice-text">
       New drivers successfully converting licenses: <strong>Updates posted on this page</strong>. Follow the official procedures. Beware of unauthorized agents claiming to expedite the process. Check this page regularly for latest embassy updates and rule changes.
     </div>
+    <div class="notice-car-container">
+      <div class="notice-car">🚗</div>
+      <div class="notice-car-text">Your Journey Starts Here → බලපත්‍ර පරිවර්තනය (License Conversion) → Patente Italiana!</div>
+    </div>
     <a href="#latest-news" class="notice-btn">View Latest Updates</a>
   </div>
 </div>
@@ -251,6 +281,10 @@
 <!-- HERO SECTION -->
 <section class="hero">
   <div class="hero-inner">
+    <div class="flags-container">
+      <div class="flag-item">🇱🇰</div>
+      <div class="flag-item">🇮🇹</div>
+    </div>
     <h1>Convert Your Sri Lankan Driving License in Italy</h1>
     <div class="hero-subtitle">✅ No Exam Required • Official Process • Step-by-Step Guide</div>
     <p>Complete guide to legally converting your Sri Lankan driving license to an Italian one under the bilateral agreement. Get answers to common questions, understand the process, and avoid costly mistakes.</p>
