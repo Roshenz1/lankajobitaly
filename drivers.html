@@ -274,28 +274,49 @@
   <!-- TAB 1: LICENSE CONVERSION -->
   <div id="tab-license" class="tab-content active">
 
-  <!-- ELIGIBILITY CHECKER -->
+  <!-- ELIGIBILITY CHECKER - SINHALA FIRST -->
   <section class="section">
     <h2 class="section-title">
       <span class="section-icon">✅</span>
-      <span>Eligibility Checker</span>
+      <span>ඔබ සුදුසු ද පරීක්ෂා කරන්න (Eligibility Checker)</span>
     </h2>
+    <p style="font-size:15px;color:var(--dark);margin-bottom:12px;font-weight:600">
+      🎯 ඔබ ඉතාලිය අවසරය නැතිවම බලපත්‍ර පරිවර්තනය කළ හැක ද?
+    </p>
     <p style="font-size:14px;color:var(--gray);margin-bottom:24px">
-      Check if you're eligible to convert your Sri Lankan license <span class="highlight">WITHOUT taking an exam</span>.
+      පහත ප්‍රශ්න තුනට සඳහා "ඔව්" ගැසුම් කරන්න. තුනම සඳහා ඔව් නම්, අවසරය දිය යුතු නැත! 🎉
     </p>
 
     <div class="eligibility-checker">
       <div class="checker-question">
         <input type="checkbox" id="check1" onchange="checkEligibility()"/>
-        <label for="check1">I got Italian residency less than 6 years ago</label>
+        <label for="check1">
+          <strong style="color:var(--primary);font-size:14px">① ඉතාලිය කොපමණ කාලයක් නිවි?</strong>
+          <div style="font-size:12px;color:var(--gray);margin-top:6px;font-weight:400">
+            ✅ 6 වසරට අඩු නම් - ඔව්ට ගැසුම් කරන්න<br/>
+            ❌ 6 වසරට වඩා නම් - එක්ස් කරන්න
+          </div>
+        </label>
       </div>
       <div class="checker-question">
         <input type="checkbox" id="check2" onchange="checkEligibility()"/>
-        <label for="check2">I obtained my Sri Lankan license BEFORE getting Italian residency</label>
+        <label for="check2">
+          <strong style="color:var(--primary);font-size:14px">② ශ්‍රී ලංකා බලපත්‍ර ඉතාලිය ගිහින් පෙර ලබා ගතුනි ද?</strong>
+          <div style="font-size:12px;color:var(--gray);margin-top:6px;font-weight:400">
+            ✅ ඔබ ඉතාලිය යාමට පෙර බලපත්‍ර ලබා ගතිනම් - ඔව්ට ගැසුම් කරන්න<br/>
+            ❌ ඉතාලිය ගිහින් පසුව ලබා ගතිනම් - එක්ස් කරන්න
+          </div>
+        </label>
       </div>
       <div class="checker-question">
         <input type="checkbox" id="check3" onchange="checkEligibility()"/>
-        <label for="check3">My Sri Lankan license is still valid (not expired)</label>
+        <label for="check3">
+          <strong style="color:var(--primary);font-size:14px">③ ශ්‍රී ලංකා බලපත්‍ර තවයි පුරවනු ඇත ද?</strong>
+          <div style="font-size:12px;color:var(--gray);margin-top:6px;font-weight:400">
+            ✅ බලපත්‍ර අහෙස (පුරවනු ඇති දිනයට ඉතිරි) - ඔව්ට ගැසුම් කරන්න<br/>
+            ❌ බලපත්‍ර එක්ස්පයිර්ඩ් (අවසර අතිකර ගිය) - එක්ස් කරන්න
+          </div>
+        </label>
       </div>
 
       <div id="result" class="checker-result">
@@ -303,178 +324,203 @@
         <p id="result-text"></p>
       </div>
     </div>
-  </section>
 
-  <!-- QUICK OVERVIEW -->
-  <section class="section">
-    <h2 class="section-title">
-      <span class="section-icon">⚡</span>
-      <span>Quick Overview</span>
-    </h2>
-    <div class="cards-grid">
-      <div class="card">
-        <div class="card-title">📋 Typical Timeline</div>
-        <div class="card-text"><strong style="font-size:16px;color:var(--primary)">3-6 months</strong> from application to final license</div>
-      </div>
-      <div class="card">
-        <div class="card-title">💰 Estimated Cost</div>
-        <div class="card-text"><strong style="font-size:16px;color:var(--primary)">€200-400</strong> total (varies by region)</div>
-      </div>
-      <div class="card">
-        <div class="card-title">📍 Where to Apply</div>
-        <div class="card-text">Sri Lankan <strong>Embassy in Rome</strong> or <strong>Consulate in Milan</strong></div>
-      </div>
-      <div class="card">
-        <div class="card-title">🎯 Next Step</div>
-        <div class="card-text">Gather documents → Visit Embassy → Apply at Motorizzazione</div>
+    <!-- SIMPLE GLOSSARY -->
+    <div style="background:var(--primary-light);padding:16px;border-radius:var(--radius);margin-top:24px;border-left:4px solid var(--primary)">
+      <h4 style="color:var(--primary-dark);margin-bottom:12px;font-size:14px">📝 ඉතා වැදගත් වචන</h4>
+      <div style="font-size:13px;color:var(--dark);line-height:2">
+        <div><strong>බලපත්‍ර (License):</strong> ඉතාලිය ගිම්හරණ කිරීමට අවසර දෙන කඩ</div>
+        <div><strong>ඉතාලිය බාසයි (Italian Residency):</strong> ඉතාලිය බෙදාහරින්නේ ඉතිරි තිබුවීම</div>
+        <div><strong>එක්ස්පයිර්ඩ් (Expired):</strong> බලපත්‍ර අවසර අතිකර ගිය - නිරුපිතව නොවේ!</div>
+        <div><strong>අවසරය (Exam):</strong> ඉතාලිය ගිම්හරණ පරීක්ෂණ - අපි එය නොදිය යුතු</div>
       </div>
     </div>
   </section>
 
-  <!-- DOCUMENT CHECKLIST -->
+  <!-- QUICK OVERVIEW - SINHALA FIRST -->
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-icon">⚡</span>
+      <span>ඉක්මන් තොරතුරු (Quick Overview)</span>
+    </h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-title">⏱️ කොපමණ කාලයක්? (Timeline)</div>
+        <div class="card-text">
+          <strong style="font-size:18px;color:var(--primary)">3-6 මාස</strong>
+          <div style="font-size:12px;color:var(--gray);margin-top:8px">
+            ඔබ දූතවරුවියට සිටින දිනයේ සිට බලපත්‍ර ඇතිසිටුවීම දක්වා. සිතුවුවු!
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">💵 කොපමණ දිය යුතු? (Cost)</div>
+        <div class="card-text">
+          <strong style="font-size:18px;color:var(--primary)">€200-400</strong>
+          <div style="font-size:12px;color:var(--gray);margin-top:8px">
+            ඉතාලි ප්‍රදේශ අනුව වෙනස් වේ. කුඩා දර!
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">📍 කොතැනට යා යුතු? (Where)</div>
+        <div class="card-text">
+          🏛️ <strong>රෝම (Rome)</strong> - බොහොමයින්<br/>
+          හෝ<br/>
+          🏛️ <strong>මිලෙනියෝ (Milan)</strong> - උතුරු ඉතාලිය
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">🎯 ඉදිරි පියවර (Next)</div>
+        <div class="card-text">
+          <strong>① ලිපිලේඛන එකතු කරන්න</strong><br/>
+          <strong>② දූතවරුවිය ගිහින් අයින</strong><br/>
+          <strong>③ Motorizzazione ඉල්ලා ගන්න</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCUMENT CHECKLIST - SINHALA FIRST -->
   <section class="section" id="checklist">
     <h2 class="section-title">
       <span class="section-icon">📄</span>
-      <span>Complete Document Checklist</span>
+      <span>ඔබ අවශ්‍ය ලිපිලේඛන (Complete Document Checklist)</span>
     </h2>
+    <p style="font-size:15px;color:var(--dark);margin-bottom:12px;font-weight:600">
+      ⚠️ වැදගත්: <strong>මුල් ලිපිලේඛන අවශ්‍ය</strong> - ඡායාකිරීම් පමණක් නොවේ!
+    </p>
     <p style="font-size:14px;color:var(--gray);margin-bottom:24px">
-      Download and print this checklist to ensure you have all required documents. <strong>Original documents</strong> are required - photocopies alone are not sufficient.
+      මෙම ලැයිස්තුව ඉවතට ගෙන ස්ක්‍රීන්ලි ඔබගේ ලිපිලේඛන පරිවර්තනය කරන්න. සෑම වස්තුවි ✅ සලකුණු කරන්න. සම්පූර්ණ කරුවිට දූතවරුවිය ගිහින් අයින!
     </p>
 
     <div class="checklist">
       <!-- Section A: Sri Lankan Documents -->
       <div class="checklist-category">
-        <h4>🇱🇰 Section A: Sri Lankan Documents</h4>
+        <h4>🇱🇰 ① ශ්‍රී ලංකා ලිපිලේඛන (Sri Lankan Documents)</h4>
         <div class="checklist-item">
           <input type="checkbox"/>
           <div class="checklist-label">
-            Sri Lankan Passport (original + photocopy)
-            <div class="checklist-note">Must be valid or expired no more than 3 years</div>
+            <strong>ශ්‍රී ලංකා විසඳුපත්‍ර (Passport)</strong> - මුල් + ඡායාකිරීම
+            <div class="checklist-note">✅ අහෙස (තවයි පුරවනු ඇත) හෝ 3 වසරට ඇතුළේ එක්ස්පයිර්ඩ්</div>
           </div>
         </div>
         <div class="checklist-item">
           <input type="checkbox"/>
           <div class="checklist-label">
-            Sri Lankan Driving License (original + photocopy)
-            <div class="checklist-note">Must show the date you obtained it (before Italian residency)</div>
+            <strong>ශ්‍රී ලංකා බලපත්‍ර (Driving License)</strong> - මුල් + ඡායාකිරීම
+            <div class="checklist-note">🔴 ඉතා වැදගත්: අසල් දිනය සහ පුරවන දිනය බලන්න! ඉතාලිය ගිහින් පෙර ලබා ගත යුතු!</div>
           </div>
         </div>
         <div class="checklist-item">
           <input type="checkbox"/>
           <div class="checklist-label">
-            Sri Lankan Birth Certificate (certified copy)
-            <div class="checklist-note">Only needed if name differs from license</div>
+            <strong>ජන්ම සිටුවීම (Birth Certificate)</strong> - සහතුකරණ ප්‍රතිලිපිය
+            <div class="checklist-note">⚪ විකල්පය: ඔබගේ නම විවිධ ලිපිලේඛනවලින් වෙනස් නම් පමණක්</div>
           </div>
         </div>
       </div>
 
       <!-- Section B: Italian Residence Documents -->
       <div class="checklist-category">
-        <h4>🇮🇹 Section B: Italian Residence Documents</h4>
+        <h4>🇮🇹 ② ඉතාලි බාසයි ලිපිලේඛන (Italian Residence Documents)</h4>
         <div class="checklist-item">
           <input type="checkbox"/>
           <div class="checklist-label">
-            Permesso di Soggiorno (original + photocopy)
-            <div class="checklist-note">Your Italian residence permit - must show date issued</div>
+            <strong>Permesso di Soggiorno</strong> (වාස අවසරය) - මුල් + ඡායාකිරීම
+            <div class="checklist-note">🔴 ඉතා වැදගත්: ගුලාබි පත්‍ර! ඉතාලිය බාසයි කි දිනය ඇතුළත්!</div>
           </div>
         </div>
         <div class="checklist-item">
           <input type="checkbox"/>
           <div class="checklist-label">
-            Certificato di Residenza (original)
-            <div class="checklist-note">Current Italian residence certificate from municipality</div>
+            <strong>Certificato di Residenza</strong> (වාසස්ථාන සහතිකරණය) - මුල්
+            <div class="checklist-note">🔴 වැදගත්: නඩබිම් කාර්යාලයෙන් ලබා ගන්න (Comune). හැමිණි වසර අවශ්‍ය!</div>
           </div>
         </div>
         <div class="checklist-item">
           <input type="checkbox"/>
           <div class="checklist-label">
-            Carta d'Identità Italiana (Italian ID Card)
-            <div class="checklist-note">If you have one; otherwise use passport</div>
+            <strong>Carta d'Identità Italiana</strong> (ඉතාලි හැඳුනුම් පත්‍ර)
+            <div class="checklist-note">⚪ විකල්පය: නැතිනම්, විසඳුපත්‍ර ගි ගත හැක</div>
           </div>
         </div>
       </div>
 
       <!-- Section C: Embassy Application Documents -->
       <div class="checklist-category">
-        <h4>🏢 Section C: Embassy Application Documents</h4>
+        <h4>🏢 ③ දූතවරුවිය අයින (Embassy Application)</h4>
         <div class="checklist-item">
           <input type="checkbox"/>
           <div class="checklist-label">
-            Application Form (from Embassy)
-            <div class="checklist-note">Completed and signed - obtain from embassy</div>
+            <strong>ඉදිරිපත් කිරීමේ ඉයුරු (Application Form)</strong>
+            <div class="checklist-note">🔴 වැදගත්: දූතවරුවිම ලබා දෙයි. එය පුරවන්න සහ අත්සන් කරන්න</div>
           </div>
         </div>
         <div class="checklist-item">
           <input type="checkbox"/>
           <div class="checklist-label">
-            Recent Passport Photos (4x6 cm)
-            <div class="checklist-note">2-3 photos, recent, plain background</div>
+            <strong>ඡායාරූප 2-3</strong> (Passport Photos 4x6cm)
+            <div class="checklist-note">⚪ සරල: සිඩු පසුබිම, සරල තුඩු, නැවුතු</div>
           </div>
         </div>
         <div class="checklist-item">
           <input type="checkbox"/>
           <div class="checklist-label">
-            Payment Receipt for Embassy Fee
-            <div class="checklist-note">Proof of payment - keep for records</div>
+            <strong>දූතවරුවිය ගෙවීමේ රිසිට්ටුව (Payment Receipt)</strong>
+            <div class="checklist-note">📋 සුරකිත තබා ගන්න! (€50-150 බොහොමයින්)</div>
           </div>
         </div>
       </div>
 
       <!-- Section D: Motorizzazione/ACI Documents -->
       <div class="checklist-category">
-        <h4>🏛️ Section D: Motorizzazione/ACI/Autoscuola Documents</h4>
+        <h4>🏛️ ④ Motorizzazione අයින (Italian Transport Office)</h4>
         <div class="checklist-item">
           <input type="checkbox"/>
           <div class="checklist-label">
-            Medical Certificate (Certificato Medico)
-            <div class="checklist-note">Form 4 - can be done at Motorizzazione or doctor (€10-20)</div>
+            <strong>වෛද්‍ය සහතිකරණය (Medical Certificate - Certificato Medico)</strong>
+            <div class="checklist-note">📋 Motorizzazione හෝ ඩොක්ටර් සිට ලබා ගන්න (€10-20)</div>
           </div>
         </div>
         <div class="checklist-item">
           <input type="checkbox"/>
           <div class="checklist-label">
-            Embassy Reference Receipt/Confirmation Letter
-            <div class="checklist-note">Given by embassy after submission - essential</div>
+            <strong>දූතවරුවිය ඉදිරිපත් කිරීමේ අවසර (Embassy Reference)</strong>
+            <div class="checklist-note">🔴 ඉතා වැදගත්: දූතවරුවිම ලබා දෙයි. Motorizzazione ට අවශ්‍ය!</div>
           </div>
         </div>
         <div class="checklist-item">
           <input type="checkbox"/>
           <div class="checklist-label">
-            Driving License Conversion Form
-            <div class="checklist-note">Available at Motorizzazione or ACI</div>
-          </div>
-        </div>
-        <div class="checklist-item">
-          <input type="checkbox"/>
-          <div class="checklist-label">
-            Proof of Italian Address
-            <div class="checklist-note">Utility bill or contract - not older than 3 months</div>
+            <strong>ඉතාලි ලිපිනය පුරවුම් (Address Proof)</strong>
+            <div class="checklist-note">📋 බිල් හෝ අඩවි - 3 මාසට අඩු කාලයක්</div>
           </div>
         </div>
       </div>
 
       <!-- Optional Documents -->
       <div class="checklist-category">
-        <h4>⚠️ Optional/Conditional Documents</h4>
+        <h4>⚪ ⑤ විකල්පය (ඔබට අවශ්‍ය නොවි)</h4>
         <div class="checklist-item">
           <input type="checkbox"/>
           <div class="checklist-label">
-            Name Change Documents (if applicable)
-            <div class="checklist-note">Marriage certificate, decree - if name is different</div>
+            <strong>නම් වෙනස් ලිපිලේඛන</strong>
+            <div class="checklist-note">⚪ විකල්පය: විවාහ පත්‍ර හෝ නම් වෙනස් නම් පමණක්</div>
           </div>
         </div>
         <div class="checklist-item">
           <input type="checkbox"/>
           <div class="checklist-label">
-            Translation of Sri Lankan License (if required)
-            <div class="checklist-note">By certified translator - cost €30-50</div>
+            <strong>ශ්‍රී ලංකා බලපත්‍ර පරිවර්තනය</strong> (ඉතාලි භාෂාවට)
+            <div class="checklist-note">⚪ විකල්පය: දූතවරුවිම ඉල්ලා ගුවිත නම් පමණක් (€30-50)</div>
           </div>
         </div>
         <div class="checklist-item">
           <input type="checkbox"/>
           <div class="checklist-label">
-            Criminal Record Certificate (if requested)
-            <div class="checklist-note">From Sri Lanka - rarely requested</div>
+            <strong>අපරාධ ඇතුල් ලිපිය (Criminal Record)</strong>
+            <div class="checklist-note">⚪ විකල්පය: බොහොමයින් අවශ්‍ය නොවේ</div>
           </div>
         </div>
       </div>
@@ -563,54 +609,57 @@
     </div>
   </section>
 
-  <!-- COST BREAKDOWN -->
+  <!-- COST BREAKDOWN - SINHALA FIRST -->
   <section class="section">
     <h2 class="section-title">
       <span class="section-icon">💰</span>
-      <span>Cost Breakdown</span>
+      <span>වියදම් වගුව (Cost Breakdown)</span>
     </h2>
+    <p style="font-size:14px;color:var(--gray);margin-bottom:16px">
+      🎯 සම්පූර්ණ වියදම: <strong>€200-400</strong> - එය බොහොමයින්!
+    </p>
     <table class="cost-table">
       <thead>
         <tr>
-          <th>Item</th>
-          <th>Cost (€)</th>
-          <th>Notes</th>
+          <th style="font-weight:700">කුමක්ද? (Item)</th>
+          <th style="font-weight:700">කොපමණ? (€)</th>
+          <th style="font-weight:700">තවත් තොරතුරු (Notes)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Embassy Application Fee</td>
-          <td class="amount">50-150</td>
-          <td>Varies by consulate; paid at embassy visit</td>
+          <td><strong>දූතවරුවිය ගෙවීම</strong><br/>(Embassy Fee)</td>
+          <td class="amount">50-150€</td>
+          <td>ඩිපීම ගිහින් ගෙවන්න</td>
         </tr>
         <tr>
-          <td>Medical Certificate (Form 4)</td>
-          <td class="amount">10-30</td>
-          <td>Can be done at Motorizzazione or private doctor</td>
+          <td><strong>වෛද්‍ය කිරීම</strong><br/>(Medical Check)</td>
+          <td class="amount">10-30€</td>
+          <td>Motorizzazione හෝ ඩොක්ටර්. Motorizzazione සස්තුය!</td>
         </tr>
         <tr>
-          <td>Motorizzazione Processing</td>
-          <td class="amount">20-50</td>
-          <td>License conversion fee</td>
+          <td><strong>Motorizzazione ක්‍රියාවලිය</strong><br/>(Processing)</td>
+          <td class="amount">20-50€</td>
+          <td>බලපත්‍ර පරිවර්තනය සඳහා ගිණුම්</td>
         </tr>
         <tr>
-          <td>Italian Driving License Card</td>
-          <td class="amount">10-20</td>
-          <td>Physical license production</td>
+          <td><strong>ඉතාලි බලපත්‍ර පත්‍ර</strong><br/>(License Card)</td>
+          <td class="amount">10-20€</td>
+          <td>බලපත්‍ර ඇතිසිටුවීම</td>
         </tr>
         <tr>
-          <td>Document Translation (if needed)</td>
-          <td class="amount">30-60</td>
-          <td>Certified translation of Sri Lankan license</td>
+          <td><strong>පරිවර්තනය</strong> (විකල්පය)<br/>(Translation)</td>
+          <td class="amount">30-60€</td>
+          <td>ඒවා අවශ්‍ය නම් පමණක්</td>
         </tr>
         <tr>
-          <td>Courier/Shipping (if needed)</td>
-          <td class="amount">10-30</td>
-          <td>If sending documents by courier</td>
+          <td><strong>ඉතිරි</strong> (විකල්පය)<br/>(Courier)</td>
+          <td class="amount">10-30€</td>
+          <td>ඒවා අවශ්‍ය නම් පමණක්</td>
         </tr>
-        <tr>
-          <td colspan="2" style="font-weight:700">TOTAL ESTIMATED COST</td>
-          <td class="amount">130-340</td>
+        <tr style="background:var(--primary-light)">
+          <td colspan="2" style="font-weight:700;color:var(--primary-dark)">📊 සම්පූර්ණ වියදම (TOTAL)</td>
+          <td style="font-weight:700;color:var(--primary);font-size:16px">€130-340</td>
         </tr>
       </tbody>
     </table>
