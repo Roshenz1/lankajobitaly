@@ -167,6 +167,30 @@ footer{background:var(--gray-900);color:white;padding:48px var(--spacing);margin
   .apply-btn{width:100%}
 }
 
+/* LICENSE NOTICE */
+.license-notice{background:#fcd34d;border-bottom:3px solid #f59e0b;padding:16px var(--spacing);position:sticky;top:56px;z-index:99;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+.notice-content{max-width:1400px;margin:0 auto;display:flex;align-items:flex-start;gap:16px}
+.notice-icon{font-size:32px;animation:carDrive 4s infinite;flex-shrink:0;margin-top:4px}
+@keyframes carDrive{
+  0%{transform:translateX(-20px) scaleX(1);opacity:0}
+  10%{opacity:1}
+  50%{transform:translateX(100px) scaleX(1)}
+  90%{opacity:1}
+  100%{transform:translateX(150px) scaleX(-1);opacity:0}
+}
+.notice-text{flex:1;font-size:15px;line-height:1.5}
+.notice-title{font-weight:700;color:#92400e;margin-bottom:6px;font-family:'Noto Sans Sinhala','Inter',sans-serif;font-size:16px}
+.notice-text p{color:#78350f;margin:6px 0;font-family:'Noto Sans Sinhala','Inter',sans-serif}
+.notice-text strong{color:#92400e;font-weight:700}
+.notice-action{flex-shrink:0;margin-top:4px}
+.notice-btn{padding:10px 20px;background:#f59e0b;color:white;border:none;border-radius:6px;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'Noto Sans Sinhala','Inter',sans-serif}
+.notice-btn:hover{background:#d97706;transform:translateY(-2px);box-shadow:0 4px 12px rgba(245,158,11,0.3)}
+@media(max-width:768px){
+  .license-notice{padding:12px var(--spacing);top:52px}
+  .notice-content{flex-direction:column;gap:12px}
+  .notice-action{margin-top:0}
+}
+
 /* ANIMATIONS */
 .job-card{animation:slideUp 0.3s ease-out}
 @keyframes slideUp{
@@ -199,6 +223,20 @@ footer{background:var(--gray-900);color:white;padding:48px var(--spacing);margin
     </div>
   </div>
 </header>
+
+<!-- LICENSE NOTICE -->
+<div class="license-notice">
+  <div class="notice-content">
+    <div class="notice-icon">🚗</div>
+    <div class="notice-text">
+      <div class="notice-title">📋 වැදගත්: ශ්‍රී ලංකා-ඉතාලිය ද්විපාර්ශ්වික운전면허 අනුකම්පනය</div>
+      <p>නව운전자 අවසරපත්‍ර සාර්ථකව පරිවර්තනය කරමින්: <strong>මෙම පිටුවේ යාවත්කාලීනතා ඇත</strong>. නිල ප්‍රक්‍රියා අනුගමනය කරන්න. අවසරය ඉක්මන් කරන්නයි කිව්වා අසම්මතඟු කර්තෘවරුන් සැඟවී සිටින්න. සම්මතතම තොරතුරු සඳහා මෙම පිටුව නිතිපතා පරීක්ෂා කරන්න.</p>
+    </div>
+    <div class="notice-action">
+      <button class="notice-btn" onclick="document.location='drivers.html'">තොරතුරු බලන්න</button>
+    </div>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="search-section">
