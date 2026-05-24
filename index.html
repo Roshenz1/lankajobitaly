@@ -3,424 +3,478 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Lanka Job Italy – Find Jobs Now</title>
-<meta name="description" content="Find jobs in Italy: Elder Care, Cleaning, Factory. Free job listings for Sri Lankans in Italy."/>
-<meta property="og:title" content="Lanka Job Italy"/>
-<meta property="og:description" content="ඉතාලියේ ශ්‍රී ලාංකිකයන් සඳහා රැකියා සෙවීමේ ද්වාරය"/>
+<title>Lanka Job Italy – Modern Job Search for Sri Lankans</title>
+<meta name="description" content="Find your dream job in Italy. Free job listings for Sri Lankans. Elder Care, Cleaning, Factory, Healthcare, Hospitality."/>
+<meta property="og:title" content="Lanka Job Italy - Job Search for Sri Lankans"/>
+<meta property="og:description" content="Modern job search platform for Sri Lankans in Italy"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --blue:#1f2937;--blue-light:#f3f4f6;--blue-border:#e5e7eb;
-  --text-primary:#111827;--text-secondary:#6b7280;--text-tertiary:#9ca3af;
-  --white:#ffffff;--gray:#f9fafb;
-  --accent-blue:#2563eb;--accent-blue-hover:#1d4ed8;
-  --green:#10b981;--green-bg:#ecfdf5;--green-text:#047857;
-  --orange:#f59e0b;--orange-bg:#fffbeb;--orange-text:#92400e;
-  --spacing:16px;--radius:8px;--shadow:0 1px 3px 0 rgba(0,0,0,.1);
+  --primary:#6366f1;--primary-dark:#4f46e5;--primary-light:#e0e7ff;
+  --secondary:#8b5cf6;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;
+  --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;
+  --gray-400:#9ca3af;--gray-600:#4b5563;--gray-700:#374151;--gray-900:#111827;
+  --white:#ffffff;--shadow:0 1px 3px rgba(0,0,0,0.1);--shadow-lg:0 10px 25px rgba(0,0,0,0.1);
+  --radius:8px;--spacing:16px;
 }
-html,body{font-family:'Inter','Noto Sans Sinhala',sans-serif;font-size:14px;color:var(--text-primary);background:var(--white);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-a{color:var(--accent-blue);text-decoration:none}
-a:hover{color:var(--accent-blue-hover)}
+html,body{font-family:'Inter','Noto Sans Sinhala',sans-serif;font-size:15px;color:var(--gray-900);background:var(--gray-50);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.6}
+a{color:var(--primary);text-decoration:none}a:hover{color:var(--primary-dark)}
 button{font-family:inherit;cursor:pointer;border:none}
-input,select,textarea{font-family:inherit;font-size:inherit;padding:8px 12px;border:1px solid var(--blue-border);border-radius:var(--radius);outline:none}
-input:focus,select:focus,textarea:focus{border-color:var(--accent-blue);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+input,select{font-family:inherit;font-size:inherit}
 
-/* Header */
-header{
-  background:var(--white);border-bottom:1px solid var(--blue-border);
-  padding:12px var(--spacing);position:sticky;top:0;z-index:100;
-}
-.header-wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:var(--spacing)}
-.logo{font-size:20px;font-weight:800;color:var(--text-primary);display:flex;align-items:center;gap:8px}
-.logo-icon{width:32px;height:32px;background:var(--accent-blue);color:white;border-radius:6px;display:flex;align-items:center;justify-content:center}
-.nav-links{display:flex;gap:24px;align-items:center}
-.nav-links a{color:var(--text-secondary);font-size:14px;font-weight:500}
-.nav-links a:hover{color:var(--text-primary)}
-.nav-lang{display:flex;gap:8px}
-.lang-btn{padding:6px 12px;border:1px solid var(--blue-border);border-radius:var(--radius);font-size:12px;font-weight:600;background:transparent;cursor:pointer;color:var(--text-secondary)}
-.lang-btn.active{background:var(--accent-blue);color:white;border-color:var(--accent-blue)}
-.auth-btn{padding:8px 16px;background:var(--accent-blue);color:white;border-radius:var(--radius);font-weight:600;font-size:14px}
-.auth-btn:hover{background:var(--accent-blue-hover)}
+/* HEADER - Modern & Clean */
+header{background:var(--white);border-bottom:1px solid var(--gray-200);padding:12px var(--spacing);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-wrap{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:22px;font-weight:800;color:var(--primary);display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo:hover{color:var(--primary-dark)}
+.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.nav-center{display:flex;gap:32px;align-items:center}
+.nav-center a{color:var(--gray-700);font-weight:500;font-size:14px;transition:color 0.2s}
+.nav-center a:hover{color:var(--primary)}
+.nav-right{display:flex;gap:12px;align-items:center}
+.lang-toggle{display:flex;gap:6px}
+.lang-btn{padding:6px 12px;border:1px solid var(--gray-300);border-radius:6px;font-size:12px;font-weight:600;background:transparent;cursor:pointer;color:var(--gray-600);transition:all 0.2s}
+.lang-btn.active{background:var(--primary);color:white;border-color:var(--primary)}
+.sign-in-btn{padding:8px 20px;background:var(--white);color:var(--primary);border:2px solid var(--primary);border-radius:6px;font-weight:600;transition:all 0.2s}
+.sign-in-btn:hover{background:var(--primary-light)}
+.post-job-btn{padding:8px 20px;background:var(--primary);color:white;border-radius:6px;font-weight:600;transition:all 0.2s}
+.post-job-btn:hover{background:var(--primary-dark)}
+@media(max-width:768px){.nav-center{display:none}.header-wrap{gap:12px}}
+
+/* HERO - Modern Search Section */
+.hero{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);padding:48px var(--spacing);text-align:center;color:white}
+.hero-inner{max-width:900px;margin:0 auto}
+.hero h1{font-size:clamp(32px,7vw,48px);font-weight:800;margin-bottom:16px;line-height:1.2}
+.hero p{font-size:18px;opacity:0.95;margin-bottom:32px}
+.search-section{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;margin-bottom:24px}
+.search-input-group{position:relative}
+.search-input-group input{width:100%;padding:14px 16px;border:none;border-radius:6px;font-size:16px;background:var(--white);color:var(--gray-900)}
+.search-input-group input::placeholder{color:var(--gray-400)}
+.location-input{width:100%;padding:14px 16px;border:none;border-radius:6px;font-size:16px;background:var(--white);color:var(--gray-900)}
+.search-btn{padding:14px 32px;background:var(--warning);color:white;border-radius:6px;font-weight:600;font-size:16px;transition:all 0.2s;white-space:nowrap}
+.search-btn:hover{background:#f08c00}
+.quick-filters{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.quick-filter-tag{padding:8px 16px;background:rgba(255,255,255,0.2);color:white;border-radius:20px;cursor:pointer;font-weight:500;transition:all 0.2s;border:2px solid transparent}
+.quick-filter-tag:hover{background:rgba(255,255,255,0.3);border-color:white}
 @media(max-width:768px){
-  .nav-links{display:none}
-  .header-wrap{flex-wrap:wrap}
-  .logo{flex:1}
+  .search-section{grid-template-columns:1fr}
+  .search-btn{width:100%}
 }
 
-/* Hero */
-.hero{background:linear-gradient(135deg,#f3f4f6 0%,#e5e7eb 100%);padding:48px var(--spacing);text-align:center}
-.hero-inner{max-width:640px;margin:0 auto}
-.hero h1{font-size:clamp(28px,5vw,44px);font-weight:800;margin-bottom:12px;color:var(--text-primary)}
-.hero p{font-size:16px;color:var(--text-secondary);margin-bottom:24px;line-height:1.5}
-.hero-sin{font-family:'Noto Sans Sinhala','Noto Sans',sans-serif;font-size:14px;color:var(--text-secondary);margin-bottom:24px}
-.search-box{display:flex;gap:8px;max-width:500px;margin:0 auto 24px}
-.search-box input{flex:1;padding:12px 14px;font-size:14px}
-.search-box button{padding:12px 24px;background:var(--accent-blue);color:white;border-radius:var(--radius);font-weight:600;white-space:nowrap}
-.search-box button:hover{background:var(--accent-blue-hover)}
-.categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;max-width:500px;margin:0 auto}
-.cat-chip{padding:10px 16px;background:white;border:1px solid var(--blue-border);border-radius:var(--radius);text-align:center;cursor:pointer;transition:all .2s;font-weight:500;font-size:13px}
-.cat-chip:hover{border-color:var(--accent-blue);background:var(--blue-light)}
+/* MAIN LAYOUT */
+.main{max-width:1400px;margin:0 auto;padding:32px var(--spacing);display:grid;grid-template-columns:280px 1fr;gap:32px}
+@media(max-width:1024px){.main{grid-template-columns:1fr;gap:24px}}
 
-/* Main Layout */
-.main{max-width:1200px;margin:0 auto;padding:32px var(--spacing);display:grid;grid-template-columns:1fr;gap:32px}
-@media(min-width:900px){
-  .main{grid-template-columns:260px 1fr}
-}
+/* SIDEBAR - Modern Filters */
+.sidebar{display:flex;flex-direction:column;gap:20px;position:sticky;top:80px;height:fit-content}
+.filter-panel{background:var(--white);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.filter-panel-title{font-weight:700;font-size:15px;color:var(--gray-900);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.filter-group{margin-bottom:16px}
+.filter-label{display:flex;align-items:center;gap:10px;margin-bottom:8px;cursor:pointer;font-size:14px;color:var(--gray-700)}
+.checkbox{width:18px;height:18px;border:2px solid var(--gray-300);border-radius:4px;cursor:pointer;background:white;accent-color:var(--primary)}
+.checkbox:hover{border-color:var(--primary)}
+.filter-count{color:var(--gray-400);font-size:12px;margin-left:auto}
+.salary-range{margin-top:12px}
+.salary-input{width:100%;padding:8px 12px;border:1px solid var(--gray-300);border-radius:4px;font-size:13px;margin-bottom:8px}
+.clear-filters-btn{width:100%;padding:10px;background:var(--gray-100);color:var(--gray-700);border-radius:6px;font-weight:600;font-size:13px;margin-top:16px;transition:all 0.2s}
+.clear-filters-btn:hover{background:var(--gray-200)}
+@media(max-width:1024px){.sidebar{position:static;top:auto}}
 
-/* Sidebar */
-.sidebar{display:flex;flex-direction:column;gap:20px}
-.panel{background:var(--white);border:1px solid var(--blue-border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
-.panel-title{font-weight:700;margin-bottom:12px;font-size:14px;color:var(--text-primary)}
-.filter-item{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:13px}
-.filter-item input[type="radio"]{accent-color:var(--accent-blue)}
-.filter-item label{margin:0;cursor:pointer;flex:1}
-.filter-count{color:var(--text-tertiary);font-size:12px;margin-left:auto}
+/* JOBS LIST */
+.jobs-section{display:flex;flex-direction:column;gap:16px}
+.jobs-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.jobs-count{font-weight:600;color:var(--gray-700);font-size:15px}
+.sort-dropdown{padding:8px 12px;border:1px solid var(--gray-300);border-radius:6px;font-size:14px;background:var(--white);color:var(--gray-700);cursor:pointer}
 
-/* Jobs List */
-.jobs-container{display:flex;flex-direction:column;gap:12px}
-.job-card{background:var(--white);border:1px solid var(--blue-border);border-radius:var(--radius);padding:16px;cursor:pointer;transition:all .2s;box-shadow:var(--shadow)}
-.job-card:hover{border-color:var(--accent-blue);box-shadow:0 4px 12px rgba(0,0,0,.1)}
-.job-header{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
-.job-icon{width:40px;height:40px;background:var(--blue-light);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.job-info{flex:1}
-.job-title{font-family:'Noto Sans Sinhala','Inter',sans-serif !important;font-weight:700 !important;color:var(--text-primary);font-size:15px;margin-bottom:4px}
-.job-sin{font-family:'Noto Sans Sinhala','Noto Sans',sans-serif !important;font-size:14px !important;font-weight:500 !important;color:var(--text-secondary);margin-bottom:4px;line-height:1.6 !important;letter-spacing:0.5px}
-.job-company{font-family:'Noto Sans Sinhala','Inter',sans-serif !important;font-size:12px;color:var(--text-tertiary)}
-.job-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;font-size:12px}
-.meta-tag{background:var(--blue-light);padding:4px 8px;border-radius:4px;color:var(--text-secondary)}
-.job-desc{font-family:'Noto Sans Sinhala','Inter',sans-serif !important;font-size:13px !important;color:var(--text-secondary);line-height:1.6 !important;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;letter-spacing:0.3px}
-/* Global Sinhala Support */
-h1, h2, h3, h4, h5, h6, p, span, div, li, td, th, label, input, textarea, button{font-family:'Noto Sans Sinhala','Inter',sans-serif}
+/* JOB CARD - Modern Design */
+.job-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius);padding:20px;cursor:pointer;transition:all 0.3s;box-shadow:var(--shadow)}
+.job-card:hover{border-color:var(--primary);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.job-card-top{display:flex;gap:16px;margin-bottom:16px}
+.job-company-logo{width:48px;height:48px;background:linear-gradient(135deg,var(--primary-light),var(--gray-100));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.job-header-info{flex:1}
+.job-title{font-size:16px;font-weight:700;color:var(--gray-900);margin-bottom:4px;line-height:1.3}
+.job-company{font-size:13px;color:var(--gray-600);margin-bottom:6px}
+.job-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.badge{display:inline-block;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:600}
+.badge-new{background:#dcfce7;color:#166534}
+.badge-urgent{background:#fecaca;color:#991b1b}
+.badge-featured{background:#fef08a;color:#92400e}
+.job-description{font-size:14px;color:var(--gray-700);margin-bottom:12px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.job-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-600);margin-bottom:16px;padding-top:12px;border-top:1px solid var(--gray-200)}
+.meta-item{display:flex;align-items:center;gap:6px}
+.meta-item-icon{font-size:15px}
 .job-footer{display:flex;justify-content:space-between;align-items:center}
-.salary{font-weight:700;color:var(--text-primary);font-size:14px}
+.salary{font-weight:700;color:var(--success);font-size:15px}
 .job-actions{display:flex;gap:8px}
-.icon-btn{width:32px;height:32px;border-radius:50%;background:var(--blue-light);display:flex;align-items:center;justify-content:center;font-size:16px;border:1px solid var(--blue-border);transition:all .2s}
-.icon-btn:hover{background:var(--orange-bg);border-color:var(--orange)}
-.apply-btn{padding:8px 16px;background:var(--accent-blue);color:white;border-radius:var(--radius);font-weight:600;font-size:12px;white-space:nowrap;transition:all .2s}
-.apply-btn:hover{background:var(--accent-blue-hover)}
+.save-btn{width:36px;height:36px;border-radius:6px;background:var(--gray-100);border:1px solid var(--gray-300);display:flex;align-items:center;justify-content:center;font-size:16px;transition:all 0.2s;cursor:pointer}
+.save-btn:hover{background:var(--gray-200);border-color:var(--primary)}
+.save-btn.saved{background:var(--primary-light);border-color:var(--primary);color:var(--primary)}
+.apply-btn{padding:8px 20px;background:var(--primary);color:white;border-radius:6px;font-weight:600;font-size:13px;transition:all 0.2s}
+.apply-btn:hover{background:var(--primary-dark)}
 
-/* Badges */
-.badge{display:inline-block;padding:4px 8px;border-radius:4px;font-size:11px;font-weight:600}
-.badge-new{background:var(--green-bg);color:var(--green-text)}
-.badge-urgent{background:#fef2f2;color:#dc2626}
-.badge-featured{background:var(--orange-bg);color:var(--orange-text)}
-
-/* Modal - Login/Register */
-.modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);display:none;z-index:1000;align-items:center;justify-content:center}
+/* JOB DETAILS MODAL */
+.modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;animation:fadeIn 0.2s}
 .modal.show{display:flex}
-.modal-content{background:var(--white);border-radius:var(--radius);padding:32px;max-width:400px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.3)}
-.modal-close{position:absolute;top:12px;right:12px;width:32px;height:32px;background:transparent;font-size:24px;cursor:pointer;color:var(--text-tertiary)}
-.modal h2{margin-bottom:20px;color:var(--text-primary)}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-content{background:var(--white);border-radius:var(--radius);max-width:600px;width:90%;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg)}
+.modal-header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:32px 32px 24px;display:flex;justify-content:space-between;align-items:flex-start}
+.modal-title-block h2{font-size:22px;margin-bottom:8px}
+.modal-close{width:32px;height:32px;background:rgba(255,255,255,0.2);border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px}
+.modal-body{padding:32px}
+.job-detail-section{margin-bottom:24px}
+.job-detail-section h3{font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:12px}
+.job-detail-section p{color:var(--gray-700);line-height:1.7;font-size:14px}
+.job-detail-meta{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:var(--gray-50);padding:16px;border-radius:6px}
+.meta-box h4{font-size:12px;color:var(--gray-600);font-weight:600;margin-bottom:6px}
+.meta-box p{font-size:15px;font-weight:600;color:var(--gray-900)}
+.apply-form{background:var(--gray-50);padding:20px;border-radius:6px;margin-top:20px}
 .form-group{margin-bottom:16px}
-.form-group label{display:block;margin-bottom:6px;font-weight:500;font-size:13px;color:var(--text-primary)}
-.form-group input{width:100%;padding:10px 12px}
-.submit-btn{width:100%;padding:12px;background:var(--accent-blue);color:white;border-radius:var(--radius);font-weight:600;font-size:14px}
-.submit-btn:hover{background:var(--accent-blue-hover)}
-.toggle-form{text-align:center;margin-top:16px;font-size:13px;color:var(--text-secondary)}
-.toggle-form a{cursor:pointer;color:var(--accent-blue);font-weight:600}
+.form-label{display:block;font-weight:600;margin-bottom:8px;font-size:14px;color:var(--gray-900)}
+.form-input{width:100%;padding:10px 12px;border:1px solid var(--gray-300);border-radius:6px;font-size:14px;background:white}
+.form-input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-light)}
+.apply-submit-btn{width:100%;padding:12px;background:var(--primary);color:white;border-radius:6px;font-weight:600;font-size:15px;margin-top:16px;transition:all 0.2s}
+.apply-submit-btn:hover{background:var(--primary-dark)}
 
-/* Monetization Section */
-.monetize-section{background:var(--blue-light);border:1px solid var(--blue-border);border-radius:var(--radius);padding:20px;margin-top:20px}
-.monetize-section h3{margin-bottom:12px;font-weight:700;color:var(--text-primary)}
-.monetize-option{background:var(--white);border:1px solid var(--blue-border);border-radius:var(--radius);padding:14px;margin-bottom:10px}
-.monetize-option strong{display:block;margin-bottom:4px}
-.monetize-option small{color:var(--text-tertiary)}
+/* SAVED JOBS SIDEBAR */
+.saved-jobs-panel{background:var(--white);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.saved-jobs-panel h3{font-weight:700;margin-bottom:16px;color:var(--gray-900)}
+.saved-job-item{padding:12px;background:var(--gray-50);border-radius:6px;margin-bottom:8px;font-size:13px;cursor:pointer;transition:all 0.2s}
+.saved-job-item:hover{background:var(--gray-100)}
 
-/* Footer */
-footer{background:var(--blue);color:white;padding:32px var(--spacing);margin-top:48px}
-.footer-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.1)}
-.footer-section h4{margin-bottom:12px;font-size:14px;font-weight:600}
-.footer-section a{color:#e5e7eb;font-size:13px;display:block;margin-bottom:6px}
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:60px 32px}
+.empty-state-icon{font-size:64px;margin-bottom:16px}
+.empty-state h3{font-size:20px;font-weight:700;color:var(--gray-900);margin-bottom:8px}
+.empty-state p{color:var(--gray-600);font-size:14px}
+
+/* FOOTER */
+footer{background:var(--gray-900);color:white;padding:48px var(--spacing);margin-top:64px}
+.footer-wrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.footer-section h4{margin-bottom:16px;font-size:14px;font-weight:700}
+.footer-section a{color:#d1d5db;font-size:13px;display:block;margin-bottom:8px;transition:color 0.2s}
 .footer-section a:hover{color:white}
-.footer-bottom{text-align:center;margin-top:24px;font-size:12px;color:#d1d5db}
+.footer-bottom{text-align:center;font-size:12px;color:#9ca3af}
 
-/* Responsive */
+/* RESPONSIVE */
 @media(max-width:768px){
-  .main{grid-template-columns:1fr}
+  .main{padding:20px var(--spacing)}
   .hero{padding:32px var(--spacing)}
   .hero h1{font-size:28px}
-  .search-box{flex-direction:column}
-  .categories{grid-template-columns:1fr 1fr}
+  .jobs-section{gap:12px}
+  .job-card{padding:16px}
+  .job-footer{flex-direction:column;gap:12px;align-items:flex-start}
+  .apply-btn{width:100%}
 }
 
-/* CRITICAL: Sinhala Font Override */
-body * {
-  font-family: 'Noto Sans Sinhala', 'Inter', sans-serif !important;
+/* ANIMATIONS */
+.job-card{animation:slideUp 0.3s ease-out}
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
-.job-card, .job-info, .job-sin, .job-title, .job-company, .job-desc, .job-footer, .salary {
-  font-family: 'Noto Sans Sinhala', 'Noto Sans', 'Inter', sans-serif !important;
-  font-feature-settings: "liga" 1, "dlig" 1 !important;
-}
-
-/* Sinhala Text Rendering Fix */
-[lang="si"], [lang*="sin"], .sin, .job-sin {
-  font-family: 'Noto Sans Sinhala', 'Noto Sans' !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-  line-height: 1.6 !important;
-  letter-spacing: 0.5px !important;
-  text-rendering: optimizeLegibility !important;
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-}
+/* SINHALA FONT SUPPORT */
+*{font-family:'Noto Sans Sinhala','Inter',sans-serif}
+.job-title,.job-company,.job-description{font-family:'Noto Sans Sinhala','Inter',sans-serif !important}
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="header-wrap">
-    <div class="logo">
-      <div class="logo-icon">🏝️</div>
-      <span>Lanka Job Italy</span>
-    </div>
-    <nav class="nav-links">
+    <a href="#" class="logo">
+      <div class="logo-icon">🌏</div>
+      <span>Lanka Jobs</span>
+    </a>
+    <nav class="nav-center">
       <a href="#jobs">Browse Jobs</a>
-      <a href="drivers.html">🚗 Driver's Guide</a>
-      <a href="#help">Help</a>
+      <a href="drivers.html">🚗 Guides</a>
+      <a href="entertainment.html">🎭 Living in Italy</a>
     </nav>
-    <div class="nav-lang">
-      <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
-      <button class="lang-btn" onclick="changeLanguage('si')">SI</button>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="setLanguage('si')">SI</button>
+      </div>
+      <button class="sign-in-btn" onclick="showSignInModal()">Sign In</button>
+      <button class="post-job-btn" onclick="showPostJobModal()">Post a Job</button>
     </div>
-    <button class="auth-btn" onclick="showLoginModal()">Sign In</button>
   </div>
 </header>
 
-<!-- NOTICE BOARD - Everyone Can See -->
-<div style="background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%);border-bottom:4px solid #f59e0b;padding:16px;text-align:center">
-  <div style="max-width:1200px;margin:0 auto">
-    <div style="font-weight:700;color:#92400e;margin-bottom:6px;font-size:16px">
-      📢 ඉතාලිය රිය පැවැත්වීම සඳහා සම්පූර්ණ ගයිඩ්!
-    </div>
-    <div style="color:#78350f;font-size:14px;margin-bottom:12px">
-      ගිණුම්, Leasing, ගමන් දඩ, පාඩම්, සහ ශ්‍රී ලාංකිකයන් සඳහා වැදගත් තොරතුරු
-    </div>
-    <a href="drivers.html" style="display:inline-block;padding:10px 24px;background:#f59e0b;color:#78350f;border-radius:6px;font-weight:700;text-decoration:none;font-size:14px">
-      🚗 Driver's Guide එ යන්න →
-    </a>
-  </div>
-</div>
-
-<section class="hero">
+<!-- HERO - Search Section -->
+<section class="hero" id="search-section">
   <div class="hero-inner">
-    <h1 id="hero-title">Find Your Next Job in Italy</h1>
-    <p id="hero-desc">Browse trusted job listings. Connect with employers. Start your career.</p>
-    <p class="hero-sin" id="hero-sin">ඉතාලියේ ශ්‍රී ලාංකිකයන් සඳහා විශ්වාසවන්ත රැකියා ද්වාරය</p>
-    <div class="search-box">
-      <input type="text" id="search-input" placeholder="Job title or location...">
-      <button onclick="filterJobs()">Search</button>
+    <h1>Find Your Perfect Job in Italy</h1>
+    <p>Thousands of opportunities for Sri Lankans in Italy</p>
+
+    <div class="search-section">
+      <div class="search-input-group">
+        <input type="text" placeholder="Job title, keyword..." id="jobSearch" onkeyup="filterJobs()"/>
+      </div>
+      <input type="text" class="location-input" placeholder="City or region..." id="locationSearch" onkeyup="filterJobs()"/>
+      <button class="search-btn" onclick="filterJobs()">Search</button>
     </div>
-    <div class="categories" id="categories"></div>
+
+    <div class="quick-filters">
+      <div class="quick-filter-tag" onclick="setQuickFilter('Elder Care')">👴 Elder Care</div>
+      <div class="quick-filter-tag" onclick="setQuickFilter('Cleaning')">🧹 Cleaning</div>
+      <div class="quick-filter-tag" onclick="setQuickFilter('Healthcare')">🏥 Healthcare</div>
+      <div class="quick-filter-tag" onclick="setQuickFilter('Hospitality')">🍽️ Hospitality</div>
+      <div class="quick-filter-tag" onclick="setQuickFilter('Factory')">🏭 Factory</div>
+    </div>
   </div>
 </section>
 
-<main class="main">
+<!-- MAIN CONTENT -->
+<div class="main" id="jobs-main">
+
+  <!-- SIDEBAR - Filters -->
   <aside class="sidebar">
-    <div class="panel">
-      <div class="panel-title">Category</div>
-      <div class="filter-item">
-        <input type="radio" id="cat-all" name="category" value="all" checked>
-        <label for="cat-all">All Jobs</label>
-        <span class="filter-count" id="count-all">0</span>
-      </div>
-      <div class="filter-item">
-        <input type="radio" id="cat-elder" name="category" value="elder">
-        <label for="cat-elder">Elder Care</label>
-        <span class="filter-count" id="count-elder">0</span>
-      </div>
-      <div class="filter-item">
-        <input type="radio" id="cat-clean" name="category" value="clean">
-        <label for="cat-clean">Cleaning</label>
-        <span class="filter-count" id="count-clean">0</span>
-      </div>
-      <div class="filter-item">
-        <input type="radio" id="cat-baby" name="category" value="baby">
-        <label for="cat-baby">Babysitting</label>
-        <span class="filter-count" id="count-baby">0</span>
-      </div>
-      <div class="filter-item">
-        <input type="radio" id="cat-factory" name="category" value="factory">
-        <label for="cat-factory">Factory</label>
-        <span class="filter-count" id="count-factory">0</span>
+    <!-- Filter: Job Type -->
+    <div class="filter-panel">
+      <div class="filter-panel-title">📋 Job Type</div>
+      <div class="filter-group">
+        <label class="filter-label">
+          <input type="checkbox" class="checkbox" onchange="filterJobs()"/> Full-time
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" class="checkbox" onchange="filterJobs()"/> Part-time
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" class="checkbox" onchange="filterJobs()"/> Contract
+        </label>
       </div>
     </div>
 
-    <div class="panel">
-      <div class="panel-title">Premium</div>
-      <p style="font-size:13px;color:var(--text-secondary);margin-bottom:12px">Post your job for visibility</p>
-      <button class="apply-btn" style="width:100%;background:var(--orange);margin-bottom:8px" onclick="showPostJobModal()">Post a Job</button>
-      <button class="apply-btn" style="width:100%;background:var(--green)" onclick="showPremiumModal()">Go Premium</button>
+    <!-- Filter: Salary -->
+    <div class="filter-panel">
+      <div class="filter-panel-title">💰 Salary Range</div>
+      <div class="salary-range">
+        <input type="number" class="salary-input" placeholder="Min €" id="minSalary" onchange="filterJobs()"/>
+        <input type="number" class="salary-input" placeholder="Max €" id="maxSalary" onchange="filterJobs()"/>
+      </div>
     </div>
 
-    <div class="panel">
-      <div class="panel-title">Your Account</div>
-      <p style="font-size:13px;color:var(--text-secondary)" id="account-status">Sign in to save jobs and track applications</p>
+    <!-- Filter: Category -->
+    <div class="filter-panel">
+      <div class="filter-panel-title">🏷️ Category</div>
+      <div class="filter-group">
+        <label class="filter-label">
+          <input type="checkbox" class="checkbox" value="Elder Care" onchange="filterJobs()"/> Elder Care
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" class="checkbox" value="Cleaning" onchange="filterJobs()"/> Cleaning
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" class="checkbox" value="Healthcare" onchange="filterJobs()"/> Healthcare
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" class="checkbox" value="Hospitality" onchange="filterJobs()"/> Hospitality
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" class="checkbox" value="Factory" onchange="filterJobs()"/> Factory
+        </label>
+      </div>
+    </div>
+
+    <!-- Filter: Experience -->
+    <div class="filter-panel">
+      <div class="filter-panel-title">⭐ Experience</div>
+      <div class="filter-group">
+        <label class="filter-label">
+          <input type="checkbox" class="checkbox" onchange="filterJobs()"/> No experience
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" class="checkbox" onchange="filterJobs()"/> 1-2 years
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" class="checkbox" onchange="filterJobs()"/> 3+ years
+        </label>
+      </div>
+    </div>
+
+    <button class="clear-filters-btn">Clear All Filters</button>
+
+    <!-- Saved Jobs -->
+    <div class="saved-jobs-panel">
+      <h3>💾 Saved Jobs</h3>
+      <div id="savedJobsList" style="font-size:13px;color:var(--gray-600);text-align:center;padding:20px">
+        No saved jobs yet
+      </div>
     </div>
   </aside>
 
-  <div class="jobs-container" id="jobs-list"></div>
-</main>
+  <!-- JOBS LISTING -->
+  <section class="jobs-section" id="jobs-section">
+    <div class="jobs-header">
+      <div class="jobs-count"><span id="jobsCount">0</span> jobs found</div>
+      <select class="sort-dropdown" onchange="sortJobs(this.value)">
+        <option value="recent">Most Recent</option>
+        <option value="salary">Highest Salary</option>
+        <option value="relevant">Most Relevant</option>
+      </select>
+    </div>
 
-<div class="modal" id="loginModal">
+    <!-- Jobs will be rendered here -->
+    <div id="jobsList" style="display:flex;flex-direction:column;gap:16px">
+      <!-- Sample job cards will be generated by JavaScript -->
+    </div>
+  </section>
+
+</div>
+
+<!-- JOB DETAILS MODAL -->
+<div class="modal" id="jobDetailsModal">
   <div class="modal-content">
-    <span class="modal-close" onclick="hideLoginModal()">✕</span>
-    <h2>Welcome Back</h2>
-    <form onsubmit="handleLogin(event)">
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" required>
+    <div class="modal-header">
+      <div class="modal-title-block">
+        <h2 id="modalJobTitle">Senior Elder Care Specialist</h2>
+        <p id="modalJobCompany" style="opacity:0.9;margin-top:4px">ABC Care Services</p>
       </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" required>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="job-detail-meta">
+        <div class="meta-box">
+          <h4>SALARY</h4>
+          <p id="modalSalary">€1,800 - €2,200/month</p>
+        </div>
+        <div class="meta-box">
+          <h4>LOCATION</h4>
+          <p id="modalLocation">Milan, Lombardy</p>
+        </div>
+        <div class="meta-box">
+          <h4>EMPLOYMENT TYPE</h4>
+          <p id="modalType">Full-time</p>
+        </div>
+        <div class="meta-box">
+          <h4>POSTED</h4>
+          <p id="modalDate">2 days ago</p>
+        </div>
       </div>
-      <button type="submit" class="submit-btn">Sign In</button>
-    </form>
-    <div class="toggle-form">Don't have an account? <a onclick="toggleForms()">Sign up</a></div>
+
+      <div class="job-detail-section">
+        <h3>Job Description</h3>
+        <p id="modalDescription">We are looking for experienced elder care specialists...</p>
+      </div>
+
+      <div class="job-detail-section">
+        <h3>Requirements</h3>
+        <p id="modalRequirements">- Previous experience in elder care<br/>- Valid EU work permit<br/>- Italian or English speaking</p>
+      </div>
+
+      <div class="apply-form">
+        <h3 style="margin-bottom:16px">Quick Apply</h3>
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" placeholder="Your name"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" placeholder="your@email.com"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone</label>
+          <input type="tel" class="form-input" placeholder="+39..."/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Cover Letter</label>
+          <textarea class="form-input" style="resize:vertical;min-height:100px" placeholder="Tell us why you're interested..."></textarea>
+        </div>
+        <button class="apply-submit-btn" onclick="submitApplication()">Submit Application</button>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="modal" id="registerModal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="hideLoginModal()">✕</span>
-    <h2>Create Account</h2>
-    <form onsubmit="handleRegister(event)">
-      <div class="form-group">
-        <label>Full Name</label>
-        <input type="text" required>
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" required>
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" required>
-      </div>
-      <button type="submit" class="submit-btn">Create Account</button>
-    </form>
-    <div class="toggle-form">Already have an account? <a onclick="toggleForms()">Sign in</a></div>
-  </div>
-</div>
-
+<!-- FOOTER -->
 <footer>
   <div class="footer-wrap">
     <div class="footer-section">
-      <h4>About</h4>
-      <a href="#">About Us</a>
-      <a href="#">Contact</a>
-      <a href="drivers.html">🚗 Driver's Guide</a>
-      <a href="entertainment.html">🎭 Entertainment</a>
+      <h4>Find Jobs</h4>
+      <a href="#jobs">Browse All Jobs</a>
+      <a href="#jobs">Advanced Search</a>
+      <a href="#jobs">Salary Guide</a>
     </div>
     <div class="footer-section">
       <h4>For Employers</h4>
       <a href="#">Post a Job</a>
       <a href="#">Pricing</a>
-      <a href="#">FAQ</a>
+      <a href="#">Company Page</a>
     </div>
     <div class="footer-section">
-      <h4>For Workers</h4>
-      <a href="#">Browse Jobs</a>
-      <a href="#">My Applications</a>
-      <a href="#">Help Center</a>
+      <h4>Guides & Resources</h4>
+      <a href="drivers.html">Driver's License Conversion</a>
+      <a href="entertainment.html">Living in Italy</a>
+      <a href="#">Career Tips</a>
     </div>
     <div class="footer-section">
-      <h4>Legal</h4>
+      <h4>About</h4>
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
       <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
+      <a href="#">Terms & Conditions</a>
     </div>
   </div>
-  <div class="footer-bottom">© 2025 Lanka Job Italy. All rights reserved.</div>
+  <div class="footer-bottom">© 2026 Lanka Jobs Italy - Job Platform for Sri Lankans</div>
 </footer>
 
 <script>
-let JOBS = [];
-let currentUser = null;
-let currentLang = 'en';
+// Sample Jobs Data
+const jobs = [
+  {id:1,title:"Senior Elder Care Specialist",company:"ABC Care Services",category:"Elder Care",salary:2000,location:"Milan",type:"Full-time",description:"Provide compassionate care to elderly individuals...",requirements:"3+ years experience, Italian speaking",posted:"2 days ago",badge:"featured"},
+  {id:2,title:"Cleaning Staff - Hotel",company:"Grand Hotel Italia",category:"Cleaning",salary:1400,location:"Rome",type:"Full-time",description:"Join our housekeeping team at luxury hotel...",requirements:"No experience needed",posted:"1 day ago",badge:"new"},
+  {id:3,title:"Healthcare Assistant",company:"San Raffaele Hospital",category:"Healthcare",salary:1800,location:"Milan",type:"Full-time",description:"Support nurses and doctors in patient care...",requirements:"Healthcare certification preferred",posted:"3 days ago",badge:""},
+  {id:4,title:"Restaurant Chef Assistant",company:"Osteria Roma",category:"Hospitality",salary:1600,location:"Rome",type:"Full-time",description:"Help prepare authentic Italian cuisine...",requirements:"Cooking experience required",posted:"1 week ago",badge:""},
+  {id:5,title:"Factory Production Line",company:"Manufacturing Ltd",category:"Factory",salary:1500,location:"Turin",type:"Full-time",description:"Work on assembly line in modern factory...",requirements:"No experience needed",posted:"5 days ago",badge:"new"},
+  {id:6,title:"Live-in Senior Caregiver",company:"Private Family",category:"Elder Care",salary:2200,location:"Venice",type:"Full-time",description:"Overnight care for elderly person with mobility...",requirements:"Experience with mobility assistance",posted:"2 days ago",badge:"urgent"},
+  {id:7,title:"Part-time Cleaning - Office",company:"Clean Services Inc",category:"Cleaning",salary:1300,location:"Milan",type:"Part-time",description:"Evening office cleaning in business center...",requirements:"No experience needed",posted:"4 days ago",badge:""},
+  {id:8,title:"Hospitality Waiter",company:"Restaurant Milano",category:"Hospitality",salary:1550,location:"Milan",type:"Full-time",description:"Professional table service in upscale restaurant...",requirements:"Italian or English required",posted:"3 days ago",badge:""},
+];
 
-const translations = {
-  en: {
-    heroTitle: 'Find Your Next Job in Italy',
-    heroDesc: 'Browse trusted job listings. Connect with employers. Start your career.',
-    searchPlaceholder: 'Job title or location...',
-  },
-  si: {
-    heroTitle: 'ඉතාලියේ ඔබේ අනතුරු ඉතිරිකිරීම සොයන්න',
-    heroDesc: 'විශ්වාසවන්ත රැකියා ලැයිස්තු දෙස බලන්න. තුටුකරුවරුන් සමඟ සම්බන්ධ වන්න. ඔබේ වෘත්තිය ආරම්භ කරන්න.',
-    searchPlaceholder: 'රැකියා මාතෘකා හෝ ස්ථානය...',
-  }
-};
+let filteredJobs = [...jobs];
+let savedJobs = [];
 
-async function loadJobs() {
-  try {
-    const res = await fetch('./jobs.json');
-    JOBS = await res.json();
-    renderJobs(JOBS);
-    updateCounts();
-    populateCategories();
-  } catch (e) {
-    console.error('Failed to load jobs:', e);
-    document.getElementById('jobs-list').innerHTML = '<div style="padding:40px;text-align:center;color:var(--text-tertiary)">Error loading jobs</div>';
-  }
-}
+function renderJobs() {
+  const jobsList = document.getElementById('jobsList');
+  const jobsCount = document.getElementById('jobsCount');
 
-function populateCategories() {
-  const categories = [
-    { name: 'Elder Care', key: 'elder' },
-    { name: 'Cleaning', key: 'clean' },
-    { name: 'Babysitting', key: 'baby' },
-    { name: 'Factory', key: 'factory' }
-  ];
+  jobsCount.textContent = filteredJobs.length;
 
-  const container = document.getElementById('categories');
-  container.innerHTML = categories.map(cat =>
-    `<div class="cat-chip" onclick="filterByCategory('${cat.key}')">${cat.name}</div>`
-  ).join('');
-}
-
-function filterByCategory(key) {
-  const input = document.querySelector(`input[value="${key}"]`);
-  if (input) input.checked = true;
-  filterJobs();
-}
-
-function renderJobs(jobs) {
-  const container = document.getElementById('jobs-list');
-  if (!container) {
-    console.error('Container #jobs-list not found');
+  if(filteredJobs.length === 0) {
+    jobsList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🔍</div><h3>No jobs found</h3><p>Try adjusting your filters or search terms</p></div>';
     return;
   }
 
-  if (!jobs || !jobs.length) {
-    container.innerHTML = '<div style="padding:40px;text-align:center;color:var(--text-tertiary)">No jobs found</div>';
-    return;
-  }
-
-  container.innerHTML = jobs.map(job => `
-    <div class="job-card">
-      <div class="job-header">
-        <div class="job-icon">${job.ico || '💼'}</div>
-        <div class="job-info">
+  jobsList.innerHTML = filteredJobs.map(job => `
+    <div class="job-card" onclick="openJobDetails(${job.id})">
+      <div class="job-card-top">
+        <div class="job-company-logo">${job.category.charAt(0)}</div>
+        <div class="job-header-info">
           <div class="job-title">${job.title}</div>
-          ${job.sin ? `<div class="job-sin">${job.sin}</div>` : ''}
-          <div class="job-company">${job.company} · ${job.city}</div>
+          <div class="job-company">${job.company}</div>
+          <div class="job-badges">
+            ${job.badge ? `<span class="badge badge-${job.badge}">${job.badge.toUpperCase()}</span>` : ''}
+            <span class="badge">${job.type}</span>
+          </div>
         </div>
       </div>
+      <div class="job-description">${job.description}</div>
       <div class="job-meta">
-        <span class="meta-tag">${job.type}</span>
-        ${job.isNew ? '<span class="badge badge-new">New</span>' : ''}
-        ${job.urgent ? '<span class="badge badge-urgent">Urgent</span>' : ''}
-        ${job.featured ? '<span class="badge badge-featured">Featured</span>' : ''}
+        <div class="meta-item"><span class="meta-item-icon">📍</span>${job.location}</div>
+        <div class="meta-item"><span class="meta-item-icon">⏰</span>${job.posted}</div>
+        <div class="meta-item"><span class="meta-item-icon">💼</span>${job.category}</div>
       </div>
-      <div class="job-desc">${job.desc}</div>
       <div class="job-footer">
-        <span class="salary">${job.salary}</span>
+        <div class="salary">€${job.salary.toLocaleString()}/month</div>
         <div class="job-actions">
-          <button class="icon-btn" onclick="saveJob(${job.id})" title="Save">♡</button>
-          <button class="apply-btn" onclick="applyJob(${job.id})">Apply Now</button>
+          <button class="save-btn" onclick="event.stopPropagation(); toggleSaveJob(${job.id})">♡</button>
+          <button class="apply-btn" onclick="event.stopPropagation(); openJobDetails(${job.id})">Apply Now</button>
         </div>
       </div>
     </div>
@@ -428,118 +482,98 @@ function renderJobs(jobs) {
 }
 
 function filterJobs() {
-  const search = document.getElementById('search-input').value.toLowerCase();
-  const category = document.querySelector('input[name="category"]:checked').value;
+  const searchTerm = document.getElementById('jobSearch').value.toLowerCase();
+  const locationTerm = document.getElementById('locationSearch').value.toLowerCase();
+  const minSalary = parseInt(document.getElementById('minSalary').value) || 0;
+  const maxSalary = parseInt(document.getElementById('maxSalary').value) || Infinity;
 
-  let filtered = JOBS;
-  if (search) {
-    filtered = filtered.filter(j =>
-      j.title.toLowerCase().includes(search) ||
-      j.company.toLowerCase().includes(search) ||
-      j.city.toLowerCase().includes(search)
-    );
-  }
-  if (category !== 'all') {
-    filtered = filtered.filter(j => j.typeKey === category);
-  }
+  filteredJobs = jobs.filter(job =>
+    (job.title.toLowerCase().includes(searchTerm) || job.description.toLowerCase().includes(searchTerm)) &&
+    job.location.toLowerCase().includes(locationTerm) &&
+    job.salary >= minSalary &&
+    job.salary <= maxSalary
+  );
 
-  renderJobs(filtered);
+  renderJobs();
 }
 
-function updateCounts() {
-  document.getElementById('count-all').textContent = JOBS.length;
-  document.getElementById('count-elder').textContent = JOBS.filter(j => j.typeKey === 'elder').length;
-  document.getElementById('count-clean').textContent = JOBS.filter(j => j.typeKey === 'clean').length;
-  document.getElementById('count-baby').textContent = JOBS.filter(j => j.typeKey === 'baby').length;
-  document.getElementById('count-factory').textContent = JOBS.filter(j => j.typeKey === 'factory').length;
+function setQuickFilter(category) {
+  document.getElementById('jobSearch').value = category;
+  filterJobs();
+  document.getElementById('search-section').scrollIntoView({behavior:'smooth'});
 }
 
-function changeLanguage(lang) {
-  currentLang = lang;
-  const buttons = document.querySelectorAll('.lang-btn');
-  buttons.forEach((btn, idx) => {
-    if (idx === (lang === 'en' ? 0 : 1)) {
-      btn.classList.add('active');
-    } else {
-      btn.classList.remove('active');
-    }
-  });
+function openJobDetails(jobId) {
+  const job = jobs.find(j => j.id === jobId);
+  if(!job) return;
 
-  const trans = translations[lang];
-  if (trans) {
-    document.getElementById('hero-title').textContent = trans.heroTitle;
-    document.getElementById('hero-desc').textContent = trans.heroDesc;
-    document.getElementById('search-input').placeholder = trans.searchPlaceholder;
-  }
+  document.getElementById('modalJobTitle').textContent = job.title;
+  document.getElementById('modalJobCompany').textContent = job.company;
+  document.getElementById('modalSalary').textContent = `€${job.salary.toLocaleString()}/month`;
+  document.getElementById('modalLocation').textContent = job.location;
+  document.getElementById('modalType').textContent = job.type;
+  document.getElementById('modalDate').textContent = job.posted;
+  document.getElementById('modalDescription').textContent = job.description;
+  document.getElementById('modalRequirements').textContent = job.requirements;
+
+  document.getElementById('jobDetailsModal').classList.add('show');
 }
 
-document.querySelectorAll('input[name="category"]').forEach(input => {
-  input.addEventListener('change', filterJobs);
-});
+function closeModal() {
+  document.getElementById('jobDetailsModal').classList.remove('show');
+}
 
-function showLoginModal() {
-  if (currentUser) {
-    currentUser = null;
-    document.getElementById('account-status').textContent = 'Sign in to save jobs and track applications';
+function submitApplication() {
+  alert('Application submitted! We will contact you soon.');
+  closeModal();
+}
+
+function toggleSaveJob(jobId) {
+  const index = savedJobs.indexOf(jobId);
+  if(index > -1) {
+    savedJobs.splice(index, 1);
   } else {
-    document.getElementById('loginModal').classList.add('show');
+    savedJobs.push(jobId);
   }
+  updateSavedJobsList();
 }
 
-function hideLoginModal() {
-  document.getElementById('loginModal').classList.remove('show');
-  document.getElementById('registerModal').classList.remove('show');
-}
-
-function toggleForms() {
-  document.getElementById('loginModal').classList.toggle('show');
-  document.getElementById('registerModal').classList.toggle('show');
-}
-
-function handleLogin(e) {
-  e.preventDefault();
-  const email = e.target.elements[0].value;
-  currentUser = { email, name: email.split('@')[0] };
-  hideLoginModal();
-  document.getElementById('account-status').textContent = `Signed in as ${currentUser.name}`;
-}
-
-function handleRegister(e) {
-  e.preventDefault();
-  const name = e.target.elements[0].value;
-  const email = e.target.elements[1].value;
-  currentUser = { email, name };
-  hideLoginModal();
-  document.getElementById('account-status').textContent = `Welcome, ${name}!`;
-}
-
-function applyJob(jobId) {
-  if (!currentUser) {
-    alert('Please sign in to apply');
-    showLoginModal();
+function updateSavedJobsList() {
+  const list = document.getElementById('savedJobsList');
+  if(savedJobs.length === 0) {
+    list.innerHTML = 'No saved jobs yet';
     return;
   }
-  alert(`Applied to job #${jobId}. Check your email for next steps.`);
+  const saved = jobs.filter(j => savedJobs.includes(j.id));
+  list.innerHTML = saved.map(j => `<div class="saved-job-item" onclick="openJobDetails(${j.id})">${j.title}</div>`).join('');
 }
 
-function saveJob(jobId) {
-  if (!currentUser) {
-    alert('Please sign in to save jobs');
-    showLoginModal();
-    return;
+function sortJobs(value) {
+  if(value === 'salary') {
+    filteredJobs.sort((a,b) => b.salary - a.salary);
+  } else if(value === 'recent') {
+    // Keep original order as "recent"
   }
-  alert(`Job #${jobId} saved to your list`);
+  renderJobs();
+}
+
+function setLanguage(lang) {
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  // Language change logic here
+}
+
+function showSignInModal() {
+  alert('Sign In - Feature coming soon');
 }
 
 function showPostJobModal() {
-  alert('Post a job feature - contact admin@lankajobitaly.com');
+  alert('Post a Job - Feature coming soon');
 }
 
-function showPremiumModal() {
-  alert('Premium features:\n- Featured job listing\n- Urgent job badge\n- Direct messaging with workers\n\nContact for pricing: admin@lankajobitaly.com');
-}
-
-loadJobs();
+// Initialize
+renderJobs();
 </script>
+
 </body>
 </html>
