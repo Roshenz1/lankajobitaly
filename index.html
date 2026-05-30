@@ -528,7 +528,8 @@ function filterJobs(){
   let filtered=jobsData.filter(job=>{
     let matchKeyword=job.title.toLowerCase().includes(keyword)||job.category.toLowerCase().includes(keyword);
     let matchLocation=job.location.toLowerCase().includes(location)||location==='';
-    let matchSalary=job.salary>=minSalary&&job.salary<=maxSalary;
+    let jobSalaryNum=typeof job.salary==='number'?job.salary:parseInt(job.salary)||9999999;
+    let matchSalary=jobSalaryNum>=minSalary&&jobSalaryNum<=maxSalary;
     return matchKeyword&&matchLocation&&matchSalary;
   });
   displayJobs(filtered);
