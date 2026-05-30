@@ -117,5 +117,22 @@
     "ico": "🧓",
     "bg": "#fff0f1",
     "desc": "Corso Milano වැඩි විස්තර සදහා මට මැසේජ් එකක් දාන්න.CV එක එක්ක.\n3513111841"
+  },
+  {
+    "id": 8,
+    "title": "Crew Member - Addetto Ristorazione",
+    "sin": "ආයුබෝවන් ඉතාලියේ හැමතැනම විසිරිලා ඉන්න මගේ ආදරණීය සිංහල සහෝදර සහෝදරියන් හැමෝටම ජයවේවා! නිරෝධනාත්මක කඩඩ නිරෝධනාත්මක පත්ව ගැනීම ගැන දැනගන්න, ඉතාලියේ ස්ථිර පත්වීම, තාවකාලික පත්වීම, සහ ඔබේ අයිතිවාසිකම් රැකගන්න.",
+    "company": "McDonald's Verona",
+    "city": "Verona",
+    "type": "Food Service",
+    "typeKey": "food",
+    "salary": "€12-14/hr",
+    "perm": false,
+    "isNew": true,
+    "urgent": true,
+    "featured": true,
+    "ico": "🍔",
+    "bg": "#ffe6e6",
+    "desc": "Part-Time 24h/week. Flexible shifts. No Experience Needed. Age under 30 preferred. Verona, Italy. ✓ Reliable, punctual, team player ✓ Positive attitude & fast learner ✓ Available lunch/dinner/weekends ✓ Training fully provided. Immediate hiring!"
   }
 ]
