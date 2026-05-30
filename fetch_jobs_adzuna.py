@@ -15,22 +15,22 @@ JOOBLE_API = "https://api.jooble.org/api/search"
 
 # Job category mappings (keywords for search)
 CATEGORIES = {
-    "food": "cameriere cuoco",
-    "elder": "badante anziani",
-    "clean": "pulizie domestica",
-    "baby": "babysitter",
-    "factory": "operaio produzione",
-    "warehouse": "magazziniere"
+    "ristorazione": "cameriere cuoco",
+    "badante": "badante anziani",
+    "pulizie": "pulizie domestica",
+    "babysitter": "babysitter",
+    "fabbrica": "operaio produzione",
+    "magazzino": "magazziniere"
 }
 
-# Icons and colors by category
+# Icons and colors by category (Italian names)
 CATEGORY_CONFIG = {
-    "food": {"ico": "🍽️", "bg": "#ff6b6b"},
-    "elder": {"ico": "👴", "bg": "#4ecdc4"},
-    "clean": {"ico": "🧹", "bg": "#45b7d1"},
-    "baby": {"ico": "👶", "bg": "#f9ca24"},
-    "factory": {"ico": "🏭", "bg": "#6c5ce7"},
-    "warehouse": {"ico": "📦", "bg": "#00b894"}
+    "ristorazione": {"ico": "🍽️", "bg": "#ff6b6b"},
+    "badante": {"ico": "👴", "bg": "#4ecdc4"},
+    "pulizie": {"ico": "🧹", "bg": "#45b7d1"},
+    "babysitter": {"ico": "👶", "bg": "#f9ca24"},
+    "fabbrica": {"ico": "🏭", "bg": "#6c5ce7"},
+    "magazzino": {"ico": "📦", "bg": "#00b894"}
 }
 
 def fetch_jobs(city, category_key, keywords):
@@ -58,19 +58,19 @@ def fetch_jobs(city, category_key, keywords):
             job_obj = {
                 "id": hash(f"{job['title']}{job['company']}{city}") % 10000,
                 "title": job.get("title", ""),
-                "sin": f"Position at {job['company']} in {city}",
-                "company": job.get("company", "Unknown"),
+                "sin": f"Posizione presso {job['company']} a {city}",
+                "company": job.get("company", "Sconosciuto"),
                 "city": city.capitalize(),
-                "type": category_key.replace("_", " ").title(),
+                "type": category_key,  # Italian category name
                 "typeKey": category_key,
-                "salary": "Negotiable",
+                "salary": "Negoziabile",
                 "perm": True,
                 "isNew": True,
                 "urgent": False,
                 "featured": i == 0,  # Feature first job
                 "ico": CATEGORY_CONFIG[category_key]["ico"],
                 "bg": CATEGORY_CONFIG[category_key]["bg"],
-                "desc": (job.get("snippet", "")[:200] if job.get("snippet") else "Job posting") + "...",
+                "desc": (job.get("snippet", "")[:200] if job.get("snippet") else "Offerta di lavoro") + "...",
                 "url": job.get("link", ""),
                 "source": "Jooble"
             }
