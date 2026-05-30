@@ -11,168 +11,152 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --primary:#6366f1;--primary-dark:#4f46e5;--primary-light:#e0e7ff;
-  --secondary:#8b5cf6;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;
-  --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;
-  --gray-400:#9ca3af;--gray-600:#4b5563;--gray-700:#374151;--gray-900:#111827;
-  --white:#ffffff;--shadow:0 1px 3px rgba(0,0,0,0.1);--shadow-lg:0 10px 25px rgba(0,0,0,0.1);
-  --radius:8px;--spacing:16px;
+  --secondary:#8b5cf6;--accent:#06b6d4;--success:#10b981;--warning:#f59e0b;
+  --danger:#ef4444;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
+  --gray-300:#d1d5db;--gray-400:#9ca3af;--gray-600:#4b5563;--gray-700:#374151;
+  --gray-900:#111827;--white:#ffffff;--shadow:0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md:0 4px 6px rgba(0,0,0,0.1);--shadow-lg:0 10px 25px rgba(0,0,0,0.1);
+  --radius:12px;--spacing:16px;
 }
+
 html,body{font-family:'Noto Sans Sinhala','Inter',sans-serif;font-size:15px;color:var(--gray-900);background:var(--gray-50);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.6}
 *{font-family:'Noto Sans Sinhala','Inter',sans-serif !important}
-a{color:var(--primary);text-decoration:none}a:hover{color:var(--primary-dark)}
-button{font-family:inherit;cursor:pointer;border:none}
-input,select{font-family:inherit;font-size:inherit}
+a{color:var(--primary);text-decoration:none;transition:color 0.2s}
+a:hover{color:var(--primary-dark)}
+button{font-family:inherit;cursor:pointer;border:none;transition:all 0.3s}
 
 /* HEADER */
-header{background:var(--white);border-bottom:1px solid var(--gray-200);padding:12px var(--spacing);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+header{background:var(--white);border-bottom:1px solid var(--gray-200);padding:16px var(--spacing);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px);box-shadow:var(--shadow)}
 .header-wrap{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{font-size:22px;font-weight:800;color:var(--primary);display:flex;align-items:center;gap:8px;text-decoration:none;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.logo:hover{color:var(--primary-dark)}
-.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:10px;font-family:'Noto Sans Sinhala','Inter',sans-serif}
+.logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 4px 15px rgba(99,102,241,0.3)}
 .nav-center{display:flex;gap:32px;align-items:center}
-.nav-center a{color:var(--gray-700);font-weight:500;font-size:14px;transition:color 0.2s;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.nav-center a:hover{color:var(--primary)}
+.nav-center a{color:var(--gray-700);font-weight:500;font-size:14px;position:relative}
+.nav-center a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--primary),var(--secondary));transition:width 0.3s}
+.nav-center a:hover{color:var(--primary)}.nav-center a:hover::after{width:100%}
 .nav-right{display:flex;gap:12px;align-items:center}
-.lang-toggle{display:flex;gap:6px}
-.lang-btn{padding:6px 12px;border:1px solid var(--gray-300);border-radius:6px;font-size:12px;font-weight:600;background:transparent;cursor:pointer;color:var(--gray-600);transition:all 0.2s;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.lang-btn.active{background:var(--primary);color:white;border-color:var(--primary)}
-.sign-in-btn{padding:8px 20px;background:var(--white);color:var(--primary);border:2px solid var(--primary);border-radius:6px;font-weight:600;transition:all 0.2s;font-family:'Noto Sans Sinhala','Inter',sans-serif}
+.lang-toggle{display:flex;gap:6px;background:var(--gray-100);padding:6px;border-radius:8px}
+.lang-btn{padding:8px 14px;border:none;border-radius:6px;font-size:12px;font-weight:600;background:transparent;cursor:pointer;color:var(--gray-600);transition:all 0.2s}
+.lang-btn.active{background:var(--white);color:var(--primary);box-shadow:var(--shadow)}
+.sign-in-btn{padding:10px 22px;background:transparent;color:var(--primary);border:2px solid var(--primary);border-radius:8px;font-weight:600;transition:all 0.2s}
 .sign-in-btn:hover{background:var(--primary-light)}
-.post-job-btn{padding:8px 20px;background:var(--primary);color:white;border-radius:6px;font-weight:600;transition:all 0.2s;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.post-job-btn:hover{background:var(--primary-dark)}
+.post-job-btn{padding:10px 22px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;border-radius:8px;font-weight:600;box-shadow:0 4px 15px rgba(99,102,241,0.3);transition:all 0.3s}
+.post-job-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(99,102,241,0.4)}
 @media(max-width:768px){.nav-center{display:none}.header-wrap{gap:12px}}
 
+/* LICENSE NOTICE */
+.license-notice{background:linear-gradient(135deg,#fcd34d,#f59e0b);border-bottom:0;padding:16px var(--spacing);position:sticky;top:56px;z-index:99;box-shadow:0 4px 12px rgba(245,158,11,0.2)}
+.notice-content{max-width:1400px;margin:0 auto;display:flex;align-items:flex-start;gap:16px}
+.notice-icon{font-size:32px;animation:carDrive 4s infinite;flex-shrink:0;margin-top:4px}
+@keyframes carDrive{0%{transform:translateX(-20px);opacity:0}10%{opacity:1}50%{transform:translateX(100px)}90%{opacity:1}100%{transform:translateX(150px);opacity:0}}
+.notice-text{flex:1;font-size:15px;line-height:1.5}
+.notice-title{font-weight:700;color:#92400e;margin-bottom:6px;font-size:16px}
+.notice-text p{color:#78350f;margin:6px 0}
+.notice-text strong{color:#92400e;font-weight:700}
+.notice-action{flex-shrink:0;margin-top:4px}
+.notice-btn{padding:10px 20px;background:#ef4444;color:white;border:none;border-radius:8px;font-weight:600;cursor:pointer;transition:all 0.2s}
+.notice-btn:hover{background:#dc2626;transform:translateY(-2px);box-shadow:0 4px 12px rgba(239,68,68,0.3)}
+@media(max-width:768px){.license-notice{padding:12px var(--spacing);top:52px}.notice-content{flex-direction:column;gap:12px}.notice-action{margin-top:0}}
+
 /* HERO */
-.hero{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);padding:48px var(--spacing);text-align:center;color:white}
-.hero-inner{max-width:900px;margin:0 auto}
-.hero h1{font-size:clamp(32px,7vw,48px);font-weight:800;margin-bottom:16px;line-height:1.2;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.hero p{font-size:18px;opacity:0.95;margin-bottom:32px;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.search-section{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;margin-bottom:24px}
-.search-input-group{position:relative}
-.search-input-group input{width:100%;padding:14px 16px;border:none;border-radius:6px;font-size:16px;background:var(--white);color:var(--gray-900);font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.search-input-group input::placeholder{color:var(--gray-400);font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.location-input{width:100%;padding:14px 16px;border:none;border-radius:6px;font-size:16px;background:var(--white);color:var(--gray-900);font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.search-btn{padding:14px 32px;background:var(--warning);color:white;border-radius:6px;font-weight:600;font-size:16px;transition:all 0.2s;white-space:nowrap;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.search-btn:hover{background:#f08c00}
+.hero{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);padding:64px var(--spacing);text-align:center;color:white;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,255,255,0.1) 0%,transparent 70%);border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-30%;left:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(255,255,255,0.05) 0%,transparent 70%);border-radius:50%}
+.hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
+.hero h1{font-size:clamp(36px,8vw,52px);font-weight:800;margin-bottom:16px;line-height:1.2;letter-spacing:-0.5px}
+.hero p{font-size:18px;opacity:0.95;margin-bottom:40px}
+.search-section{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;margin-bottom:32px}
+.search-input-group input{width:100%;padding:16px 18px;border:none;border-radius:10px;font-size:16px;background:rgba(255,255,255,0.95);color:var(--gray-900);transition:all 0.3s;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
+.search-input-group input::placeholder{color:var(--gray-400)}
+.search-input-group input:focus{outline:none;background:white;box-shadow:0 8px 25px rgba(0,0,0,0.15)}
+.location-input{width:100%;padding:16px 18px;border:none;border-radius:10px;font-size:16px;background:rgba(255,255,255,0.95);color:var(--gray-900);transition:all 0.3s}
+.location-input:focus{outline:none;background:white;box-shadow:0 8px 25px rgba(0,0,0,0.15)}
+.search-btn{padding:16px 36px;background:white;color:var(--primary);border:none;border-radius:10px;font-weight:700;font-size:16px;transition:all 0.3s;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
+.search-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,0.2)}
 .quick-filters{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.quick-filter-tag{padding:8px 16px;background:rgba(255,255,255,0.2);color:white;border-radius:20px;cursor:pointer;font-weight:500;transition:all 0.2s;border:2px solid transparent;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.quick-filter-tag:hover{background:rgba(255,255,255,0.3);border-color:white}
-@media(max-width:768px){
-  .search-section{grid-template-columns:1fr}
-  .search-btn{width:100%}
-}
+.quick-filter-tag{padding:10px 18px;background:rgba(255,255,255,0.15);color:white;border-radius:20px;cursor:pointer;font-weight:500;transition:all 0.3s;border:2px solid transparent;backdrop-filter:blur(10px)}
+.quick-filter-tag:hover{background:rgba(255,255,255,0.25);transform:translateY(-2px)}
+@media(max-width:768px){.search-section{grid-template-columns:1fr}.search-btn{width:100%}}
 
 /* MAIN */
-.main{max-width:1400px;margin:0 auto;padding:32px var(--spacing);display:grid;grid-template-columns:280px 1fr;gap:32px}
-@media(max-width:1024px){.main{grid-template-columns:1fr;gap:24px}}
+.main{max-width:1400px;margin:0 auto;padding:48px var(--spacing);display:grid;grid-template-columns:280px 1fr;gap:32px}
+@media(max-width:1024px){.main{grid-template-columns:1fr;gap:24px;padding:32px var(--spacing)}}
 
 /* SIDEBAR */
-.sidebar{display:flex;flex-direction:column;gap:20px;position:sticky;top:80px;height:fit-content}
-.filter-panel{background:var(--white);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
-.filter-panel-title{font-weight:700;font-size:15px;color:var(--gray-900);margin-bottom:16px;display:flex;align-items:center;gap:8px;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.filter-group{margin-bottom:16px}
-.filter-label{display:flex;align-items:center;gap:10px;margin-bottom:8px;cursor:pointer;font-size:14px;color:var(--gray-700);font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.checkbox{width:18px;height:18px;border:2px solid var(--gray-300);border-radius:4px;cursor:pointer;background:white;accent-color:var(--primary)}
+.sidebar{display:flex;flex-direction:column;gap:20px;position:sticky;top:140px;height:fit-content}
+.filter-panel{background:var(--white);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-md);transition:all 0.3s;border:1px solid var(--gray-200)}
+.filter-panel:hover{box-shadow:var(--shadow-lg)}
+.filter-panel-title{font-weight:700;font-size:15px;color:var(--gray-900);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.filter-group{margin-bottom:18px}
+.filter-label{display:flex;align-items:center;gap:10px;margin-bottom:10px;cursor:pointer;font-size:14px;color:var(--gray-700);transition:color 0.2s}
+.filter-label:hover{color:var(--primary)}
+.checkbox{width:18px;height:18px;border:2px solid var(--gray-300);border-radius:6px;cursor:pointer;background:white;accent-color:var(--primary);transition:all 0.2s}
 .checkbox:hover{border-color:var(--primary)}
-.filter-count{color:var(--gray-400);font-size:12px;margin-left:auto}
-.salary-range{margin-top:12px}
-.salary-input{width:100%;padding:8px 12px;border:1px solid var(--gray-300);border-radius:4px;font-size:13px;margin-bottom:8px;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.clear-filters-btn{width:100%;padding:10px;background:var(--gray-100);color:var(--gray-700);border-radius:6px;font-weight:600;font-size:13px;margin-top:16px;transition:all 0.2s;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.clear-filters-btn:hover{background:var(--gray-200)}
+.salary-input{width:100%;padding:10px 12px;border:2px solid var(--gray-300);border-radius:8px;font-size:13px;margin-bottom:10px;transition:all 0.2s}
+.salary-input:focus{outline:none;border-color:var(--primary);background:var(--primary-light)}
+.clear-filters-btn{width:100%;padding:12px;background:linear-gradient(135deg,var(--gray-100),var(--gray-200));color:var(--gray-700);border-radius:8px;font-weight:600;font-size:13px;margin-top:18px;transition:all 0.3s}
+.clear-filters-btn:hover{background:linear-gradient(135deg,var(--gray-200),var(--gray-300));transform:translateY(-2px)}
+.saved-jobs-panel{background:linear-gradient(135deg,var(--primary-light),#f3e8ff);border-radius:var(--radius);padding:20px;border:2px solid var(--primary-light)}
+.saved-jobs-panel h3{color:var(--primary);margin-bottom:16px;font-size:14px}
 @media(max-width:1024px){.sidebar{position:static;top:auto}}
 
 /* JOBS LIST */
-.jobs-section{display:flex;flex-direction:column;gap:16px}
-.jobs-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-.jobs-count{font-weight:600;color:var(--gray-700);font-size:15px;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.sort-dropdown{padding:8px 12px;border:1px solid var(--gray-300);border-radius:6px;font-size:14px;background:var(--white);color:var(--gray-700);cursor:pointer;font-family:'Noto Sans Sinhala','Inter',sans-serif}
+.jobs-section{display:flex;flex-direction:column;gap:20px}
+.jobs-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;flex-wrap:wrap;gap:16px}
+.jobs-count{font-weight:600;color:var(--gray-700);font-size:16px}
+.sort-dropdown{padding:10px 14px;border:2px solid var(--gray-300);border-radius:8px;font-size:14px;background:var(--white);color:var(--gray-700);cursor:pointer;transition:all 0.2s}
+.sort-dropdown:hover{border-color:var(--primary)}
+.sort-dropdown:focus{outline:none;border-color:var(--primary);background:var(--primary-light)}
 
 /* JOB CARD */
-.job-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius);padding:20px;cursor:pointer;transition:all 0.3s;box-shadow:var(--shadow)}
-.job-card:hover{border-color:var(--primary);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
-.job-card-top{display:flex;gap:16px;margin-bottom:16px}
-.job-company-logo{width:48px;height:48px;background:linear-gradient(135deg,var(--primary-light),var(--gray-100));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.job-card{background:var(--white);border:2px solid var(--gray-200);border-radius:var(--radius);padding:24px;cursor:pointer;transition:all 0.3s;box-shadow:var(--shadow-md);position:relative;overflow:hidden}
+.job-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--secondary));opacity:0;transition:opacity 0.3s}
+.job-card:hover{border-color:var(--primary);box-shadow:var(--shadow-lg);transform:translateY(-4px)}.job-card:hover::before{opacity:1}
+.job-card-top{display:flex;gap:16px;margin-bottom:18px;align-items:flex-start}
+.job-company-logo{width:56px;height:56px;background:linear-gradient(135deg,var(--primary-light),#f3e8ff);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;box-shadow:0 4px 12px rgba(99,102,241,0.15)}
 .job-header-info{flex:1}
-.job-title{font-size:16px;font-weight:700;color:var(--gray-900);margin-bottom:4px;line-height:1.3;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.job-company{font-size:13px;color:var(--gray-600);margin-bottom:6px;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.job-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-.badge{display:inline-block;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:600;font-family:'Noto Sans Sinhala','Inter',sans-serif}
+.job-title{font-size:17px;font-weight:700;color:var(--gray-900);margin-bottom:6px;line-height:1.3}
+.job-company{font-size:13px;color:var(--gray-600);margin-bottom:8px}
+.job-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.badge{display:inline-block;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:600}
 .badge-new{background:#dcfce7;color:#166534}
-.badge-urgent{background:#fecaca;color:#991b1b}
-.badge-featured{background:#fef08a;color:#92400e}
-.job-description{font-size:14px;color:var(--gray-700);margin-bottom:12px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.job-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-600);margin-bottom:16px;padding-top:12px;border-top:1px solid var(--gray-200);font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.meta-item{display:flex;align-items:center;gap:6px}
-.meta-item-icon{font-size:15px}
-.job-footer{display:flex;justify-content:space-between;align-items:center}
-.salary{font-weight:700;color:var(--success);font-size:15px;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.job-actions{display:flex;gap:8px}
-.save-btn{width:36px;height:36px;border-radius:6px;background:var(--gray-100);border:1px solid var(--gray-300);display:flex;align-items:center;justify-content:center;font-size:16px;transition:all 0.2s;cursor:pointer}
-.save-btn:hover{background:var(--gray-200);border-color:var(--primary)}
-.save-btn.saved{background:var(--primary-light);border-color:var(--primary);color:var(--primary)}
-.apply-btn{padding:8px 20px;background:var(--primary);color:white;border-radius:6px;font-weight:600;font-size:13px;transition:all 0.2s;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.apply-btn:hover{background:var(--primary-dark)}
+.badge-urgent{background:#fee2e2;color:#991b1b}
+.badge-featured{background:#fef3c7;color:#92400e}
+.job-description{font-size:14px;color:var(--gray-600);margin-bottom:16px;line-height:1.5}
+.job-meta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--gray-200)}
+.meta-item{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--gray-600)}
+.job-salary{font-size:16px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.job-footer{display:flex;gap:12px;justify-content:space-between;align-items:center}
+.save-btn{padding:10px 16px;background:var(--gray-100);color:var(--gray-700);border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;transition:all 0.2s}
+.save-btn:hover{background:var(--primary-light);color:var(--primary)}
+.apply-btn{padding:10px 24px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;transition:all 0.3s;box-shadow:0 4px 12px rgba(99,102,241,0.3)}
+.apply-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(99,102,241,0.4)}
 
 /* MODAL */
-.modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;animation:fadeIn 0.2s}
-.modal.show{display:flex}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.modal-content{background:var(--white);border-radius:var(--radius);max-width:600px;width:90%;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg)}
-.modal-header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:32px 32px 24px;display:flex;justify-content:space-between;align-items:flex-start}
-.modal-title-block h2{font-size:22px;margin-bottom:8px;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.modal-close{width:32px;height:32px;background:rgba(255,255,255,0.2);border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px}
-.modal-body{padding:32px}
-.job-detail-section{margin-bottom:24px}
-.job-detail-section h3{font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:12px;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.job-detail-section p{color:var(--gray-700);line-height:1.7;font-size:14px;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.job-detail-meta{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:var(--gray-50);padding:16px;border-radius:6px}
-.meta-box h4{font-size:12px;color:var(--gray-600);font-weight:600;margin-bottom:6px;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.meta-box p{font-size:15px;font-weight:600;color:var(--gray-900);font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.apply-form{background:var(--gray-50);padding:20px;border-radius:6px;margin-top:20px}
-.form-group{margin-bottom:16px}
-.form-label{display:block;font-weight:600;margin-bottom:8px;font-size:14px;color:var(--gray-900);font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.form-input{width:100%;padding:10px 12px;border:1px solid var(--gray-300);border-radius:6px;font-size:14px;background:white;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.form-input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-light)}
-.apply-submit-btn{width:100%;padding:12px;background:var(--primary);color:white;border-radius:6px;font-weight:600;font-size:15px;margin-top:16px;transition:all 0.2s;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.apply-submit-btn:hover{background:var(--primary-dark)}
-
-/* SAVED JOBS */
-.saved-jobs-panel{background:var(--white);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
-.saved-jobs-panel h3{font-weight:700;margin-bottom:16px;color:var(--gray-900);font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.saved-job-item{padding:12px;background:var(--gray-50);border-radius:6px;margin-bottom:8px;font-size:13px;cursor:pointer;transition:all 0.2s;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.saved-job-item:hover{background:var(--gray-100)}
-
-/* EMPTY STATE */
-.empty-state{text-align:center;padding:60px 32px}
-.empty-state-icon{font-size:64px;margin-bottom:16px}
-.empty-state h3{font-size:20px;font-weight:700;color:var(--gray-900);margin-bottom:8px;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.empty-state p{color:var(--gray-600);font-size:14px;font-family:'Noto Sans Sinhala','Inter',sans-serif}
+.modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;padding:20px}
+.modal.active{display:flex}
+.modal-content{background:white;border-radius:var(--radius);max-width:600px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.modal-header{padding:24px;border-bottom:1px solid var(--gray-200);display:flex;justify-content:space-between;align-items:flex-start;background:linear-gradient(135deg,var(--primary-light),#f3e8ff)}
+.modal-title-block h2{font-size:20px;font-weight:800;color:var(--gray-900)}
+.modal-title-block p{opacity:0.8;margin-top:6px;font-size:14px}
+.modal-close{font-size:24px;color:var(--gray-600);cursor:pointer;transition:all 0.2s;padding:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center}
+.modal-close:hover{color:var(--gray-900);transform:rotate(90deg)}
+.modal-body{padding:24px}
 
 /* FOOTER */
-footer{background:var(--gray-900);color:white;padding:48px var(--spacing);margin-top:64px}
+footer{background:linear-gradient(135deg,var(--gray-900),#1f2937);color:white;padding:48px var(--spacing);margin-top:64px}
 .footer-wrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.1)}
-.footer-section h4{margin-bottom:16px;font-size:14px;font-weight:700;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.footer-section a{color:#d1d5db;font-size:13px;display:block;margin-bottom:8px;transition:color 0.2s;font-family:'Noto Sans Sinhala','Inter',sans-serif}
+.footer-section h4{margin-bottom:16px;font-size:14px;font-weight:700}
+.footer-section a{color:#d1d5db;font-size:13px;display:block;margin-bottom:10px;transition:color 0.2s}
 .footer-section a:hover{color:white}
-.footer-bottom{text-align:center;font-size:12px;color:#9ca3af;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .main{padding:20px var(--spacing)}
-  .hero{padding:32px var(--spacing)}
-  .hero h1{font-size:28px}
-  .jobs-section{gap:12px}
-  .job-card{padding:16px}
-  .job-footer{flex-direction:column;gap:12px;align-items:flex-start}
-  .apply-btn{width:100%}
-}
+.footer-bottom{text-align:center;font-size:12px;color:#9ca3af}
 
 /* ANIMATIONS */
-.job-card{animation:slideUp 0.3s ease-out}
-@keyframes slideUp{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
-}
+.job-card{animation:slideUp 0.5s ease-out}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* RESPONSIVE */
+@media(max-width:768px){.main{padding:20px var(--spacing)}.hero{padding:40px var(--spacing)}.hero h1{font-size:28px}.jobs-section{gap:16px}.job-card{padding:16px}.job-footer{flex-direction:column;gap:12px;align-items:flex-start}.apply-btn{width:100%}}
 </style>
 </head>
 <body>
@@ -199,6 +183,22 @@ footer{background:var(--gray-900);color:white;padding:48px var(--spacing);margin
     </div>
   </div>
 </header>
+
+<!-- LICENSE NOTICE -->
+<div class="license-notice">
+  <div class="notice-content">
+    <div class="notice-icon">🚗</div>
+    <div class="notice-text">
+      <div class="notice-title">📋 IMPORTANT: Sri Lanka-Italy Bilateral Driving License Agreement | වැදගත්: ශ්‍රී ලංකා-ඉතාලිය ද්විපාර්ශ්වික運転面허 අනුකම්පනය</div>
+      <p><strong>New drivers successfully converting licenses: Updates posted on this page.</strong> | <strong>නව運転者 අවසරපත්‍ර සාර්ථකව පරිවර්තනය කරමින්: මෙම පිටුවේ යාවත්කාලීනතා ඇත.</strong></p>
+      <p>Follow the official procedures. Beware of unauthorized agents claiming to expedite the process. Check this page regularly for latest embassy updates and rule changes. | නිල ප්‍රක්‍රියා අනුගමනය කරන්න. අවසරය ඉක්මන් කරන්නයි කිව්වා අසම්මත ඒජන්තුවරුන් සැඟවී සිටින්න. සම්මත තොරතුරු සඳහා මෙම පිටුව නිතිපතා පරීක්ෂා කරන්න.</p>
+      <p style="margin-top:12px;font-weight:600;color:#92400e">🚗 Your Journey Starts Here → බලපත්‍ර පරිවර්තනය → Patente Italiana!</p>
+    </div>
+    <div class="notice-action">
+      <button class="notice-btn" onclick="document.location='drivers.html'">View Updates | තොරතුරු බලන්න</button>
+    </div>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="search-section">
@@ -305,42 +305,38 @@ footer{background:var(--gray-900);color:white;padding:48px var(--spacing);margin
     </div>
 
     <div class="modal-body">
-      <div class="job-detail-meta">
-        <div class="meta-box"><h4>වේතනය</h4><p id="modalSalary">€1,800 - €2,200/මාසය</p></div>
-        <div class="meta-box"><h4>ස්ථානය</h4><p id="modalLocation">මිලෙනියෝ</p></div>
-        <div class="meta-box"><h4>සේවා වර්ගය</h4><p id="modalType">සම්පූර්ණ කාලය</p></div>
-        <div class="meta-box"><h4>පල කර ඇත</h4><p id="modalDate">දින 2ට පෙර</p></div>
+      <div class="job-detail-meta" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--gray-200)">
+        <div style="padding:16px;background:var(--gray-50);border-radius:8px"><h4 style="font-size:12px;color:var(--gray-600);text-transform:uppercase;margin-bottom:6px">වේතනය</h4><p id="modalSalary" style="font-size:18px;font-weight:700;color:var(--primary)">€1,800 - €2,200/මාසය</p></div>
+        <div style="padding:16px;background:var(--gray-50);border-radius:8px"><h4 style="font-size:12px;color:var(--gray-600);text-transform:uppercase;margin-bottom:6px">ස්ථානය</h4><p id="modalLocation" style="font-size:18px;font-weight:700;color:var(--gray-900)">මිලෙනියෝ</p></div>
+        <div style="padding:16px;background:var(--gray-50);border-radius:8px"><h4 style="font-size:12px;color:var(--gray-600);text-transform:uppercase;margin-bottom:6px">සේවා වර්ගය</h4><p id="modalType" style="font-size:16px;font-weight:600">සම්පූර්ණ කාලය</p></div>
+        <div style="padding:16px;background:var(--gray-50);border-radius:8px"><h4 style="font-size:12px;color:var(--gray-600);text-transform:uppercase;margin-bottom:6px">පල කර ඇත</h4><p id="modalDate" style="font-size:16px;font-weight:600">දින 2ට පෙර</p></div>
       </div>
 
-      <div class="job-detail-section">
-        <h3>රැකියා විස්තරය</h3>
-        <p id="modalDescription">අපි වයස්ගතයින් සේවා විශේෂඥ සොයා ගනිමු...</p>
+      <div class="job-detail-section" style="margin-bottom:24px">
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">රැකියා විස්තරය</h3>
+        <p id="modalDescription" style="color:var(--gray-600);line-height:1.7">අපි වයස්ගතයින් සේවා විශේෂඥ සොයා ගනිමු...</p>
       </div>
 
-      <div class="job-detail-section">
-        <h3>අවශ්‍යතා</h3>
-        <p id="modalRequirements">- වයස්ගතයින් සේවාවලින් පෙර අත්දැකම<br/>- වලංගු EU කර්ම අවසරය<br/>- ඉතාලි හෝ ඉංග්‍රීසි කතා කිරීම</p>
+      <div class="job-detail-section" style="margin-bottom:24px">
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">අවශ්‍යතා</h3>
+        <p id="modalRequirements" style="color:var(--gray-600);line-height:1.7">- වයස්ගතයින් සේවාවලින් පෙර අත්දැකම<br/>- වලංගු EU කර්ම අවසරය<br/>- ඉතාලි හෝ ඉංග්‍රීසි කතා කිරීම</p>
       </div>
 
-      <div class="apply-form">
-        <h3 style="margin-bottom:16px">ඉක්මන් අයදුම</h3>
-        <div class="form-group">
-          <label class="form-label">සම්පූර්ණ නම</label>
-          <input type="text" class="form-input" placeholder="ඔබේ නම"/>
+      <div class="apply-form" style="background:linear-gradient(135deg,var(--primary-light),#f3e8ff);padding:20px;border-radius:12px">
+        <h3 style="margin-bottom:16px;font-size:16px;font-weight:700">✨ ඉක්මන් අයදුම</h3>
+        <div class="form-group" style="margin-bottom:12px">
+          <label class="form-label" style="display:block;margin-bottom:6px;font-weight:600;font-size:13px">සම්පූර්ණ නම</label>
+          <input type="text" class="form-input" placeholder="ඔබේ නම" style="width:100%;padding:10px 12px;border:2px solid var(--gray-300);border-radius:8px;font-size:14px"/>
         </div>
-        <div class="form-group">
-          <label class="form-label">ඊමේල්</label>
-          <input type="email" class="form-input" placeholder="ඔබේ@email.com"/>
+        <div class="form-group" style="margin-bottom:12px">
+          <label class="form-label" style="display:block;margin-bottom:6px;font-weight:600;font-size:13px">ඊමේල්</label>
+          <input type="email" class="form-input" placeholder="ඔබේ@email.com" style="width:100%;padding:10px 12px;border:2px solid var(--gray-300);border-radius:8px;font-size:14px"/>
         </div>
-        <div class="form-group">
-          <label class="form-label">ජංගම</label>
-          <input type="tel" class="form-input" placeholder="+39..."/>
+        <div class="form-group" style="margin-bottom:12px">
+          <label class="form-label" style="display:block;margin-bottom:6px;font-weight:600;font-size:13px">ජංගම</label>
+          <input type="tel" class="form-input" placeholder="+39..." style="width:100%;padding:10px 12px;border:2px solid var(--gray-300);border-radius:8px;font-size:14px"/>
         </div>
-        <div class="form-group">
-          <label class="form-label">ආවරණ ලිපිය</label>
-          <textarea class="form-input" style="resize:vertical;min-height:100px" placeholder="ඔබ ඇයි උවමනා දැයි අපට කියන්න..."></textarea>
-        </div>
-        <button class="apply-submit-btn" onclick="submitApplication()">අයදුම යොමු කරන්න</button>
+        <button class="apply-submit-btn" onclick="submitApplication()" style="width:100%;padding:12px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;border:none;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;transition:all 0.3s;margin-top:12px">අයදුම යොමු කරන්න</button>
       </div>
     </div>
   </div>
@@ -350,176 +346,60 @@ footer{background:var(--gray-900);color:white;padding:48px var(--spacing);margin
 <footer>
   <div class="footer-wrap">
     <div class="footer-section">
-      <h4>රැකියා සෙවීම</h4>
-      <a href="#jobs">සියලුම රැකියා නරඹන්න</a>
-      <a href="#jobs">උසස් සෙවීම</a>
-      <a href="#jobs">වේතන මාර්ගෝපදේශ</a>
-    </div>
-    <div class="footer-section">
-      <h4>සේවා ලබාදෙන්නන් සඳහා</h4>
-      <a href="#">රැකියා පල කරන්න</a>
-      <a href="#">මිල තීරණ</a>
-      <a href="#">සමාගම පිටුව</a>
-    </div>
-    <div class="footer-section">
-      <h4>මාර්ගෝපදේශ සහ සම්පත්</h4>
-      <a href="drivers.html">රිය පැවැත්විම් බලපත්‍ර පරිවර්තනය</a>
-      <a href="entertainment.html">ඉතාලියේ ජීවිතය</a>
-      <a href="#">කර්මජීවන ඉඟි</a>
-    </div>
-    <div class="footer-section">
-      <h4>ගැන</h4>
-      <a href="#">අපි ගැන</a>
+      <h4>ලංකා රැකියා ඉතාලිය</h4>
+      <a href="#">ගෙනගිය ගමන</a>
+      <a href="#">ගැටළු විසඳුම</a>
       <a href="#">සම්බන්ධ වන්න</a>
-      <a href="#">පෞද්ගලිකත්ව ප්‍රතිපත්තිය</a>
-      <a href="#">නියම සහ කොන්දේසි</a>
+    </div>
+    <div class="footer-section">
+      <h4>ඔබ සඳහා</h4>
+      <a href="#">නව රැකියා</a>
+      <a href="#">සුරකින ලද රැකියා</a>
+      <a href="#">අයිතන</a>
+    </div>
+    <div class="footer-section">
+      <h4>පිළිවෙත</h4>
+      <a href="#">පෞද්ගලිකતා</a>
+      <a href="#">කොන්දේසි</a>
+      <a href="#">සිකුරු</a>
+    </div>
+    <div class="footer-section">
+      <h4>සම්බන්ධ වන්න</h4>
+      <a href="#">WhatsApp</a>
+      <a href="#">Telegram</a>
+      <a href="#">Email</a>
     </div>
   </div>
-  <div class="footer-bottom">© 2026 ලංකා රැකියා ඉතාලිය - ශ්‍රී ලාංකිකයන් සඳහා රැකියා වේදිකාව</div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 ලංකා රැකියා ඉතාලිය. සියලුම අයිතන ተጠብቆ ናቸው.</p>
+  </div>
 </footer>
 
 <script>
-const jobs = [
-  {id:1,title:"ප්‍රවීණ වයස්ගතයින් සේවා විශේෂඥ",company:"ABC සේවා",category:"වයස්ගතයින් සේවය",salary:2000,location:"මිලෙනියෝ",type:"සම්පූර්ණ කාලය",description:"වයසින් ගිය පුද්ගලයින්ට දයාවන්ත සේවා සපයන්න...",requirements:"3+ වසරක අත්දැකම, ඉතාලි කතා කිරීම",posted:"දින 2ට පෙර",badge:"featured"},
-  {id:2,title:"පිරිසිදු කිරීමේ කාර්ය - ගුණ සමාගම",company:"Grand Hotel Italia",category:"පිරිසිදු කිරීම",salary:1400,location:"රෝමය",type:"සම්පූර්ණ කාලය",description:"අපගේ ගුණ සමාගමේ නිවස පිරිසිදු කිරීමේ කණ්ඩායමට එක් වන්න...",requirements:"අත්දැකම අවශ්‍ය නැත",posted:"දින 1ට පෙර",badge:"new"},
-  {id:3,title:"සෞඛ්‍ය සේවා සහයක",company:"San Raffaele රෝගකරණ",category:"සෞඛ්‍ය සේවා",salary:1800,location:"මිලෙනියෝ",type:"සම්පූර්ණ කාලය",description:"රෝගීන්ගේ සේවාවේදී බෙහෙත්කරුවරු සහ ඩොක්ටරුවරුන්ට සහාය වන්න...",requirements:"සෞඛ්‍ය සේවා සහතිකරණ වඩා හොඳ",posted:"දින 3ට පෙර",badge:""},
-  {id:4,title:"ඔස්ටේරීයේ ශේෆ් සහාය",company:"Osteria Roma",category:"ආතිතිය",salary:1600,location:"රෝමය",type:"සම්පූර්ණ කාලය",description:"ඉතාලි ඉතිරි පිසීමට උපකාර වන්න...",requirements:"ඉතිරි පිසීමේ අත්දැකම අවශ්‍ය",posted:"සතියක් පෙර",badge:""},
-  {id:5,title:"කර්මාන්ත නිෂ්පාදන පంක්තිය",company:"නිෂ්පාදන සීමිතක",category:"කර්මාන්ත",salary:1500,location:"ටුරින්",type:"සම්පූර්ණ කාලය",description:"කර්මාන්තශාලාවේ එකලස් කිරීමේ පංක්තියෙහි ක්‍රියා කරන්න...",requirements:"අත්දැකම අවශ්‍ය නැත",posted:"දින 5ට පෙර",badge:"new"},
-  {id:6,title:"ජීවත් වන සිරින් සෙවුම්කරු",company:"පෞද්ගලික පවුල",category:"වයස්ගතයින් සේවය",salary:2200,location:"වෙනීසියා",type:"සම්පූර්ණ කාලය",description:"චිරුවු බලවතෙකු සඳහා රාත්‍රී සේවා...",requirements:"චිරුවු සහාය විශේෂඥතා අත්දැකම",posted:"දින 2ට පෙර",badge:"urgent"},
-  {id:7,title:"අර්ධ කාලය පිරිසිදු කිරීම - කාර්යාලය",company:"පිරිසිදු සේවා Inc",category:"පිරිසිදු කිරීම",salary:1300,location:"මිලෙනියෝ",type:"අර්ධ කාලය",description:"ව්‍යාපාර කේන්ද්‍රයේ සවස කාර්යාල පිරිසිදු කිරීම...",requirements:"අත්දැකම අවශ්‍ය නැත",posted:"දින 4ට පෙර",badge:""},
-  {id:8,title:"ආතිතිය බඩු දෙන්නා",company:"රෙස්තුරාං මිලෙනියෝ",category:"ආතිතිය",salary:1550,location:"මිලෙනියෝ",type:"සම්පූර්ණ කාලය",description:"උචු අසුතුවන ඉතාලි පිසිනේ සේවාව...",requirements:"ඉතාලි හෝ ඉංග්‍රීසි අවශ්‍ය",posted:"දින 3ට පෙර",badge:""}
+const jobs=[
+{id:1,title:"ප්‍රවීණ වයස්ගතයින් සේවා විශේෂඥ",company:"ABC සේවා",location:"මිලෙනියෝ",category:"වයස්ගතයින් සේවය",type:"සම්පූර්ණ කාලය",salary:"€1,800 - €2,200",description:"අපි වයස්ගතයින් සේවා විශේෂඥ සොයා ගනිමු",requirements:"වයස්ගතයින් සේවාවලින් පෙර අත්දැකම, වලංගු EU කර්ම අවසරය, ඉතාලි හෝ ඉංග්‍රීසි කතා කිරීම",badge:"featured",posted:"දින 2ට පෙර"},
+{id:2,title:"පිරිසිදු කිරීමේ සේවා කර්මාධාරිනිය",company:"Clean Italia",location:"රෝම",category:"පිරිසිදු කිරීම",type:"අර්ධ කාලය",salary:"€1,200 - €1,500",description:"අපගේ සේවා සඳහා විශ්වසනීය පිරිසිදු කරන්නා අවශ්‍යයි",requirements:"පිරිසිදු කිරීම සම්බන්ධයෙන් අත්දැකම, ඉතාලි ගිණුම",badge:"new",posted:"දින 1ට පෙර"},
+{id:3,title:"නර්සිംග ස්ථාන සඳහා සහාය වෙණ්ඩර",company:"Health Care Plus",location:"තුරිනෝ",category:"සෞඛ්‍ය සේවා",type:"සම්පූර්ණ කාලය",salary:"€1,600 - €2,000",description:"අපගේ නර්සිංග ස්ථානය සඳහා සහාය වෙණ්ඩරවරුන් අවශ්‍යයි",requirements:"සෞඛ්‍ය සේවා සම්බන්ධයෙන් අත්දැකම, බිම්බසුන් සඳහා කර්මාන්ත සහතිකය",badge:"urgent",posted:"දින 3ට පෙර"},
+{id:4,title:"ෂෙෆ් - ඉතාලි ආතිතිය",company:"Trattoria Bella",location:"ෆ්ලොරෙන්ස්",category:"ආතිතිය",type:"සම්පූර්ණ කාලය",salary:"€2,000 - €2,800",description:"ඉතාලි ඉතිහාස සහ සුවිශේෂී කුසින්",requirements:"ඉතාලි සිතුවම අවබෝධතා, 5+ වසර අත්දැකම, ඉතාලි නිවැදිතව කතා කිරීම",badge:"featured",posted:"දින 5ට පෙර"},
+{id:5,title:"සැඟවුණු ගබඩා කර්මාධාරිනිය",company:"Factory Works",location:"ජිනෝවා",category:"කර්මාන්ත",type:"සම්පූර්ණ කාලය",salary:"€1,400 - €1,900",description:"අපගේ ගබඩා සඳහා පිටපතු අවශ්‍යයි",requirements:"සැඟවුණු කර්ම අත්දැකම, කඩිමුඩි දක්ෂතා, ඉතාලි කතා කිරීම",badge:"",posted:"දින 4ට පෙර"},
+{id:6,title:"ගෙදර සහාය සේවා",company:"Care Solutions",location:"මිලෙනියෝ",category:"වයස්ගතයින් සේවය",type:"අර්ධ කාලය",salary:"€1,100 - €1,400",description:"වැඩිහිටි පුද්ගලයින් සඳහා ගෙදර සහාය",requirements:"ගෙදර සහාය සම්බන්ධයෙන් අත්දැකම, ඉතාලි කතා කිරීම, දරුවින්ගේ ඉතිහාස",badge:"new",posted:"දින 1ට පෙර"},
+{id:7,title:"කිතුණු සිතුවම",company:"Fine Dining Co",location:"වෙනිසිය",category:"ආතිතිය",type:"සම්පූර්ණ කාලය",salary:"€1,800 - €2,400",description:"ඉතාලි ෙසඩුටු සඳහා සිතුවම",requirements:"ඉතාලි කිතුණු සිතුවම, විශ්වවිද්‍යාලීය සිතුවම, ඉතාලි ටිකෙට",badge:"",posted:"දින 6ට පෙර"},
+{id:8,title:"ගබඩා කර්මනිකිවු",company:"Logistics Italy",location:"පදුවා",category:"කර්මාන්ත",type:"සම්පූර්ණ කාලය",salary:"€1,300 - €1,800",description:"ගබඩා කර්ම කිරීම සඳහා අවශ්‍යයි",requirements:"ගබඩා කර්ම අත්දැකම, පෝෂ්‍ය හඬ දක්ෂතා, ඉතාලි කතා කිරීම",badge:"",posted:"දින 7ට පෙර"}
 ];
-
-let filteredJobs = [...jobs];
-let savedJobs = [];
-
-function renderJobs() {
-  const jobsList = document.getElementById('jobsList');
-  const jobsCount = document.getElementById('jobsCount');
-  jobsCount.textContent = filteredJobs.length;
-
-  if(filteredJobs.length === 0) {
-    jobsList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🔍</div><h3>කිසිවක් සොයා ගැනුණු නැත</h3><p>ඔබගේ ස්තර හෝ සෙවීමේ වචන සකසා ගැනීමට උත්සාහ කරන්න</p></div>';
-    return;
-  }
-
-  jobsList.innerHTML = filteredJobs.map(job => `
-    <div class="job-card" onclick="openJobDetails(${job.id})">
-      <div class="job-card-top">
-        <div class="job-company-logo">${job.category.charAt(0)}</div>
-        <div class="job-header-info">
-          <div class="job-title">${job.title}</div>
-          <div class="job-company">${job.company}</div>
-          <div class="job-badges">
-            ${job.badge ? `<span class="badge badge-${job.badge}">${job.badge === 'featured' ? 'විශේෂ' : job.badge === 'new' ? 'නව' : 'දුටින්වත්'}</span>` : ''}
-            <span class="badge">${job.type}</span>
-          </div>
-        </div>
-      </div>
-      <div class="job-description">${job.description}</div>
-      <div class="job-meta">
-        <div class="meta-item"><span class="meta-item-icon">📍</span>${job.location}</div>
-        <div class="meta-item"><span class="meta-item-icon">⏰</span>${job.posted}</div>
-        <div class="meta-item"><span class="meta-item-icon">💼</span>${job.category}</div>
-      </div>
-      <div class="job-footer">
-        <div class="salary">€${job.salary.toLocaleString()}/මාසය</div>
-        <div class="job-actions">
-          <button class="save-btn" onclick="event.stopPropagation(); toggleSaveJob(${job.id})">♡</button>
-          <button class="apply-btn" onclick="event.stopPropagation(); openJobDetails(${job.id})">අයදුම දැමුම</button>
-        </div>
-      </div>
-    </div>
-  `).join('');
-}
-
-function filterJobs() {
-  const searchTerm = document.getElementById('jobSearch').value.toLowerCase();
-  const locationTerm = document.getElementById('locationSearch').value.toLowerCase();
-  const minSalary = parseInt(document.getElementById('minSalary').value) || 0;
-  const maxSalary = parseInt(document.getElementById('maxSalary').value) || Infinity;
-
-  filteredJobs = jobs.filter(job =>
-    (job.title.toLowerCase().includes(searchTerm) || job.description.toLowerCase().includes(searchTerm)) &&
-    job.location.toLowerCase().includes(locationTerm) &&
-    job.salary >= minSalary &&
-    job.salary <= maxSalary
-  );
-  renderJobs();
-}
-
-function setQuickFilter(category) {
-  document.getElementById('jobSearch').value = category;
-  filterJobs();
-  document.getElementById('search-section').scrollIntoView({behavior:'smooth'});
-}
-
-function openJobDetails(jobId) {
-  const job = jobs.find(j => j.id === jobId);
-  if(!job) return;
-
-  document.getElementById('modalJobTitle').textContent = job.title;
-  document.getElementById('modalJobCompany').textContent = job.company;
-  document.getElementById('modalSalary').textContent = `€${job.salary.toLocaleString()}/මාසය`;
-  document.getElementById('modalLocation').textContent = job.location;
-  document.getElementById('modalType').textContent = job.type;
-  document.getElementById('modalDate').textContent = job.posted;
-  document.getElementById('modalDescription').textContent = job.description;
-  document.getElementById('modalRequirements').textContent = job.requirements;
-
-  document.getElementById('jobDetailsModal').classList.add('show');
-}
-
-function closeModal() {
-  document.getElementById('jobDetailsModal').classList.remove('show');
-}
-
-function submitApplication() {
-  alert('අයදුම යොමු කර ඇත! ඔබ සමග ඉතා ඉක්මනින් සම්බන්ධ වනු ඇත.');
-  closeModal();
-}
-
-function toggleSaveJob(jobId) {
-  const index = savedJobs.indexOf(jobId);
-  if(index > -1) {
-    savedJobs.splice(index, 1);
-  } else {
-    savedJobs.push(jobId);
-  }
-  updateSavedJobsList();
-}
-
-function updateSavedJobsList() {
-  const list = document.getElementById('savedJobsList');
-  if(savedJobs.length === 0) {
-    list.innerHTML = 'තවම සුරකින ලද රැකියා නැත';
-    return;
-  }
-  const saved = jobs.filter(j => savedJobs.includes(j.id));
-  list.innerHTML = saved.map(j => `<div class="saved-job-item" onclick="openJobDetails(${j.id})">${j.title}</div>`).join('');
-}
-
-function sortJobs(value) {
-  if(value === 'salary') {
-    filteredJobs.sort((a,b) => b.salary - a.salary);
-  }
-  renderJobs();
-}
-
-function setLanguage(lang) {
-  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
-}
-
-function showSignInModal() {
-  alert('ඇතුළු වීම - විශේෂාංගය ඉක්මනින් එනවා');
-}
-
-function showPostJobModal() {
-  alert('රැකියා පල කරන්න - විශේෂාංගය ඉක්මනින් එනවා');
-}
-
-renderJobs();
+let savedJobs=[];
+function renderJobs(jobsToRender){const list=document.getElementById('jobsList');list.innerHTML='';jobsToRender.forEach(job=>{const badge=job.badge?`<span class="badge badge-${job.badge.toLowerCase()}">${job.badge}</span>`:'';const isSaved=savedJobs.includes(job.id);const card=`<div class="job-card" onclick="openModal(${job.id})"><div class="job-card-top"><div class="job-company-logo">💼</div><div class="job-header-info"><div class="job-title">${job.title}</div><div class="job-company">${job.company}</div><div class="job-badges">${badge}</div></div></div><div class="job-description">${job.description}</div><div class="job-meta"><div class="meta-item">📍 ${job.location}</div><div class="meta-item">⏰ ${job.posted}</div><div class="meta-item">🏷️ ${job.category}</div></div><div class="job-salary">${job.salary}</div><div class="job-footer"><button class="save-btn" onclick="event.stopPropagation();toggleSave(${job.id})">${isSaved?'✓ සුරකිණ ඇත':'💾 සුරකින්න'}</button><button class="apply-btn" onclick="event.stopPropagation();openModal(${job.id})">අයදුම දෙන්න</button></div></div>`;list.innerHTML+=card;});document.getElementById('jobsCount').innerText=jobsToRender.length;}
+function filterJobs(){renderJobs(jobs);}
+function sortJobs(type){if(type==='salary'){jobs.sort((a,b)=>parseFloat(b.salary)-parseFloat(a.salary));}else if(type==='recent'){jobs.sort((a,b)=>parseInt(b.posted)-parseInt(a.posted));}renderJobs(jobs);}
+function setQuickFilter(category){document.getElementById('jobSearch').value=category;filterJobs();}
+function toggleSave(jobId){const index=savedJobs.indexOf(jobId);if(index>-1){savedJobs.splice(index,1);}else{savedJobs.push(jobId);}renderJobs(jobs);updateSavedJobs();}
+function updateSavedJobs(){const panel=document.getElementById('savedJobsList');if(savedJobs.length===0){panel.innerHTML='තවම සුරකින ලද රැකියා නැත';}else{const savedJobDetails=savedJobs.map(id=>jobs.find(j=>j.id===id)).filter(j=>j);panel.innerHTML=savedJobDetails.map(j=>`<div style="padding:8px;background:var(--gray-50);border-radius:6px;margin-bottom:8px;font-size:12px"><strong>${j.title}</strong><br>${j.company}</div>`).join('');}}
+function openModal(jobId){const job=jobs.find(j=>j.id===jobId);document.getElementById('modalJobTitle').innerText=job.title;document.getElementById('modalJobCompany').innerText=job.company;document.getElementById('modalSalary').innerText=job.salary;document.getElementById('modalLocation').innerText=job.location;document.getElementById('modalType').innerText=job.type;document.getElementById('modalDate').innerText=job.posted;document.getElementById('modalDescription').innerText=job.description;document.getElementById('modalRequirements').innerText=job.requirements;document.getElementById('jobDetailsModal').classList.add('active');}
+function closeModal(){document.getElementById('jobDetailsModal').classList.remove('active');}
+function submitApplication(){alert('ඔබගේ අයදුම සාර්ථකව යොමු විය!');closeModal();}
+function showSignInModal(){alert('ඇතුළු වීමේ පිටුව පෙන්වන්න');}
+function showPostJobModal(){alert('රැකියා පල කිරීමේ ෆෝරම පෙන්වන්න');}
+function setLanguage(lang){console.log('භාෂාව:',lang);}
+document.addEventListener('DOMContentLoaded',()=>{renderJobs(jobs);document.querySelector('.clear-filters-btn').addEventListener('click',()=>{document.getElementById('jobSearch').value='';document.getElementById('locationSearch').value='';document.getElementById('minSalary').value='';document.getElementById('maxSalary').value='';document.querySelectorAll('.checkbox').forEach(cb=>cb.checked=false);filterJobs();});});
 </script>
 
 </body>
