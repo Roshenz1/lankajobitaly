@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Fetch job listings from Adzuna API for Verona and Milan
+Fetch job listings from Jooble API for Verona and Milan
 Updates jobs.json with fresh listings every 3 days
+NO API KEY REQUIRED - Jooble API is completely free
 """
 
 import json
@@ -9,19 +10,17 @@ import requests
 import sys
 from datetime import datetime
 
-# Adzuna API credentials
-APP_ID = "f0f9a33b"
-APP_KEY = "82f5c76c870615906362a15da663c939"
-API_BASE = "https://api.adzuna.com/v1/api/jobs/it/search/1"
+# Jooble API (completely free, no authentication needed)
+JOOBLE_API = "https://api.jooble.org/api/search"
 
-# Job category mappings
+# Job category mappings (keywords for search)
 CATEGORIES = {
-    "food": "cameriere cuoco lavapiatti",
-    "elder": "badante assistenza anziani",
-    "clean": "pulizie pulizia domestica",
-    "baby": "babysitter baby sitter",
-    "factory": "operaio produzione fabbrica",
-    "warehouse": "magazziniere scaffalista"
+    "food": "cameriere cuoco",
+    "elder": "badante anziani",
+    "clean": "pulizie domestica",
+    "baby": "babysitter",
+    "factory": "operaio produzione",
+    "warehouse": "magazziniere"
 }
 
 # Icons and colors by category
@@ -35,42 +34,45 @@ CATEGORY_CONFIG = {
 }
 
 def fetch_jobs(city, category_key, keywords):
-    """Fetch jobs from Adzuna API for a specific city and category"""
+    """Fetch jobs from Jooble API for a specific city and category (FREE, NO AUTH)"""
     try:
-        params = {
-            "app_id": APP_ID,
-            "app_key": APP_KEY,
-            "what": keywords,
-            "where": city,
-            "results_per_page": 5,
-            "sort_by": "date",
-            "sort_direction": "decreasing"
+        payload = {
+            "keywords": [keywords],
+            "location": city,
+            "radius": 50,
+            "pageSize": 5,
+            "page": 1
         }
 
-        response = requests.get(API_BASE, params=params, timeout=10)
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+            "Content-Type": "application/json"
+        }
+
+        response = requests.post(JOOBLE_API, json=payload, headers=headers, timeout=10)
         response.raise_for_status()
         data = response.json()
 
         jobs = []
-        for i, job in enumerate(data.get("results", [])[:5]):
+        for i, job in enumerate(data.get("jobs", [])[:5]):
             job_obj = {
-                "id": hash(f"{job['title']}{job['company']['display_name']}{city}") % 10000,
+                "id": hash(f"{job['title']}{job['company']}{city}") % 10000,
                 "title": job.get("title", ""),
-                "sin": f"Job from {job['company']['display_name']} in {city.capitalize()}",
-                "company": job.get("company", {}).get("display_name", "Unknown"),
+                "sin": f"Position at {job['company']} in {city}",
+                "company": job.get("company", "Unknown"),
                 "city": city.capitalize(),
                 "type": category_key.replace("_", " ").title(),
                 "typeKey": category_key,
-                "salary": job.get("salary_max", "Negotiable") if job.get("salary_max") else "Negotiable",
-                "perm": "permanent" in job.get("contract_type", "").lower(),
+                "salary": "Negotiable",
+                "perm": True,
                 "isNew": True,
                 "urgent": False,
                 "featured": i == 0,  # Feature first job
                 "ico": CATEGORY_CONFIG[category_key]["ico"],
                 "bg": CATEGORY_CONFIG[category_key]["bg"],
-                "desc": job.get("description", "")[:200] if job.get("description") else "Job posting from Adzuna",
-                "url": job.get("redirect_url", ""),
-                "source": "Adzuna"
+                "desc": (job.get("snippet", "")[:200] if job.get("snippet") else "Job posting") + "...",
+                "url": job.get("link", ""),
+                "source": "Jooble"
             }
             jobs.append(job_obj)
 
@@ -84,7 +86,7 @@ def update_jobs_json():
     all_jobs = []
     cities = ["verona", "milano"]
 
-    print("🔄 Starting job fetch from Adzuna API...")
+    print("🔄 Starting job fetch from Jooble API...")
     print(f"📍 Cities: {', '.join(cities)}")
     print(f"📂 Categories: {list(CATEGORIES.keys())}")
     print()
@@ -111,12 +113,12 @@ def update_jobs_json():
     try:
         with open("jobs.json", "r", encoding="utf-8") as f:
             existing = json.load(f)
-            # Keep manual entries (those without 'source' = 'Adzuna')
-            manual_jobs = [j for j in existing if j.get("source") != "Adzuna"]
+            # Keep manual entries (those without 'source' = 'Jooble')
+            manual_jobs = [j for j in existing if j.get("source") != "Jooble"]
     except FileNotFoundError:
         manual_jobs = []
 
-    # Combine: Adzuna jobs first, then manual entries
+    # Combine: Jooble jobs first, then manual entries
     final_jobs = all_jobs + manual_jobs
 
     # Re-index all jobs
