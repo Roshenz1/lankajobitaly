@@ -101,7 +101,8 @@ header{background:var(--white);border-bottom:1px solid var(--gray-200);padding:1
 .badge-new{background:#dcfce7;color:#166534}
 .badge-urgent{background:#fecaca;color:#991b1b}
 .badge-featured{background:#fef08a;color:#92400e}
-.job-description{font-size:14px;color:var(--gray-700);margin-bottom:12px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.job-description{font-size:14px;color:var(--gray-700);margin-bottom:12px;line-height:1.8;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-family:'Noto Sans Sinhala','Inter',sans-serif}
+.job-description.sinhala{font-size:15px;line-height:2;font-weight:500;color:var(--gray-800);white-space:pre-wrap}
 .job-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-600);margin-bottom:16px;padding-top:12px;border-top:1px solid var(--gray-200)}
 .meta-item{display:flex;align-items:center;gap:6px}
 .meta-item-icon{font-size:15px}
@@ -189,6 +190,14 @@ footer{background:var(--gray-900);color:white;padding:48px var(--spacing);margin
 /* SINHALA FONT SUPPORT */
 *{font-family:'Noto Sans Sinhala','Inter',sans-serif}
 .job-title,.job-company,.job-description{font-family:'Noto Sans Sinhala','Inter',sans-serif !important}
+.job-description.sinhala{
+  font-family:'Noto Sans Sinhala',sans-serif !important;
+  font-size:15px;
+  font-weight:500;
+  line-height:2;
+  color:var(--gray-800);
+  letter-spacing:0.3px;
+}
 </style>
 </head>
 <body>
@@ -509,14 +518,14 @@ function renderJobs() {
           </div>
         </div>
       </div>
-      <div class="job-description">${job.description}</div>
+      <div class="job-description${job.sin ? ' sinhala' : ''}">${job.sin || job.description}</div>
       <div class="job-meta">
         <div class="meta-item"><span class="meta-item-icon">📍</span>${job.location}</div>
         <div class="meta-item"><span class="meta-item-icon">⏰</span>${job.posted}</div>
         <div class="meta-item"><span class="meta-item-icon">💼</span>${job.category}</div>
       </div>
       <div class="job-footer">
-        <div class="salary">€${job.salary.toLocaleString()}/month</div>
+        <div class="salary">${job.salary === 'Negotiable' ? '💬 ' + job.salary : '€' + job.salary.toLocaleString() + '/month'}</div>
         <div class="job-actions">
           <button class="save-btn" onclick="event.stopPropagation(); toggleSaveJob(${job.id})">♡</button>
           <button class="apply-btn" onclick="event.stopPropagation(); openJobDetails(${job.id})">Apply Now</button>
