@@ -216,6 +216,8 @@ header{background:#fff;border-bottom:1px solid var(--border);padding:12px 16px;p
 .badge-urgent{background:#fee2e2;color:#991b1b}
 
 .badge-featured{background:#fef3c7;color:#92400e}
+.badge-urgent{background:#fee2e2;color:#991b1b;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}
 
 .job-description{font-size:13px;color:var(--text-secondary);margin-bottom:12px;line-height:1.5}
 
@@ -506,12 +508,14 @@ footer{background:var(--primary);color:#fff;padding:40px 16px;margin-top:48px}
 
 <script>
 const jobsData=[
-  {id:1,title:'අධිකාරී සේවය',company:'Rome Health',category:'සෞඛ්‍ය සේවා',type:'සම්පූර්ණ කාලය',salary:2200,location:'Rome',experience:'1-2 වසර',description:'රෝගීන් බලාබැලීම සඳහා අධිකාරීවරයෙකු අවශ්‍ය'},
-  {id:2,title:'පිරිසිදු කිරීමේ කර්මාන්තිකයා',company:'Milan Cleaning',category:'පිරිසිදු කිරීම',type:'සම්පූර්ණ කාලය',salary:1800,location:'Milan',experience:'අත්දැකම නැත',description:'ඉතාලි සංස්ථාවල පිරිසිදු කිරීමේ වැඩ'},
-  {id:3,title:'ශ්‍රී මණ්ඩල සහාය',company:'Senior Care Italia',category:'වයස්ගතයින් සේවය',type:'අර්ධ කාලය',salary:1600,location:'Naples',experience:'අත්දැකම නැත',description:'වයස්ගත ශ්‍රී මණ්ඩලදের බලාබැලීම'},
-  {id:4,title:'ඉතාලි ශිල්පයෙකු',company:'Industrial Works',category:'කර්මාන්ත',type:'සම්පූර්ණ කාලය',salary:2500,location:'Turin',experience:'3+ වසර',description:'කර්මාන්ත ව්‍යවසාය සඳහා දක්ෂ ශිල්පයෙකු'},
-  {id:5,title:'ගිණුම්ගරු',company:'Finance Pro',category:'ගිණුම්',type:'සම්පූර්ණ කාලය',salary:2800,location:'Rome',experience:'1-2 වසර',description:'ගිණුම්විසි සඳහා ගිණුම්ගරු අවශ්‍ය'},
-  {id:6,title:'ශ්‍රී උපස්කර',company:'Restaurant Roma',category:'ආතිතිය',type:'අර්ධ කාලය',salary:1700,location:'Venice',experience:'අත්දැකම නැත',description:'ශ්‍රී පරිවේෂණ සහ කුසිපිටි කාර්ය'}
+  {id:1,title:'Crew Member - Addetto Ristorazione',company:'McDonald\'s Verona',category:'Food Service',type:'Part-Time 24h/week',salary:'Negotiable',location:'Verona',experience:'අත්දැකම නැත',description:'ක්ෂණිකව සිටුවීම! McDonald\'s Verona හි ක්‍රු සාමාජිකයා. ඉඩුණු සිෂ්ඨයන්, සම්පූර්ණ প්রশিक্ෂණ, කටයුතු දක්ෂතා, ඉතාමත් වේගවත් ඉගෙනුම්.',badge:'urgent'},
+  {id:2,title:'Carer for Elderly Lady',company:'Private Family Verona',category:'වයස්ගතයින් සේවය',type:'සම්පූර්ණ කාලය',salary:1100,location:'Verona',experience:'අත්දැකම නැත',description:'83 අවුරුද්දු තරුණි නිවැසි සහාය. ආහාර, සෞඛ්‍ය, සඳහන්. නිවාස සහ ආහාර ඇතුලත්.'},
+  {id:3,title:'Office and Apartment Cleaning',company:'CleanPro Milan',category:'පිරිසිදු කිරීම',type:'Part-Time 25-30h/week',salary:11,location:'Milan',experience:'අත්දැකම',description:'Milan කාර්යාල සහ නිවාස පිරිසිදු කිරීම. නම්යශීල පැයන්, විශ්වාසී කණ්ඩායම.'},
+  {id:4,title:'Babysitter - 2 Children',company:'Rossi Family - Verona',category:'ශිශු පිරිසිදු කිරීම',type:'Part-Time',salary:10,location:'Verona',experience:'අත්දැකම',description:'දරුවන් 2 දෙනා (3 සහ 5 අවුරුද්ධ). සඳහන් 15:00-19:00, ගෙදර කාර්ය.'},
+  {id:5,title:'Warehouse Operator - Amazon DSP',company:'Amazon DSP - Bologna',category:'කර්මාන්ත',type:'සම්පූර්ණ කාලය',salary:1400,location:'Bologna',experience:'අත්දැකම',description:'ඇසුරු සිතමු, ස්කෑනිං, පැටවුම. සම්පූර්ණ කාලීන ශිෂ්ඨයන්. Permesso අවශ්‍ය.'},
+  {id:6,title:'Night Carer - RSA Nursing Home',company:'RSA Villa Serena - Turin',category:'වයස්ගතයින් සේවය',type:'සම්පූර්ණ කාලය',salary:1250,location:'Turin',experience:'අත්දැකම',description:'රාත්‍රී බාරකරු 22:00-07:00. නිවැසි සහාය. නිල ඉතාලි ගිණුම්.'},
+  {id:7,title:'Hotel Housekeeper - 4 Star',company:'Hotel Arena Palace - Verona',category:'පිරිසිදු කිරීම',type:'Part-Time',salary:1000,location:'Verona',experience:'අත්දැකම',description:'සඳහන් 09:00-15:00. Verona Arena අසල. 2 තනතුරු. ක්ෂණිකව පටන්.'},
+  {id:8,title:'Badante - Elder Care',company:'Private Family',category:'වයස්ගතයින් සේවය',type:'Part-Time',salary:10,location:'Verona',experience:'අත්දැකම',description:'Corso Milano. CV සහ ෆෝටෝ එක්ක සම්බන්ධ වන්න. 3513111841'}
 ];
 
 let savedJobs=[];
@@ -539,7 +543,7 @@ function displayJobs(jobs){
         <div class="job-header-info">
           <div class="job-title">${job.title}</div>
           <div class="job-company">${job.company}</div>
-          <div class="job-badges"><span class="badge badge-new">නව</span></div>
+          <div class="job-badges"><span class="badge badge-new">නව</span>${job.badge==='urgent'?'<span class="badge badge-urgent">🚀 URGENT</span>':''}</div>
         </div>
       </div>
       <div class="job-description">${job.description}</div>
