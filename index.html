@@ -425,20 +425,51 @@ footer{background:var(--gray-900);color:white;padding:48px var(--spacing);margin
 </footer>
 
 <script>
-// Sample Jobs Data
-const jobs = [
-  {id:1,title:"Senior Elder Care Specialist",company:"ABC Care Services",category:"Elder Care",salary:2000,location:"Milan",type:"Full-time",description:"Provide compassionate care to elderly individuals...",requirements:"3+ years experience, Italian speaking",posted:"2 days ago",badge:"featured"},
-  {id:2,title:"Cleaning Staff - Hotel",company:"Grand Hotel Italia",category:"Cleaning",salary:1400,location:"Rome",type:"Full-time",description:"Join our housekeeping team at luxury hotel...",requirements:"No experience needed",posted:"1 day ago",badge:"new"},
-  {id:3,title:"Healthcare Assistant",company:"San Raffaele Hospital",category:"Healthcare",salary:1800,location:"Milan",type:"Full-time",description:"Support nurses and doctors in patient care...",requirements:"Healthcare certification preferred",posted:"3 days ago",badge:""},
-  {id:4,title:"Restaurant Chef Assistant",company:"Osteria Roma",category:"Hospitality",salary:1600,location:"Rome",type:"Full-time",description:"Help prepare authentic Italian cuisine...",requirements:"Cooking experience required",posted:"1 week ago",badge:""},
-  {id:5,title:"Factory Production Line",company:"Manufacturing Ltd",category:"Factory",salary:1500,location:"Turin",type:"Full-time",description:"Work on assembly line in modern factory...",requirements:"No experience needed",posted:"5 days ago",badge:"new"},
-  {id:6,title:"Live-in Senior Caregiver",company:"Private Family",category:"Elder Care",salary:2200,location:"Venice",type:"Full-time",description:"Overnight care for elderly person with mobility...",requirements:"Experience with mobility assistance",posted:"2 days ago",badge:"urgent"},
-  {id:7,title:"Part-time Cleaning - Office",company:"Clean Services Inc",category:"Cleaning",salary:1300,location:"Milan",type:"Part-time",description:"Evening office cleaning in business center...",requirements:"No experience needed",posted:"4 days ago",badge:""},
-  {id:8,title:"Hospitality Waiter",company:"Restaurant Milano",category:"Hospitality",salary:1550,location:"Milan",type:"Full-time",description:"Professional table service in upscale restaurant...",requirements:"Italian or English required",posted:"3 days ago",badge:""},
-];
-
-let filteredJobs = [...jobs];
+// Jobs loaded from JSON
+let jobs = [];
+let filteredJobs = [];
 let savedJobs = [];
+
+// Load jobs from JSON file
+async function loadJobs() {
+  try {
+    const response = await fetch('jobs.json');
+    const jobsData = await response.json();
+
+    // Map JSON format to display format
+    jobs = jobsData.map(job => ({
+      id: job.id,
+      title: job.title,
+      company: job.company,
+      category: job.type,
+      salary: isNaN(parseInt(job.salary)) ? 1500 : parseInt(job.salary),
+      location: job.city,
+      type: job.perm ? "Full-time" : "Part-time",
+      description: job.desc,
+      requirements: job.desc,
+      posted: job.isNew ? "New" : "Recent",
+      badge: job.urgent ? "urgent" : (job.isNew ? "new" : (job.featured ? "featured" : "")),
+      ico: job.ico,
+      bg: job.bg,
+      sin: job.sin
+    }));
+
+    filteredJobs = [...jobs];
+    renderJobs();
+  } catch (error) {
+    console.error('Error loading jobs:', error);
+    // Fallback to sample data if JSON fails
+    jobs = [
+      {id:1,title:"Senior Elder Care Specialist",company:"ABC Care Services",category:"Elder Care",salary:2000,location:"Milan",type:"Full-time",description:"Provide compassionate care to elderly individuals...",requirements:"3+ years experience, Italian speaking",posted:"2 days ago",badge:"featured"},
+      {id:2,title:"Cleaning Staff - Hotel",company:"Grand Hotel Italia",category:"Cleaning",salary:1400,location:"Rome",type:"Full-time",description:"Join our housekeeping team at luxury hotel...",requirements:"No experience needed",posted:"1 day ago",badge:"new"},
+    ];
+    filteredJobs = [...jobs];
+    renderJobs();
+  }
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', loadJobs);
 
 function renderJobs() {
   const jobsList = document.getElementById('jobsList');
