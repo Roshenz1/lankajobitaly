@@ -4,159 +4,132 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>ලංකා රැකියා ඉතාලිය – ශ්‍රී ලාංකිකයන් සඳහා රැකියා සෙවීම</title>
-<meta name="description" content="ඉතාලිය තුල ශ්‍රී ලාංකිකයන් සඳහා රැකියා සොයන්න. වෙල්ලෙන් රැකියා ලැයිස්තු. වයස්ගතයින් සේවය, පිරිසිදු කිරීම, සෞඛ්‍ය සේවා, ආතිතිය හා කර්මාන්ත."/>
+<meta name="description" content="ඉතාලිය තුල ශ්‍රී ලාංකිකයන් සඳහා රැකියා සොයන්න. වෙල්ලෙන් රැකියා ලැයිස්තු."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --primary:#6366f1;--primary-dark:#4f46e5;--primary-light:#e0e7ff;
-  --secondary:#8b5cf6;--accent:#06b6d4;--success:#10b981;--warning:#f59e0b;
-  --danger:#ef4444;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
-  --gray-300:#d1d5db;--gray-400:#9ca3af;--gray-600:#4b5563;--gray-700:#374151;
-  --gray-900:#111827;--white:#ffffff;--shadow:0 1px 3px rgba(0,0,0,0.1);
-  --shadow-md:0 4px 6px rgba(0,0,0,0.1);--shadow-lg:0 10px 25px rgba(0,0,0,0.1);
-  --radius:12px;--spacing:16px;
-}
-
-html,body{font-family:'Noto Sans Sinhala','Inter',sans-serif;font-size:15px;color:var(--gray-900);background:var(--gray-50);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.6}
+html,body{font-family:'Noto Sans Sinhala','Inter',sans-serif;font-size:15px;color:#333;background:#f5f5f5;line-height:1.6}
 *{font-family:'Noto Sans Sinhala','Inter',sans-serif !important}
-a{color:var(--primary);text-decoration:none;transition:color 0.2s}
-a:hover{color:var(--primary-dark)}
-button{font-family:inherit;cursor:pointer;border:none;transition:all 0.3s}
 
 /* HEADER */
-header{background:var(--white);border-bottom:1px solid var(--gray-200);padding:16px var(--spacing);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px);box-shadow:var(--shadow)}
-.header-wrap{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:10px;font-family:'Noto Sans Sinhala','Inter',sans-serif}
-.logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 4px 15px rgba(99,102,241,0.3)}
-.nav-center{display:flex;gap:32px;align-items:center}
-.nav-center a{color:var(--gray-700);font-weight:500;font-size:14px;position:relative}
-.nav-center a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--primary),var(--secondary));transition:width 0.3s}
-.nav-center a:hover{color:var(--primary)}.nav-center a:hover::after{width:100%}
-.nav-right{display:flex;gap:12px;align-items:center}
-.lang-toggle{display:flex;gap:6px;background:var(--gray-100);padding:6px;border-radius:8px}
-.lang-btn{padding:8px 14px;border:none;border-radius:6px;font-size:12px;font-weight:600;background:transparent;cursor:pointer;color:var(--gray-600);transition:all 0.2s}
-.lang-btn.active{background:var(--white);color:var(--primary);box-shadow:var(--shadow)}
-.sign-in-btn{padding:10px 22px;background:transparent;color:var(--primary);border:2px solid var(--primary);border-radius:8px;font-weight:600;transition:all 0.2s}
-.sign-in-btn:hover{background:var(--primary-light)}
-.post-job-btn{padding:10px 22px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;border-radius:8px;font-weight:600;box-shadow:0 4px 15px rgba(99,102,241,0.3);transition:all 0.3s}
-.post-job-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(99,102,241,0.4)}
-@media(max-width:768px){.nav-center{display:none}.header-wrap{gap:12px}}
+header{background:#fff;border-bottom:1px solid #ddd;padding:12px 16px;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+.header-wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:20px;font-weight:700;color:#2c3e50;display:flex;align-items:center;gap:8px}
+.logo-icon{font-size:24px}
+.nav-center{display:flex;gap:20px;align-items:center}
+.nav-center a{color:#555;font-weight:500;font-size:14px;text-decoration:none;transition:color 0.2s}
+.nav-center a:hover{color:#2c3e50}
+.nav-right{display:flex;gap:8px;align-items:center}
+.lang-toggle{display:flex;gap:4px;background:#f0f0f0;padding:4px;border-radius:6px}
+.lang-btn{padding:6px 12px;border:none;background:transparent;color:#666;font-size:12px;font-weight:600;cursor:pointer;border-radius:4px;transition:all 0.2s}
+.lang-btn.active{background:#fff;color:#2c3e50;box-shadow:0 1px 2px rgba(0,0,0,0.1)}
+.sign-in-btn{padding:8px 16px;background:transparent;color:#2c3e50;border:1px solid #2c3e50;border-radius:6px;font-weight:600;cursor:pointer;font-size:13px;transition:all 0.2s}
+.sign-in-btn:hover{background:#2c3e50;color:#fff}
+.post-job-btn{padding:8px 16px;background:#2c3e50;color:#fff;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:13px;transition:all 0.2s}
+.post-job-btn:hover{background:#1a252f}
+@media(max-width:768px){.nav-center{display:none}.header-wrap{gap:8px}.logo{font-size:18px}.nav-right{gap:4px}}
 
 /* LICENSE NOTICE */
-.license-notice{background:linear-gradient(135deg,#fcd34d,#f59e0b);border-bottom:0;padding:16px var(--spacing);position:sticky;top:56px;z-index:99;box-shadow:0 4px 12px rgba(245,158,11,0.2)}
-.notice-content{max-width:1400px;margin:0 auto;display:flex;align-items:flex-start;gap:16px}
-.notice-icon{font-size:32px;animation:carDrive 4s infinite;flex-shrink:0;margin-top:4px}
-@keyframes carDrive{0%{transform:translateX(-20px);opacity:0}10%{opacity:1}50%{transform:translateX(100px)}90%{opacity:1}100%{transform:translateX(150px);opacity:0}}
-.notice-text{flex:1;font-size:15px;line-height:1.5}
-.notice-title{font-weight:700;color:#92400e;margin-bottom:6px;font-size:16px}
-.notice-text p{color:#78350f;margin:6px 0}
-.notice-text strong{color:#92400e;font-weight:700}
-.notice-action{flex-shrink:0;margin-top:4px}
-.notice-btn{padding:10px 20px;background:#ef4444;color:white;border:none;border-radius:8px;font-weight:600;cursor:pointer;transition:all 0.2s}
-.notice-btn:hover{background:#dc2626;transform:translateY(-2px);box-shadow:0 4px 12px rgba(239,68,68,0.3)}
-@media(max-width:768px){.license-notice{padding:12px var(--spacing);top:52px}.notice-content{flex-direction:column;gap:12px}.notice-action{margin-top:0}}
+.license-notice{background:#fff3cd;border-bottom:1px solid #ffc107;padding:12px 16px;position:sticky;top:48px;z-index:99;box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+.notice-content{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.notice-icon{font-size:24px;flex-shrink:0}
+.notice-text{flex:1;font-size:13px;line-height:1.4;min-width:200px}
+.notice-title{font-weight:700;color:#856404;margin-bottom:4px;font-size:13px}
+.notice-text p{color:#856404;margin:2px 0;font-size:12px}
+.notice-action{flex-shrink:0}
+.notice-btn{padding:6px 12px;background:#dc3545;color:#fff;border:none;border-radius:4px;font-weight:600;cursor:pointer;font-size:12px;transition:all 0.2s}
+.notice-btn:hover{background:#c82333}
+@media(max-width:768px){.license-notice{padding:10px 12px;top:44px}.notice-content{gap:8px}.notice-text{font-size:11px}.notice-title{font-size:12px}.notice-btn{padding:5px 10px;font-size:11px}}
 
 /* HERO */
-.hero{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);padding:64px var(--spacing);text-align:center;color:white;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-50%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,255,255,0.1) 0%,transparent 70%);border-radius:50%}
-.hero::after{content:'';position:absolute;bottom:-30%;left:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(255,255,255,0.05) 0%,transparent 70%);border-radius:50%}
-.hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
-.hero h1{font-size:clamp(36px,8vw,52px);font-weight:800;margin-bottom:16px;line-height:1.2;letter-spacing:-0.5px}
-.hero p{font-size:18px;opacity:0.95;margin-bottom:40px}
-.search-section{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;margin-bottom:32px}
-.search-input-group input{width:100%;padding:16px 18px;border:none;border-radius:10px;font-size:16px;background:rgba(255,255,255,0.95);color:var(--gray-900);transition:all 0.3s;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
-.search-input-group input::placeholder{color:var(--gray-400)}
-.search-input-group input:focus{outline:none;background:white;box-shadow:0 8px 25px rgba(0,0,0,0.15)}
-.location-input{width:100%;padding:16px 18px;border:none;border-radius:10px;font-size:16px;background:rgba(255,255,255,0.95);color:var(--gray-900);transition:all 0.3s}
-.location-input:focus{outline:none;background:white;box-shadow:0 8px 25px rgba(0,0,0,0.15)}
-.search-btn{padding:16px 36px;background:white;color:var(--primary);border:none;border-radius:10px;font-weight:700;font-size:16px;transition:all 0.3s;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
-.search-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,0.2)}
-.quick-filters{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.quick-filter-tag{padding:10px 18px;background:rgba(255,255,255,0.15);color:white;border-radius:20px;cursor:pointer;font-weight:500;transition:all 0.3s;border:2px solid transparent;backdrop-filter:blur(10px)}
-.quick-filter-tag:hover{background:rgba(255,255,255,0.25);transform:translateY(-2px)}
-@media(max-width:768px){.search-section{grid-template-columns:1fr}.search-btn{width:100%}}
+.hero{background:#2c3e50;color:#fff;padding:40px 16px;text-align:center}
+.hero-inner{max-width:900px;margin:0 auto}
+.hero h1{font-size:28px;font-weight:700;margin-bottom:12px;line-height:1.3}
+.hero p{font-size:16px;margin-bottom:28px;opacity:0.9}
+.search-section{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;margin-bottom:24px}
+.search-input-group input,.location-input{width:100%;padding:12px;border:none;border-radius:4px;font-size:14px;background:#fff;color:#333;transition:all 0.2s}
+.search-input-group input:focus,.location-input:focus{outline:none;box-shadow:0 0 0 2px rgba(44,62,80,0.2)}
+.search-btn{padding:12px 24px;background:#fff;color:#2c3e50;border:none;border-radius:4px;font-weight:700;font-size:14px;cursor:pointer;transition:all 0.2s}
+.search-btn:hover{background:#f0f0f0}
+.quick-filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.quick-filter-tag{padding:8px 14px;background:rgba(255,255,255,0.2);color:#fff;border-radius:16px;cursor:pointer;font-weight:500;transition:all 0.2s;border:1px solid rgba(255,255,255,0.3);font-size:13px}
+.quick-filter-tag:hover{background:rgba(255,255,255,0.3)}
+@media(max-width:768px){.search-section{grid-template-columns:1fr}.search-btn{width:100%}.hero h1{font-size:22px}.hero{padding:30px 12px}}
 
 /* MAIN */
-.main{max-width:1400px;margin:0 auto;padding:48px var(--spacing);display:grid;grid-template-columns:280px 1fr;gap:32px}
-@media(max-width:1024px){.main{grid-template-columns:1fr;gap:24px;padding:32px var(--spacing)}}
+.main{max-width:1200px;margin:0 auto;padding:32px 16px;display:grid;grid-template-columns:220px 1fr;gap:24px}
+@media(max-width:1024px){.main{grid-template-columns:1fr;gap:20px;padding:20px 16px}}
 
 /* SIDEBAR */
-.sidebar{display:flex;flex-direction:column;gap:20px;position:sticky;top:140px;height:fit-content}
-.filter-panel{background:var(--white);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-md);transition:all 0.3s;border:1px solid var(--gray-200)}
-.filter-panel:hover{box-shadow:var(--shadow-lg)}
-.filter-panel-title{font-weight:700;font-size:15px;color:var(--gray-900);margin-bottom:18px;display:flex;align-items:center;gap:8px}
-.filter-group{margin-bottom:18px}
-.filter-label{display:flex;align-items:center;gap:10px;margin-bottom:10px;cursor:pointer;font-size:14px;color:var(--gray-700);transition:color 0.2s}
-.filter-label:hover{color:var(--primary)}
-.checkbox{width:18px;height:18px;border:2px solid var(--gray-300);border-radius:6px;cursor:pointer;background:white;accent-color:var(--primary);transition:all 0.2s}
-.checkbox:hover{border-color:var(--primary)}
-.salary-input{width:100%;padding:10px 12px;border:2px solid var(--gray-300);border-radius:8px;font-size:13px;margin-bottom:10px;transition:all 0.2s}
-.salary-input:focus{outline:none;border-color:var(--primary);background:var(--primary-light)}
-.clear-filters-btn{width:100%;padding:12px;background:linear-gradient(135deg,var(--gray-100),var(--gray-200));color:var(--gray-700);border-radius:8px;font-weight:600;font-size:13px;margin-top:18px;transition:all 0.3s}
-.clear-filters-btn:hover{background:linear-gradient(135deg,var(--gray-200),var(--gray-300));transform:translateY(-2px)}
-.saved-jobs-panel{background:linear-gradient(135deg,var(--primary-light),#f3e8ff);border-radius:var(--radius);padding:20px;border:2px solid var(--primary-light)}
-.saved-jobs-panel h3{color:var(--primary);margin-bottom:16px;font-size:14px}
-@media(max-width:1024px){.sidebar{position:static;top:auto}}
+.sidebar{display:flex;flex-direction:column;gap:16px;position:sticky;top:140px;height:fit-content}
+.filter-panel{background:#fff;border:1px solid #ddd;border-radius:6px;padding:16px;box-shadow:0 1px 2px rgba(0,0,0,0.05)}
+.filter-panel-title{font-weight:700;font-size:14px;color:#2c3e50;margin-bottom:12px}
+.filter-group{margin-bottom:12px}
+.filter-label{display:flex;align-items:center;gap:8px;margin-bottom:8px;cursor:pointer;font-size:13px;color:#555;transition:color 0.2s}
+.filter-label:hover{color:#2c3e50}
+.checkbox{width:16px;height:16px;border:1px solid #ddd;border-radius:4px;cursor:pointer;background:#fff;accent-color:#2c3e50;transition:all 0.2s}
+.salary-input{width:100%;padding:8px;border:1px solid #ddd;border-radius:4px;font-size:13px;margin-bottom:8px;transition:all 0.2s}
+.salary-input:focus{outline:none;border-color:#2c3e50;background:#f9f9f9}
+.clear-filters-btn{width:100%;padding:10px;background:#f0f0f0;color:#555;border:1px solid #ddd;border-radius:4px;font-weight:600;font-size:13px;cursor:pointer;transition:all 0.2s}
+.clear-filters-btn:hover{background:#e0e0e0}
+.saved-jobs-panel{background:#f9f9f9;border:1px solid #ddd;border-radius:6px;padding:14px}
+.saved-jobs-panel h3{color:#2c3e50;margin-bottom:12px;font-size:13px}
+@media(max-width:1024px){.sidebar{position:static;top:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}.saved-jobs-panel{grid-column:1 / -1}}
 
 /* JOBS LIST */
-.jobs-section{display:flex;flex-direction:column;gap:20px}
-.jobs-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;flex-wrap:wrap;gap:16px}
-.jobs-count{font-weight:600;color:var(--gray-700);font-size:16px}
-.sort-dropdown{padding:10px 14px;border:2px solid var(--gray-300);border-radius:8px;font-size:14px;background:var(--white);color:var(--gray-700);cursor:pointer;transition:all 0.2s}
-.sort-dropdown:hover{border-color:var(--primary)}
-.sort-dropdown:focus{outline:none;border-color:var(--primary);background:var(--primary-light)}
+.jobs-section{display:flex;flex-direction:column;gap:16px}
+.jobs-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.jobs-count{font-weight:600;color:#555;font-size:14px}
+.sort-dropdown{padding:8px 12px;border:1px solid #ddd;border-radius:4px;font-size:13px;background:#fff;color:#555;cursor:pointer;transition:all 0.2s}
+.sort-dropdown:hover{border-color:#2c3e50}
 
 /* JOB CARD */
-.job-card{background:var(--white);border:2px solid var(--gray-200);border-radius:var(--radius);padding:24px;cursor:pointer;transition:all 0.3s;box-shadow:var(--shadow-md);position:relative;overflow:hidden}
-.job-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--secondary));opacity:0;transition:opacity 0.3s}
-.job-card:hover{border-color:var(--primary);box-shadow:var(--shadow-lg);transform:translateY(-4px)}.job-card:hover::before{opacity:1}
-.job-card-top{display:flex;gap:16px;margin-bottom:18px;align-items:flex-start}
-.job-company-logo{width:56px;height:56px;background:linear-gradient(135deg,var(--primary-light),#f3e8ff);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;box-shadow:0 4px 12px rgba(99,102,241,0.15)}
+.job-card{background:#fff;border:1px solid #ddd;border-radius:6px;padding:16px;cursor:pointer;transition:all 0.2s;box-shadow:0 1px 2px rgba(0,0,0,0.05)}
+.job-card:hover{border-color:#2c3e50;box-shadow:0 2px 8px rgba(0,0,0,0.1);transform:translateY(-2px)}
+.job-card-top{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
+.job-company-logo{width:48px;height:48px;background:#f0f0f0;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
 .job-header-info{flex:1}
-.job-title{font-size:17px;font-weight:700;color:var(--gray-900);margin-bottom:6px;line-height:1.3}
-.job-company{font-size:13px;color:var(--gray-600);margin-bottom:8px}
-.job-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.badge{display:inline-block;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:600}
-.badge-new{background:#dcfce7;color:#166534}
-.badge-urgent{background:#fee2e2;color:#991b1b}
-.badge-featured{background:#fef3c7;color:#92400e}
-.job-description{font-size:14px;color:var(--gray-600);margin-bottom:16px;line-height:1.5}
-.job-meta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--gray-200)}
-.meta-item{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--gray-600)}
-.job-salary{font-size:16px;font-weight:700;color:var(--primary);margin-bottom:16px}
-.job-footer{display:flex;gap:12px;justify-content:space-between;align-items:center}
-.save-btn{padding:10px 16px;background:var(--gray-100);color:var(--gray-700);border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;transition:all 0.2s}
-.save-btn:hover{background:var(--primary-light);color:var(--primary)}
-.apply-btn{padding:10px 24px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;transition:all 0.3s;box-shadow:0 4px 12px rgba(99,102,241,0.3)}
-.apply-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(99,102,241,0.4)}
+.job-title{font-size:16px;font-weight:700;color:#2c3e50;margin-bottom:4px;line-height:1.3}
+.job-company{font-size:13px;color:#777;margin-bottom:6px}
+.job-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.badge{display:inline-block;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:600}
+.badge-new{background:#d4edda;color:#155724}
+.badge-urgent{background:#f8d7da;color:#721c24}
+.badge-featured{background:#fff3cd;color:#856404}
+.job-description{font-size:13px;color:#666;margin-bottom:12px;line-height:1.4}
+.job-meta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid #eee;font-size:12px;color:#777}
+.job-salary{font-size:16px;font-weight:700;color:#2c3e50;margin-bottom:12px}
+.job-footer{display:flex;gap:8px;justify-content:space-between;align-items:center}
+.save-btn{padding:8px 14px;background:#f0f0f0;color:#555;border:1px solid #ddd;border-radius:4px;font-weight:600;font-size:13px;cursor:pointer;transition:all 0.2s}
+.save-btn:hover{background:#e0e0e0;color:#2c3e50}
+.apply-btn{padding:8px 18px;background:#2c3e50;color:#fff;border:none;border-radius:4px;font-weight:600;font-size:13px;cursor:pointer;transition:all 0.2s}
+.apply-btn:hover{background:#1a252f}
 
 /* MODAL */
 .modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;padding:20px}
 .modal.active{display:flex}
-.modal-content{background:white;border-radius:var(--radius);max-width:600px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
-.modal-header{padding:24px;border-bottom:1px solid var(--gray-200);display:flex;justify-content:space-between;align-items:flex-start;background:linear-gradient(135deg,var(--primary-light),#f3e8ff)}
-.modal-title-block h2{font-size:20px;font-weight:800;color:var(--gray-900)}
-.modal-title-block p{opacity:0.8;margin-top:6px;font-size:14px}
-.modal-close{font-size:24px;color:var(--gray-600);cursor:pointer;transition:all 0.2s;padding:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center}
-.modal-close:hover{color:var(--gray-900);transform:rotate(90deg)}
-.modal-body{padding:24px}
+.modal-content{background:#fff;border-radius:6px;max-width:500px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 10px 40px rgba(0,0,0,0.2)}
+.modal-header{padding:16px;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;align-items:flex-start;background:#f9f9f9}
+.modal-title-block h2{font-size:18px;font-weight:700;color:#2c3e50}
+.modal-title-block p{opacity:0.8;margin-top:4px;font-size:13px}
+.modal-close{font-size:20px;color:#666;cursor:pointer;transition:all 0.2s;padding:0;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border:none;background:none}
+.modal-close:hover{color:#2c3e50}
+.modal-body{padding:16px}
+.modal-input{width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;margin-bottom:12px;font-size:14px}
+.modal-btn{width:100%;padding:10px;background:#2c3e50;color:#fff;border:none;border-radius:4px;font-weight:600;cursor:pointer;font-size:14px;transition:all 0.2s}
+.modal-btn:hover{background:#1a252f}
 
 /* FOOTER */
-footer{background:linear-gradient(135deg,var(--gray-900),#1f2937);color:white;padding:48px var(--spacing);margin-top:64px}
-.footer-wrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.1)}
-.footer-section h4{margin-bottom:16px;font-size:14px;font-weight:700}
-.footer-section a{color:#d1d5db;font-size:13px;display:block;margin-bottom:10px;transition:color 0.2s}
-.footer-section a:hover{color:white}
-.footer-bottom{text-align:center;font-size:12px;color:#9ca3af}
-
-/* ANIMATIONS */
-.job-card{animation:slideUp 0.5s ease-out}
-@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+footer{background:#2c3e50;color:#fff;padding:32px 16px;margin-top:48px}
+.footer-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.footer-section h4{margin-bottom:12px;font-size:13px;font-weight:700}
+.footer-section a{color:#bbb;font-size:12px;display:block;margin-bottom:8px;text-decoration:none;transition:color 0.2s}
+.footer-section a:hover{color:#fff}
+.footer-bottom{text-align:center;font-size:11px;color:#999}
 
 /* RESPONSIVE */
-@media(max-width:768px){.main{padding:20px var(--spacing)}.hero{padding:40px var(--spacing)}.hero h1{font-size:28px}.jobs-section{gap:16px}.job-card{padding:16px}.job-footer{flex-direction:column;gap:12px;align-items:flex-start}.apply-btn{width:100%}}
+@media(max-width:768px){.main{padding:16px 12px}.job-card{padding:12px}.job-footer{flex-direction:column;gap:10px;align-items:flex-start}.apply-btn{width:100%}.job-card-top{gap:10px}}
 </style>
 </head>
 <body>
@@ -165,7 +138,7 @@ footer{background:linear-gradient(135deg,var(--gray-900),#1f2937);color:white;pa
 <header>
   <div class="header-wrap">
     <a href="#" class="logo">
-      <div class="logo-icon">🌏</div>
+      <span class="logo-icon">🌏</span>
       <span>ලංකා රැකියා</span>
     </a>
     <nav class="nav-center">
@@ -189,13 +162,11 @@ footer{background:linear-gradient(135deg,var(--gray-900),#1f2937);color:white;pa
   <div class="notice-content">
     <div class="notice-icon">🚗</div>
     <div class="notice-text">
-      <div class="notice-title">📋 IMPORTANT: Sri Lanka-Italy Bilateral Driving License Agreement | වැදගත්: ශ්‍රී ලංකා-ඉතාලිය ද්විපාර්ශ්වික運転面허 අනුකම්පනය</div>
-      <p><strong>New drivers successfully converting licenses: Updates posted on this page.</strong> | <strong>නව運転者 අවසරපත්‍ර සාර්ථකව පරිවර්තනය කරමින්: මෙම පිටුවේ යාවත්කාලීනතා ඇත.</strong></p>
-      <p>Follow the official procedures. Beware of unauthorized agents claiming to expedite the process. Check this page regularly for latest embassy updates and rule changes. | නිල ප්‍රක්‍රියා අනුගමනය කරන්න. අවසරය ඉක්මන් කරන්නයි කිව්වා අසම්මත ඒජන්තුවරුන් සැඟවී සිටින්න. සම්මත තොරතුරු සඳහා මෙම පිටුව නිතිපතා පරීක්ෂා කරන්න.</p>
-      <p style="margin-top:12px;font-weight:600;color:#92400e">🚗 Your Journey Starts Here → බලපත්‍ර පරිවර්තනය → Patente Italiana!</p>
+      <div class="notice-title">📋 මාර්ගෝපදේශ පිටුවට හැරී බලපත්‍ර තොරතුරු බලන්න</div>
+      <p><strong>නිල ප්‍රක්‍රියා අනුගමනය කරන්න. අසම්මත ඒජන්තුවරුන්ගෙන්조심하십시오.</strong></p>
     </div>
     <div class="notice-action">
-      <button class="notice-btn" onclick="document.location='drivers.html'">View Updates | තොරතුරු බලන්න</button>
+      <button class="notice-btn" onclick="document.location='drivers.html'">තොරතුරු බලන්න</button>
     </div>
   </div>
 </div>
@@ -208,16 +179,16 @@ footer{background:linear-gradient(135deg,var(--gray-900),#1f2937);color:white;pa
 
     <div class="search-section">
       <div class="search-input-group">
-        <input type="text" placeholder="රැකියා සිරැසි, කිසිවක් සෙවීම..." id="jobSearch" onkeyup="filterJobs()"/>
+        <input type="text" placeholder="රැකියා සිරැසි සෙවීම..." id="jobSearch" onkeyup="filterJobs()"/>
       </div>
-      <input type="text" class="location-input" placeholder="නගරය හෝ ප්‍රදේශය..." id="locationSearch" onkeyup="filterJobs()"/>
+      <input type="text" class="location-input" placeholder="නගරය..." id="locationSearch" onkeyup="filterJobs()"/>
       <button class="search-btn" onclick="filterJobs()">සෙවීම</button>
     </div>
 
     <div class="quick-filters">
-      <div class="quick-filter-tag" onclick="setQuickFilter('වයස්ගතයින් සේවය')">👴 වයස්ගතයින් සේවය</div>
-      <div class="quick-filter-tag" onclick="setQuickFilter('පිරිසිදු කිරීම')">🧹 පිරිසිදු කිරීම</div>
-      <div class="quick-filter-tag" onclick="setQuickFilter('සෞඛ්‍ය සේවා')">🏥 සෞඛ්‍ය සේවා</div>
+      <div class="quick-filter-tag" onclick="setQuickFilter('වයස්ගතයින් සේවය')">👴 වයස්ගතයින්</div>
+      <div class="quick-filter-tag" onclick="setQuickFilter('පිරිසිදු කිරීම')">🧹 පිරිසිදු</div>
+      <div class="quick-filter-tag" onclick="setQuickFilter('සෞඛ්‍ය සේවා')">🏥 සෞඛ්‍ය</div>
       <div class="quick-filter-tag" onclick="setQuickFilter('ආතිතිය')">🍽️ ආතිතිය</div>
       <div class="quick-filter-tag" onclick="setQuickFilter('කර්මාන්ත')">🏭 කර්මාන්ත</div>
     </div>
@@ -249,9 +220,9 @@ footer{background:linear-gradient(135deg,var(--gray-900),#1f2937);color:white;pa
     <div class="filter-panel">
       <div class="filter-panel-title">🏷️ වර්ගය</div>
       <div class="filter-group">
-        <label class="filter-label"><input type="checkbox" class="checkbox" value="වයස්ගතයින් සේවය" onchange="filterJobs()"/> වයස්ගතයින් සේවය</label>
-        <label class="filter-label"><input type="checkbox" class="checkbox" value="පිරිසිදු කිරීම" onchange="filterJobs()"/> පිරිසිදු කිරීම</label>
-        <label class="filter-label"><input type="checkbox" class="checkbox" value="සෞඛ්‍ය සේවා" onchange="filterJobs()"/> සෞඛ්‍ය සේවා</label>
+        <label class="filter-label"><input type="checkbox" class="checkbox" value="වයස්ගතයින් සේවය" onchange="filterJobs()"/> වයස්ගතයින්</label>
+        <label class="filter-label"><input type="checkbox" class="checkbox" value="පිරිසිදු කිරීම" onchange="filterJobs()"/> පිරිසිදු</label>
+        <label class="filter-label"><input type="checkbox" class="checkbox" value="සෞඛ්‍ය සේවා" onchange="filterJobs()"/> සෞඛ්‍ය</label>
         <label class="filter-label"><input type="checkbox" class="checkbox" value="ආතිතිය" onchange="filterJobs()"/> ආතිතිය</label>
         <label class="filter-label"><input type="checkbox" class="checkbox" value="කර්මාන්ත" onchange="filterJobs()"/> කර්මාන්ත</label>
       </div>
@@ -266,11 +237,11 @@ footer{background:linear-gradient(135deg,var(--gray-900),#1f2937);color:white;pa
       </div>
     </div>
 
-    <button class="clear-filters-btn">සියලුම ස්තර ඉවත් කරන්න</button>
+    <button class="clear-filters-btn" onclick="clearFilters()">ස්තර ඉවත් කරන්න</button>
 
     <div class="saved-jobs-panel">
       <h3>💾 සුරකින ලද රැකියා</h3>
-      <div id="savedJobsList" style="font-size:13px;color:var(--gray-600);text-align:center;padding:20px">
+      <div id="savedJobsList" style="font-size:12px;color:#666;text-align:center;padding:12px">
         තවම සුරකින ලද රැකියා නැත
       </div>
     </div>
@@ -283,11 +254,11 @@ footer{background:linear-gradient(135deg,var(--gray-900),#1f2937);color:white;pa
       <select class="sort-dropdown" onchange="sortJobs(this.value)">
         <option value="recent">නවතම</option>
         <option value="salary">ඉහල වේතනය</option>
-        <option value="relevant">වඩාත් අදාළ</option>
+        <option value="relevant">අදාළ</option>
       </select>
     </div>
 
-    <div id="jobsList" style="display:flex;flex-direction:column;gap:16px">
+    <div id="jobsList" style="display:flex;flex-direction:column;gap:12px">
     </div>
   </section>
 
@@ -298,46 +269,49 @@ footer{background:linear-gradient(135deg,var(--gray-900),#1f2937);color:white;pa
   <div class="modal-content">
     <div class="modal-header">
       <div class="modal-title-block">
-        <h2 id="modalJobTitle">ප්‍රවීණ වයස්ගතයින් සේවා විශේෂඥ</h2>
-        <p id="modalJobCompany" style="opacity:0.9;margin-top:4px">ABC සේවා</p>
+        <h2 id="modalJobTitle"></h2>
+        <p id="modalJobCompany"></p>
       </div>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <button class="modal-close" onclick="closeJobModal()">✕</button>
     </div>
-
     <div class="modal-body">
-      <div class="job-detail-meta" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--gray-200)">
-        <div style="padding:16px;background:var(--gray-50);border-radius:8px"><h4 style="font-size:12px;color:var(--gray-600);text-transform:uppercase;margin-bottom:6px">වේතනය</h4><p id="modalSalary" style="font-size:18px;font-weight:700;color:var(--primary)">€1,800 - €2,200/මාසය</p></div>
-        <div style="padding:16px;background:var(--gray-50);border-radius:8px"><h4 style="font-size:12px;color:var(--gray-600);text-transform:uppercase;margin-bottom:6px">ස්ථානය</h4><p id="modalLocation" style="font-size:18px;font-weight:700;color:var(--gray-900)">මිලෙනියෝ</p></div>
-        <div style="padding:16px;background:var(--gray-50);border-radius:8px"><h4 style="font-size:12px;color:var(--gray-600);text-transform:uppercase;margin-bottom:6px">සේවා වර්ගය</h4><p id="modalType" style="font-size:16px;font-weight:600">සම්පූර්ණ කාලය</p></div>
-        <div style="padding:16px;background:var(--gray-50);border-radius:8px"><h4 style="font-size:12px;color:var(--gray-600);text-transform:uppercase;margin-bottom:6px">පල කර ඇත</h4><p id="modalDate" style="font-size:16px;font-weight:600">දින 2ට පෙර</p></div>
-      </div>
+      <div id="modalJobDetails"></div>
+      <button class="modal-btn" onclick="applyForJob()">අයදුම් කරන්න</button>
+    </div>
+  </div>
+</div>
 
-      <div class="job-detail-section" style="margin-bottom:24px">
-        <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">රැකියා විස්තරය</h3>
-        <p id="modalDescription" style="color:var(--gray-600);line-height:1.7">අපි වයස්ගතයින් සේවා විශේෂඥ සොයා ගනිමු...</p>
+<!-- SIGN IN MODAL -->
+<div class="modal" id="signInModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="modal-title-block">
+        <h2>ඇතුළු වන්න</h2>
       </div>
+      <button class="modal-close" onclick="closeSignInModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <input type="email" class="modal-input" placeholder="ඉ-තැපැල් ලිපිනය" id="signInEmail"/>
+      <input type="password" class="modal-input" placeholder="මුරපදය" id="signInPassword"/>
+      <button class="modal-btn" onclick="signIn()">ඇතුළු වන්න</button>
+    </div>
+  </div>
+</div>
 
-      <div class="job-detail-section" style="margin-bottom:24px">
-        <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">අවශ්‍යතා</h3>
-        <p id="modalRequirements" style="color:var(--gray-600);line-height:1.7">- වයස්ගතයින් සේවාවලින් පෙර අත්දැකම<br/>- වලංගු EU කර්ම අවසරය<br/>- ඉතාලි හෝ ඉංග්‍රීසි කතා කිරීම</p>
+<!-- POST JOB MODAL -->
+<div class="modal" id="postJobModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="modal-title-block">
+        <h2>රැකියා පල කරන්න</h2>
       </div>
-
-      <div class="apply-form" style="background:linear-gradient(135deg,var(--primary-light),#f3e8ff);padding:20px;border-radius:12px">
-        <h3 style="margin-bottom:16px;font-size:16px;font-weight:700">✨ ඉක්මන් අයදුම</h3>
-        <div class="form-group" style="margin-bottom:12px">
-          <label class="form-label" style="display:block;margin-bottom:6px;font-weight:600;font-size:13px">සම්පූර්ණ නම</label>
-          <input type="text" class="form-input" placeholder="ඔබේ නම" style="width:100%;padding:10px 12px;border:2px solid var(--gray-300);border-radius:8px;font-size:14px"/>
-        </div>
-        <div class="form-group" style="margin-bottom:12px">
-          <label class="form-label" style="display:block;margin-bottom:6px;font-weight:600;font-size:13px">ඊමේල්</label>
-          <input type="email" class="form-input" placeholder="ඔබේ@email.com" style="width:100%;padding:10px 12px;border:2px solid var(--gray-300);border-radius:8px;font-size:14px"/>
-        </div>
-        <div class="form-group" style="margin-bottom:12px">
-          <label class="form-label" style="display:block;margin-bottom:6px;font-weight:600;font-size:13px">ජංගම</label>
-          <input type="tel" class="form-input" placeholder="+39..." style="width:100%;padding:10px 12px;border:2px solid var(--gray-300);border-radius:8px;font-size:14px"/>
-        </div>
-        <button class="apply-submit-btn" onclick="submitApplication()" style="width:100%;padding:12px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;border:none;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;transition:all 0.3s;margin-top:12px">අයදුම යොමු කරන්න</button>
-      </div>
+      <button class="modal-close" onclick="closePostJobModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <input type="text" class="modal-input" placeholder="රැකියා නම" id="postJobTitle"/>
+      <input type="text" class="modal-input" placeholder="කර්මාන්ත" id="postJobCategory"/>
+      <input type="text" class="modal-input" placeholder="වේතනය" id="postJobSalary"/>
+      <button class="modal-btn" onclick="postJob()">පල කරන්න</button>
     </div>
   </div>
 </div>
@@ -346,61 +320,191 @@ footer{background:linear-gradient(135deg,var(--gray-900),#1f2937);color:white;pa
 <footer>
   <div class="footer-wrap">
     <div class="footer-section">
-      <h4>ලංකා රැකියා ඉතාලිය</h4>
-      <a href="#">ගෙනගිය ගමන</a>
-      <a href="#">ගැටළු විසඳුම</a>
-      <a href="#">සම්බන්ධ වන්න</a>
+      <h4>ගැටලු විසඳුම</h4>
+      <a href="#about">අපි ගැන</a>
+      <a href="#how-it-works">එය කිරීමේ ක්‍රම</a>
+      <a href="#faq">නිතර අසන ප්‍රශ්න</a>
     </div>
     <div class="footer-section">
-      <h4>ඔබ සඳහා</h4>
-      <a href="#">නව රැකියා</a>
-      <a href="#">සුරකින ලද රැකියා</a>
-      <a href="#">අයිතන</a>
-    </div>
-    <div class="footer-section">
-      <h4>පිළිවෙත</h4>
-      <a href="#">පෞද්ගලිකતා</a>
-      <a href="#">කොන්දේසි</a>
-      <a href="#">සිකුරු</a>
-    </div>
-    <div class="footer-section">
-      <h4>සම්බන්ධ වන්න</h4>
+      <h4>සම්බන්ධතා</h4>
+      <a href="mailto:info@lankajobitaly.com">ඉ-තැපැල්</a>
+      <a href="tel:+39123456789">ફોન</a>
       <a href="#">WhatsApp</a>
-      <a href="#">Telegram</a>
-      <a href="#">Email</a>
+    </div>
+    <div class="footer-section">
+      <h4>නීතිමය</h4>
+      <a href="#privacy">පෞද්ගලිකත්ව</a>
+      <a href="#terms">කොන්දේසි</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 ලංකා රැකියා ඉතාලිය. සියලුම අයිතන ተጠብቆ ናቸው.</p>
+    <p>&copy; 2024 ලංකා රැකියා ඉතාලිය. සියලු අයිතිවාසිකම් ඉතිරි.</p>
   </div>
 </footer>
 
 <script>
-const jobs=[
-{id:1,title:"ප්‍රවීණ වයස්ගතයින් සේවා විශේෂඥ",company:"ABC සේවා",location:"මිලෙනියෝ",category:"වයස්ගතයින් සේවය",type:"සම්පූර්ණ කාලය",salary:"€1,800 - €2,200",description:"අපි වයස්ගතයින් සේවා විශේෂඥ සොයා ගනිමු",requirements:"වයස්ගතයින් සේවාවලින් පෙර අත්දැකම, වලංගු EU කර්ම අවසරය, ඉතාලි හෝ ඉංග්‍රීසි කතා කිරීම",badge:"featured",posted:"දින 2ට පෙර"},
-{id:2,title:"පිරිසිදු කිරීමේ සේවා කර්මාධාරිනිය",company:"Clean Italia",location:"රෝම",category:"පිරිසිදු කිරීම",type:"අර්ධ කාලය",salary:"€1,200 - €1,500",description:"අපගේ සේවා සඳහා විශ්වසනීය පිරිසිදු කරන්නා අවශ්‍යයි",requirements:"පිරිසිදු කිරීම සම්බන්ධයෙන් අත්දැකම, ඉතාලි ගිණුම",badge:"new",posted:"දින 1ට පෙර"},
-{id:3,title:"නර්සිംග ස්ථාන සඳහා සහාය වෙණ්ඩර",company:"Health Care Plus",location:"තුරිනෝ",category:"සෞඛ්‍ය සේවා",type:"සම්පූර්ණ කාලය",salary:"€1,600 - €2,000",description:"අපගේ නර්සිංග ස්ථානය සඳහා සහාය වෙණ්ඩරවරුන් අවශ්‍යයි",requirements:"සෞඛ්‍ය සේවා සම්බන්ධයෙන් අත්දැකම, බිම්බසුන් සඳහා කර්මාන්ත සහතිකය",badge:"urgent",posted:"දින 3ට පෙර"},
-{id:4,title:"ෂෙෆ් - ඉතාලි ආතිතිය",company:"Trattoria Bella",location:"ෆ්ලොරෙන්ස්",category:"ආතිතිය",type:"සම්පූර්ණ කාලය",salary:"€2,000 - €2,800",description:"ඉතාලි ඉතිහාස සහ සුවිශේෂී කුසින්",requirements:"ඉතාලි සිතුවම අවබෝධතා, 5+ වසර අත්දැකම, ඉතාලි නිවැදිතව කතා කිරීම",badge:"featured",posted:"දින 5ට පෙර"},
-{id:5,title:"සැඟවුණු ගබඩා කර්මාධාරිනිය",company:"Factory Works",location:"ජිනෝවා",category:"කර්මාන්ත",type:"සම්පූර්ණ කාලය",salary:"€1,400 - €1,900",description:"අපගේ ගබඩා සඳහා පිටපතු අවශ්‍යයි",requirements:"සැඟවුණු කර්ම අත්දැකම, කඩිමුඩි දක්ෂතා, ඉතාලි කතා කිරීම",badge:"",posted:"දින 4ට පෙර"},
-{id:6,title:"ගෙදර සහාය සේවා",company:"Care Solutions",location:"මිලෙනියෝ",category:"වයස්ගතයින් සේවය",type:"අර්ධ කාලය",salary:"€1,100 - €1,400",description:"වැඩිහිටි පුද්ගලයින් සඳහා ගෙදර සහාය",requirements:"ගෙදර සහාය සම්බන්ධයෙන් අත්දැකම, ඉතාලි කතා කිරීම, දරුවින්ගේ ඉතිහාස",badge:"new",posted:"දින 1ට පෙර"},
-{id:7,title:"කිතුණු සිතුවම",company:"Fine Dining Co",location:"වෙනිසිය",category:"ආතිතිය",type:"සම්පූර්ණ කාලය",salary:"€1,800 - €2,400",description:"ඉතාලි ෙසඩුටු සඳහා සිතුවම",requirements:"ඉතාලි කිතුණු සිතුවම, විශ්වවිද්‍යාලීය සිතුවම, ඉතාලි ටිකෙට",badge:"",posted:"දින 6ට පෙර"},
-{id:8,title:"ගබඩා කර්මනිකිවු",company:"Logistics Italy",location:"පදුවා",category:"කර්මාන්ත",type:"සම්පූර්ණ කාලය",salary:"€1,300 - €1,800",description:"ගබඩා කර්ම කිරීම සඳහා අවශ්‍යයි",requirements:"ගබඩා කර්ම අත්දැකම, පෝෂ්‍ය හඬ දක්ෂතා, ඉතාලි කතා කිරීම",badge:"",posted:"දින 7ට පෙර"}
+const jobsData = [
+  {id:1,title:'අධිකාරී සේවය',company:'Rome Health',category:'සෞඛ්‍ය සේවා',type:'සම්පූර්ණ කාලය',salary:2200,location:'Rome',experience:'1-2 වසර',description:'රෝගීන් බලාբැලීම සඳහා අධිකාරීවරයෙකු අවශ්‍ය'},
+  {id:2,title:'පිරිසිදු කිරීමේ කර්මාන්තිකයා',company:'Milan Cleaning',category:'පිරිසිදු කිරීම',type:'සම්පූර්ණ කාලය',salary:1800,location:'Milan',experience:'අත්දැකම නැත',description:'ඉතාලි සංස්ථාවල පිරිසිදු කිරීමේ වැඩ'},
+  {id:3,title:'ශ්‍රී මණ්ඩල සහාය',company:'Senior Care Italia',category:'වයස්ගතයින් සේවය',type:'අර්ධ කාලය',salary:1600,location:'Naples',experience:'අත්දැකම නැත',description:'වයස්ගත ශ්‍රී මණ්ඩලদের බලාබැලීම'},
+  {id:4,title:'ඉතාලි ශිල්පයෙකු',company:'Industrial Works',category:'කර්මාන්ත',type:'සම්පූර්ණ කාලය',salary:2500,location:'Turin',experience:'3+ වසර',description:'කර්මාන්ත ව්‍යවසාය සඳහා දක්ෂ ශිල්පයෙකු'},
+  {id:5,title:'ගිණුම්ගරු',company:'Finance Pro',category:'ගිණුම්',type:'සම්පූර්ණ කාලය',salary:2800,location:'Rome',experience:'1-2 වසර',description:'ගිණුම්විසි සඳහා ගිණුම්ගරු අවශ්‍ය'},
+  {id:6,title:'ශ්‍රී උපස්කර',company:'Restaurant Roma',category:'ආතිතිය',type:'సర්ධ කාලය',salary:1700,location:'Venice',experience:'අත්දැකම නැත',description:'ශ්‍රී පරිවේෂණ සහ කුසිපිටි කාර්ය'}
 ];
-let savedJobs=[];
-function renderJobs(jobsToRender){const list=document.getElementById('jobsList');list.innerHTML='';jobsToRender.forEach(job=>{const badge=job.badge?`<span class="badge badge-${job.badge.toLowerCase()}">${job.badge}</span>`:'';const isSaved=savedJobs.includes(job.id);const card=`<div class="job-card" onclick="openModal(${job.id})"><div class="job-card-top"><div class="job-company-logo">💼</div><div class="job-header-info"><div class="job-title">${job.title}</div><div class="job-company">${job.company}</div><div class="job-badges">${badge}</div></div></div><div class="job-description">${job.description}</div><div class="job-meta"><div class="meta-item">📍 ${job.location}</div><div class="meta-item">⏰ ${job.posted}</div><div class="meta-item">🏷️ ${job.category}</div></div><div class="job-salary">${job.salary}</div><div class="job-footer"><button class="save-btn" onclick="event.stopPropagation();toggleSave(${job.id})">${isSaved?'✓ සුරකිණ ඇත':'💾 සුරකින්න'}</button><button class="apply-btn" onclick="event.stopPropagation();openModal(${job.id})">අයදුම දෙන්න</button></div></div>`;list.innerHTML+=card;});document.getElementById('jobsCount').innerText=jobsToRender.length;}
-function filterJobs(){renderJobs(jobs);}
-function sortJobs(type){if(type==='salary'){jobs.sort((a,b)=>parseFloat(b.salary)-parseFloat(a.salary));}else if(type==='recent'){jobs.sort((a,b)=>parseInt(b.posted)-parseInt(a.posted));}renderJobs(jobs);}
-function setQuickFilter(category){document.getElementById('jobSearch').value=category;filterJobs();}
-function toggleSave(jobId){const index=savedJobs.indexOf(jobId);if(index>-1){savedJobs.splice(index,1);}else{savedJobs.push(jobId);}renderJobs(jobs);updateSavedJobs();}
-function updateSavedJobs(){const panel=document.getElementById('savedJobsList');if(savedJobs.length===0){panel.innerHTML='තවම සුරකින ලද රැකියා නැත';}else{const savedJobDetails=savedJobs.map(id=>jobs.find(j=>j.id===id)).filter(j=>j);panel.innerHTML=savedJobDetails.map(j=>`<div style="padding:8px;background:var(--gray-50);border-radius:6px;margin-bottom:8px;font-size:12px"><strong>${j.title}</strong><br>${j.company}</div>`).join('');}}
-function openModal(jobId){const job=jobs.find(j=>j.id===jobId);document.getElementById('modalJobTitle').innerText=job.title;document.getElementById('modalJobCompany').innerText=job.company;document.getElementById('modalSalary').innerText=job.salary;document.getElementById('modalLocation').innerText=job.location;document.getElementById('modalType').innerText=job.type;document.getElementById('modalDate').innerText=job.posted;document.getElementById('modalDescription').innerText=job.description;document.getElementById('modalRequirements').innerText=job.requirements;document.getElementById('jobDetailsModal').classList.add('active');}
-function closeModal(){document.getElementById('jobDetailsModal').classList.remove('active');}
-function submitApplication(){alert('ඔබගේ අයදුම සාර්ථකව යොමු විය!');closeModal();}
-function showSignInModal(){alert('ඇතුළු වීමේ පිටුව පෙන්වන්න');}
-function showPostJobModal(){alert('රැකියා පල කිරීමේ ෆෝරම පෙන්වන්න');}
-function setLanguage(lang){console.log('භාෂාව:',lang);}
-document.addEventListener('DOMContentLoaded',()=>{renderJobs(jobs);document.querySelector('.clear-filters-btn').addEventListener('click',()=>{document.getElementById('jobSearch').value='';document.getElementById('locationSearch').value='';document.getElementById('minSalary').value='';document.getElementById('maxSalary').value='';document.querySelectorAll('.checkbox').forEach(cb=>cb.checked=false);filterJobs();});});
-</script>
 
+let savedJobs=[];
+
+function filterJobs(){
+  let keyword=document.getElementById('jobSearch').value.toLowerCase();
+  let location=document.getElementById('locationSearch').value.toLowerCase();
+  let minSalary=parseInt(document.getElementById('minSalary').value)||0;
+  let maxSalary=parseInt(document.getElementById('maxSalary').value)||9999999;
+
+  let filtered=jobsData.filter(job=>{
+    let matchKeyword=job.title.toLowerCase().includes(keyword)||job.category.toLowerCase().includes(keyword);
+    let matchLocation=job.location.toLowerCase().includes(location)||location==='';
+    let matchSalary=job.salary>=minSalary&&job.salary<=maxSalary;
+    return matchKeyword&&matchLocation&&matchSalary;
+  });
+
+  displayJobs(filtered);
+}
+
+function displayJobs(jobs){
+  let html='';
+  jobs.forEach(job=>{
+    html+=`<div class="job-card" onclick="showJobModal(${job.id})">
+      <div class="job-card-top">
+        <div class="job-company-logo">💼</div>
+        <div class="job-header-info">
+          <div class="job-title">${job.title}</div>
+          <div class="job-company">${job.company}</div>
+          <div class="job-badges">
+            <span class="badge badge-new">නව</span>
+          </div>
+        </div>
+      </div>
+      <div class="job-description">${job.description}</div>
+      <div class="job-meta">
+        <span class="meta-item">📍 ${job.location}</span>
+        <span class="meta-item">⏰ ${job.type}</span>
+        <span class="meta-item">⭐ ${job.experience}</span>
+      </div>
+      <div class="job-salary">€${job.salary}</div>
+      <div class="job-footer">
+        <button class="save-btn" onclick="event.stopPropagation();saveJob(${job.id})">💾 සුරකින්න</button>
+        <button class="apply-btn">ඉදිරියට යන්න →</button>
+      </div>
+    </div>`;
+  });
+
+  document.getElementById('jobsList').innerHTML=html;
+  document.getElementById('jobsCount').textContent=jobs.length;
+}
+
+function showJobModal(jobId){
+  let job=jobsData.find(j=>j.id===jobId);
+  if(!job)return;
+  document.getElementById('modalJobTitle').textContent=job.title;
+  document.getElementById('modalJobCompany').textContent=job.company;
+  document.getElementById('modalJobDetails').innerHTML=`
+    <p><strong>වර්ගය:</strong> ${job.category}</p>
+    <p><strong>වේතනය:</strong> €${job.salary}</p>
+    <p><strong>ස්ථානය:</strong> ${job.location}</p>
+    <p><strong>වර්ණන:</strong> ${job.description}</p>
+  `;
+  document.getElementById('jobDetailsModal').classList.add('active');
+}
+
+function closeJobModal(){
+  document.getElementById('jobDetailsModal').classList.remove('active');
+}
+
+function showSignInModal(){
+  document.getElementById('signInModal').classList.add('active');
+}
+
+function closeSignInModal(){
+  document.getElementById('signInModal').classList.remove('active');
+}
+
+function showPostJobModal(){
+  document.getElementById('postJobModal').classList.add('active');
+}
+
+function closePostJobModal(){
+  document.getElementById('postJobModal').classList.remove('active');
+}
+
+function signIn(){
+  alert('ඉතිරි කිරීම සඳහා සම්බන්ධක වන්න');
+  closeSignInModal();
+}
+
+function postJob(){
+  alert('රැකියා සාර්ථකව පල කරන ලදි');
+  closePostJobModal();
+}
+
+function applyForJob(){
+  alert('යෙදුම සාර්ථකව යොමු කරන ලදි');
+  closeJobModal();
+}
+
+function saveJob(jobId){
+  if(!savedJobs.includes(jobId)){
+    savedJobs.push(jobId);
+    updateSavedJobsList();
+  }
+}
+
+function updateSavedJobsList(){
+  let savedJobsHtml='';
+  if(savedJobs.length===0){
+    savedJobsHtml='තවම සුරකින ලද රැකියා නැත';
+  }else{
+    savedJobs.forEach(jobId=>{
+      let job=jobsData.find(j=>j.id===jobId);
+      savedJobsHtml+=`<div style="padding:8px;background:#fff;border-radius:4px;margin-bottom:6px;font-size:12px;border-left:3px solid #2c3e50">${job.title}</div>`;
+    });
+  }
+  document.getElementById('savedJobsList').innerHTML=savedJobsHtml;
+}
+
+function setQuickFilter(category){
+  document.getElementById('jobSearch').value=category;
+  filterJobs();
+}
+
+function sortJobs(sortBy){
+  let jobs=[...jobsData];
+  if(sortBy==='salary'){
+    jobs.sort((a,b)=>b.salary-a.salary);
+  }else if(sortBy==='recent'){
+    jobs.reverse();
+  }
+  displayJobs(jobs);
+}
+
+function clearFilters(){
+  document.getElementById('jobSearch').value='';
+  document.getElementById('locationSearch').value='';
+  document.getElementById('minSalary').value='';
+  document.getElementById('maxSalary').value='';
+  document.querySelectorAll('.checkbox').forEach(c=>c.checked=false);
+  filterJobs();
+}
+
+function setLanguage(lang){
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  if(lang==='en'){
+    alert('ඉතිරි කිරීම සඳහා සම්බන්ධක වන්න');
+  }
+}
+
+// Initialize
+filterJobs();
+</script>
 </body>
 </html>
