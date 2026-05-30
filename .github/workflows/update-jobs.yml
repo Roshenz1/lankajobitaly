@@ -1,0 +1,54 @@
+name: Auto-Update Jobs from Adzuna
+
+on:
+  schedule:
+    # Run every 3 days at 09:00 UTC
+    - cron: '0 9 */3 * *'
+  workflow_dispatch:
+
+jobs:
+  update-jobs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch jobs from Adzuna API (Verona & Milan)
+        run: python3 fetch_jobs_adzuna.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "Lanka Job Bot"
+          git config user.email "bot@lankajobitaly.com"
+          git add jobs.json
+
+          # Only commit if there are changes
+          if git diff --cached --quiet; then
+            echo "✓ No changes to commit"
+          else
+            git commit -m "🔄 Auto-update jobs from Adzuna API (Verona & Milan)
+
+- Fetched latest job listings for 6 categories
+- Cities: Verona, Milan
+- Categories: Food, Elder Care, Cleaning, Baby Sitting, Factory, Warehouse
+- Source: Adzuna API (Legal & Authorized)"
+            git push
+          fi
+
+      - name: Log summary
+        if: always()
+        run: |
+          echo "✅ Job update workflow completed"
+          echo "📊 jobs.json updated with latest listings from Adzuna API"
+          echo "🔄 Next run: 3 days from now"
